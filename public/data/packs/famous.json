@@ -73,6 +73,7 @@
       "kinds": ["auto"],
       "tags": ["산", "반려견"],
       "address": "경기도 가평군 조종면 명지산로 206-15",
+      "phone": "010-8886-1167",
       "reservationPlatform": "네이버예약 · 캠핏",
       "reservationWindows": [{ "label": "상시", "rule": "네이버예약. 계단식 프라이빗 사이트." }],
       "siteTypes": [{ "name": "오토캠핑", "priceMin": 60000, "priceMax": 100000 }],

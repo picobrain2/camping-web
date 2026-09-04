@@ -8,6 +8,7 @@
     "packs/regional.json",
     "packs/apps.json",
     "packs/famous.json",
-    "packs/valley.json"
+    "packs/valley.json",
+    "packs/premium.json"
   ]
 }
