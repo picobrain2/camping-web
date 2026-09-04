@@ -53,7 +53,21 @@
       "featured": true,
       "gocampingId": "100401",
       "homepage": "https://www.instagram.com/_campone_/",
-      "phone": "054-371-0606"
+      "phone": "054-371-0606",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100401/7889wlEUQkWgrxYjQPTHsVAz.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/8252kEOB3AOCg3dX7cB4SSSv.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/0252gLZn3U9SjFT7fIisbuKO.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/92644FM3dKr7YWvzcFszdKXq.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/18519BTrAfeQzUyAI4X8ciEB.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/3210XZvihQmlCUqBpIvieoLK.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/4307SQBugGLN2zjE6IlnB47b.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/88928mPdtfcNQXeksbvJtdrM.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/5832ZtCqVIqYjaXzrDRqhiEe.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/1524JNxV0artA4VaDiWOGFFE.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/8360gxEIwxj2sg2bK8wDfnBk.jpg",
+        "https://gocamping.or.kr/upload/camp/100401/6295VzCLSOVrkNvpqa9nhaAB.jpg"
+      ]
     },
     {
       "id": "domachi",
@@ -414,7 +428,21 @@
       "gocampingId": "100912",
       "homepage": "https://vivaldicamping.com/camping-park/",
       "reservationUrl": "https://www.camfit.co.kr/camp/64427876089985001f18923d/64427ab80276d5001e6ac9b4",
-      "phone": "0507-1339-3593"
+      "phone": "0507-1339-3593",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100912/42871rgmFlyYiAbBtl1dm5q6.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/5162BPrSFUfMBdEbXP7Xlk2n.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/8281CdqhuCFYdpPG207TCGMB.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/2479RVVX46iLJfdHkbO0KyC1.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/4555cuSwUzkNFsROLZUe43vH.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/5342tu0TMOdNGugS7dmrAjQm.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/91292Fz3wvTeYxbR5T0xu6P5.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/16675s8bQBkeBirxhtsTlSPH.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/30327R8j4eKCGdkidKyssPr5.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/9036gYz2NVqK8iCSA3OI2hiL.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/56754h3PYrfyT8oJPDMc9cl3.jpg",
+        "https://gocamping.or.kr/upload/camp/100912/29905s362wb4Its5mOroVxNo.jpg"
+      ]
     },
     {
       "id": "kimwonjang",
@@ -506,7 +534,21 @@
       "gocampingId": "100508",
       "homepage": "https://blog.naver.com/campbanana",
       "reservationUrl": "https://m.thankqcamping.com/resv/view.hbb?cseq=4051&chk=sns&go_main=Y",
-      "phone": "0507-1358-6993"
+      "phone": "0507-1358-6993",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100508/43907Mnd6wZSihp254Np30dW.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/1763k944Vt0eqdU8PPtyhkbs.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/9283zXVHgXqWSqKlEAuviqpq.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/2540ETSqIxyIKqkpGuuSBSui.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/56799tor67vY1wNIkyKQobbf.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/49071yP4Pb3t68ir1Rb3ptAe.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/7084GI0QYWiNbRWOS08Jibl5.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/3242tkRiBYzEZMCaO3rUzz2T.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/2885sZeITi5lwRmL2HL2VfIl.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/2137hmi6Tn8m7fa6LA7ROm7m.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/7243ITUy1EtAronXo8sd8BMx.jpg",
+        "https://gocamping.or.kr/upload/camp/100508/2365YdwGPqabGFif021pzCwQ.jpg"
+      ]
     },
     {
       "id": "daeryong",
@@ -719,7 +761,20 @@
       "ratings": {
         "naver": 4.3
       },
-      "gocampingId": "100742"
+      "gocampingId": "100742",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100742/9128HA3UUVhAsE1SbtmSdfDJ.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/4661sa7oxXQOeocqushGddJc.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/1278Pug1DdaQYbFjQLwwndZQ.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/5105GYL2tIUKdUGHg21Q8OGn.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/5932QRikjS4SCTx6iKCzCe1Q.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/1724Hc3jtHfEpyQWRFLHPWAy.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/2049MTTbzAyNztM1NfOf1uPZ.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/02770yU8jMzLbzFarALJ2YzF.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/7813Scl85rHMctzVoPEtAxA3.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/9717zy0mRKHYzqvbX30dtsUq.jpg",
+        "https://gocamping.or.kr/upload/camp/100742/758457pFJDlk6ZBXARGBSLyN.jpg"
+      ]
     },
     {
       "id": "gwangneung",
@@ -803,7 +858,21 @@
         "naver": 4.5
       },
       "featured": true,
-      "gocampingId": "100261"
+      "gocampingId": "100261",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100261/9289oxlh05nJfxMHSRtSMEt0.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/24744ZfK7WJZsndhJRQKfdMY.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/3238oPWK9RWUFKwqVR27PX0w.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/20539QchtzNMSxJbnq1CaZIn.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/3242sNSlM8Y7Ga0aVf8ld1At.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/7899xCTHF2Mo5JbHIZNsmxgu.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/1774LOuPi7gaMSRgIwChXDsr.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/6299pNWkhIGkKNUyuQzBec4i.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/3989GuFEK1Jv7eAoIlMvyiwF.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/6321G52Y2iUZ6HceC5TEkmkn.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/7279jbHzc5R7KYnvtvRbDhdW.jpg",
+        "https://gocamping.or.kr/upload/camp/100261/9090LQgoq7MImF91JdapduAK.jpg"
+      ]
     },
     {
       "id": "jungbawi",
@@ -847,7 +916,21 @@
       "gocampingId": "2783",
       "homepage": "http://cafe.naver.com/jbwcamping",
       "reservationUrl": "http://r5.camperstory.com/?2045",
-      "phone": "031-581-8000"
+      "phone": "031-581-8000",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2783/57578KCYOsO6ywhhZJeUhxMc.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/08352R5j8nJ3yXyj42zr5pGP.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/7228LWPLbHg0PtzCwEp1xmcj.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/7408EIDnaY7ka6N2UhS0B2kH.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/6488XUUCItokrTLm3Aud9L6g.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/252454sk4m3YlgULS1bTpwYt.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/7231EIVdBht5O8FnRXhs6FXo.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/7015fTzkXu1Faq8Tv8UIips2.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/7386jafxA6d9lhH1D4SuJQ2J.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/4595oSmKaYZnCrHv3p3ht73Y.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/9260q7YKwRjdT1h6wt4O05jt.jpg",
+        "https://gocamping.or.kr/upload/camp/2783/82528qJpISWJVN1lgRqcOm2Q.jpg"
+      ]
     },
     {
       "id": "yonggari",
