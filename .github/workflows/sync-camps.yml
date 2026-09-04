@@ -12,7 +12,7 @@ on:
         description: "우선 권역 (경기, 강원, all …)"
         default: "경기"
       mode:
-        description: "weekly(인기 후보) 또는 all(신규 한도까지)"
+        description: "weekly(인기 후보), all(신규 한도까지), photos(제공 사진 채우기)"
         default: "weekly"
 
 permissions:
@@ -47,8 +47,11 @@ jobs:
           SYNC_LIMIT: ${{ github.event.inputs.limit || '40' }}
           SYNC_REGION: ${{ github.event.inputs.region || '경기' }}
         run: |
-          if [ "${{ github.event.inputs.mode || 'weekly' }}" = "all" ]; then
+          MODE="${{ github.event.inputs.mode || 'weekly' }}"
+          if [ "$MODE" = "all" ]; then
             npm run sync:all
+          elif [ "$MODE" = "photos" ]; then
+            npm run sync:photos
           else
             npm run sync
           fi
@@ -56,18 +59,17 @@ jobs:
       - name: Open pull request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "data: add weekly GoCamping camps"
+          commit-message: "data: update GoCamping catalog"
           branch: chore/gocamping-weekly
           delete-branch: true
-          title: "고캠핑 주간 캠핑장 추가"
+          title: "고캠핑 데이터 업데이트"
           body: |
-            공공데이터포털 고캠핑 공식 API에서 **아직 목록에 없는 곳**만 골랐습니다.
-            캠핏·네이버·캠프픽은 호출하지 않습니다.
+            공공데이터포털 고캠핑 공식 API만 사용합니다. 캠핏·네이버·캠프픽은 호출하지 않습니다.
 
+            - 모드: `${{ github.event.inputs.mode || 'weekly' }}`
             - 우선 권역: `${{ github.event.inputs.region || '경기' }}`
             - 한도: `${{ github.event.inputs.limit || '40' }}`
 
-            목록은 Actions 로그와 Job Summary를 보세요. 머지하면 GitHub Pages가 다시 빌드됩니다.
+            머지하면 GitHub Pages가 다시 빌드됩니다.
           add-paths: |
-            public/data/index.json
-            public/data/packs/gocamping.json
+            public/data/

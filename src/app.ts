@@ -223,7 +223,9 @@ function resultRow(camp: Camp): string {
   return `
     <li>
       <button type="button" class="result-row ${selectedId === camp.id ? "active" : ""}" data-action="select" data-id="${esc(camp.id)}">
-        <div class="thumb" data-region="${esc(camp.region)}">${esc(camp.name.slice(0, 1))}</div>
+        <div class="thumb ${camp.photos[0] ? "has-photo" : ""}" data-region="${esc(camp.region)}">${
+          camp.photos[0] ? `<img src="${esc(camp.photos[0])}" alt="" />` : esc(camp.name.slice(0, 1))
+        }</div>
         <div class="result-meta">
           <div class="result-title">
             <strong>${esc(camp.name)}</strong>
@@ -288,6 +290,7 @@ function renderDetail(camp: Camp): string {
         </div>
       </header>
 
+      ${photosBlock(camp)}
       ${ratingsRow(camp, mine)}
       ${quotesBlock(camp, mine)}
       ${appsBlock(camp)}
@@ -303,6 +306,34 @@ function renderDetail(camp: Camp): string {
       </div>
       <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 내 리뷰는 이 브라우저에만 저장됩니다.</p>
     </div>`;
+}
+
+function photosBlock(camp: Camp): string {
+  const photos = [...new Set((camp.photos ?? []).filter(Boolean))];
+  const naver = `https://search.naver.com/search.naver?where=image&query=${encodeURIComponent(`${camp.name} 캠핑장`)}`;
+  if (!photos.length) {
+    return `
+    <section class="block">
+      <h3>사진</h3>
+      <p class="muted">고캠핑에 등록된 제공 사진이 없습니다. <a href="${esc(naver)}" target="_blank" rel="noreferrer">네이버에서 후기 사진 보기</a></p>
+    </section>`;
+  }
+  const tiles = photos
+    .slice(0, 12)
+    .map(
+      (url) => `
+      <button type="button" class="photo-tile" data-action="open-layout" data-url="${esc(url)}" data-image="${esc(url)}" data-title="${esc(`${camp.name} 사진`)}">
+        <img src="${esc(url)}" alt="" />
+      </button>`
+    )
+    .join("");
+  return `
+    <section class="block">
+      <h3>사진</h3>
+      <p class="muted">고캠핑에 올라온 제공 사진입니다.</p>
+      <div class="photo-grid">${tiles}</div>
+      <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noreferrer">네이버에서 후기 사진 더 보기</a></p>
+    </section>`;
 }
 
 function ratingsRow(camp: Camp, mine?: PersonalReview): string {

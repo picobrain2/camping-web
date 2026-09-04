@@ -187,6 +187,7 @@ async function getJson(path, extra = {}) {
     pageNo: String(extra.pageNo ?? 1),
   });
   if (extra.keyword) params.set("keyword", extra.keyword);
+  if (extra.contentId) params.set("contentId", String(extra.contentId));
   const url = `${BASE}/${path}?serviceKey=${keyParam()}&${params.toString()}`;
   const res = await fetch(url);
   const text = await res.text();
@@ -316,6 +317,16 @@ const ranked = [...seen.values()]
   });
 
 const added = ranked.slice(0, LIMIT).map(({ _score, ...camp }) => camp);
+for (const camp of added) {
+  try {
+    const { items } = await getJson("imageList", { contentId: camp.gocampingId, numOfRows: "20" });
+    const urls = items.map((item) => item.imageUrl).filter(Boolean);
+    camp.photos = [...new Set([...(camp.photos ?? []), ...urls])].slice(0, 12);
+  } catch (error) {
+    console.warn(`imageList ${camp.name}:`, error instanceof Error ? error.message : error);
+  }
+  await sleep(120);
+}
 writePack(existingOut, added);
 summarize(added);
 console.log(`끝. packs/gocamping.json 에 ${added.length}곳 추가.`);
