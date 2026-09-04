@@ -525,7 +525,10 @@
       "ratings": {
         "naver": 4.3
       },
-      "gocampingId": "101245"
+      "gocampingId": "101245",
+      "homepage": "http://xn--2r5b17u.kr/?intro=OK",
+      "reservationUrl": "http://xn--2r5b17u.kr/include/reservation.php?biz_code=P202203013&tab=1",
+      "phone": "054-286-0770"
     },
     {
       "id": "hillside-gp",
@@ -2752,7 +2755,10 @@
       "description": "연가리 계곡 오토. 미천골·구룡령과 가까운 인제 캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "2573",
+      "homepage": "https://linktr.ee/yeoncamp",
+      "reservationUrl": "https://linktr.ee/yeoncamp"
     },
     {
       "id": "jangsa",

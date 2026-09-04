@@ -629,7 +629,11 @@
       "description": "설악 묵안 둥지. 유명산 묵안골 계곡 캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "919",
+      "homepage": "http://www.dungjigarden.com/",
+      "reservationUrl": "http://www.dungjigarden.com/",
+      "phone": "054-372-8468"
     },
     {
       "id": "gg-deulkkoch",
@@ -2022,7 +2026,10 @@
       "description": "조종 운악청계 솔밭. 새연·녹천과 가까운 펜션형 캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1771",
+      "homepage": "http://www.yhleisureland.kr/",
+      "reservationUrl": "http://www.campingsearch.co.kr/campReserve/reserveTableStatus.asp?idx=365"
     },
     {
       "id": "gg-garden",
@@ -3093,7 +3100,11 @@
       "description": "설악 유명로 이지. 케이엘리조트와 가까운 유명산 하단입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "102234",
+      "homepage": "http://이지파크.com/",
+      "reservationUrl": "http://이지파크.com/",
+      "phone": "010-8688-8488"
     },
     {
       "id": "gg-ino",
@@ -4089,7 +4100,10 @@
       "description": "북면 소법 하늘숲글램핑. 그린콩과 같은 소법리입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100748",
+      "homepage": "http://www.xn--wh1bx90au2c9wbj5qwtebvhpb.com/#__344745__item2",
+      "reservationUrl": "http://www.xn--wh1bx90au2c9wbj5qwtebvhpb.com/page/page4"
     },
     {
       "id": "gg-skyforest",
@@ -5133,7 +5147,11 @@
       "description": "가평 글램스테이. 카라반·글램핑 패키지로 여기어때 가평 10에 나옵니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "101471",
+      "reservationUrl": "https://naver.me/Fuz5M9s7",
+      "phone": "010-7110-7744",
+      "homepage": "https://naver.me/Fuz5M9s7"
     },
     {
       "id": "gg-lespia",

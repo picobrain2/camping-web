@@ -174,7 +174,8 @@
       "ratings": {
         "naver": 4.4
       },
-      "featured": true
+      "featured": true,
+      "gocampingId": "102305"
     },
     {
       "id": "forest-soul",
@@ -261,7 +262,8 @@
       "description": "양평 용문 엘모로. 캠핏에서 할인·페스타에 자주 오르는 수도권 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "101413"
     },
     {
       "id": "okam",
