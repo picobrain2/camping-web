@@ -1,6 +1,5 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
-import { inferLayout, LAYOUT_LEGEND, renderLayoutSvg } from "./lib/layout";
 import { officialLayoutImage, placeLinks } from "./lib/places";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
@@ -250,7 +249,7 @@ function renderDetailPane(): string {
       <main class="pane-detail">
         <div class="empty hero-empty">
           <strong>캠핑장 선택</strong>
-          <p>왼쪽에서 캠핑장을 고르면 평점, 전체 배치도, 예약 사이트와 일시, 가격을 보여 줍니다. 다녀온 곳은 나만의 리뷰를 이 기기에 저장할 수 있습니다.</p>
+          <p>왼쪽에서 캠핑장을 고르면 평점, 예약 사이트와 일시, 가격을 보여 줍니다. 다녀온 곳은 나만의 리뷰를 이 기기에 저장할 수 있습니다.</p>
         </div>
       </main>`;
   }
@@ -440,32 +439,34 @@ function priceBlock(camp: Camp): string {
 
 function layoutBlock(camp: Camp): string {
   const image = officialLayoutImage(camp);
-  const layout = camp.layout ?? inferLayout(camp.kinds, camp.siteTypes, camp.tags);
-  const svg = renderLayoutSvg(layout, camp.name);
-  const legend = `<div class="legend">${LAYOUT_LEGEND.map((l) => `<span data-kind="${l.kind}">${esc(l.label)}</span>`).join("")}</div>`;
-  const actions: string[] = [];
+  const site = camp.homepage || camp.reservationUrl;
   if (image) {
-    actions.push(
-      `<button type="button" class="btn" data-action="open-layout" data-url="${esc(image)}" data-image="${esc(image)}" data-title="${esc(`${camp.name} 배치도`)}">공식 배치도</button>`
-    );
-  } else if (camp.homepage) {
-    actions.push(
-      `<a class="btn" href="${esc(camp.homepage)}" target="_blank" rel="noreferrer">홈페이지에서 배치도 보기</a>`
-    );
+    return `
+    <section class="block">
+      <h3>배치도</h3>
+      <button type="button" class="layout-photo-btn" data-action="open-layout" data-url="${esc(image)}" data-image="${esc(image)}" data-title="${esc(`${camp.name} 배치도`)}">
+        <img class="layout-photo" src="${esc(image)}" alt="${esc(`${camp.name} 배치도`)}" />
+      </button>
+      <p class="muted">
+        <a href="${esc(image)}" target="_blank" rel="noreferrer">원본 이미지</a>
+        ${site ? ` · <a href="${esc(site)}" target="_blank" rel="noreferrer">캠핑장 사이트</a>` : ""}
+      </p>
+    </section>`;
+  }
+  if (site) {
+    return `
+    <section class="block">
+      <h3>배치도</h3>
+      <p class="muted">등록된 공식 도면이 없어 캠핑장 사이트에서 확인하세요.</p>
+      <div class="layout-actions">
+        <a class="btn" href="${esc(site)}" target="_blank" rel="noreferrer">캠핑장 사이트에서 보기</a>
+      </div>
+    </section>`;
   }
   return `
     <section class="block">
-      <h3>전체 배치도</h3>
-      ${actions.length ? `<div class="layout-actions">${actions.join("")}</div>` : ""}
-      <p class="muted">${
-        image
-          ? "캠핑장 사이트에 올라온 도면을 팝업으로 엽니다. 아래는 종류와 태그로 그린 대략도입니다."
-          : camp.homepage
-            ? "공식 도면 파일이 없으면 홈페이지에서 확인하세요. 아래는 종류와 태그로 그린 대략도입니다."
-            : "아래는 종류와 태그로 그린 대략도입니다."
-      }</p>
-      ${svg}
-      ${legend}
+      <h3>배치도</h3>
+      <p class="muted">등록된 공식 도면이 없습니다.</p>
     </section>`;
 }
 

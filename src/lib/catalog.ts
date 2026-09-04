@@ -1,4 +1,3 @@
-import { inferLayout } from "./layout";
 import type { Camp, CampDraft, CatalogFile, CatalogIndex, OverlayDraft } from "../types";
 
 export function normalizeCamp(raw: CampDraft): Camp {
@@ -27,7 +26,7 @@ export function normalizeCamp(raw: CampDraft): Camp {
     kinds,
     tags,
     siteTypes,
-    layout: raw.layout ?? inferLayout(kinds, siteTypes, tags),
+    layout: raw.layout,
   };
 }
 
