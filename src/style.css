@@ -217,6 +217,25 @@ a { color: var(--moss); }
 .rating-badge.yellow strong { color: var(--gold); }
 .rating-badge.fire strong { color: var(--fire); }
 
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.app-card {
+  display: grid;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+.app-card strong { font-size: 14px; color: var(--moss); }
+.app-card span { font-size: 12px; color: var(--muted); }
+
 .window-list { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
 .window-list li {
   background: var(--card);

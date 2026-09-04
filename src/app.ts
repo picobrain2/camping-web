@@ -1,6 +1,7 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
 import { inferLayout, LAYOUT_LEGEND, renderLayoutSvg } from "./lib/layout";
+import { placeLinks } from "./lib/places";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
   loadOverlay,
@@ -278,12 +279,14 @@ function renderDetail(camp: Camp): string {
           <p class="lead">${esc(camp.description)}</p>
           <dl class="kv">
             ${camp.phone ? `<div><dt>전화</dt><dd><a href="tel:${esc(camp.phone.replace(/\s+/g, ""))}">${esc(camp.phone)}</a></dd></div>` : ""}
+            ${camp.mannersTime ? `<div><dt>매너타임</dt><dd>${esc(camp.mannersTime)}</dd></div>` : ""}
             <div><dt>편의</dt><dd>${esc(camp.amenities.join(" · ") || "정보 없음")}</dd></div>
           </dl>
         </div>
       </header>
 
       ${ratingsRow(camp, mine)}
+      ${appsBlock(camp)}
       ${reservationBlock(camp)}
       ${priceBlock(camp)}
       ${layoutBlock(camp)}
@@ -292,9 +295,9 @@ function renderDetail(camp: Camp): string {
       <div class="link-row">
         ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}" target="_blank" rel="noreferrer">예약하기</a>` : ""}
         ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}" target="_blank" rel="noreferrer">홈페이지</a>` : ""}
-        ${map ? `<a class="btn ghost" href="${esc(map)}" target="_blank" rel="noreferrer">지도</a>` : ""}
+        ${map ? `<a class="btn ghost" href="${esc(map)}" target="_blank" rel="noreferrer">카카오맵</a>` : ""}
       </div>
-      <p class="attrib">캠핑장 목록은 <code>public/data/camps.json</code> 파일 DB · 내 리뷰는 이 브라우저에만 저장됩니다.</p>
+      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 내 리뷰는 이 브라우저에만 저장됩니다.</p>
     </div>`;
 }
 
@@ -307,12 +310,32 @@ function ratingsRow(camp: Camp, mine?: PersonalReview): string {
     camp.ratings.kakao != null ? badge("카카오", scoreText(camp.ratings.kakao), null, "yellow") : "",
     mine ? badge("내 평점", `★ ${mine.rating}`, mine.visitedAt ?? "저장됨", "fire") : "",
   ].filter(Boolean);
+  const naver = `https://map.naver.com/p/search/${encodeURIComponent(camp.name)}`;
   return `
     <section class="block">
       <h3>평점</h3>
       <div class="badge-row">
-        ${items.join("") || `<p class="muted">아직 평점 데이터가 없습니다. 아래에 내 리뷰를 남길 수 있습니다.</p>`}
+        ${items.join("") || `<p class="muted">저장된 점수가 없으면 네이버지도에서 최신 평점·후기를 보세요.</p>`}
       </div>
+      <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noreferrer">네이버지도에서 실시간 평점 보기</a></p>
+    </section>`;
+}
+
+function appsBlock(camp: Camp): string {
+  const cards = placeLinks(camp)
+    .map(
+      (link) => `
+      <a class="app-card" href="${esc(link.url)}" target="_blank" rel="noreferrer">
+        <strong>${esc(link.name)}</strong>
+        <span>${esc(link.hint)}</span>
+      </a>`
+    )
+    .join("");
+  return `
+    <section class="block">
+      <h3>다른 앱에서 보기</h3>
+      <p class="muted">캠핏·캠핑톡·네이버지도의 예약 빈자리와 후기를 그대로 엽니다.</p>
+      <div class="app-grid">${cards}</div>
     </section>`;
 }
 

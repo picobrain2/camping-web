@@ -61,6 +61,9 @@ export interface Camp {
   homepage?: string;
   reservationUrl?: string;
   reservationPlatform?: string;
+  camfitUrl?: string;
+  campingtalkUrl?: string;
+  mannersTime?: string;
   reservationWindows: ReservationWindow[];
   siteTypes: SiteType[];
   amenities: string[];
@@ -129,4 +132,5 @@ export const TAG_OPTIONS = [
   "물놀이",
   "국립공원",
   "휴양림",
+  "키즈",
 ] as const;

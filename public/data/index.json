@@ -5,6 +5,7 @@
     "camps.json",
     "packs/knps.json",
     "packs/forest.json",
-    "packs/regional.json"
+    "packs/regional.json",
+    "packs/apps.json"
   ]
 }
