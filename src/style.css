@@ -44,7 +44,9 @@ a { color: var(--moss); }
 
 .pane-search {
   width: min(380px, 38vw);
-  min-width: 280px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   background: var(--panel);
@@ -101,6 +103,20 @@ a { color: var(--moss); }
   border-color: var(--moss);
   color: var(--moss);
 }
+.origin-hits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 8px;
+}
+.origin-hits .chip {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 650;
+}
 .loc-msg {
   margin: 0;
   padding: 0 16px 8px;
@@ -125,13 +141,10 @@ a { color: var(--moss); }
 
 .seg {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   padding: 0 16px 8px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
 }
-.seg::-webkit-scrollbar { display: none; }
 .seg-btn {
   flex: 0 0 auto;
   border: 1px solid var(--line);

@@ -1,5 +1,6 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
+import { geocodePlace, type PlaceHit } from "./lib/geocode";
 import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirections, type DriveETA, type GeoPos } from "./lib/geo";
 import { officialLayoutImage, placeLinks } from "./lib/places";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
@@ -40,6 +41,9 @@ let panel: "none" | "add" | "data" = "none";
 let searchTimer = 0;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
 let myPos: GeoPos | null = null;
+let originQuery = "";
+let originHits: PlaceHit[] = [];
+let originLoading = false;
 let locError: string | null = null;
 let locLoading = false;
 let driveById: Record<string, DriveETA> = {};
@@ -108,7 +112,7 @@ function visible(): Camp[] {
 
 let skipDriveSchedule = false;
 function render(): void {
-  const keep = preserveSearchCaret();
+  const keep = preserveCaret("search-input") ?? preserveCaret("origin-input");
   root.innerHTML = `
     <div class="shell ${selectedId || panel !== "none" ? "has-detail" : ""}">
       ${renderSearchPane()}
@@ -116,7 +120,7 @@ function render(): void {
     </div>
     ${layoutPopup ? renderLayoutModal() : ""}`;
   bindOnce();
-  restoreSearchCaret(keep);
+  restoreCaret(keep);
   if (!skipDriveSchedule) scheduleDriveRefresh();
 }
 
@@ -190,15 +194,15 @@ function bindOnce(): void {
   root.addEventListener("keydown", onKeydown);
 }
 
-function preserveSearchCaret(): { value: string; start: number | null } | null {
-  const input = document.getElementById("search-input") as HTMLInputElement | null;
+function preserveCaret(id: string): { id: string; value: string; start: number | null } | null {
+  const input = document.getElementById(id) as HTMLInputElement | null;
   if (!input || document.activeElement !== input) return null;
-  return { value: input.value, start: input.selectionStart };
+  return { id, value: input.value, start: input.selectionStart };
 }
 
-function restoreSearchCaret(keep: { value: string; start: number | null } | null): void {
+function restoreCaret(keep: { id: string; value: string; start: number | null } | null): void {
   if (!keep) return;
-  const input = document.getElementById("search-input") as HTMLInputElement | null;
+  const input = document.getElementById(keep.id) as HTMLInputElement | null;
   if (!input) return;
   input.focus();
   if (keep.start != null) input.setSelectionRange(keep.start, keep.start);
@@ -219,10 +223,15 @@ function renderSearchPane(): string {
       </header>
       <div class="search-box">
         <input id="search-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 · 지역 · 위생 · 전기" value="${esc(query)}" />
-        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : myPos ? "위치 켜짐" : "내 위치"}</button>
+        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : myPos ? "GPS 켜짐" : "GPS"}</button>
       </div>
+      <div class="search-box origin-box">
+        <input id="origin-input" type="search" enterkeyhint="search" autocomplete="off" placeholder="출발지 · 김포시청 · 우리 동네" value="${esc(originQuery)}" />
+        <button type="button" class="btn-ghost btn-sm" data-action="search-origin">${originLoading ? "찾는 중" : "찾기"}</button>
+      </div>
+      ${originHits.length ? `<div class="origin-hits">${originHits.map((hit) => `<button type="button" class="chip" data-action="pick-origin" data-lat="${hit.lat}" data-lng="${hit.lng}" data-name="${esc(hit.name)}">${esc(hit.name)}</button>`).join("")}</div>` : ""}
       ${locError ? `<p class="loc-msg">${esc(locError)}</p>` : ""}
-      ${myPos ? `<p class="loc-msg">내 위치에서 차로 가는 시간입니다. 네이버지도 길찾기로 확인할 수 있습니다. <button type="button" class="text-btn" data-action="clear-location">위치 끄기</button></p>` : ""}
+      ${myPos ? `<p class="loc-msg">이 출발지에서 차로 가는 시간입니다. 네이버지도 길찾기로 확인할 수 있습니다. <button type="button" class="text-btn" data-action="clear-location">끄기</button></p>` : `<p class="loc-msg">차 거리는 출발지를 검색하거나 GPS를 켜면 나옵니다.</p>`}
       ${segment("region", regions, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))], true)}
       ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
       ${segment("tag", tags, [{ value: "all", label: "조건" }, { value: "reviewed", label: "내 리뷰" }, ...LOCATION_TAGS.map((t) => ({ value: t, label: t }))], true)}
@@ -722,21 +731,50 @@ function toggleFilter(list: string[], value: string): string[] {
 }
 
 function locationDeniedMessage(): string {
-  const ios = /iP(hone|ad|od)/.test(navigator.userAgent);
-  if (ios) {
-    return "위치 허용 창이 안 뜨면 이미 거절된 상태입니다. Safari는 주소창 aA → 웹 사이트 설정 → 위치에서 허용한 뒤, 내 위치를 다시 눌러 주세요.";
-  }
-  return "위치 허용 창이 안 뜨면 이미 거절된 상태입니다. 주소창 왼쪽 자물쇠(사이트 설정)에서 위치를 허용한 뒤, 내 위치를 다시 눌러 주세요.";
+  return "이 브라우저는 GPS 허용 창을 다시 띄우지 않습니다. 아래 출발지에 동네나 시청을 적어 찾기를 눌러 주세요.";
 }
 
-function pinMyLocation(): void {
-  if (!window.isSecureContext) {
-    locError = "위치는 https 주소에서만 켤 수 있습니다.";
+function applyOrigin(pos: GeoPos, label: string): void {
+  myPos = pos;
+  originQuery = label;
+  originHits = [];
+  locError = null;
+  locLoading = false;
+  originLoading = false;
+  sort = "distance";
+  render();
+}
+
+async function searchOrigin(): Promise<void> {
+  const q = originQuery.trim();
+  if (q.length < 2) {
+    locError = "출발지를 두 글자 이상 적어 주세요.";
     render();
     return;
   }
-  if (!navigator.geolocation) {
-    locError = "이 브라우저에서는 위치를 쓸 수 없습니다.";
+  originLoading = true;
+  locError = null;
+  render();
+  const hits = await geocodePlace(q);
+  originLoading = false;
+  if (!hits.length) {
+    locError = "출발지를 찾지 못했습니다. 김포시청, 김포 장기동처럼 적어 보세요.";
+    originHits = [];
+    render();
+    return;
+  }
+  if (hits.length === 1) {
+    applyOrigin({ lat: hits[0].lat, lng: hits[0].lng }, hits[0].name);
+    return;
+  }
+  originHits = hits;
+  locError = "출발지를 골라 주세요.";
+  render();
+}
+
+function pinMyLocation(): void {
+  if (!window.isSecureContext || !navigator.geolocation) {
+    locError = "GPS를 쓸 수 없습니다. 출발지를 검색해 주세요.";
     render();
     return;
   }
@@ -746,21 +784,13 @@ function pinMyLocation(): void {
   if (btn) btn.textContent = "위치…";
   navigator.geolocation.getCurrentPosition(
     (pos) => {
-      myPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      locLoading = false;
-      locError = null;
-      sort = "distance";
-      render();
+      applyOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude }, "현재 위치");
     },
-    (err) => {
+    () => {
       locLoading = false;
-      locError =
-        err.code === err.PERMISSION_DENIED
-          ? locationDeniedMessage()
-          : err.code === err.TIMEOUT
-            ? "위치를 가져오는 데 시간이 너무 걸렸습니다. 다시 눌러 주세요."
-            : "위치를 가져오지 못했습니다. 다시 눌러 주세요.";
+      locError = locationDeniedMessage();
       render();
+      document.getElementById("origin-input")?.focus();
     },
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
   );
@@ -799,8 +829,19 @@ function onClick(e: MouseEvent): void {
     case "pin-location":
       pinMyLocation();
       break;
+    case "search-origin":
+      void searchOrigin();
+      break;
+    case "pick-origin": {
+      const lat = Number(el.dataset.lat);
+      const lng = Number(el.dataset.lng);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) break;
+      applyOrigin({ lat, lng }, el.dataset.name || originQuery);
+      break;
+    }
     case "clear-location":
       myPos = null;
+      originHits = [];
       locError = null;
       locLoading = false;
       driveById = {};
@@ -875,6 +916,10 @@ function onClick(e: MouseEvent): void {
 
 function onInput(e: Event): void {
   const target = e.target as HTMLInputElement;
+  if (target.id === "origin-input") {
+    originQuery = target.value;
+    return;
+  }
   if (target.id !== "search-input") return;
   query = target.value;
   window.clearTimeout(searchTimer);
@@ -892,6 +937,11 @@ function onKeydown(e: KeyboardEvent): void {
       return;
     }
     go("");
+  }
+  if (e.key === "Enter" && (e.target as HTMLElement).id === "origin-input") {
+    e.preventDefault();
+    void searchOrigin();
+    return;
   }
   if (e.key === "Enter" && (e.target as HTMLElement).id === "search-input") {
     e.preventDefault();
@@ -981,8 +1031,10 @@ async function reloadMerged(): Promise<void> {
 function registerServiceWorker(): void {
   if (!("serviceWorker" in navigator)) return;
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(() => {
-      // offline cache is optional
-    });
+    void (async () => {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map((reg) => reg.update()));
+      await navigator.serviceWorker.register("./sw.js?v=2");
+    })().catch(() => {});
   });
 }
