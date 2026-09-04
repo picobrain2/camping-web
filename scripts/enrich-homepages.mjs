@@ -72,6 +72,8 @@ async function getJson(path, extra = {}) {
     numOfRows: extra.numOfRows ?? "100",
     pageNo: String(extra.pageNo ?? 1),
   });
+  if (extra.keyword) params.set("keyword", extra.keyword);
+  if (extra.contentId) params.set("contentId", String(extra.contentId));
   const url = `${BASE}/${path}?serviceKey=${keyParam()}&${params.toString()}`;
   const res = await fetch(url);
   const text = await res.text();
@@ -160,8 +162,9 @@ for (const pack of index.packs) {
         camp.gocampingId = hit.gocampingId;
         changed = true;
       }
-      if (!camp.homepage && hit.homepage) {
-        camp.homepage = hit.homepage;
+      const site = hit.homepage || hit.reservationUrl;
+      if (!camp.homepage && site) {
+        camp.homepage = site;
         filledHomepage += 1;
         changed = true;
       }
@@ -215,12 +218,9 @@ for (const pack of index.packs) {
     if (camp.homepage) continue;
     const keyword = String(camp.name ?? "")
       .replace(/&/g, " ")
-      .split(/\s+/)
-      .filter((part) => part && !/캠핑|글램핑|카라반|야영|오토|풀|파크/i.test(part))
-      .slice(0, 2)
-      .join(" ")
+      .replace(/\s+/g, " ")
       .trim();
-    const q = keyword || String(camp.name ?? "").slice(0, 8);
+    const q = keyword.length >= 2 ? keyword : String(camp.aliases?.[0] ?? "").trim();
     if (q.length < 2) continue;
     try {
       const { items } = await getJson("searchList", { pageNo: 1, numOfRows: "20", keyword: q });
@@ -238,8 +238,9 @@ for (const pack of index.packs) {
         });
       }
       const hit = findGoCamping(keys, localMap);
-      if (hit?.homepage) {
-        camp.homepage = hit.homepage;
+      const site = hit?.homepage || hit?.reservationUrl;
+      if (site) {
+        camp.homepage = site;
         if (!camp.gocampingId && hit.gocampingId) camp.gocampingId = hit.gocampingId;
         if (!camp.reservationUrl && hit.reservationUrl) camp.reservationUrl = hit.reservationUrl;
         if (!camp.phone && hit.phone) camp.phone = hit.phone;
