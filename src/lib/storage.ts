@@ -176,6 +176,7 @@ export function loadReviews(): Record<string, PersonalReview> {
 
 export function saveReviews(reviews: Record<string, PersonalReview>): void {
   saveCurrentBundle({ ...currentBundle(), reviews });
+  scheduleCloudPush();
 }
 
 export function loadOverlay(): OverlayDraft[] {
@@ -204,6 +205,7 @@ export function loadHidden(): SavedCampRef[] {
 
 export function saveHidden(hidden: SavedCampRef[]): void {
   saveCurrentBundle({ ...currentBundle(), hidden });
+  scheduleCloudPush();
 }
 
 export function loadFavorites(): SavedCampRef[] {
@@ -212,6 +214,20 @@ export function loadFavorites(): SavedCampRef[] {
 
 export function saveFavorites(favorites: SavedCampRef[]): void {
   saveCurrentBundle({ ...currentBundle(), favorites });
+  scheduleCloudPush();
+}
+
+/** 클라우드에서 받은 목록을 현재 세션(게스트/로컬계정)에 덮어쓴다 */
+export function replacePersonalBundle(bundle: AccountBundle): void {
+  saveCurrentBundle({
+    favorites: loadSavedList(bundle.favorites),
+    hidden: loadSavedList(bundle.hidden),
+    reviews: bundle.reviews ?? {},
+  });
+}
+
+export function peekPersonalBundle(): AccountBundle {
+  return currentBundle();
 }
 
 /** 계정 전환 후 앱 상태를 다시 읽을 때 사용 */
@@ -226,4 +242,33 @@ export function reloadPersonalData(): {
     hidden: bundle.hidden,
     reviews: bundle.reviews,
   };
+}
+
+type CloudHooks = {
+  isReady: () => boolean;
+  getUid: () => string | null;
+  push: (uid: string, bundle: AccountBundle) => Promise<void>;
+};
+
+let cloudHooks: CloudHooks | null = null;
+let pushTimer = 0;
+
+/** app.ts 에서 클라우드 모듈을 연결한다 (순환 참조 방지) */
+export function bindCloudSync(hooks: CloudHooks): void {
+  cloudHooks = hooks;
+}
+
+function scheduleCloudPush(): void {
+  if (!cloudHooks?.isReady() || !cloudHooks.getUid()) return;
+  window.clearTimeout(pushTimer);
+  pushTimer = window.setTimeout(() => {
+    void flushCloudPush();
+  }, 500);
+}
+
+export async function flushCloudPush(): Promise<void> {
+  if (!cloudHooks?.isReady()) return;
+  const uid = cloudHooks.getUid();
+  if (!uid) return;
+  await cloudHooks.push(uid, currentBundle());
 }

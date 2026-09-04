@@ -1,0 +1,70 @@
+{
+  "updatedAt": "2026-09-04",
+  "note": "캠핏 캠핑장 페이지. 목록을 긁지 않고, 이미 가진 주소와 각 캠핑장 공식 홈페이지에 적힌 링크만 모았습니다.",
+  "camps": [
+    {
+      "id": "campone",
+      "camfitUrl": "https://camfit.co.kr/camp/62f21a9788149f001ed841a5"
+    },
+    {
+      "id": "domachi",
+      "camfitUrl": "https://camfit.co.kr/camp/60517b6d3f88aa001d233e71"
+    },
+    {
+      "id": "gc-100181",
+      "camfitUrl": "https://camfit.co.kr/camp/61a4d96f5673bc001e7afeca"
+    },
+    {
+      "id": "gc-100987",
+      "camfitUrl": "https://camfit.co.kr/camp/6493de3836d594001eb6c083"
+    },
+    {
+      "id": "gc-101201",
+      "camfitUrl": "https://camfit.co.kr/camp/656da0790797fa001ebdae28"
+    },
+    {
+      "id": "gc-101507",
+      "camfitUrl": "https://camfit.co.kr/camp/666659e213820a001eb3d18c"
+    },
+    {
+      "id": "gc-1057",
+      "camfitUrl": "https://camfit.co.kr/camp/69914257228f91001d3a8d0e"
+    },
+    {
+      "id": "gc-2937",
+      "camfitUrl": "https://camfit.co.kr/camp/658007f3d5ba24001e7a4e9b"
+    },
+    {
+      "id": "gc-527",
+      "camfitUrl": "https://camfit.co.kr/camp/61aef4d945347c001e9e987d"
+    },
+    {
+      "id": "gc-7131",
+      "camfitUrl": "https://camfit.co.kr/camp/63f3274a0fbea5001de0aa37"
+    },
+    {
+      "id": "gc-7981",
+      "camfitUrl": "https://camfit.co.kr/camp/633e6420f06e6e001e72fe47"
+    },
+    {
+      "id": "hygge-forest",
+      "camfitUrl": "https://camfit.co.kr/camp/67e27168fc138f001df892dc"
+    },
+    {
+      "id": "lagom",
+      "camfitUrl": "https://camfit.co.kr/camp/631fe026dd78d6001e749d86"
+    },
+    {
+      "id": "starsky",
+      "camfitUrl": "https://camfit.co.kr/camp/67d27c661de7af001dbee773"
+    },
+    {
+      "id": "supae",
+      "camfitUrl": "https://camfit.co.kr/camp/69fc87c3c3f9a3001dec989f"
+    },
+    {
+      "id": "suwonsan",
+      "camfitUrl": "https://camfit.co.kr/camp/60e3c76766cd82001e1ae5b3"
+    }
+  ]
+}

@@ -3,11 +3,24 @@ import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from
 import { geocodePlace, type PlaceHit } from "./lib/geocode";
 import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirections, type DriveETA, type GeoPos } from "./lib/geo";
 import { officialLayoutImage, placeLinks } from "./lib/places";
+import {
+  bootCloudAuth,
+  getCloudUser,
+  isCloudConfigured,
+  mergeBundles,
+  pullCloudBundle,
+  pushCloudBundle,
+  signInWithGoogle,
+  signOutCloud,
+  type CloudUser,
+} from "./lib/cloud";
 import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
+  bindCloudSync,
   createAccount,
   currentAccount,
   deleteAccount,
+  flushCloudPush,
   listAccounts,
   loadFavorites,
   loadHidden,
@@ -16,8 +29,10 @@ import {
   loadReviews,
   loginAccount,
   logoutAccount,
+  peekPersonalBundle,
   reloadPersonalData,
   rememberQuery,
+  replacePersonalBundle,
   saveFavorites,
   saveHidden,
   saveOverlay,
@@ -43,6 +58,9 @@ let recent: string[] = loadRecent();
 let favorites: SavedCampRef[] = loadFavorites();
 let hidden: SavedCampRef[] = loadHidden();
 let account: LocalAccount | null = currentAccount();
+let cloudUser: CloudUser | null = null;
+let cloudBusy = false;
+let cloudNote: string | null = null;
 let accountError: string | null = null;
 let accountMode: "home" | "create" | "login" = "home";
 let loginTargetId: string | null = null;
@@ -74,6 +92,14 @@ let root: HTMLElement;
 export async function boot(): Promise<void> {
   root = document.getElementById("app")!;
   root.innerHTML = `<div class="boot">캠핑장 파일 DB를 불러오는 중…</div>`;
+  bindCloudSync({
+    isReady: () => isCloudConfigured() && Boolean(getCloudUser()),
+    getUid: () => getCloudUser()?.uid ?? null,
+    push: async (uid, bundle) => {
+      const user = getCloudUser();
+      await pushCloudBundle(uid, bundle, { email: user?.email, name: user?.name });
+    },
+  });
   try {
     const file = await loadFileCatalog();
     catalogNote = file.note ?? "";
@@ -89,6 +115,82 @@ export async function boot(): Promise<void> {
   });
   render();
   registerServiceWorker();
+  void restoreCloudSession();
+}
+
+async function restoreCloudSession(): Promise<void> {
+  if (!isCloudConfigured()) return;
+  try {
+    cloudUser = await bootCloudAuth();
+    if (!cloudUser) return;
+    await syncFromCloud(false);
+  } catch (error) {
+    cloudNote = error instanceof Error ? error.message : "클라우드 동기화에 실패했습니다.";
+    render();
+  }
+}
+
+async function syncFromCloud(announce: boolean): Promise<void> {
+  const user = getCloudUser() ?? cloudUser;
+  if (!user) return;
+  cloudBusy = true;
+  if (announce) render();
+  try {
+    const remote = await pullCloudBundle(user.uid);
+    const local = peekPersonalBundle();
+    const merged = remote ? mergeBundles(local, remote) : local;
+    replacePersonalBundle(merged);
+    await pushCloudBundle(user.uid, merged, { email: user.email, name: user.name });
+    applyPersonalData();
+    cloudUser = user;
+    cloudNote = announce ? "다른 기기와 목록을 맞췄습니다." : cloudNote;
+  } finally {
+    cloudBusy = false;
+    render();
+  }
+}
+
+async function connectGoogleSync(): Promise<void> {
+  if (!isCloudConfigured()) {
+    accountError = "아직 클라우드 설정이 없습니다. 관리자에게 Firebase 연결을 요청해 주세요.";
+    render();
+    return;
+  }
+  cloudBusy = true;
+  accountError = null;
+  cloudNote = null;
+  render();
+  try {
+    cloudUser = await signInWithGoogle();
+    await syncFromCloud(true);
+    listsTab = "favorites";
+    go("lists");
+  } catch (error) {
+    cloudBusy = false;
+    const message = error instanceof Error ? error.message : "구글 로그인에 실패했습니다.";
+    if (message.includes("이동합니다")) {
+      cloudNote = message;
+    } else {
+      accountError = message;
+    }
+    render();
+  }
+}
+
+async function disconnectGoogleSync(): Promise<void> {
+  cloudBusy = true;
+  render();
+  try {
+    await flushCloudPush();
+    await signOutCloud();
+    cloudUser = null;
+    cloudNote = "구글 동기화를 껐습니다. 이 기기 목록은 그대로 남아 있습니다.";
+  } catch (error) {
+    accountError = error instanceof Error ? error.message : "로그아웃에 실패했습니다.";
+  } finally {
+    cloudBusy = false;
+    render();
+  }
 }
 
 function applyRoute(): void {
@@ -972,19 +1074,39 @@ function renderAccountPanel(): string {
 
   return `
     <section class="account-card">
-      <h3>현재 계정</h3>
+      <h3>다른 기기 동기화</h3>
+      ${
+        isCloudConfigured()
+          ? cloudUser
+            ? `<p><strong>${esc(cloudUser.name || cloudUser.email || "구글 계정")}</strong>으로 동기화 중입니다.</p>
+               <p class="muted">즐겨찾기·숨김·리뷰가 구글 계정에 저장되어 다른 기기에서도 같은 구글로 열면 맞춰집니다.</p>
+               ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
+               <div class="form-actions">
+                 <button type="button" class="btn" data-action="cloud-sync-now" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "맞추는 중…" : "지금 맞추기"}</button>
+                 <button type="button" class="btn ghost" data-action="cloud-logout" ${cloudBusy ? "disabled" : ""}">동기화 끄기</button>
+               </div>`
+            : `<p class="muted">구글 계정으로 로그인하면 폰·태블릿·PC에서 즐겨찾기·숨김·리뷰를 같이 씁니다.</p>
+               ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
+               <div class="form-actions">
+                 <button type="button" class="btn" data-action="cloud-google" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "연결 중…" : "Google로 동기화"}</button>
+               </div>`
+          : `<p class="muted">클라우드 연결(Firebase)이 아직 없습니다. 설정 후 Google 동기화를 켤 수 있습니다.</p>`
+      }
+    </section>
+    <section class="account-card">
+      <h3>이 기기 프로필</h3>
       <p>${account ? `<strong>${esc(account.name)}</strong>` : "<strong>게스트</strong> (이 기기 임시)"}</p>
-      <p class="muted">서버 없이 이 브라우저에만 저장됩니다. 같은 폰·같은 브라우저에서 이름별로 목록을 나눌 때 씁니다.</p>
+      <p class="muted">같은 브라우저에서 이름별로 목록을 나눌 때 씁니다. 다른 기기 공유는 위 Google 동기화를 쓰세요.</p>
       ${accountError ? `<p class="loc-msg">${esc(accountError)}</p>` : ""}
       <div class="form-actions">
-        <button type="button" class="btn" data-action="account-mode" data-mode="create">계정 만들기</button>
+        <button type="button" class="btn ghost" data-action="account-mode" data-mode="create">프로필 만들기</button>
         ${account ? `<button type="button" class="btn ghost" data-action="logout-account">게스트로 돌아가기</button>` : ""}
       </div>
     </section>
     ${
       accounts.length
         ? `<section class="account-card">
-            <h3>이 기기 계정</h3>
+            <h3>이 기기 프로필 목록</h3>
             <ul class="account-list">
               ${accounts
                 .map(
@@ -1007,7 +1129,7 @@ function renderAccountPanel(): string {
                 .join("")}
             </ul>
           </section>`
-        : `<p class="muted">아직 만든 계정이 없습니다.</p>`
+        : `<p class="muted">아직 만든 로컬 프로필이 없습니다.</p>`
     }`;
 }
 
@@ -1170,6 +1292,15 @@ function onClick(e: MouseEvent): void {
       if (accountMode !== "login") loginTargetId = null;
       listsTab = "account";
       render();
+      break;
+    case "cloud-google":
+      void connectGoogleSync();
+      break;
+    case "cloud-sync-now":
+      void syncFromCloud(true);
+      break;
+    case "cloud-logout":
+      void disconnectGoogleSync();
       break;
     case "switch-account": {
       const id = el.dataset.id;
