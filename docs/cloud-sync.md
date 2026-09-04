@@ -1,6 +1,6 @@
 ## 다른 기기 동기화 (Firebase)
 
-GitHub Pages는 서버가 없어서, 즐겨찾기·숨김·리뷰 동기화는 Firebase(무료 플랜)를 씁니다.
+캠핑장 목록(JSON)은 그대로 두고, **즐겨찾기·숨김·리뷰만** Firestore에 맞춥니다.
 
 ### 1. Firebase 프로젝트 만들기
 1. https://console.firebase.google.com/ 에서 프로젝트 생성
@@ -22,6 +22,11 @@ GitHub Pages는 서버가 없어서, 즐겨찾기·숨김·리뷰 동기화는 F
 - `VITE_FIREBASE_MESSAGING_SENDER_ID`
 - `VITE_FIREBASE_APP_ID`
 
+Secrets를 넣은 뒤 Actions에서 **GitHub Pages** 워크플로를 다시 실행하세요.
+
 ### 4. 승인된 도메인
 Firebase Authentication → Settings → Authorized domains 에 GitHub Pages 도메인을 추가
 (예: `picobrain2.github.io`)
+
+### 5. 앱에서 사용
+`내 목록` → `계정` → **Google로 동기화**

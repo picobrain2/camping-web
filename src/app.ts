@@ -1079,18 +1079,24 @@ function renderAccountPanel(): string {
         isCloudConfigured()
           ? cloudUser
             ? `<p><strong>${esc(cloudUser.name || cloudUser.email || "구글 계정")}</strong>으로 동기화 중입니다.</p>
-               <p class="muted">즐겨찾기·숨김·리뷰가 구글 계정에 저장되어 다른 기기에서도 같은 구글로 열면 맞춰집니다.</p>
+               <p class="muted">즐겨찾기·숨김·리뷰만 클라우드에 맞춥니다. 캠핑장 목록은 파일 DB(JSON)입니다.</p>
                ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
                <div class="form-actions">
                  <button type="button" class="btn" data-action="cloud-sync-now" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "맞추는 중…" : "지금 맞추기"}</button>
                  <button type="button" class="btn ghost" data-action="cloud-logout" ${cloudBusy ? "disabled" : ""}">동기화 끄기</button>
                </div>`
-            : `<p class="muted">구글 계정으로 로그인하면 폰·태블릿·PC에서 즐겨찾기·숨김·리뷰를 같이 씁니다.</p>
+            : `<p class="muted">구글 로그인으로 즐겨찾기·숨김·리뷰를 다른 기기와 맞춥니다. 캠핑장 목록은 JSON 파일 그대로입니다.</p>
                ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
                <div class="form-actions">
                  <button type="button" class="btn" data-action="cloud-google" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "연결 중…" : "Google로 동기화"}</button>
                </div>`
-          : `<p class="muted">클라우드 연결(Firebase)이 아직 없습니다. 설정 후 Google 동기화를 켤 수 있습니다.</p>`
+          : `<p class="muted">캠핑장 목록은 JSON으로 두고, 개인 목록만 Firestore로 맞추는 구조입니다.</p>
+             <ol class="steps">
+               <li>Firebase에서 Google 로그인 + Firestore를 켭니다.</li>
+               <li>웹 앱 설정값을 GitHub Actions Secrets에 넣습니다.</li>
+               <li>Pages를 다시 배포한 뒤 여기서 Google로 동기화합니다.</li>
+             </ol>
+             <p class="muted">자세한 순서: 저장소 <code>docs/cloud-sync.md</code></p>`
       }
     </section>
     <section class="account-card">
