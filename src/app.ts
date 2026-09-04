@@ -3,12 +3,16 @@ import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from
 import { geocodePlace, type PlaceHit } from "./lib/geocode";
 import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirections, type DriveETA, type GeoPos } from "./lib/geo";
 import { officialLayoutImage, placeLinks } from "./lib/places";
-import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
+import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
+  loadFavorites,
+  loadHidden,
   loadOverlay,
   loadRecent,
   loadReviews,
   rememberQuery,
+  saveFavorites,
+  saveHidden,
   saveOverlay,
   saveReviews,
 } from "./lib/storage";
@@ -21,12 +25,15 @@ import {
   REGION_OPTIONS,
   LOCATION_TAGS,
   FACILITY_TAGS,
+  SavedCampRef,
 } from "./types";
 
 let camps: Camp[] = [];
 let reviews: Record<string, PersonalReview> = loadReviews();
 let overlay: OverlayDraft[] = loadOverlay();
 let recent: string[] = loadRecent();
+let favorites: SavedCampRef[] = loadFavorites();
+let hidden: SavedCampRef[] = loadHidden();
 let catalogNote = "";
 let catalogUpdated = "";
 let loadError: string | null = null;
@@ -37,7 +44,8 @@ let kind = "all";
 let tags: string[] = [];
 let sort: "recommend" | "rating" | "distance" = "recommend";
 let selectedId: string | null = null;
-let panel: "none" | "add" | "data" = "none";
+let panel: "none" | "add" | "data" | "lists" = "none";
+let listsTab: "favorites" | "hidden" = "favorites";
 let searchTimer = 0;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
 let myPos: GeoPos | null = null;
@@ -83,6 +91,12 @@ function applyRoute(): void {
     selectedId = null;
     return;
   }
+  if (hash === "lists" || hash === "favorites" || hash === "hidden") {
+    panel = "lists";
+    listsTab = hash === "hidden" ? "hidden" : "favorites";
+    selectedId = null;
+    return;
+  }
   if (hash.startsWith("camp/")) {
     panel = "none";
     selectedId = decodeURIComponent(hash.slice(5)) || null;
@@ -106,8 +120,74 @@ function selected(): Camp | undefined {
   return camps.find((c) => c.id === selectedId);
 }
 
+function favoriteIdSet(): Set<string> {
+  return new Set(favorites.map((item) => item.id));
+}
+
+function hiddenIdSet(): Set<string> {
+  return new Set(hidden.map((item) => item.id));
+}
+
+function isFavorite(id: string): boolean {
+  return favorites.some((item) => item.id === id);
+}
+
+function isHidden(id: string): boolean {
+  return hidden.some((item) => item.id === id);
+}
+
+function toSavedRef(camp: Camp): SavedCampRef {
+  return {
+    id: camp.id,
+    name: camp.name,
+    region: camp.region,
+    city: camp.city,
+    savedAt: todayISO(),
+  };
+}
+
+function toggleFavorite(id: string): void {
+  if (isFavorite(id)) {
+    favorites = favorites.filter((item) => item.id !== id);
+    saveFavorites(favorites);
+    return;
+  }
+  const camp = camps.find((c) => c.id === id);
+  const existing = favorites.find((item) => item.id === id);
+  const ref =
+    camp
+      ? toSavedRef(camp)
+      : existing ?? { id, name: id, region: "", city: "", savedAt: todayISO() };
+  // 숨긴 상태에서 즐겨찾기하면 다시 보이게
+  if (isHidden(id)) {
+    hidden = hidden.filter((item) => item.id !== id);
+    saveHidden(hidden);
+  }
+  favorites = [ref, ...favorites.filter((item) => item.id !== id)];
+  saveFavorites(favorites);
+}
+
+function hideCamp(id: string): void {
+  const camp = camps.find((c) => c.id === id);
+  const existing = hidden.find((item) => item.id === id);
+  const ref =
+    camp
+      ? toSavedRef(camp)
+      : existing ?? { id, name: id, region: "", city: "", savedAt: todayISO() };
+  favorites = favorites.filter((item) => item.id !== id);
+  saveFavorites(favorites);
+  hidden = [ref, ...hidden.filter((item) => item.id !== id)];
+  saveHidden(hidden);
+}
+
+/** 숨긴 캠핑장을 뺀 목록 (검색·홈·거리 계산용) */
+function browsable(): Camp[] {
+  const blocked = hiddenIdSet();
+  return camps.filter((camp) => !blocked.has(camp.id));
+}
+
 function visible(): Camp[] {
-  return filterCamps(camps, query, regions, kind, tags, reviews, sort, driveById);
+  return filterCamps(browsable(), query, regions, kind, tags, reviews, sort, driveById, favoriteIdSet());
 }
 
 let skipDriveSchedule = false;
@@ -140,7 +220,7 @@ function scheduleDriveRefresh(): void {
 }
 
 function campsWithCoords(): Camp[] {
-  return filterCamps(camps, query, regions, kind, tags, reviews, "recommend", {}).filter(
+  return filterCamps(browsable(), query, regions, kind, tags, reviews, "recommend", {}, favoriteIdSet()).filter(
     (camp) => camp.lat != null && camp.lng != null
   );
 }
@@ -229,6 +309,7 @@ function renderSearchPane(): string {
           <p>평점 · 배치도 · 예약 · 내 리뷰</p>
         </button>
         <div class="brand-actions">
+          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">내 목록${favorites.length || hidden.length ? ` · ${favorites.length + hidden.length}` : ""}</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-add">추가</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-data">데이터</button>
         </div>
@@ -246,7 +327,7 @@ function renderSearchPane(): string {
       ${myPos ? `<p class="loc-msg">이 출발지에서 차로 가는 시간입니다. 네이버지도 길찾기로 확인할 수 있습니다. <button type="button" class="text-btn" data-action="clear-location">끄기</button></p>` : `<p class="loc-msg">차 거리는 출발지를 검색하거나 GPS를 켜면 나옵니다.</p>`}
       ${segment("region", regions, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))], true)}
       ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
-      ${segment("tag", tags, [{ value: "all", label: "조건" }, { value: "reviewed", label: "내 리뷰" }, ...LOCATION_TAGS.map((t) => ({ value: t, label: t }))], true)}
+      ${segment("tag", tags, [{ value: "all", label: "조건" }, { value: "favorite", label: "즐겨찾기" }, { value: "reviewed", label: "내 리뷰" }, ...LOCATION_TAGS.map((t) => ({ value: t, label: t }))], true)}
       ${segment("tag", tags, FACILITY_TAGS.map((t) => ({ value: t, label: t })), true)}
       ${segment("sort", sort, [{ value: "recommend", label: "추천" }, { value: "rating", label: "평점순" }, ...(myPos ? [{ value: "distance", label: "가까운순" }] : [])])}
       <div class="list-wrap">
@@ -287,9 +368,19 @@ function renderList(): string {
 }
 
 function renderHomeLists(): string {
-  const featured = featuredCamps(camps, reviews);
-  const mine = reviewedCamps(camps, reviews);
+  const pool = browsable();
+  const favs = favoriteCamps(pool, favorites.map((item) => item.id));
+  const featured = featuredCamps(pool, reviews);
+  const mine = reviewedCamps(pool, reviews);
   return `
+    ${
+      favs.length
+        ? `<section class="home-block">
+            <h2>즐겨찾기 <button type="button" class="text-btn" data-action="open-lists" data-tab="favorites">관리</button></h2>
+            <ul class="camp-list">${favs.map(resultRow).join("")}</ul>
+          </section>`
+        : ""
+    }
     <section class="home-block">
       <h2>이번 주말 어디 갈까</h2>
       <ul class="camp-list">${featured.map(resultRow).join("")}</ul>
@@ -319,6 +410,7 @@ function resultRow(camp: Camp): string {
   const mine = reviews[camp.id];
   const price = priceRange(camp);
   const eta = driveById[camp.id];
+  const fav = isFavorite(camp.id);
   return `
     <li>
       <button type="button" class="result-row ${selectedId === camp.id ? "active" : ""}" data-action="select" data-id="${esc(camp.id)}">
@@ -328,6 +420,7 @@ function resultRow(camp: Camp): string {
         <div class="result-meta">
           <div class="result-title">
             <strong>${esc(camp.name)}</strong>
+            ${fav ? `<span class="pill fav">★</span>` : ""}
             ${mine ? `<span class="pill mine">내 ★${mine.rating}</span>` : ""}
           </div>
           <p>${esc(camp.region)} ${esc(camp.city)} · ${esc(kindLabels(camp.kinds))}</p>
@@ -344,6 +437,7 @@ function empty(title: string, message: string): string {
 function renderDetailPane(): string {
   if (panel === "add") return renderAddPanel();
   if (panel === "data") return renderDataPanel();
+  if (panel === "lists") return renderListsPanel();
   const camp = selected();
   if (!camp) {
     return `
@@ -361,12 +455,15 @@ function renderDetail(camp: Camp): string {
   const mine = reviews[camp.id];
   const map = mapLink(camp);
   const cover = camp.photos[0];
+  const fav = isFavorite(camp.id);
+  const hid = isHidden(camp.id);
   return `
     <header class="mobile-bar">
       <button type="button" class="back-btn" data-action="clear-select">목록</button>
       <strong>${esc(camp.name)}</strong>
     </header>
     <div class="detail-scroll">
+      ${hid ? `<p class="list-banner">이 캠핑장은 목록에서 숨겨 두었습니다. <button type="button" class="text-btn" data-action="unhide-camp" data-id="${esc(camp.id)}">다시 보이기</button></p>` : ""}
       <header class="detail-head">
         <div class="poster ${cover ? "has-photo" : ""}" data-region="${esc(camp.region)}">
           ${cover ? `<img src="${esc(cover)}" alt="" />` : `<span>${esc(camp.name.slice(0, 1))}</span>`}
@@ -378,6 +475,7 @@ function renderDetail(camp: Camp): string {
             <span class="chip static">${esc(camp.region)}</span>
             ${camp.kinds.map((k) => `<span class="chip static">${esc(KIND_LABEL[k])}</span>`).join("")}
             ${camp.tags.map((t) => `<span class="chip static">${esc(t)}</span>`).join("")}
+            ${fav ? `<span class="chip static fav">즐겨찾기</span>` : ""}
             ${camp.source === "overlay" ? `<span class="chip static mine">내 추가</span>` : ""}
           </div>
           <p class="lead">${esc(camp.description)}</p>
@@ -386,6 +484,14 @@ function renderDetail(camp: Camp): string {
             ${camp.mannersTime ? `<div><dt>매너타임</dt><dd>${esc(camp.mannersTime)}</dd></div>` : ""}
             <div><dt>편의</dt><dd>${esc(camp.amenities.join(" · ") || "정보 없음")}</dd></div>
           </dl>
+          <div class="personal-actions">
+            <button type="button" class="btn ${fav ? "" : "ghost"}" data-action="toggle-favorite" data-id="${esc(camp.id)}">${fav ? "즐겨찾기 해제" : "즐겨찾기"}</button>
+            ${
+              hid
+                ? `<button type="button" class="btn ghost" data-action="unhide-camp" data-id="${esc(camp.id)}">숨김 해제</button>`
+                : `<button type="button" class="btn ghost" data-action="hide-camp" data-id="${esc(camp.id)}">목록에서 숨기기</button>`
+            }
+          </div>
         </div>
       </header>
 
@@ -405,7 +511,7 @@ function renderDetail(camp: Camp): string {
         ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}">네이버 자동차</a>` : ""}
         ${map ? `<a class="btn ghost" href="${esc(map)}">카카오맵</a>` : ""}
       </div>
-      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 내 리뷰는 이 브라우저에만 저장됩니다.</p>
+      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 즐겨찾기·숨김·내 리뷰는 이 브라우저에만 저장됩니다.</p>
     </div>`;
 }
 
@@ -739,6 +845,63 @@ function renderDataPanel(): string {
     </main>`;
 }
 
+function renderListsPanel(): string {
+  const rows = listsTab === "favorites" ? favorites : hidden;
+  const items = rows
+    .map((item) => {
+      const camp = camps.find((c) => c.id === item.id);
+      return `
+        <li class="saved-row">
+          <button type="button" class="saved-main" data-action="select" data-id="${esc(item.id)}" ${camp ? "" : "disabled"}>
+            <strong>${esc(item.name)}</strong>
+            <span>${esc([item.region, item.city].filter(Boolean).join(" · ") || "위치 정보 없음")}</span>
+            <span class="muted">${esc(item.savedAt)} 저장${camp ? "" : " · 목록에서 찾을 수 없음"}</span>
+          </button>
+          <div class="saved-actions">
+            ${
+              listsTab === "favorites"
+                ? `<button type="button" class="btn-ghost btn-sm" data-action="toggle-favorite" data-id="${esc(item.id)}">해제</button>`
+                : `<button type="button" class="btn-ghost btn-sm" data-action="unhide-camp" data-id="${esc(item.id)}">다시 보이기</button>`
+            }
+          </div>
+        </li>`;
+    })
+    .join("");
+
+  return `
+    <main class="pane-detail">
+      <header class="mobile-bar">
+        <button type="button" class="back-btn" data-action="close-panel">닫기</button>
+        <strong>내 목록</strong>
+      </header>
+      <div class="detail-scroll">
+        <h2>즐겨찾기 · 숨김</h2>
+        <p class="muted">이 기기에만 저장됩니다. 숨긴 캠핑장은 검색·홈 목록에서 빠집니다.</p>
+        <div class="seg lists-tabs" role="tablist">
+          <button type="button" class="seg-btn ${listsTab === "favorites" ? "active" : ""}" data-action="lists-tab" data-tab="favorites">즐겨찾기 ${favorites.length}</button>
+          <button type="button" class="seg-btn ${listsTab === "hidden" ? "active" : ""}" data-action="lists-tab" data-tab="hidden">숨김 ${hidden.length}</button>
+        </div>
+        ${
+          rows.length
+            ? `<ul class="saved-list">${items}</ul>
+               <div class="form-actions">
+                 ${
+                   listsTab === "favorites"
+                     ? `<button type="button" class="btn ghost" data-action="clear-favorites">즐겨찾기 비우기</button>`
+                     : `<button type="button" class="btn ghost" data-action="clear-hidden">숨김 목록 비우기</button>`
+                 }
+               </div>`
+            : empty(
+                listsTab === "favorites" ? "즐겨찾기가 없습니다" : "숨긴 캠핑장이 없습니다",
+                listsTab === "favorites"
+                  ? "캠핑장 상세에서 즐겨찾기를 누르면 여기에 모입니다."
+                  : "보고 싶지 않은 캠핑장은 상세에서 숨기면 됩니다."
+              )
+        }
+      </div>
+    </main>`;
+}
+
 function toggleFilter(list: string[], value: string): string[] {
   if (value === "all") return [];
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
@@ -879,6 +1042,48 @@ function onClick(e: MouseEvent): void {
       break;
     case "open-data":
       go("data");
+      break;
+    case "open-lists":
+      listsTab = el.dataset.tab === "hidden" ? "hidden" : "favorites";
+      go(listsTab === "hidden" ? "hidden" : "lists");
+      break;
+    case "lists-tab":
+      listsTab = el.dataset.tab === "hidden" ? "hidden" : "favorites";
+      go(listsTab === "hidden" ? "hidden" : "lists");
+      break;
+    case "toggle-favorite": {
+      const id = el.dataset.id;
+      if (!id) break;
+      toggleFavorite(id);
+      render();
+      break;
+    }
+    case "hide-camp": {
+      const id = el.dataset.id;
+      if (!id) break;
+      hideCamp(id);
+      go("");
+      break;
+    }
+    case "unhide-camp": {
+      const id = el.dataset.id;
+      if (!id) break;
+      hidden = hidden.filter((item) => item.id !== id);
+      saveHidden(hidden);
+      render();
+      break;
+    }
+    case "clear-favorites":
+      if (!confirm("즐겨찾기를 모두 지울까요?")) return;
+      favorites = [];
+      saveFavorites(favorites);
+      render();
+      break;
+    case "clear-hidden":
+      if (!confirm("숨긴 캠핑장을 모두 다시 보이게 할까요?")) return;
+      hidden = [];
+      saveHidden(hidden);
+      render();
       break;
     case "close-panel":
       go("");

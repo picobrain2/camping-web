@@ -37,7 +37,8 @@ export function filterCamps(
   tags: string[],
   reviews: Record<string, PersonalReview>,
   sort: "recommend" | "rating" | "distance" = "recommend",
-  driveById: Record<string, { durationSec: number; distanceM: number }> = {}
+  driveById: Record<string, { durationSec: number; distanceM: number }> = {},
+  favoriteIds: Set<string> = new Set()
 ): Camp[] {
   const trimmed = query.trim();
   return camps
@@ -47,6 +48,10 @@ export function filterCamps(
       for (const tag of tags) {
         if (tag === "reviewed") {
           if (!reviews[camp.id]) return false;
+          continue;
+        }
+        if (tag === "favorite") {
+          if (!favoriteIds.has(camp.id)) return false;
           continue;
         }
         if (!campHasTag(camp, tag)) return false;
@@ -90,6 +95,13 @@ export function reviewedCamps(camps: Camp[], reviews: Record<string, PersonalRev
   return camps
     .filter((camp) => reviews[camp.id])
     .sort((a, b) => (reviews[b.id]?.updatedAt ?? "").localeCompare(reviews[a.id]?.updatedAt ?? ""));
+}
+
+export function favoriteCamps(camps: Camp[], favoriteIds: string[]): Camp[] {
+  const order = new Map(favoriteIds.map((id, i) => [id, i]));
+  return camps
+    .filter((camp) => order.has(camp.id))
+    .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
 }
 
 export function priceRange(camp: Camp): { min?: number; max?: number } {

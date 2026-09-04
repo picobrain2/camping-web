@@ -110,6 +110,15 @@ export interface PersonalReview {
   updatedAt: string;
 }
 
+/** 이 기기에서만 쓰는 즐겨찾기·숨김 목록 항목 */
+export interface SavedCampRef {
+  id: string;
+  name: string;
+  region: string;
+  city: string;
+  savedAt: string;
+}
+
 export interface OverlayDraft extends Camp {
   source: "overlay";
 }

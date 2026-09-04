@@ -1,9 +1,11 @@
-import type { OverlayDraft, PersonalReview } from "../types";
+import type { OverlayDraft, PersonalReview, SavedCampRef } from "../types";
 
 const KEYS = {
   reviews: "eodicamp.reviews.v1",
   overlay: "eodicamp.overlay.v1",
   recent: "eodicamp.recent.v1",
+  hidden: "eodicamp.hidden.v1",
+  favorites: "eodicamp.favorites.v1",
 } as const;
 
 function safeGet<T>(key: string, fallback: T): T {
@@ -22,6 +24,19 @@ function safeSet(key: string, value: unknown): void {
   } catch {
     // private mode / quota
   }
+}
+
+function loadSavedList(key: string): SavedCampRef[] {
+  const rows = safeGet<Array<Partial<SavedCampRef> & { hiddenAt?: string }>>(key, []);
+  return rows
+    .filter((row) => row && typeof row.id === "string" && typeof row.name === "string")
+    .map((row) => ({
+      id: row.id!,
+      name: row.name!,
+      region: row.region ?? "",
+      city: row.city ?? "",
+      savedAt: row.savedAt ?? row.hiddenAt ?? new Date().toISOString().slice(0, 10),
+    }));
 }
 
 export function loadReviews(): Record<string, PersonalReview> {
@@ -50,4 +65,20 @@ export function rememberQuery(query: string): string[] {
   const next = [trimmed, ...loadRecent().filter((item) => item !== trimmed)].slice(0, 8);
   safeSet(KEYS.recent, next);
   return next;
+}
+
+export function loadHidden(): SavedCampRef[] {
+  return loadSavedList(KEYS.hidden);
+}
+
+export function saveHidden(hidden: SavedCampRef[]): void {
+  safeSet(KEYS.hidden, hidden);
+}
+
+export function loadFavorites(): SavedCampRef[] {
+  return loadSavedList(KEYS.favorites);
+}
+
+export function saveFavorites(favorites: SavedCampRef[]): void {
+  safeSet(KEYS.favorites, favorites);
 }
