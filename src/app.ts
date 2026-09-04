@@ -37,6 +37,8 @@ import {
   saveHidden,
   saveOverlay,
   saveReviews,
+  isGateDismissed,
+  setGateDismissed,
 } from "./lib/storage";
 import {
   Camp,
@@ -61,6 +63,8 @@ let account: LocalAccount | null = currentAccount();
 let cloudUser: CloudUser | null = null;
 let cloudBusy = false;
 let cloudNote: string | null = null;
+let cloudAuthReady = !isCloudConfigured();
+let showLoginGate = false;
 let accountError: string | null = null;
 let accountMode: "home" | "create" | "login" = "home";
 let loginTargetId: string | null = null;
@@ -119,13 +123,25 @@ export async function boot(): Promise<void> {
 }
 
 async function restoreCloudSession(): Promise<void> {
-  if (!isCloudConfigured()) return;
+  if (!isCloudConfigured()) {
+    cloudAuthReady = true;
+    showLoginGate = false;
+    render();
+    return;
+  }
   try {
     cloudUser = await bootCloudAuth();
-    if (!cloudUser) return;
-    await syncFromCloud(false);
+    if (cloudUser) {
+      await syncFromCloud(false);
+      showLoginGate = false;
+    } else {
+      showLoginGate = !isGateDismissed();
+    }
   } catch (error) {
     cloudNote = error instanceof Error ? error.message : "클라우드 동기화에 실패했습니다.";
+    showLoginGate = !isGateDismissed();
+  } finally {
+    cloudAuthReady = true;
     render();
   }
 }
@@ -150,7 +166,7 @@ async function syncFromCloud(announce: boolean): Promise<void> {
   }
 }
 
-async function connectGoogleSync(): Promise<void> {
+async function connectGoogleSync(fromGate = false): Promise<void> {
   if (!isCloudConfigured()) {
     accountError = "아직 클라우드 설정이 없습니다. 관리자에게 Firebase 연결을 요청해 주세요.";
     render();
@@ -163,8 +179,13 @@ async function connectGoogleSync(): Promise<void> {
   try {
     cloudUser = await signInWithGoogle();
     await syncFromCloud(true);
-    listsTab = "favorites";
-    go("lists");
+    showLoginGate = false;
+    setGateDismissed(true);
+    if (fromGate) go("");
+    else {
+      listsTab = "favorites";
+      go("lists");
+    }
   } catch (error) {
     cloudBusy = false;
     const message = error instanceof Error ? error.message : "구글 로그인에 실패했습니다.";
@@ -185,6 +206,8 @@ async function disconnectGoogleSync(): Promise<void> {
     await signOutCloud();
     cloudUser = null;
     cloudNote = "구글 동기화를 껐습니다. 이 기기 목록은 그대로 남아 있습니다.";
+    showLoginGate = true;
+    setGateDismissed(false);
   } catch (error) {
     accountError = error instanceof Error ? error.message : "로그아웃에 실패했습니다.";
   } finally {
@@ -307,6 +330,16 @@ function visible(): Camp[] {
 let skipDriveSchedule = false;
 function render(): void {
   const keep = preserveCaret("search-input") ?? preserveCaret("origin-input");
+  if (isCloudConfigured() && !cloudAuthReady) {
+    root.innerHTML = `<div class="boot">로그인 상태를 확인하는 중…</div>`;
+    bindOnce();
+    return;
+  }
+  if (showLoginGate && !cloudUser) {
+    root.innerHTML = renderLoginGate();
+    bindOnce();
+    return;
+  }
   root.innerHTML = `
     <div class="shell ${selectedId || panel !== "none" ? "has-detail" : ""}">
       ${renderSearchPane()}
@@ -316,6 +349,25 @@ function render(): void {
   bindOnce();
   restoreCaret(keep);
   if (!skipDriveSchedule) scheduleDriveRefresh();
+}
+
+function renderLoginGate(): string {
+  return `
+    <div class="login-gate">
+      <div class="login-gate-bg" aria-hidden="true"></div>
+      <div class="login-gate-card">
+        <p class="login-kicker">캠핑장 조회</p>
+        <h1>어디캠</h1>
+        <p class="login-lead">즐겨찾기·숨김·내 리뷰를 구글 계정에 두고<br />폰과 PC에서 같이 쓰세요.</p>
+        ${accountError ? `<p class="loc-msg">${esc(accountError)}</p>` : ""}
+        ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
+        <button type="button" class="btn login-google" data-action="gate-google" ${cloudBusy ? "disabled" : ""}>
+          ${cloudBusy ? "로그인 중…" : "Google로 시작하기"}
+        </button>
+        <button type="button" class="btn ghost login-skip" data-action="gate-skip" ${cloudBusy ? "disabled" : ""}>로그인 없이 둘러보기</button>
+        <p class="login-foot muted">캠핑장 목록은 언제든 볼 수 있고, 로그인은 내 목록 동기화에만 필요합니다.</p>
+      </div>
+    </div>`;
 }
 
 let driveTimer = 0;
@@ -423,7 +475,14 @@ function renderSearchPane(): string {
           <p>평점 · 배치도 · 예약 · 내 리뷰</p>
         </button>
         <div class="brand-actions">
-          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">${account ? esc(account.name) : "내 목록"}${favorites.length || hidden.length ? ` · ${favorites.length + hidden.length}` : ""}</button>
+          ${
+            isCloudConfigured()
+              ? cloudUser
+                ? `<button type="button" class="btn-ghost btn-sm" data-action="open-lists" data-tab="account">${esc(cloudUser.name || "내 계정")}</button>`
+                : `<button type="button" class="btn-ghost btn-sm" data-action="open-login-gate">로그인</button>`
+              : ""
+          }
+          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">${account && !cloudUser ? esc(account.name) : "내 목록"}${favorites.length || hidden.length ? ` · ${favorites.length + hidden.length}` : ""}</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-add">추가</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-data">데이터</button>
         </div>
@@ -1300,7 +1359,24 @@ function onClick(e: MouseEvent): void {
       render();
       break;
     case "cloud-google":
-      void connectGoogleSync();
+      void connectGoogleSync(false);
+      break;
+    case "gate-google":
+      void connectGoogleSync(true);
+      break;
+    case "gate-skip":
+      setGateDismissed(true);
+      showLoginGate = false;
+      accountError = null;
+      cloudNote = null;
+      render();
+      break;
+    case "open-login-gate":
+      showLoginGate = true;
+      accountError = null;
+      cloudNote = null;
+      go("");
+      render();
       break;
     case "cloud-sync-now":
       void syncFromCloud(true);

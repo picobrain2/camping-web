@@ -8,6 +8,7 @@ const KEYS = {
   favorites: "eodicamp.favorites.v1",
   accounts: "eodicamp.accounts.v1",
   session: "eodicamp.session.v1",
+  gateDismissed: "eodicamp.gate.dismissed.v1",
 } as const;
 
 function safeGet<T>(key: string, fallback: T): T {
@@ -271,4 +272,12 @@ export async function flushCloudPush(): Promise<void> {
   const uid = cloudHooks.getUid();
   if (!uid) return;
   await cloudHooks.push(uid, currentBundle());
+}
+
+export function isGateDismissed(): boolean {
+  return safeGet<boolean>(KEYS.gateDismissed, false);
+}
+
+export function setGateDismissed(value: boolean): void {
+  safeSet(KEYS.gateDismissed, value);
 }
