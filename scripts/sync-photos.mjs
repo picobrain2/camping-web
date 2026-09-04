@@ -15,7 +15,7 @@ const INDEX_FILE = join(DATA, "index.json");
 const BASE = "https://apis.data.go.kr/B551011/GoCamping";
 const KEY = process.env.GOCAMPING_KEY;
 const MAX_PHOTOS = 12;
-const SEARCH_CAP = Number(process.env.SYNC_PHOTO_SEARCH || 180);
+const SEARCH_CAP = Number(process.env.SYNC_PHOTO_SEARCH || 400);
 
 if (!KEY) {
   console.error("GOCAMPING_KEY 환경변수가 필요합니다.");
@@ -41,7 +41,7 @@ function keyParam() {
   return KEY.includes("%") ? KEY : encodeURIComponent(KEY);
 }
 
-async function getJson(path, extra = {}) {
+async function getJson(path, extra = {}, attempt = 1) {
   const params = new URLSearchParams({
     MobileOS: "ETC",
     MobileApp: "EodiCamp",
@@ -52,20 +52,28 @@ async function getJson(path, extra = {}) {
   if (extra.keyword) params.set("keyword", extra.keyword);
   if (extra.contentId) params.set("contentId", String(extra.contentId));
   const url = `${BASE}/${path}?serviceKey=${keyParam()}&${params.toString()}`;
-  const res = await fetch(url);
-  const text = await res.text();
-  if (text.trimStart().startsWith("<")) {
-    throw new Error(`고캠핑 XML 응답 (${path})`);
+  try {
+    const res = await fetch(url);
+    const text = await res.text();
+    if (text.trimStart().startsWith("<")) {
+      throw new Error(`고캠핑 XML 응답 (${path})`);
+    }
+    const json = JSON.parse(text);
+    const header = json?.response?.header;
+    if (header && header.resultCode && header.resultCode !== "0000" && header.resultCode !== "00") {
+      throw new Error(`고캠핑 ${header.resultCode}: ${header.resultMsg ?? "오류"}`);
+    }
+    const body = json?.response?.body;
+    if (!body) return { items: [] };
+    const raw = body.items?.item ?? [];
+    return { items: Array.isArray(raw) ? raw : raw ? [raw] : [] };
+  } catch (error) {
+    if (attempt < 3) {
+      await sleep(400 * attempt);
+      return getJson(path, extra, attempt + 1);
+    }
+    throw error;
   }
-  const json = JSON.parse(text);
-  const header = json?.response?.header;
-  if (header && header.resultCode && header.resultCode !== "0000" && header.resultCode !== "00") {
-    throw new Error(`고캠핑 ${header.resultCode}: ${header.resultMsg ?? "오류"}`);
-  }
-  const body = json?.response?.body;
-  if (!body) return { items: [] };
-  const raw = body.items?.item ?? [];
-  return { items: Array.isArray(raw) ? raw : raw ? [raw] : [] };
 }
 
 async function sleep(ms) {
