@@ -388,8 +388,8 @@ function renderDetail(camp: Camp): string {
       ${reviewEditor(camp, mine)}
 
       <div class="link-row">
-        ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}" target="_blank" rel="noopener">예약하기</a>` : ""}
-        ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}" target="_blank" rel="noopener">홈페이지</a>` : ""}
+        ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}" target="_blank" rel="noopener noreferrer">예약하기</a>` : ""}
+        ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}" target="_blank" rel="noopener noreferrer">홈페이지</a>` : ""}
         ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}" target="_blank" rel="noreferrer">네이버 자동차</a>` : ""}
         ${map ? `<a class="btn ghost" href="${esc(map)}" target="_blank" rel="noreferrer">카카오맵</a>` : ""}
       </div>
@@ -503,7 +503,7 @@ function appsBlock(camp: Camp): string {
   const cards = placeLinks(camp)
     .map(
       (link) => `
-      <a class="app-card" href="${esc(link.url)}" target="_blank" rel="noopener">
+      <a class="app-card" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">
         <strong>${esc(link.name)}</strong>
         <span>${esc(link.hint)}</span>
       </a>`
@@ -804,27 +804,7 @@ async function searchOrigin(): Promise<void> {
   render();
 }
 
-function openExternal(url: string): void {
-  const opened = window.open(url, "_blank", "noopener");
-  if (!opened) location.href = url;
-}
-
 function onClick(e: MouseEvent): void {
-  const anchor = (e.target as HTMLElement).closest<HTMLAnchorElement>("a[href]");
-  if (anchor) {
-    const href = anchor.getAttribute("href") ?? "";
-    if (/^https?:\/\//i.test(href)) {
-      try {
-        if (new URL(href).origin !== location.origin) {
-          e.preventDefault();
-          openExternal(href);
-          return;
-        }
-      } catch {
-        // let the browser handle a bad URL
-      }
-    }
-  }
   const el = (e.target as HTMLElement).closest<HTMLElement>("[data-action]");
   if (!el) return;
   const action = el.dataset.action;
