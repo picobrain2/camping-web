@@ -721,7 +721,20 @@ function toggleFilter(list: string[], value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
 }
 
+function locationDeniedMessage(): string {
+  const ios = /iP(hone|ad|od)/.test(navigator.userAgent);
+  if (ios) {
+    return "위치 허용 창이 안 뜨면 이미 거절된 상태입니다. Safari는 주소창 aA → 웹 사이트 설정 → 위치에서 허용한 뒤, 내 위치를 다시 눌러 주세요.";
+  }
+  return "위치 허용 창이 안 뜨면 이미 거절된 상태입니다. 주소창 왼쪽 자물쇠(사이트 설정)에서 위치를 허용한 뒤, 내 위치를 다시 눌러 주세요.";
+}
+
 function pinMyLocation(): void {
+  if (!window.isSecureContext) {
+    locError = "위치는 https 주소에서만 켤 수 있습니다.";
+    render();
+    return;
+  }
   if (!navigator.geolocation) {
     locError = "이 브라우저에서는 위치를 쓸 수 없습니다.";
     render();
@@ -729,7 +742,8 @@ function pinMyLocation(): void {
   }
   locLoading = true;
   locError = null;
-  render();
+  const btn = document.querySelector<HTMLButtonElement>('[data-action="pin-location"]');
+  if (btn) btn.textContent = "위치…";
   navigator.geolocation.getCurrentPosition(
     (pos) => {
       myPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
@@ -742,11 +756,13 @@ function pinMyLocation(): void {
       locLoading = false;
       locError =
         err.code === err.PERMISSION_DENIED
-          ? "위치 권한이 필요합니다. 브라우저 주소창에서 허용해 주세요."
-          : "위치를 가져오지 못했습니다.";
+          ? locationDeniedMessage()
+          : err.code === err.TIMEOUT
+            ? "위치를 가져오는 데 시간이 너무 걸렸습니다. 다시 눌러 주세요."
+            : "위치를 가져오지 못했습니다. 다시 눌러 주세요.";
       render();
     },
-    { enableHighAccuracy: false, timeout: 12000, maximumAge: 300000 }
+    { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
   );
 }
 
