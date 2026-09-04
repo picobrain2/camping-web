@@ -512,7 +512,9 @@ function quotesBlock(camp: Camp, mine?: PersonalReview): string {
 }
 
 function appsBlock(camp: Camp): string {
-  const cards = placeLinks(camp)
+  const links = placeLinks(camp);
+  if (!links.length) return "";
+  const cards = links
     .map(
       (link) => `
       <a class="app-card" href="${esc(link.url)}">
@@ -524,7 +526,7 @@ function appsBlock(camp: Camp): string {
   return `
     <section class="block">
       <h3>다른 앱에서 보기</h3>
-      <p class="muted">캠핏·캠핑톡·네이버지도의 예약 빈자리와 후기를 그대로 엽니다.</p>
+      <p class="muted">등록된 주소가 있는 앱만 보여 줍니다.</p>
       <div class="app-grid">${cards}</div>
     </section>`;
 }
