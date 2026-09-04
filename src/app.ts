@@ -680,7 +680,11 @@ function renderDetail(camp: Camp): string {
 
       <div class="link-row">
         ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}">예약하기</a>` : ""}
-        ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}">홈페이지</a>` : ""}
+        ${
+          camp.homepage
+            ? `<a class="btn ghost" href="${esc(camp.homepage)}">홈페이지</a>`
+            : `<a class="btn ghost" href="https://search.naver.com/search.naver?query=${encodeURIComponent(`${camp.name} 홈페이지`)}">홈페이지 검색</a>`
+        }
         ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}">네이버 자동차</a>` : ""}
         ${map ? `<a class="btn ghost" href="${esc(map)}">카카오맵</a>` : ""}
       </div>
