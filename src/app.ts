@@ -1,5 +1,6 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
+import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirections, type DriveETA, type GeoPos } from "./lib/geo";
 import { officialLayoutImage, placeLinks } from "./lib/places";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
@@ -17,7 +18,8 @@ import {
   OverlayDraft,
   PersonalReview,
   REGION_OPTIONS,
-  TAG_OPTIONS,
+  LOCATION_TAGS,
+  FACILITY_TAGS,
 } from "./types";
 
 let camps: Camp[] = [];
@@ -29,14 +31,19 @@ let catalogUpdated = "";
 let loadError: string | null = null;
 
 let query = "";
-let region = "all";
+let regions: string[] = [];
 let kind = "all";
-let tag = "all";
-let sort: "recommend" | "rating" = "recommend";
+let tags: string[] = [];
+let sort: "recommend" | "rating" | "distance" = "recommend";
 let selectedId: string | null = null;
 let panel: "none" | "add" | "data" = "none";
 let searchTimer = 0;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
+let myPos: GeoPos | null = null;
+let locError: string | null = null;
+let locLoading = false;
+let driveById: Record<string, DriveETA> = {};
+let driveSeq = 0;
 
 let root: HTMLElement;
 
@@ -96,9 +103,10 @@ function selected(): Camp | undefined {
 }
 
 function visible(): Camp[] {
-  return filterCamps(camps, query, region, kind, tag, reviews, sort);
+  return filterCamps(camps, query, regions, kind, tags, reviews, sort, driveById);
 }
 
+let skipDriveSchedule = false;
 function render(): void {
   const keep = preserveSearchCaret();
   root.innerHTML = `
@@ -109,6 +117,67 @@ function render(): void {
     ${layoutPopup ? renderLayoutModal() : ""}`;
   bindOnce();
   restoreSearchCaret(keep);
+  if (!skipDriveSchedule) scheduleDriveRefresh();
+}
+
+let driveTimer = 0;
+function scheduleDriveRefresh(): void {
+  window.clearTimeout(driveTimer);
+  if (!myPos) {
+    if (Object.keys(driveById).length) {
+      driveById = {};
+      skipDriveSchedule = true;
+      render();
+      skipDriveSchedule = false;
+    }
+    return;
+  }
+  driveTimer = window.setTimeout(() => void refreshDriveTimes(), 220);
+}
+
+function campsWithCoords(): Camp[] {
+  return filterCamps(camps, query, regions, kind, tags, reviews, "recommend", {}).filter(
+    (camp) => camp.lat != null && camp.lng != null
+  );
+}
+
+function campsForDrive(): Camp[] {
+  if (!myPos) return [];
+  const ranked = [...campsWithCoords()].sort(
+    (a, b) =>
+      haversineKm(myPos!, { lat: a.lat!, lng: a.lng! }) - haversineKm(myPos!, { lat: b.lat!, lng: b.lng! })
+  );
+  const batch = ranked.slice(0, 40);
+  const camp = selected();
+  if (camp?.lat != null && camp.lng != null && !batch.some((row) => row.id === camp.id)) {
+    batch.unshift(camp);
+  }
+  return batch;
+}
+
+async function refreshDriveTimes(): Promise<void> {
+  if (!myPos) return;
+  const seq = ++driveSeq;
+  const estimated = estimateDrives(myPos, campsWithCoords());
+  if (Object.keys(estimated).length) {
+    driveById = estimated;
+    skipDriveSchedule = true;
+    render();
+    skipDriveSchedule = false;
+  }
+  const next = { ...estimated, ...(await drivingTable(myPos, campsForDrive())) };
+  if (seq !== driveSeq) return;
+  const same =
+    Object.keys(next).length === Object.keys(driveById).length &&
+    Object.entries(next).every(([id, eta]) => {
+      const prev = driveById[id];
+      return prev && prev.durationSec === eta.durationSec && prev.distanceM === eta.distanceM;
+    });
+  if (same) return;
+  driveById = next;
+  skipDriveSchedule = true;
+  render();
+  skipDriveSchedule = false;
 }
 
 let bound = false;
@@ -149,26 +218,34 @@ function renderSearchPane(): string {
         </div>
       </header>
       <div class="search-box">
-        <input id="search-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 · 지역 · 태그 (한글)" value="${esc(query)}" />
+        <input id="search-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 · 지역 · 위생 · 전기" value="${esc(query)}" />
+        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : myPos ? "위치 켜짐" : "내 위치"}</button>
       </div>
-      ${segment("region", region, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))])}
+      ${locError ? `<p class="loc-msg">${esc(locError)}</p>` : ""}
+      ${myPos ? `<p class="loc-msg">내 위치에서 차로 가는 시간입니다. 네이버지도 길찾기로 확인할 수 있습니다. <button type="button" class="text-btn" data-action="clear-location">위치 끄기</button></p>` : ""}
+      ${segment("region", regions, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))], true)}
       ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
-      ${segment("tag", tag, [{ value: "all", label: "태그" }, { value: "reviewed", label: "내 리뷰" }, ...TAG_OPTIONS.map((t) => ({ value: t, label: t }))])}
-      ${segment("sort", sort, [{ value: "recommend", label: "추천" }, { value: "rating", label: "평점순" }])}
+      ${segment("tag", tags, [{ value: "all", label: "조건" }, { value: "reviewed", label: "내 리뷰" }, ...LOCATION_TAGS.map((t) => ({ value: t, label: t }))], true)}
+      ${segment("tag", tags, FACILITY_TAGS.map((t) => ({ value: t, label: t })), true)}
+      ${segment("sort", sort, [{ value: "recommend", label: "추천" }, { value: "rating", label: "평점순" }, ...(myPos ? [{ value: "distance", label: "가까운순" }] : [])])}
       <div class="list-wrap">
         ${renderList()}
       </div>
     </aside>`;
 }
 
-function segment(group: string, current: string, options: { value: string; label: string }[]): string {
+function segment(group: string, current: string | string[], options: { value: string; label: string }[], multi = false): string {
   return `
     <div class="seg" role="tablist">
       ${options
-        .map(
-          (o) =>
-            `<button type="button" class="seg-btn ${current === o.value ? "active" : ""}" data-action="set-filter" data-group="${group}" data-value="${esc(o.value)}">${esc(o.label)}</button>`
-        )
+        .map((o) => {
+          const active = Array.isArray(current)
+            ? o.value === "all"
+              ? current.length === 0
+              : current.includes(o.value)
+            : current === o.value;
+          return `<button type="button" class="seg-btn ${active ? "active" : ""}" data-action="set-filter" data-group="${group}" data-value="${esc(o.value)}" ${multi ? `data-multi="1"` : ""}>${esc(o.label)}</button>`;
+        })
         .join("")}
     </div>`;
 }
@@ -178,7 +255,7 @@ function renderList(): string {
     return empty("파일 DB를 읽지 못했습니다", loadError);
   }
   const trimmed = query.trim();
-  if (!trimmed && region === "all" && kind === "all" && tag === "all" && sort === "recommend") {
+  if (!trimmed && !regions.length && kind === "all" && !tags.length && sort === "recommend") {
     return renderHomeLists();
   }
   const rows = visible();
@@ -220,6 +297,7 @@ function resultRow(camp: Camp): string {
   const score = displayScore(camp, reviews);
   const mine = reviews[camp.id];
   const price = priceRange(camp);
+  const eta = driveById[camp.id];
   return `
     <li>
       <button type="button" class="result-row ${selectedId === camp.id ? "active" : ""}" data-action="select" data-id="${esc(camp.id)}">
@@ -232,7 +310,7 @@ function resultRow(camp: Camp): string {
             ${mine ? `<span class="pill mine">내 ★${mine.rating}</span>` : ""}
           </div>
           <p>${esc(camp.region)} ${esc(camp.city)} · ${esc(kindLabels(camp.kinds))}</p>
-          <p class="muted">${score != null ? `★ ${scoreText(score)}` : "평점 없음"} · ${esc(wonRange(price.min, price.max))}</p>
+          <p class="muted">${score != null ? `★ ${scoreText(score)}` : "평점 없음"} · ${esc(wonRange(price.min, price.max))}${eta ? ` · ${esc(driveLabel(eta))}` : ""}</p>
         </div>
       </button>
     </li>`;
@@ -290,6 +368,7 @@ function renderDetail(camp: Camp): string {
         </div>
       </header>
 
+      ${driveBlock(camp)}
       ${photosBlock(camp)}
       ${ratingsRow(camp, mine)}
       ${quotesBlock(camp, mine)}
@@ -302,10 +381,31 @@ function renderDetail(camp: Camp): string {
       <div class="link-row">
         ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}" target="_blank" rel="noreferrer">예약하기</a>` : ""}
         ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}" target="_blank" rel="noreferrer">홈페이지</a>` : ""}
+        ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}" target="_blank" rel="noreferrer">네이버 자동차</a>` : ""}
         ${map ? `<a class="btn ghost" href="${esc(map)}" target="_blank" rel="noreferrer">카카오맵</a>` : ""}
       </div>
       <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 내 리뷰는 이 브라우저에만 저장됩니다.</p>
     </div>`;
+}
+
+function driveBlock(camp: Camp): string {
+  const eta = driveById[camp.id];
+  const naver = myPos ? naverCarDirections(myPos, camp) : `https://map.naver.com/p/search/${encodeURIComponent(camp.name)}`;
+  return `
+    <section class="block">
+      <h3>가는 길</h3>
+      ${eta ? `<p class="drive-eta">${esc(driveLabel(eta))}</p>` : ""}
+      ${
+        eta
+          ? `<p class="muted">도로 기준 예상 시간입니다. 실제 소요 시간은 네이버지도에서 확인하세요.</p>`
+          : myPos
+            ? camp.lat != null
+              ? `<p class="muted">가까운 캠핑장부터 거리를 계산하고 있습니다.</p>`
+              : `<p class="muted">이 캠핑장은 좌표가 없어 차 거리를 계산하지 못했습니다.</p>`
+            : `<p class="muted">왼쪽에서 내 위치를 켜면 차로 가는 시간을 보여 줍니다.</p>`
+      }
+      <p><a href="${esc(naver)}" target="_blank" rel="noreferrer">${myPos ? "네이버지도 자동차 길찾기" : "네이버지도에서 찾기"}</a></p>
+    </section>`;
 }
 
 function photosBlock(camp: Camp): string {
@@ -616,6 +716,40 @@ function renderDataPanel(): string {
     </main>`;
 }
 
+function toggleFilter(list: string[], value: string): string[] {
+  if (value === "all") return [];
+  return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
+}
+
+function pinMyLocation(): void {
+  if (!navigator.geolocation) {
+    locError = "이 브라우저에서는 위치를 쓸 수 없습니다.";
+    render();
+    return;
+  }
+  locLoading = true;
+  locError = null;
+  render();
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      myPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      locLoading = false;
+      locError = null;
+      sort = "distance";
+      render();
+    },
+    (err) => {
+      locLoading = false;
+      locError =
+        err.code === err.PERMISSION_DENIED
+          ? "위치 권한이 필요합니다. 브라우저 주소창에서 허용해 주세요."
+          : "위치를 가져오지 못했습니다.";
+      render();
+    },
+    { enableHighAccuracy: false, timeout: 12000, maximumAge: 300000 }
+  );
+}
+
 function onClick(e: MouseEvent): void {
   const el = (e.target as HTMLElement).closest<HTMLElement>("[data-action]");
   if (!el) return;
@@ -629,9 +763,9 @@ function onClick(e: MouseEvent): void {
       break;
     case "go-home":
       query = "";
-      region = "all";
+      regions = [];
       kind = "all";
-      tag = "all";
+      tags = [];
       sort = "recommend";
       layoutPopup = null;
       go("");
@@ -639,13 +773,24 @@ function onClick(e: MouseEvent): void {
     case "set-filter": {
       const group = el.dataset.group;
       const value = el.dataset.value ?? "all";
-      if (group === "region") region = value;
+      if (group === "region") regions = toggleFilter(regions, value);
       if (group === "kind") kind = value;
-      if (group === "tag") tag = value;
-      if (group === "sort") sort = value === "rating" ? "rating" : "recommend";
+      if (group === "tag") tags = toggleFilter(tags, value);
+      if (group === "sort") sort = value === "rating" ? "rating" : value === "distance" ? "distance" : "recommend";
       render();
       break;
     }
+    case "pin-location":
+      pinMyLocation();
+      break;
+    case "clear-location":
+      myPos = null;
+      locError = null;
+      locLoading = false;
+      driveById = {};
+      if (sort === "distance") sort = "recommend";
+      render();
+      break;
     case "apply-recent":
       query = el.dataset.query ?? "";
       render();

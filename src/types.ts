@@ -131,15 +131,31 @@ export const REGION_OPTIONS = [
   "제주",
 ] as const;
 
-export const TAG_OPTIONS = [
+export const LOCATION_TAGS = [
   "한강",
   "바다",
   "계곡",
   "산",
   "호수",
-  "반려견",
-  "물놀이",
   "국립공원",
   "휴양림",
-  "키즈",
 ] as const;
+
+export const FACILITY_TAGS = [
+  "위생시설",
+  "샤워",
+  "온수",
+  "개별화장실",
+  "전기",
+  "와이파이",
+  "매점",
+  "개수대",
+  "놀이터",
+  "수영장",
+  "장작",
+  "반려견",
+  "키즈",
+  "물놀이",
+] as const;
+
+export const TAG_OPTIONS = [...LOCATION_TAGS, ...FACILITY_TAGS] as const;

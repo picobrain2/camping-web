@@ -80,13 +80,47 @@ a { color: var(--moss); }
 .brand-home:hover h1 { color: var(--moss); }
 .brand-actions { display: flex; gap: 6px; }
 
-.search-box { padding: 8px 16px 10px; }
+.search-box {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px 10px;
+}
 .search-box input {
+  flex: 1;
   width: 100%;
+  min-width: 0;
   border: 1px solid var(--line);
   background: #fff;
   border-radius: 12px;
   padding: 11px 12px;
+}
+.loc-btn { white-space: nowrap; }
+.loc-btn.active {
+  background: var(--moss-soft);
+  border-color: var(--moss);
+  color: var(--moss);
+}
+.loc-msg {
+  margin: 0;
+  padding: 0 16px 8px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.text-btn {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--moss);
+  font-weight: 700;
+  cursor: pointer;
+}
+.drive-eta {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 750;
 }
 
 .seg {

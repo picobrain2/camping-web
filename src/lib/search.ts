@@ -1,3 +1,4 @@
+import { campHasTag } from "./tags";
 import type { Camp, CampKind, PersonalReview } from "../types";
 
 function compact(text: string): string {
@@ -8,7 +9,7 @@ function compact(text: string): string {
 }
 
 function haystack(camp: Camp): string {
-  return [camp.name, ...camp.aliases, camp.region, camp.city, camp.address, camp.description, ...camp.tags]
+  return [camp.name, ...camp.aliases, camp.region, camp.city, camp.address, camp.description, ...camp.tags, ...camp.amenities]
     .join(" ");
 }
 
@@ -31,23 +32,34 @@ export function relevance(camp: Camp, query: string): number {
 export function filterCamps(
   camps: Camp[],
   query: string,
-  region: string,
+  regions: string[],
   kind: string,
-  tag: string,
+  tags: string[],
   reviews: Record<string, PersonalReview>,
-  sort: "recommend" | "rating" = "recommend"
+  sort: "recommend" | "rating" | "distance" = "recommend",
+  driveById: Record<string, { durationSec: number; distanceM: number }> = {}
 ): Camp[] {
   const trimmed = query.trim();
   return camps
     .filter((camp) => {
-      if (region !== "all" && camp.region !== region) return false;
+      if (regions.length && !regions.includes(camp.region)) return false;
       if (kind !== "all" && !camp.kinds.includes(kind as CampKind)) return false;
-      if (tag === "reviewed") return Boolean(reviews[camp.id]);
-      if (tag !== "all" && !camp.tags.includes(tag)) return false;
+      for (const tag of tags) {
+        if (tag === "reviewed") {
+          if (!reviews[camp.id]) return false;
+          continue;
+        }
+        if (!campHasTag(camp, tag)) return false;
+      }
       if (!trimmed) return true;
       return relevance(camp, trimmed) > 0;
     })
     .sort((a, b) => {
+      if (sort === "distance") {
+        const da = driveById[a.id]?.durationSec ?? Number.POSITIVE_INFINITY;
+        const db = driveById[b.id]?.durationSec ?? Number.POSITIVE_INFINITY;
+        if (da !== db) return da - db;
+      }
       if (sort === "rating") {
         const delta = (displayScore(b, reviews) ?? -1) - (displayScore(a, reviews) ?? -1);
         if (delta !== 0) return delta;

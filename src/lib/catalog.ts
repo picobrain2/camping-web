@@ -1,8 +1,11 @@
+import { deriveFacilityTags } from "./tags";
 import type { Camp, CampDraft, CatalogFile, CatalogIndex, OverlayDraft } from "../types";
 
 export function normalizeCamp(raw: CampDraft): Camp {
   const kinds = raw.kinds?.length ? raw.kinds : (["tent"] as Camp["kinds"]);
-  const tags = raw.tags ?? [];
+  const amenities = raw.amenities ?? [];
+  const description = raw.description ?? "";
+  const tags = deriveFacilityTags(raw.tags ?? [], amenities, description);
   const siteTypes = raw.siteTypes?.length
     ? raw.siteTypes
     : kinds.map((kind) => ({ name: kind === "auto" ? "자동차야영" : kind === "glamping" ? "글램핑" : kind === "caravan" ? "카라반" : "일반야영" }));
@@ -25,6 +28,8 @@ export function normalizeCamp(raw: CampDraft): Camp {
     ...raw,
     kinds,
     tags,
+    amenities: raw.amenities ?? amenities,
+    description: raw.description ?? description,
     siteTypes,
     layout: raw.layout,
   };
