@@ -11,6 +11,25 @@ function q(value: string): string {
   return encodeURIComponent(value);
 }
 
+function firstCampPage(urls: Array<string | undefined>, host: RegExp, path: RegExp): string | undefined {
+  for (const url of urls) {
+    if (!url || !host.test(url)) continue;
+    const match = url.match(path);
+    if (match) return match[0];
+  }
+  return undefined;
+}
+
+export function camfitHref(camp: Camp): string {
+  const page = firstCampPage(
+    [camp.camfitUrl, camp.reservationUrl, camp.homepage],
+    /camfit\.co\.kr/i,
+    /https?:\/\/(?:www\.)?camfit\.co\.kr\/camp\/[a-f0-9]+/i
+  );
+  if (page) return page.replace("http://", "https://").replace("://www.", "://");
+  return `https://camfit.co.kr/search?keyword=${q(camp.name)}`;
+}
+
 export function placeLinks(camp: Camp): PlaceLink[] {
   const name = camp.name;
   const links: PlaceLink[] = [
@@ -26,7 +45,7 @@ export function placeLinks(camp: Camp): PlaceLink[] {
     },
     {
       name: "캠핏",
-      url: camp.camfitUrl || `https://camfit.co.kr/search?keyword=${q(name)}`,
+      url: camfitHref(camp),
       hint: "실시간 예약",
     },
     {

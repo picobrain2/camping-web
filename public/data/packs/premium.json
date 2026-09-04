@@ -26,8 +26,9 @@
       "address": "강원특별자치도 평창군 용평면 이승복생가길 114",
       "phone": "0507-1305-5661",
       "homepage": "https://hyggeforest.co.kr/",
-      "reservationUrl": "https://hyggeforest.co.kr/content/5",
-      "reservationPlatform": "캠핏 · 자체 홈페이지",
+      "camfitUrl": "https://camfit.co.kr/camp/67e27168fc138f001df892dc",
+      "reservationUrl": "https://camfit.co.kr/camp/67e27168fc138f001df892dc",
+      "reservationPlatform": "캠핏",
       "reservationWindows": [
         {
           "label": "매월 1일 21:00",
