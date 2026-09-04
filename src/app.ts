@@ -223,7 +223,7 @@ function renderSearchPane(): string {
       </header>
       <div class="search-box">
         <input id="search-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 · 지역 · 위생 · 전기" value="${esc(query)}" />
-        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : myPos ? "GPS 켜짐" : "GPS"}</button>
+        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : myPos ? "위치 켜짐" : "내 위치"}</button>
       </div>
       <div class="search-box origin-box">
         <input id="origin-input" type="search" enterkeyhint="search" autocomplete="off" placeholder="출발지 · 김포시청 · 우리 동네" value="${esc(originQuery)}" />
@@ -730,8 +730,40 @@ function toggleFilter(list: string[], value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
 }
 
-function locationDeniedMessage(): string {
-  return "이 브라우저는 GPS 허용 창을 다시 띄우지 않습니다. 아래 출발지에 동네나 시청을 적어 찾기를 눌러 주세요.";
+function locationFailMessage(err?: GeolocationPositionError): string {
+  if (err && (err.code === err.TIMEOUT || err.code === err.POSITION_UNAVAILABLE)) {
+    return "GPS 신호를 못 받았습니다. 출발지에 동네나 시청을 적고 찾기를 눌러 주세요.";
+  }
+  return "이 탭에서는 GPS를 쓰지 못했습니다. 위치는 켜져 있어도 사이트 권한이 없거나, 이 창이 GPS를 막기도 합니다. 출발지를 검색해 주세요.";
+}
+
+function pinMyLocation(): void {
+  if (!window.isSecureContext || !navigator.geolocation) {
+    locError = "이 화면에서는 GPS를 못 씁니다. 출발지를 검색해 주세요.";
+    render();
+    return;
+  }
+  locLoading = true;
+  locError = null;
+  const btn = document.querySelector<HTMLButtonElement>('[data-action="pin-location"]');
+  if (btn) btn.textContent = "위치…";
+
+  const onOk = (pos: GeolocationPosition): void => {
+    applyOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude }, "현재 위치");
+  };
+  const onFail = (err: GeolocationPositionError): void => {
+    locLoading = false;
+    locError = locationFailMessage(err);
+    render();
+    document.getElementById("origin-input")?.focus();
+  };
+
+  // 고정밀은 권한은 있는데도 실패하는 경우가 많아, 먼저 낮은 정확도로 받습니다.
+  navigator.geolocation.getCurrentPosition(onOk, onFail, {
+    enableHighAccuracy: false,
+    timeout: 10000,
+    maximumAge: 300000,
+  });
 }
 
 function applyOrigin(pos: GeoPos, label: string): void {
@@ -770,30 +802,6 @@ async function searchOrigin(): Promise<void> {
   originHits = hits;
   locError = "출발지를 골라 주세요.";
   render();
-}
-
-function pinMyLocation(): void {
-  if (!window.isSecureContext || !navigator.geolocation) {
-    locError = "GPS를 쓸 수 없습니다. 출발지를 검색해 주세요.";
-    render();
-    return;
-  }
-  locLoading = true;
-  locError = null;
-  const btn = document.querySelector<HTMLButtonElement>('[data-action="pin-location"]');
-  if (btn) btn.textContent = "위치…";
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      applyOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude }, "현재 위치");
-    },
-    () => {
-      locLoading = false;
-      locError = locationDeniedMessage();
-      render();
-      document.getElementById("origin-input")?.focus();
-    },
-    { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
-  );
 }
 
 function openExternal(url: string): void {
@@ -938,6 +946,7 @@ function onInput(e: Event): void {
   const target = e.target as HTMLInputElement;
   if (target.id === "origin-input") {
     originQuery = target.value;
+    if (locError) locError = null;
     return;
   }
   if (target.id !== "search-input") return;
@@ -1053,8 +1062,8 @@ function registerServiceWorker(): void {
   window.addEventListener("load", () => {
     void (async () => {
       const regs = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(regs.map((reg) => reg.update()));
-      await navigator.serviceWorker.register("./sw.js?v=2");
+      await Promise.all(regs.map((reg) => reg.unregister()));
+      await navigator.serviceWorker.register("./sw.js?v=3");
     })().catch(() => {});
   });
 }

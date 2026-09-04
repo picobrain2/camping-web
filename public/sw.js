@@ -1,4 +1,4 @@
-const CACHE = "eodicamp-cache-v2";
+const CACHE = "eodicamp-cache-v3";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -12,6 +12,11 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  const dest = event.request.destination;
+  if (event.request.mode === "navigate" || dest === "document" || dest === "script") {
+    event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+    return;
+  }
   event.respondWith(
     fetch(event.request)
       .then((response) => {
