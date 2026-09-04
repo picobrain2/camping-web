@@ -24,7 +24,29 @@ function compactName(text = "") {
     .toLowerCase()
     .replace(/\s+/g, "")
     .replace(/[^\p{L}\p{N}]/gu, "")
-    .replace(/캠핑장|오토캠핑장|야영장|글램핑|카라반|캠핑/g, "");
+    .replace(/캠핑장|오토캠핑장|야영장|글램핑|카라반|캠핑파크|캠핑|오토|파크|풀빌라|펜션/g, "");
+}
+
+function findGoCamping(keys, byName) {
+  for (const key of keys) {
+    if (key && byName.has(key)) return byName.get(key);
+  }
+  let best = null;
+  let bestScore = 0;
+  for (const [name, row] of byName) {
+    for (const key of keys) {
+      if (!key || key.length < 4 || name.length < 4) continue;
+      let score = 0;
+      if (name === key) score = 100;
+      else if (name.includes(key) || key.includes(name)) score = 40 + Math.min(key.length, name.length);
+      else continue;
+      if (score > bestScore) {
+        bestScore = score;
+        best = row;
+      }
+    }
+  }
+  return bestScore >= 48 ? best : null;
 }
 
 function cleanUrl(value) {
@@ -131,13 +153,7 @@ for (const pack of index.packs) {
   let changed = false;
   for (const camp of payload.camps ?? []) {
     const keys = [camp.name, ...(camp.aliases ?? [])].map(compactName).filter(Boolean);
-    let hit = null;
-    for (const key of keys) {
-      if (byName.has(key)) {
-        hit = byName.get(key);
-        break;
-      }
-    }
+    const hit = findGoCamping(keys, byName);
     if (hit) {
       matched += 1;
       if (!camp.gocampingId && hit.gocampingId) {
@@ -187,10 +203,67 @@ for (const pack of index.packs) {
 index.updatedAt = new Date().toISOString().slice(0, 10);
 writeFileSync(INDEX_FILE, `${JSON.stringify(index, null, 2)}\n`);
 
+// 2차: 아직 homepage 없는 곳은 searchList로 이름 검색
+let searched = 0;
+let searchFilled = 0;
+for (const pack of index.packs) {
+  const file = join(DATA, pack);
+  if (!existsSync(file)) continue;
+  const payload = JSON.parse(readFileSync(file, "utf8"));
+  let changed = false;
+  for (const camp of payload.camps ?? []) {
+    if (camp.homepage) continue;
+    const keyword = String(camp.name ?? "")
+      .replace(/&/g, " ")
+      .split(/\s+/)
+      .filter((part) => part && !/캠핑|글램핑|카라반|야영|오토|풀|파크/i.test(part))
+      .slice(0, 2)
+      .join(" ")
+      .trim();
+    const q = keyword || String(camp.name ?? "").slice(0, 8);
+    if (q.length < 2) continue;
+    try {
+      const { items } = await getJson("searchList", { pageNo: 1, numOfRows: "20", keyword: q });
+      searched += 1;
+      const keys = [camp.name, ...(camp.aliases ?? [])].map(compactName).filter(Boolean);
+      const localMap = new Map();
+      for (const item of items) {
+        const name = compactName(item.facltNm);
+        if (!name) continue;
+        localMap.set(name, {
+          gocampingId: String(item.contentId),
+          homepage: cleanUrl(item.homepage),
+          reservationUrl: cleanUrl(item.resveUrl) || cleanUrl(item.homepage),
+          phone: String(item.tel ?? "").trim() || undefined,
+        });
+      }
+      const hit = findGoCamping(keys, localMap);
+      if (hit?.homepage) {
+        camp.homepage = hit.homepage;
+        if (!camp.gocampingId && hit.gocampingId) camp.gocampingId = hit.gocampingId;
+        if (!camp.reservationUrl && hit.reservationUrl) camp.reservationUrl = hit.reservationUrl;
+        if (!camp.phone && hit.phone) camp.phone = hit.phone;
+        searchFilled += 1;
+        filledHomepage += 1;
+        changed = true;
+      }
+      await sleep(150);
+    } catch (error) {
+      console.warn(`searchList ${camp.name}:`, error instanceof Error ? error.message : error);
+    }
+  }
+  if (changed) {
+    payload.updatedAt = new Date().toISOString().slice(0, 10);
+    writeFileSync(file, `${JSON.stringify(payload, null, 2)}\n`);
+    if (!changedFiles.includes(pack)) changedFiles.push(pack);
+  }
+}
+
 const summary = [
   "## 홈페이지 보강",
   "",
   `- 고캠핑 이름 매칭 ${matched}곳`,
+  `- searchList 조회 ${searched}곳 / 추가 채움 ${searchFilled}곳`,
   `- homepage 채움 ${filledHomepage}곳`,
   `- 공식 포털 homepage ${filledPortal}곳`,
   `- 예약 URL 채움 ${filledResve}곳`,
