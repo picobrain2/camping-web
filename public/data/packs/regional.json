@@ -42,7 +42,9 @@
       "ratings": {
         "official": 4.2,
         "naver": 4.3
-      }
+      },
+      "gocampingId": "2778",
+      "homepage": "https://joongrangsoop.modoo.at"
     },
     {
       "id": "gangdong-greenway",
@@ -85,7 +87,10 @@
       "ratings": {
         "official": 4.1,
         "naver": 4.2
-      }
+      },
+      "gocampingId": "7963",
+      "homepage": "https://camping.ubimc.or.kr/main.do?bid=1",
+      "phone": "052-291-3663"
     },
     {
       "id": "yeonin",
@@ -128,7 +133,8 @@
       "ratings": {
         "official": 4.2,
         "naver": 4.3
-      }
+      },
+      "homepage": "https://www.gp.go.kr"
     },
     {
       "id": "myeongji",
@@ -172,7 +178,10 @@
       "ratings": {
         "official": 4.1,
         "naver": 4.1
-      }
+      },
+      "gocampingId": "1065",
+      "homepage": "http://mgocamping.com/",
+      "phone": "031-582-0008"
     },
     {
       "id": "bidulginang",
@@ -227,7 +236,9 @@
           "source": "후기 요약",
           "body": "폭포·한탄강 경관이 핵심이고, 잔디·파쇄석이 넓어 초보도 편하다는 글이 많습니다."
         }
-      ]
+      ],
+      "gocampingId": "3271",
+      "phone": "1666-9260-"
     },
     {
       "id": "jukdo",
@@ -357,7 +368,10 @@
       "ratings": {
         "official": 4.2,
         "naver": 4.2
-      }
+      },
+      "gocampingId": "2975",
+      "reservationUrl": "http://www.chuamautocamping.or.kr/",
+      "phone": "033-539-3736"
     },
     {
       "id": "naerincheon",
@@ -484,7 +498,7 @@
       ],
       "description": "단양 대강면 권역. 도담삼봉·만천하스카이워크와 하루를 나누기 좋습니다.",
       "ratings": {
-        "official": 4.0,
+        "official": 4,
         "naver": 4.1
       }
     },
@@ -577,7 +591,7 @@
       ],
       "description": "대천해수욕장과 가까운 서해 오토캠핑. 여름 가족 일정에 잘 맞습니다.",
       "ratings": {
-        "official": 4.0,
+        "official": 4,
         "naver": 4.1
       }
     },
@@ -793,7 +807,10 @@
       "ratings": {
         "official": 4.2,
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1833",
+      "reservationUrl": "https://www.geochang.go.kr/ssd/Index.do",
+      "phone": "055-940-8530"
     },
     {
       "id": "homigot",

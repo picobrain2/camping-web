@@ -117,7 +117,8 @@
       "ratings": {
         "naver": 4.6
       },
-      "featured": true
+      "featured": true,
+      "gocampingId": "100021"
     },
     {
       "id": "sopung",
@@ -217,7 +218,10 @@
       "ratings": {
         "naver": 4.6
       },
-      "featured": true
+      "featured": true,
+      "gocampingId": "3254",
+      "homepage": "https://www.instagram.com/forestsoul._.camp/?img_index=1",
+      "reservationUrl": "https://naver.me/G4rLHR5L"
     },
     {
       "id": "elmoro",
@@ -304,7 +308,11 @@
       "description": "연천 신서면 오캄. 캠핏 클린픽업 목록에 자주 보이는 북부 경기 캠핑장입니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "101544",
+      "reservationUrl": "https://camfit.co.kr/camp/66cd60ef387f0f001e84016a",
+      "phone": "0507-1355-5246",
+      "homepage": "https://camfit.co.kr/camp/66cd60ef387f0f001e84016a"
     },
     {
       "id": "malgeunsup",
@@ -349,7 +357,8 @@
       "description": "양평 청운 맑은숲캠프. 훈제 바베큐 패키지와 야외수영장으로 네이버에서 가족 일정이 많습니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "2288"
     },
     {
       "id": "kalbong-forest",
@@ -479,7 +488,11 @@
       "description": "양평 서종 힐링계곡. 서울에서 가깝고 다슬기·계곡 물놀이로 캠핑친구·네이버 후기가 많습니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100682",
+      "homepage": "https://healingvalley.campingt.me",
+      "reservationUrl": "https://booking.naver.com/booking/3/bizes/791312",
+      "phone": "031-772-9999"
     },
     {
       "id": "stonehill",
@@ -767,7 +780,8 @@
       "description": "가평 설악 푸른숲. 어비계곡 캠핑 벨트에 있어 네이버지도에서 밤벌·소풍과 함께 보입니다.",
       "ratings": {
         "naver": 4.2
-      }
+      },
+      "gocampingId": "101363"
     },
     {
       "id": "okanagan",
@@ -968,7 +982,8 @@
       "description": "포천 베네치아캠핑장. 캠프픽에 아버지의숲·고일리와 같이 포천 목록으로 나옵니다.",
       "ratings": {
         "naver": 4.2
-      }
+      },
+      "gocampingId": "101432"
     },
     {
       "id": "galgi",
@@ -1009,7 +1024,11 @@
       "description": "양평 갈기산. 계곡과 숲이 가까워 캠핑친구 추천 목록에 자주 오릅니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "129",
+      "homepage": "http://galgisanpensioncamp.com/stdzn/page.do?request=goMainPage&bizCode=P201410001",
+      "reservationUrl": "http://galgisanpensioncamp.com/stdzn/page.do?request=goReservePage&bizCode=P201410001&strMenuId=TMP1100",
+      "phone": "010-2476-3657"
     },
     {
       "id": "gomet",
@@ -1209,7 +1228,11 @@
       "description": "가평 산으로 간 니모. 이름 때문에 검색이 많고, 칼봉산 권역 민간 캠핑장입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7160",
+      "homepage": "http://www.nemocamp.com/",
+      "reservationUrl": "http://www.nemocamp.com",
+      "phone": "031-584-5550"
     },
     {
       "id": "palbong",
@@ -1291,7 +1314,9 @@
       "description": "포천 이동 백운계곡 권역. 산정호수·도마치와 한 동선으로 네이버지도에서 묶입니다.",
       "ratings": {
         "naver": 4.2
-      }
+      },
+      "gocampingId": "7150",
+      "phone": "010-9311-0667"
     },
     {
       "id": "homyeong",

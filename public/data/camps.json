@@ -261,7 +261,8 @@
           "source": "후기 요약",
           "body": "노을 뷰는 분명하고, 난지와 비교해 가족 단위로 더 많이 찾는다는 글이 있습니다."
         }
-      ]
+      ],
+      "gocampingId": "100836"
     },
     {
       "id": "seoulgrandpark",
@@ -372,7 +373,8 @@
             "kind": "amenity"
           }
         ]
-      }
+      },
+      "gocampingId": "1622"
     },
     {
       "id": "jarasum",
@@ -436,7 +438,7 @@
         "official": 4.1,
         "officialCount": 2100,
         "naver": 4.2,
-        "kakao": 4.0
+        "kakao": 4
       },
       "featured": true,
       "source": "manual",
@@ -511,7 +513,8 @@
           "source": "후기 요약",
           "body": "시설이 최근 정비됐다는 후기와, 주말 바람·벌레는 강변이라 있다는 글이 같이 있습니다."
         }
-      ]
+      ],
+      "gocampingId": "2616"
     },
     {
       "id": "jungmisan",
@@ -685,7 +688,7 @@
       "description": "산정호수 바로 옆. 산책과 유람선, 명성산 억새와 묶기 좋은 포천 대표 오토캠핑장입니다.",
       "photos": [],
       "ratings": {
-        "official": 4.0,
+        "official": 4,
         "officialCount": 880,
         "naver": 4.1,
         "kakao": 3.9
@@ -743,7 +746,8 @@
             "kind": "amenity"
           }
         ]
-      }
+      },
+      "gocampingId": "1528"
     },
     {
       "id": "mongsanpo",
@@ -798,7 +802,7 @@
         "official": 4.1,
         "officialCount": 620,
         "naver": 4.2,
-        "kakao": 4.0
+        "kakao": 4
       },
       "featured": false,
       "source": "manual",
@@ -993,7 +997,7 @@
       "description": "경포해변과 가까운 동해 오토캠핑. 일출과 경포호 산책을 하루 일정으로 묶기 좋습니다.",
       "photos": [],
       "ratings": {
-        "official": 4.0,
+        "official": 4,
         "officialCount": 990,
         "naver": 4.1,
         "kakao": 3.9
@@ -1255,7 +1259,8 @@
             "kind": "amenity"
           }
         ]
-      }
+      },
+      "gocampingId": "1802"
     },
     {
       "id": "camptong",
@@ -1603,7 +1608,8 @@
             "kind": "amenity"
           }
         ]
-      }
+      },
+      "gocampingId": "6971"
     },
     {
       "id": "donggang",
@@ -1703,7 +1709,8 @@
             "kind": "auto"
           }
         ]
-      }
+      },
+      "gocampingId": "6975"
     },
     {
       "id": "guryong",
@@ -1913,7 +1920,8 @@
             "kind": "water"
           }
         ]
-      }
+      },
+      "gocampingId": "6808"
     },
     {
       "id": "hakdong",
@@ -2050,7 +2058,7 @@
       "description": "낙동강 생태공원 안의 부산 도심형 캠핑장. 유채·코스모스 축제 시즌에는 주변이 붐빕니다.",
       "photos": [],
       "ratings": {
-        "official": 4.0,
+        "official": 4,
         "officialCount": 390,
         "naver": 4.1,
         "kakao": 3.9
@@ -2099,7 +2107,8 @@
             "kind": "road"
           }
         ]
-      }
+      },
+      "gocampingId": "769"
     },
     {
       "id": "hamdeok",

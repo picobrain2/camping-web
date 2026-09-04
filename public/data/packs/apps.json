@@ -5,391 +5,979 @@
     {
       "id": "campone",
       "name": "포천 캠프원",
-      "aliases": ["캠프원"],
+      "aliases": [
+        "캠프원"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto"],
-      "tags": ["산", "계곡", "키즈", "물놀이"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 포천시 산정호수 인근",
       "camfitUrl": "https://camfit.co.kr/camp/62f21a9788149f001ed841a5",
       "reservationUrl": "https://camfit.co.kr/camp/62f21a9788149f001ed841a5",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏 실시간. 여름 수영장 시즌은 한 달 전후 오픈되는 편." }],
-      "siteTypes": [
-        { "name": "오토·데크", "priceMin": 70000, "priceMax": 110000, "notes": "타프·데크 사이트" }
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏 실시간. 여름 수영장 시즌은 한 달 전후 오픈되는 편."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장", "놀이터"],
+      "siteTypes": [
+        {
+          "name": "오토·데크",
+          "priceMin": 70000,
+          "priceMax": 110000,
+          "notes": "타프·데크 사이트"
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장",
+        "놀이터"
+      ],
       "mannersTime": "23:00–08:00",
       "description": "산정호수 근처 키즈 오토캠핑. 야외수영장과 실내놀이터가 있어 캠핏에서 가족 일정으로 많이 잡습니다.",
-      "ratings": { "naver": 4.5 },
-      "featured": true
+      "ratings": {
+        "naver": 4.5
+      },
+      "featured": true,
+      "gocampingId": "100401",
+      "homepage": "https://www.instagram.com/_campone_/"
     },
     {
       "id": "domachi",
       "name": "도마치캠핑장",
-      "aliases": ["포천도마치"],
+      "aliases": [
+        "포천도마치"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto"],
-      "tags": ["계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
       "address": "경기도 포천시 이동면 화동로 2318-6",
       "phone": "0507-0265-8024",
       "camfitUrl": "https://camfit.co.kr/camp/60517b6d3f88aa001d233e71",
       "reservationUrl": "https://camfit.co.kr/camp/60517b6d3f88aa001d233e71",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간 예약. 계곡 시즌 주말은 빨리 찹니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간 예약. 계곡 시즌 주말은 빨리 찹니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "mannersTime": "23:00–08:00",
       "description": "포천 이동면 도마치 계곡. 사이트 간격과 관리가 좋아 캠핏 캠핑로그가 많은 곳입니다.",
-      "ratings": { "naver": 4.6 },
-      "featured": true
+      "ratings": {
+        "naver": 4.6
+      },
+      "featured": true,
+      "homepage": "https://camfit.co.kr/camp/60517b6d3f88aa001d233e71"
     },
     {
       "id": "suwonsan",
       "name": "포천 수원산오토캠핑장",
-      "aliases": ["수원산캠핑"],
+      "aliases": [
+        "수원산캠핑"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto"],
-      "tags": ["산", "계곡", "키즈"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡",
+        "키즈"
+      ],
       "address": "경기도 포천시 군내면 청군로2985번길 50-29",
       "camfitUrl": "https://camfit.co.kr/camp/60e3c76766cd82001e1ae5b3",
       "reservationUrl": "https://camfit.co.kr/camp/60e3c76766cd82001e1ae5b3",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏에서 하루씩 오픈되는 날이 있습니다. 카라반·캠핑카는 불가." }],
-      "siteTypes": [
-        { "name": "키즈플레이존", "priceMin": 50000, "priceMax": 80000 },
-        { "name": "계곡존", "priceMin": 50000, "priceMax": 80000 }
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏에서 하루씩 오픈되는 날이 있습니다. 카라반·캠핑카는 불가."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "놀이터"],
+      "siteTypes": [
+        {
+          "name": "키즈플레이존",
+          "priceMin": 50000,
+          "priceMax": 80000
+        },
+        {
+          "name": "계곡존",
+          "priceMin": 50000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "놀이터"
+      ],
       "description": "포천IC에서 가까운 오토캠핑. 캠핏에 키즈·모래놀이·잣나무 존이 나뉘어 있습니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      },
+      "homepage": "https://camfit.co.kr/camp/60e3c76766cd82001e1ae5b3"
     },
     {
       "id": "supae",
       "name": "숲에 캠핑장",
-      "aliases": ["가평숲에"],
+      "aliases": [
+        "가평숲에"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["산", "반려견", "키즈", "물놀이"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 설악면 목안로194번길 5-199",
       "camfitUrl": "https://camfit.co.kr/camp/69fc87c3c3f9a3001dec989f",
       "reservationUrl": "https://camfit.co.kr/camp/69fc87c3c3f9a3001dec989f",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏 실시간. 개별화장실 방갈로라 주말 마감이 빠릅니다." }],
-      "siteTypes": [{ "name": "방갈로·개별화장실", "priceMin": 120000, "priceMax": 200000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏 실시간. 개별화장실 방갈로라 주말 마감이 빠릅니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "방갈로·개별화장실",
+          "priceMin": 120000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장"
+      ],
       "mannersTime": "22:30–07:30",
       "description": "가평 설악 신생 캠핑장. 사이트마다 화장실·개수대가 있어 캠핏에서 이지캠핑으로 많이 찾습니다.",
-      "ratings": { "naver": 4.5 },
-      "featured": true
+      "ratings": {
+        "naver": 4.5
+      },
+      "featured": true,
+      "gocampingId": "102235",
+      "homepage": "https://camfit.co.kr/camp/69fc87c3c3f9a3001dec989f"
     },
     {
       "id": "sanmeoru",
       "name": "산머루농원캠핑장",
-      "aliases": ["파주산머루"],
+      "aliases": [
+        "파주산머루"
+      ],
       "region": "경기",
       "city": "파주시",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "경기도 파주시",
       "reservationUrl": "https://camfit.co.kr/search?keyword=%EC%82%B0%EB%A8%B8%EB%A3%A8%EB%86%8D%EC%9B%90%EC%BA%A0%ED%95%91%EC%9E%A5",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 장비 대여(이지캠핑) 옵션이 있습니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 장비 대여(이지캠핑) 옵션이 있습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "파주 산머루농원. 캠핏에서 대여 캠핑으로 자주 노출되는 수도권 근교 캠핑장입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "mulmung",
       "name": "물멍캠프",
-      "aliases": ["가평물멍"],
+      "aliases": [
+        "가평물멍"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["호수", "반려견"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수",
+        "반려견"
+      ],
       "address": "경기도 가평군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 검색 후 예약. 반려캠핑으로 자주 추천됩니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 검색 후 예약. 반려캠핑으로 자주 추천됩니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "가평 물멍캠프. 캠핏 반려캠핑 순위에 자주 오르는 강변·호수 분위기 캠핑장입니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      },
+      "gocampingId": "101639"
     },
     {
       "id": "saesori",
       "name": "홍천 두미리 새소리 캠핑장",
-      "aliases": ["두미리관광농원", "새소리캠핑장"],
+      "aliases": [
+        "두미리관광농원",
+        "새소리캠핑장"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "강원특별자치도 홍천군 두미리",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 관광농원 캠핑이라 아이 동반에 잘 맞습니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 관광농원 캠핑이라 아이 동반에 잘 맞습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "홍천 두미리 관광농원 새소리 캠핑장. 캠핏에서 대여·가족 캠핑으로 자주 보입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "vivaldi-noil",
       "name": "비발디캠핑파크 노일점",
-      "aliases": ["비발디노일"],
+      "aliases": [
+        "비발디노일"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "강원특별자치도 홍천군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏·리조트 예약. 홍천 비발디파크 권역입니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏·리조트 예약. 홍천 비발디파크 권역입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "홍천 비발디캠핑파크 노일점. 캠핏 할인·페스타에 자주 올라오는 오토캠핑입니다.",
-      "ratings": { "naver": 4.2 }
+      "ratings": {
+        "naver": 4.2
+      }
     },
     {
       "id": "vivaldi-miru",
       "name": "비발디캠핑파크 미루나무점",
-      "aliases": ["비발디미루나무"],
+      "aliases": [
+        "비발디미루나무"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto", "caravan"],
-      "tags": ["산"],
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "강원특별자치도 홍천군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏에서 오토·방갈로·카라반을 같이 고를 수 있습니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "priceMin": 40000, "priceMax": 80000 },
-        { "name": "카라반", "priceMin": 120000, "priceMax": 200000 }
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏에서 오토·방갈로·카라반을 같이 고를 수 있습니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 80000
+        },
+        {
+          "name": "카라반",
+          "priceMin": 120000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "비발디캠핑파크 미루나무점. 오토와 카라반이 한곳에 있어 초보·가족 일정이 편합니다.",
-      "ratings": { "naver": 4.2 }
+      "ratings": {
+        "naver": 4.2
+      },
+      "gocampingId": "100912",
+      "homepage": "https://vivaldicamping.com/camping-park/",
+      "reservationUrl": "https://www.camfit.co.kr/camp/64427876089985001f18923d/64427ab80276d5001e6ac9b4",
+      "phone": "0507-1339-3593"
     },
     {
       "id": "kimwonjang",
       "name": "가평 김원장캠핑",
-      "aliases": ["김원장캠핑"],
+      "aliases": [
+        "김원장캠핑"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["산", "계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
       "address": "경기도 가평군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 대여 캠핑 옵션이 있습니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 65000, "priceMax": 85000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 대여 캠핑 옵션이 있습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 65000,
+          "priceMax": 85000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "가평 김원장캠핑. 캠핏 페스타에 자주 오르는 오토·대여 캠핑장입니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      },
+      "gocampingId": "101324"
     },
     {
       "id": "banana",
       "name": "충주 캠핑에바나나",
-      "aliases": ["캠핑에바나나"],
+      "aliases": [
+        "캠핑에바나나"
+      ],
       "region": "충청",
       "city": "충주시",
-      "kinds": ["auto", "glamping"],
-      "tags": ["호수"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "호수"
+      ],
       "address": "충청북도 충주시",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏에서 오토와 글램핑을 같이 볼 수 있습니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "priceMin": 30000, "priceMax": 50000 },
-        { "name": "글램핑", "priceMin": 120000, "priceMax": 200000 }
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏에서 오토와 글램핑을 같이 볼 수 있습니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 50000
+        },
+        {
+          "name": "글램핑",
+          "priceMin": 120000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "충주 캠핑에바나나. 캠핏에서 오토·글램핑이 함께 잡히는 충주호 권역 캠핑장입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      },
+      "gocampingId": "100508",
+      "homepage": "https://blog.naver.com/campbanana",
+      "reservationUrl": "https://m.thankqcamping.com/resv/view.hbb?cseq=4051&chk=sns&go_main=Y",
+      "phone": "0507-1358-6993"
     },
     {
       "id": "daeryong",
       "name": "대룡산 오토캠핑장",
-      "aliases": ["홍천대룡산"],
+      "aliases": [
+        "홍천대룡산"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto"],
-      "tags": ["산", "계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
       "address": "강원특별자치도 홍천군 북방면 성동로",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏·네이버 카페 예약이 섞여 있습니다. 캠핏에서 먼저 보세요." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏·네이버 카페 예약이 섞여 있습니다. 캠핏에서 먼저 보세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "홍천·춘천 사이 대룡산. 캠핏 인기 급상승에 자주 오르는 계곡 오토캠핑입니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      }
     },
     {
       "id": "gogildong",
       "name": "고길동캠핑장",
-      "aliases": ["홍천고길동"],
+      "aliases": [
+        "홍천고길동"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto"],
-      "tags": ["산", "계곡", "키즈"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡",
+        "키즈"
+      ],
       "address": "강원특별자치도 홍천군 북방면 성동로 1625-16",
       "phone": "010-9403-7603",
       "reservationPlatform": "캠핑톡 · 네이버",
-      "reservationWindows": [{ "label": "성수기", "rule": "네이버·캠핑톡에서 이름 검색. 대룡산 바로 옆입니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "놀이터"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "네이버·캠핑톡에서 이름 검색. 대룡산 바로 옆입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "놀이터"
+      ],
       "description": "대룡산 중턱 고길동캠핑장. 계곡 물놀이와 별이 좋아 홍천 순위 캠핑으로 자주 언급됩니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "dangmaru",
       "name": "영월 당마루 캠핑장",
-      "aliases": ["당마루"],
+      "aliases": [
+        "당마루"
+      ],
       "region": "강원",
       "city": "영월군",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "강원특별자치도 영월군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 동강·영월 일정과 붙이기 좋습니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 61000, "priceMax": 90000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 동강·영월 일정과 붙이기 좋습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 61000,
+          "priceMax": 90000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "영월 당마루. 캠핏에 올라 있는 오토캠핑으로, 동강전망 휴양림과 하루를 나누기 좋습니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      }
     },
     {
       "id": "healing-gapyeong",
       "name": "힐링 가평오토캠핑장&글램핑",
-      "aliases": ["힐링가평"],
+      "aliases": [
+        "힐링가평"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "계곡"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
       "address": "경기도 가평군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏에서 오토와 글램핑을 같이 검색하세요." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "priceMin": 50000, "priceMax": 80000 },
-        { "name": "글램핑", "priceMin": 150000, "priceMax": 250000 }
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏에서 오토와 글램핑을 같이 검색하세요."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        },
+        {
+          "name": "글램핑",
+          "priceMin": 150000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "가평 힐링 오토·글램핑. 장비 없이 가는 일정과 텐트 일정을 한곳에서 고를 수 있습니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "mulsori",
       "name": "가평물소리캠핑장",
-      "aliases": ["물소리캠핑장"],
+      "aliases": [
+        "물소리캠핑장"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
       "address": "경기도 가평군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏 실시간. 계곡 시즌 주말은 빨리 마감됩니다." }],
-      "siteTypes": [{ "name": "오토·방갈로", "priceMin": 70000, "priceMax": 120000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏 실시간. 계곡 시즌 주말은 빨리 마감됩니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토·방갈로",
+          "priceMin": 70000,
+          "priceMax": 120000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "가평 물소리캠핑장. 캠핏에서 오토·방갈로로 잡히는 계곡 캠핑입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      },
+      "gocampingId": "100742"
     },
     {
       "id": "gwangneung",
       "name": "광릉숲이야기캠핑장",
-      "aliases": ["광릉숲캠핑"],
+      "aliases": [
+        "광릉숲캠핑"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "경기도 포천시 광릉숲 인근",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 주말은 요금이 높은 편입니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 100000, "priceMax": 140000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 주말은 요금이 높은 편입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 100000,
+          "priceMax": 140000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "포천 광릉숲 이야기 캠핑장. 캠핏 클린픽업·인기 목록에 자주 오릅니다.",
-      "ratings": { "naver": 4.5 },
+      "ratings": {
+        "naver": 4.5
+      },
       "featured": true
     },
     {
       "id": "teumung",
       "name": "트멍캠핑장",
-      "aliases": ["포천트멍"],
+      "aliases": [
+        "포천트멍"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto"],
-      "tags": ["산", "반려견"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
       "address": "경기도 포천시",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 찜 순위 상위. 주말 오픈을 캘린더에 맞춰 보세요." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 60000, "priceMax": 90000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 찜 순위 상위. 주말 오픈을 캘린더에 맞춰 보세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 60000,
+          "priceMax": 90000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "포천 트멍캠핑장. 캠핏 최다 찜에 자주 오르는 오토캠핑입니다.",
-      "ratings": { "naver": 4.5 },
-      "featured": true
+      "ratings": {
+        "naver": 4.5
+      },
+      "featured": true,
+      "gocampingId": "100261"
     },
     {
       "id": "jungbawi",
       "name": "가평 중바위캠핑장",
-      "aliases": ["중바위캠핑장"],
+      "aliases": [
+        "중바위캠핑장"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "경기도 가평군",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "가을", "rule": "캠핏 단풍 기획전에 자주 올라옵니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "가을",
+          "rule": "캠핏 단풍 기획전에 자주 올라옵니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "가평 중바위캠핑장. 캠핏 단풍 캠핑 순위에서 자주 보이는 오토캠핑입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      },
+      "gocampingId": "2783",
+      "homepage": "http://cafe.naver.com/jbwcamping",
+      "reservationUrl": "http://r5.camperstory.com/?2045",
+      "phone": "031-581-8000"
     },
     {
       "id": "yonggari",
       "name": "용가리쌤 캠핑장",
-      "aliases": ["용가리캠핑장"],
+      "aliases": [
+        "용가리캠핑장"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "강원특별자치도 홍천군 화촌면",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏에서 홍천 화촌면으로 검색하세요." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏에서 홍천 화촌면으로 검색하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "홍천 화촌면 용가리쌤 캠핑장. 캠핏 홍천 목록에 자주 함께 나옵니다.",
-      "ratings": { "naver": 4.2 }
+      "ratings": {
+        "naver": 4.2
+      }
     },
     {
       "id": "eunhang",
       "name": "홍천 은행나무캠핑장",
-      "aliases": ["은행나무캠핑"],
+      "aliases": [
+        "은행나무캠핑"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "키즈"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈"
+      ],
       "address": "강원특별자치도 홍천군",
       "reservationPlatform": "캠핑톡 · 캠핏",
-      "reservationWindows": [{ "label": "가을", "rule": "은행나무 단풍 주말은 캠핑톡·캠핏 모두 빨리 마감됩니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "priceMin": 50000, "priceMax": 80000 },
-        { "name": "글램핑", "priceMin": 150000, "priceMax": 250000 }
+      "reservationWindows": [
+        {
+          "label": "가을",
+          "rule": "은행나무 단풍 주말은 캠핑톡·캠핏 모두 빨리 마감됩니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        },
+        {
+          "name": "글램핑",
+          "priceMin": 150000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "홍천 은행나무 캠핑. 네이버지도 후기와 캠핑톡 예약으로 단풍철에 특히 붐빕니다.",
-      "ratings": { "naver": 4.4 },
+      "ratings": {
+        "naver": 4.4
+      },
       "featured": true
     },
     {
       "id": "ppazi",
       "name": "가평 빠지캠핑",
-      "aliases": ["청평빠지캠핑"],
+      "aliases": [
+        "청평빠지캠핑"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "tent"],
-      "tags": ["호수", "물놀이"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "호수",
+        "물놀이"
+      ],
       "address": "경기도 가평군 청평면",
       "reservationPlatform": "캠핑톡 · 네이버",
-      "reservationWindows": [{ "label": "여름", "rule": "청평 수상레저 시즌은 캠핑톡·네이버예약이 빨리 찹니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "청평 수상레저 시즌은 캠핑톡·네이버예약이 빨리 찹니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "청평호 빠지 근처 캠핑. 수상레저와 하루 일정을 짜는 팀이 네이버지도에서 많이 찾습니다.",
-      "ratings": { "naver": 4.1 }
+      "ratings": {
+        "naver": 4.1
+      }
     }
   ]
 }
