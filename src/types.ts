@@ -74,11 +74,19 @@ export interface Camp {
   layout?: CampLayout;
 }
 
+export type CampDraft = Partial<Camp> & Pick<Camp, "id" | "name" | "region" | "city">;
+
 export interface CatalogFile {
   version: number;
   updatedAt: string;
   note?: string;
   camps: Camp[];
+}
+
+export interface CatalogIndex {
+  updatedAt: string;
+  note?: string;
+  packs: string[];
 }
 
 export interface PersonalReview {

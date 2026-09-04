@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-09-04",
+  "note": "packs 배열에 JSON 파일을 추가하면 웹 목록이 늘어납니다. 고캠핑 전체는 GOCAMPING_KEY=키 npm run sync. curated 항목의 가격·예약규칙은 sync가 덮어쓰지 않습니다.",
+  "packs": [
+    "camps.json",
+    "packs/knps.json",
+    "packs/forest.json",
+    "packs/regional.json"
+  ]
+}

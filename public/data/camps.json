@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updatedAt": "2026-09-04",
-  "note": "이 파일이 웹에 붙는 캠핑장 DB입니다. curated=true 항목은 npm run sync 가 가격·배치도·예약규칙을 덮어쓰지 않습니다. 앱에서 추가한 캠핑장은 JSON 복사 후 camps 배열에 붙이면 됩니다.",
+  "note": "손본 대표 목록입니다. 국립공원·휴양림·지역 유명지는 packs/ 에 있고, index.json 에 파일을 추가하면 목록이 늘어납니다.",
   "camps": [
     {
       "id": "nanji",

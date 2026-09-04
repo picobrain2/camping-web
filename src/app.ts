@@ -1,6 +1,6 @@
-import { loadFileCatalog, mergeCatalog, overlayToJson } from "./lib/catalog";
+import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
-import { LAYOUT_LEGEND, renderLayoutSvg } from "./lib/layout";
+import { inferLayout, LAYOUT_LEGEND, renderLayoutSvg } from "./lib/layout";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
   loadOverlay,
@@ -380,13 +380,9 @@ function layoutBlock(camp: Camp): string {
   const image = camp.layoutImage
     ? `<img class="layout-photo" src="${esc(camp.layoutImage)}" alt="${esc(camp.name)} 배치도" />`
     : "";
-  const svg = camp.layout ? renderLayoutSvg(camp.layout, camp.name) : "";
-  const legend = camp.layout
-    ? `<div class="legend">${LAYOUT_LEGEND.map((l) => `<span data-kind="${l.kind}">${esc(l.label)}</span>`).join("")}</div>`
-    : "";
-  if (!image && !svg) {
-    return `<section class="block"><h3>전체 배치도</h3><p class="muted">배치도 데이터가 없습니다. 파일 DB의 layout 또는 layoutImage 에 넣으면 여기에 표시됩니다.</p></section>`;
-  }
+  const layout = camp.layout ?? inferLayout(camp.kinds, camp.siteTypes, camp.tags);
+  const svg = renderLayoutSvg(layout, camp.name);
+  const legend = `<div class="legend">${LAYOUT_LEGEND.map((l) => `<span data-kind="${l.kind}">${esc(l.label)}</span>`).join("")}</div>`;
   return `
     <section class="block">
       <h3>전체 배치도</h3>
@@ -471,14 +467,20 @@ function renderDataPanel(): string {
         <strong>파일 DB</strong>
       </header>
       <div class="detail-scroll">
-        <h2>파일 DB 유지</h2>
-        <p>웹에 붙는 목록은 <code>camping-web/public/data/camps.json</code> 한 장입니다. 새로 생긴 캠핑장은 아래 둘 중 하나로 계속 넣을 수 있습니다.</p>
+        <h2>파일 DB를 늘리는 방법</h2>
+        <p>목록은 <code>public/data/index.json</code> 의 packs 파일들을 합쳐 만듭니다. 지금 ${camps.length}곳입니다.</p>
         <ol class="steps">
-          <li><strong>손수 붙이기</strong> — 앱의 추가 폼으로 넣고, JSON을 복사해 camps 배열에 붙인 뒤 다시 배포합니다.</li>
-          <li><strong>고캠핑 동기화</strong> — 공공데이터포털 인증키로 <code>GOCAMPING_KEY=키 npm run sync</code> 를 실행하면 신규만 파일에 추가됩니다. <code>curated: true</code> 로 손본 항목의 가격·배치도·예약규칙은 덮어쓰지 않습니다.</li>
+          <li><strong>팩 파일 추가</strong> — <code>public/data/packs/</code> 에 JSON을 만들고 index.json 의 packs 에 경로만 넣으면 배포 목록이 늘어납니다. 국립공원·휴양림·지역 유명지는 이미 이 방식입니다.</li>
+          <li><strong>고캠핑 동기화</strong> — 공공데이터포털 인증키로 <code>GOCAMPING_KEY=키 npm run sync</code>. 전국 수천 곳이 파일에 붙고, 손본 항목의 가격·예약규칙은 덮어쓰지 않습니다.</li>
+          <li><strong>앱에서 추가</strong> — 추가 폼이나 아래 JSON 가져오기로 이 기기에 붙인 뒤, 복사해서 팩 파일에 넣으면 웹에도 남습니다.</li>
         </ol>
-        <p class="muted">파일 갱신일 ${esc(catalogUpdated || "–")} · 지금 목록 ${camps.length}곳 · 이 기기 임시 추가 ${overlay.length}곳</p>
+        <p class="muted">파일 갱신일 ${esc(catalogUpdated || "–")} · 이 기기 임시 추가 ${overlay.length}곳</p>
         ${catalogNote ? `<p class="muted">${esc(catalogNote)}</p>` : ""}
+        <h3>JSON 가져오기</h3>
+        <textarea id="import-json" class="json-box" placeholder='{"camps":[{"id":"example","name":"이름","region":"경기","city":"가평군"}]}'></textarea>
+        <div class="form-actions">
+          <button type="button" class="btn" data-action="import-overlay">이 기기에 가져오기</button>
+        </div>
         <h3>이 기기에서 추가한 JSON</h3>
         <textarea id="overlay-json" class="json-box" readonly>${esc(json)}</textarea>
         <div class="form-actions">
@@ -534,6 +536,25 @@ function onClick(e: MouseEvent): void {
       void navigator.clipboard.writeText(overlayToJson(overlay));
       el.textContent = "복사됨";
       break;
+    case "import-overlay": {
+      const box = document.getElementById("import-json") as HTMLTextAreaElement | null;
+      try {
+        const rows = parseCampList(box?.value ?? "");
+        if (!rows.length) {
+          alert("camps 배열이 있는 JSON을 넣어 주세요.");
+          break;
+        }
+        overlay = [
+          ...overlay.filter((item) => !rows.some((row) => row.id === item.id)),
+          ...rows.map((row) => ({ ...normalizeCamp(row), source: "overlay" as const })),
+        ];
+        saveOverlay(overlay);
+        void reloadMerged();
+      } catch {
+        alert("JSON 형식을 확인하세요.");
+      }
+      break;
+    }
     case "clear-overlay":
       if (!confirm("이 기기에만 있는 추가 캠핑장을 모두 지울까요? 파일 DB는 그대로입니다.")) return;
       overlay = [];

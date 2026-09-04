@@ -1,4 +1,4 @@
-import type { CampLayout, ZoneKind } from "../types";
+import type { CampKind, CampLayout, SiteType, ZoneKind } from "../types";
 
 const FILL: Record<ZoneKind, string> = {
   auto: "#6f8f62",
@@ -41,6 +41,35 @@ export function renderLayoutSvg(layout: CampLayout, title: string): string {
 
 function escapeXml(text: string): string {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+export function inferLayout(kinds: CampKind[], siteTypes: SiteType[], tags: string[]): CampLayout {
+  const zoneKind = (name: string, fallback?: CampKind): ZoneKind => {
+    if (name.includes("글램") || fallback === "glamping") return "glamping";
+    if (name.includes("카라") || fallback === "caravan") return "caravan";
+    if (name.includes("오토") || name.includes("자동차") || fallback === "auto") return "auto";
+    return "tent";
+  };
+  const items = siteTypes.length
+    ? siteTypes
+    : kinds.map((kind) => ({ name: kind }));
+  const zones = items.slice(0, 4).map((site, index) => ({
+    id: site.name || `z${index}`,
+    label: site.name || "사이트",
+    x: index * 3,
+    y: 0,
+    w: 3,
+    h: 4,
+    kind: zoneKind(site.name, kinds[index] ?? kinds[0]),
+  }));
+  const width = Math.max(zones.length * 3, 8);
+  const water = tags.find((tag) => ["바다", "계곡", "호수", "한강"].includes(tag));
+  zones.push(
+    water
+      ? { id: "water", label: water, x: 0, y: 4, w: width, h: 2, kind: "water" }
+      : { id: "wc", label: "편의시설", x: 0, y: 4, w: width, h: 2, kind: "amenity" }
+  );
+  return { cols: width, rows: 6, zones };
 }
 
 export const LAYOUT_LEGEND: { kind: ZoneKind; label: string }[] = [
