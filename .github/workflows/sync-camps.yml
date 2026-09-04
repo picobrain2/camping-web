@@ -12,7 +12,7 @@ on:
         description: "우선 권역 (경기, 강원, all …)"
         default: "경기"
       mode:
-        description: "weekly(인기 후보), all(신규 한도까지), photos(제공 사진 채우기)"
+        description: "weekly(인기 후보), all(신규 한도까지), photos(제공 사진 채우기), homepages(홈페이지 보강)"
         default: "weekly"
 
 permissions:
@@ -52,6 +52,8 @@ jobs:
             npm run sync:all
           elif [ "$MODE" = "photos" ]; then
             npm run sync:photos
+          elif [ "$MODE" = "homepages" ]; then
+            npm run enrich:homepages
           else
             npm run sync
           fi
@@ -62,7 +64,7 @@ jobs:
           commit-message: "data: update GoCamping catalog"
           branch: chore/gocamping-weekly
           delete-branch: true
-          title: "고캠핑 데이터 업데이트"
+          title: "${{ github.event.inputs.mode == 'homepages' && '캠핑장 홈페이지 보강' || '고캠핑 데이터 업데이트' }}"
           body: |
             공공데이터포털 고캠핑 공식 API만 사용합니다. 캠핏·네이버·캠프픽은 호출하지 않습니다.
 
