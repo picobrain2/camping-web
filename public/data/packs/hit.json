@@ -1,0 +1,4674 @@
+{
+  "updatedAt": "2026-09-04",
+  "note": "캠프픽·땡큐캠핑·고캠핑·지역 추천에 반복되는 인기 캠핑 100곳.",
+  "camps": [
+    {
+      "id": "baegun-oyang",
+      "name": "백운오양골캠핑장",
+      "aliases": [
+        "오양골",
+        "포천오양골"
+      ],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "키즈",
+        "물놀이"
+      ],
+      "address": "경기도 포천시 이동면 화동로2457번길 92",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 90000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "백운계곡 바로 앞. 수영장·계곡 물놀이로 서울 근교 수영장 캠핑 추천 1위에 자주 오릅니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "031-536-5565",
+      "layoutUrl": "https://www.camppick.com/camps/246d8520-5849-468d-96bf-016560e82cfe",
+      "featured": true
+    },
+    {
+      "id": "evergreen-vil",
+      "name": "에버그린빌리지",
+      "aliases": [
+        "가평에버그린",
+        "에버그린캠핑장"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "계곡",
+        "키즈",
+        "물놀이"
+      ],
+      "address": "경기도 가평군 북면 화악산로 1039-11",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 60000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "화악산 계곡 에버그린빌리지. 유황 노천탕·황토찜질과 글램핑으로 가족 수영장 캠핑 추천에 자주 나옵니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "010-8422-6851"
+    },
+    {
+      "id": "haejayeon",
+      "name": "해자연캠핑장",
+      "aliases": [
+        "남양주해자연"
+      ],
+      "region": "경기",
+      "city": "남양주시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
+      "address": "경기도 남양주시 오남읍 팔현로175번길 310-60",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "오남 팔현계곡 안쪽 해자연. 서울에서 가깝고 전망이 좋아 수영장·근교 캠핑 목록 3위에 자주 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "010-8307-3800"
+    },
+    {
+      "id": "bravo-gp",
+      "name": "브라보캠핑장",
+      "aliases": [
+        "가평브라보"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "명지산 북면 브라보. 또올래·명돈골과 한 골짜기로 네이버지도에서 같이 비교됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jaurim",
+      "name": "자우림캠핑장",
+      "aliases": [
+        "가평자우림"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "북면 자우림. 명지계곡 벨트 숲 캠핑으로 캠핑톡 주변 목록에 자주 보입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "yongso-gp",
+      "name": "용소캠핑장",
+      "aliases": [
+        "가평용소"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "북면 용소. 명지산 계곡 물놀이 시즌에 또올래·명돈골과 같이 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "kokkiri",
+      "name": "코끼리캠핑장",
+      "aliases": [
+        "가평코끼리"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "화악·명지 사이 코끼리캠핑장. 금다래·하늘땅별땅과 가까운 북면 계곡 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "ramu-kids",
+      "name": "라무키즈글램핑",
+      "aliases": [
+        "라무키즈"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "키즈",
+        "계곡"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 150000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "북면 라무키즈. 아이 동반 글램핑으로 명지계곡 일정과 잘 맞습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "baekjadong",
+      "name": "백자동캠핑장",
+      "aliases": [
+        "가평백자동"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "북면 백자동. 명돈골·브라보와 같은 골짜기 오토캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "haneulttang",
+      "name": "하늘땅별땅 캠핑장",
+      "aliases": [
+        "하늘땅별땅"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "화악산 하늘땅별땅. 금다래 옆 계곡 캠핑으로 여행정보 주변 목록에 자주 나옵니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "toto-bawi",
+      "name": "토토큰바위캠핑장",
+      "aliases": [
+        "토토큰바위"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "북면 토토큰바위. 화악산 계곡 벨트에서 금다래와 같이 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "camp4u",
+      "name": "캠핑포유",
+      "aliases": [
+        "캠핑포유캠핑장"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "북면 캠핑포유. 화악산 쪽 오토캠핑으로 네이버지도 주변 검색에 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "hillside-gp",
+      "name": "힐사이드인가평",
+      "aliases": [
+        "힐사이드인"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 북면 화악지암길",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 60000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "화악 힐사이드인. 글램핑·오토가 같이 있어 북면 일정에 자주 오릅니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mureung",
+      "name": "가평무릉도원캠핑장",
+      "aliases": [
+        "무릉도원캠핑"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "상면 무릉도원. 축령산·아침고요 일정과 네이버에서 같이 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "supuli",
+      "name": "캠프수풀이",
+      "aliases": [
+        "수풀이캠핑"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 45000,
+          "priceMax": 75000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "상면 캠프수풀이. 잣향기·하이몽과 가까운 축령산 들머리 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "antive",
+      "name": "앙티브",
+      "aliases": [
+        "가평앙티브"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 45000,
+          "priceMax": 75000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "상면 앙티브. 축령로 캠핑 벨트에서 사과나무·온더락과 같이 보입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "appletree-gp",
+      "name": "가평 사과나무 캠핑장",
+      "aliases": [
+        "사과나무캠핑장"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "상면 사과나무. 축령산 가족 오토캠핑으로 여행정보 목록에 자주 나옵니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "ontherock",
+      "name": "온더락캠핑장",
+      "aliases": [
+        "가평온더락"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 45000,
+          "priceMax": 75000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "상면 온더락. 축령로 바위·숲 사이트 캠핑으로 네이버 후기가 있습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "captain-caravan",
+      "name": "캡틴카라반",
+      "aliases": [
+        "가평캡틴카라반"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "caravan"
+      ],
+      "tags": [
+        "산",
+        "키즈"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "priceMin": 130000,
+          "priceMax": 220000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "축령산 캡틴카라반. 장비 없이 가는 상면 가족 일정으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "rio-caravan",
+      "name": "리오카라반",
+      "aliases": [
+        "가평리오카라반"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "caravan"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면 축령로70번길",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "priceMin": 130000,
+          "priceMax": 220000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "축령로 리오카라반. 잣향기 들머리 카라반으로 하이몽과 가깝습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mona-park",
+      "name": "모나캠핑파크",
+      "aliases": [
+        "독박골대청마루"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면 축령로",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "축령산 모나캠핑파크. 잣향기푸른숲 바로 옆 오토캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "art-salon",
+      "name": "가평아트살롱글램핑",
+      "aliases": [
+        "아트살롱글램핑"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 160000,
+          "priceMax": 280000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "상면 아트살롱. 감성 글램핑으로 축령산 일정과 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "raonhill",
+      "name": "라온힐캠핑장",
+      "aliases": [
+        "가평라온힐"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 상면 수목원로",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 45000,
+          "priceMax": 75000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "아침고요 수목원로 라온힐. 꽃 시즌 주변 캠핑으로 자주 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "five-emotion",
+      "name": "파이브 이모션 캠핑장",
+      "aliases": [
+        "파이브이모션"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 가평군 설악면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 150000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "설악 청평호 쪽 파이브이모션. 포세이돈·아웃오브파크와 한 권역입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "dagam",
+      "name": "청평다감캠핑장",
+      "aliases": [
+        "다감캠핑장"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 가평군 청평면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "청평호 다감. 포세이돈·호명호수 일정과 네이버지도에서 묶입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "forest-caravan-land",
+      "name": "가평포레스트카라반랜드",
+      "aliases": [
+        "포레스트카라반랜드"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "caravan"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 가평군 가평읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "priceMin": 140000,
+          "priceMax": 240000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "가평읍 포레스트카라반랜드. 자라섬·청평 사이 카라반으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "borisan",
+      "name": "가평보리산캠핑장",
+      "aliases": [
+        "보리산캠핑"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 가평군 설악면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "설악 보리산. 청평·유명산 들머리 오토캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "farmstay",
+      "name": "팜스테이글램핑",
+      "aliases": [
+        "가평팜스테이"
+      ],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 가평군 청평면 북한강로1636번길 133",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 180000,
+          "priceMax": 320000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "청평 계곡 팜스테이. 독립 계곡 글램핑으로 서종·청평 일정에 자주 나옵니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "homepage": "http://www.farm-stay.co.kr/"
+    },
+    {
+      "id": "stay-gogasu",
+      "name": "스테이고가수",
+      "aliases": [
+        "고가수캠핑"
+      ],
+      "region": "경기",
+      "city": "양평군",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 양평군 단월면 고가수길 108",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 60000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "산음 스테이고가수. 빌리풀램핑·집 밖으로와 한 골짜기입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "cheonsabong",
+      "name": "천사봉 오토 캠핑장",
+      "aliases": [
+        "천사봉캠핑"
+      ],
+      "region": "경기",
+      "city": "양평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 양평군 단월면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "단월 천사봉. 산음휴양림 들머리 오토캠핑으로 빌리·집밖으로 옆에 있습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "dalbit-yp",
+      "name": "달빛캠핑장",
+      "aliases": [
+        "양평달빛"
+      ],
+      "region": "경기",
+      "city": "양평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 양평군 단월면 윗고북길 56",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "단월 달빛. 산음리 숲 캠핑으로 빌리풀램핑과 가깝습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "sandae",
+      "name": "산대분교공공캠핑장",
+      "aliases": [
+        "산대분교캠핑"
+      ],
+      "region": "경기",
+      "city": "양평군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 양평군 단월면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 20000,
+          "priceMax": 40000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "폐교를 살린 산대분교 공공캠핑. 산음 일정과 하루를 나누기 좋습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "ipobo",
+      "name": "이포보 웰빙레저캠핑장",
+      "aliases": [
+        "이포보캠핑"
+      ],
+      "region": "경기",
+      "city": "여주시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "한강"
+      ],
+      "address": "경기도 여주시 대신면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "남한강 이포보 옆. 양평수목원과 가까운 강변 오토캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "keunmadang",
+      "name": "큰마당캠핑장",
+      "aliases": [
+        "포천큰마당"
+      ],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 포천시 이동면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "백운오양골 바로 옆 큰마당. 입구를 헷갈리지 말고 오양골과 구분하세요.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jaein",
+      "name": "연천 재인폭포 캠핑",
+      "aliases": [
+        "재인폭포캠핑"
+      ],
+      "region": "경기",
+      "city": "연천군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "경기도 연천군 연천읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "한탄강 재인폭포 들머리 권역. 주상절리·출렁다리 일정과 같이 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "gungpyeong",
+      "name": "화성 궁평리 캠핑장",
+      "aliases": [
+        "궁평캠핑",
+        "궁평항캠핑"
+      ],
+      "region": "경기",
+      "city": "화성시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경기도 화성시 서신면 궁평리",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "궁평항 바다 앞. 수도권 서해 일몰 캠핑으로 네이버 검색이 많습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "daebudo",
+      "name": "안산 대부도 캠핑장",
+      "aliases": [
+        "대부도캠핑"
+      ],
+      "region": "경기",
+      "city": "안산시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경기도 안산시 단원구 대부도",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "대부도·시화 바다. 서울에서 가까운 서해 캠핑으로 주말 마감이 빠릅니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mulwang",
+      "name": "시흥 물왕저수지 캠핑",
+      "aliases": [
+        "물왕캠핑"
+      ],
+      "region": "경기",
+      "city": "시흥시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 시흥시 물왕동",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "물왕저수지 옆. 수도권 남서부 당일치기 호수 캠핑으로 잡힙니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "imjingak",
+      "name": "파주 임진각 평화누리 캠핑",
+      "aliases": [
+        "임진각캠핑"
+      ],
+      "region": "경기",
+      "city": "파주시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "한강"
+      ],
+      "address": "경기도 파주시 문산읍 임진각로",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "임진각 평화누리 권역. 통일전망·카페 일정과 하루를 묶는 팀이 많습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "konjiam",
+      "name": "광주 곤지암 캠핑",
+      "aliases": [
+        "곤지암캠핑"
+      ],
+      "region": "경기",
+      "city": "광주시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 광주시 도척면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "곤지암 리조트·화담숲 들머리 민간 캠핑. 성남·용인에서 가깝습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "icheon-doja",
+      "name": "이천 도자공원 캠핑",
+      "aliases": [
+        "이천도자캠핑"
+      ],
+      "region": "경기",
+      "city": "이천시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 이천시",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "이천 도자·온천 권역. 주말 가족 근교 캠핑으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mirinae",
+      "name": "안성 미리내 캠핑장",
+      "aliases": [
+        "미리내캠핑"
+      ],
+      "region": "경기",
+      "city": "안성시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 안성시 양성면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "미리내 성지 근처 숲 캠핑. 평택·안성에서 가까운 오토캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "yongin-forest",
+      "name": "용인자연휴양림 야영장",
+      "aliases": [
+        "용인휴양림"
+      ],
+      "region": "경기",
+      "city": "용인시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
+      "address": "경기도 용인시 처인구",
+      "reservationPlatform": "숲나들e · 용인시",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "priceMin": 12000,
+          "priceMax": 25000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "용인 휴양림 데크 야영. 숲나들e·시청 예약을 확인하세요.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "eulsugol",
+      "name": "을수골 별빛계곡",
+      "aliases": [
+        "을수골",
+        "별빛계곡"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "반려견"
+      ],
+      "address": "강원특별자치도 홍천군 내면 을수길 127",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "내면 오지계곡 프라이빗 19면. 캠프픽에 별빛·추천 자리가 많이 쌓여 있습니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "010-9466-9520",
+      "homepage": "https://eulsugolbyeolbit.modoo.at/",
+      "layoutUrl": "https://www.camppick.com/camps/fb15f07e-dfd9-42d2-862f-c1386ed2c5f7",
+      "featured": true
+    },
+    {
+      "id": "chikso",
+      "name": "칡소폭포 캠핑장",
+      "aliases": [
+        "칡소폭포"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 홍천군 내면 을수길 27",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "을수골 칡소폭포 옆. 열목어 계곡과 방갈로로 홍천 내면 추천에 자주 오릅니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "010-5166-0304",
+      "reservationUrl": "https://booking.naver.com/booking/3/bizes/530841"
+    },
+    {
+      "id": "hongcheon-river",
+      "name": "홍천강오토캠핑장",
+      "aliases": [
+        "홍천강캠핑장"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "auto",
+        "caravan",
+        "tent"
+      ],
+      "tags": [
+        "한강",
+        "키즈"
+      ],
+      "address": "강원특별자치도 홍천군 북방면 굴지강변로 322",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "홍천군 공식 강변 캠핑. 오토·카라반·프리텐트와 수상레저가 붙어 있습니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "033-430-2498",
+      "homepage": "https://www.hongcheon.go.kr/tour/contents.do?key=1879",
+      "featured": true
+    },
+    {
+      "id": "mulgasol",
+      "name": "물가솔솔캠핑장",
+      "aliases": [
+        "홍천물가솔솔"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 홍천군 내면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "내면 물가솔솔. 을수골·칡소와 같은 계곡 벨트입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "saemgol",
+      "name": "샘골솔밭야영장",
+      "aliases": [
+        "샘골솔밭"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 홍천군 내면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "삼봉휴양림 근처 샘골솔밭. 솔숲 야영으로 내면 일정에 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "saldun",
+      "name": "살둔마을생둔분교캠핑장",
+      "aliases": [
+        "살둔분교",
+        "생둔분교"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 홍천군 내면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "살둔 폐교 캠핑. 계곡·산촌 감성으로 홍천 내면 검색에 자주 나옵니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mongol-hc",
+      "name": "몽골캠핑장",
+      "aliases": [
+        "홍천몽골캠핑"
+      ],
+      "region": "강원",
+      "city": "홍천군",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 홍천군 내면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 120000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "내면 몽골캠핑. 게르형·오토가 있어 삼봉·을수골 일정과 맞습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "galcheon-healing",
+      "name": "갈천힐링캠프",
+      "aliases": [
+        "갈천힐링"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 양양군 서면 구룡령로",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "구룡령 갈천힐링. 그루터기·미천골과 한 길입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "galcheon-auto",
+      "name": "갈천오토캠핑장",
+      "aliases": [
+        "양양갈천"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 양양군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "서면 갈천 오토. 구룡령 계곡 캠핑 벨트입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "goindol",
+      "name": "양양 고인돌 오토캠핑장",
+      "aliases": [
+        "고인돌오토캠핑"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 양양군 서면 고인돌길 200-47",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "고인돌길 오토캠핑. 밤하늘별캠프와 400m 떨어져 같이 비교됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "skyvalley",
+      "name": "하늘빛계곡 캠핑장",
+      "aliases": [
+        "하늘빛계곡"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 양양군 서면 설악로 1760",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "한계령 아래 하늘빛계곡. 얕은 물가와 스노클링 수심으로 여름 가족 후기가 많습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "yy-forest",
+      "name": "양양포레스트캠핑장",
+      "aliases": [
+        "양양포레스트"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 양양군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 45000,
+          "priceMax": 75000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "양양 포레스트. 서면·현남 숲 캠핑으로 캠프픽 양양 목록에 보입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "chuncheon-star",
+      "name": "춘천별빛캠핑장",
+      "aliases": [
+        "춘천별빛"
+      ],
+      "region": "강원",
+      "city": "춘천시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "강원특별자치도 춘천시",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "춘천 호반 별빛. 의암호·구봉산 일정과 네이버에서 같이 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "urban-slow",
+      "name": "어반슬로우시티",
+      "aliases": [
+        "어반슬로우"
+      ],
+      "region": "강원",
+      "city": "춘천시",
+      "kinds": [
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "강원특별자치도 춘천시 남면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 150000,
+          "priceMax": 300000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "남면 어반슬로우시티. 아웃오브파크·청평과 가까운 감성 숙소형 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "osek-herb",
+      "name": "오색허브농원 캠핑장",
+      "aliases": [
+        "오색허브캠핑"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 양양군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "오색 허브가든 안 캠핑. 설악·오색약수 일정과 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "banff-yy",
+      "name": "밴프 야영장",
+      "aliases": [
+        "양양밴프"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 양양군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "고인돌 근처 밴프 야영. 밤하늘별·고인돌과 700m 권역입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "songcheon",
+      "name": "송천떡마을야영장",
+      "aliases": [
+        "송천떡마을"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 양양군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "서면 송천떡마을 야영. 구룡령 들머리 마을 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "sky-yy",
+      "name": "하늘야영장",
+      "aliases": [
+        "양양하늘야영"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 양양군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "서면 하늘야영장. 송이밸리·오색 사이 야영으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jjakbit",
+      "name": "쪽빛하늘 캠핑장",
+      "aliases": [
+        "쪽빛하늘"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 양양군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "서면 쪽빛하늘. 펜션 겸 캠핑으로 양양 서면 목록에 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "baekdam",
+      "name": "백담고을캠핑장",
+      "aliases": [
+        "인제백담고을"
+      ],
+      "region": "강원",
+      "city": "인제군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
+      "address": "강원특별자치도 인제군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "백담사 들머리 고을 캠핑. 설악 산행 전날 숙소로 많이 잡힙니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "baekdam-han",
+      "name": "백담한계캠핑장",
+      "aliases": [
+        "백담한계"
+      ],
+      "region": "강원",
+      "city": "인제군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 인제군 북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 65000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "백담·한계령 사이. 인제 설악 일정 캠핑으로 캠프픽에 보입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "yeongari",
+      "name": "인제 연가리 오토캠핑장",
+      "aliases": [
+        "연가리캠핑"
+      ],
+      "region": "강원",
+      "city": "인제군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 인제군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "연가리 계곡 오토. 미천골·구룡령과 가까운 인제 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jangsa",
+      "name": "속초 장사해수욕장 캠핑장",
+      "aliases": [
+        "장사캠핑",
+        "장사해수욕장야영"
+      ],
+      "region": "강원",
+      "city": "속초시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "강원특별자치도 속초시 장사동",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "장사해변 앞 야영. 속초 바다 캠핑으로 여름 주말이 빨리 찹니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "hwajinpo",
+      "name": "고성 화진포 캠핑장",
+      "aliases": [
+        "화진포캠핑"
+      ],
+      "region": "강원",
+      "city": "고성군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "호수"
+      ],
+      "address": "강원특별자치도 고성군 거진읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "화진포 호수·바다. 송지호와 하루를 나누는 고성 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "wellihilli",
+      "name": "횡성 웰리힐리파크 캠핑",
+      "aliases": [
+        "웰리힐리캠핑"
+      ],
+      "region": "강원",
+      "city": "횡성군",
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 횡성군 둔내면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 60000,
+          "priceMax": 120000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "웰리힐리 리조트 캠핑. 스키·루지 시즌과 평창 휘닉스 일정과 맞습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "ganhyeon",
+      "name": "원주 간현관광지 캠핑장",
+      "aliases": [
+        "간현캠핑"
+      ],
+      "region": "강원",
+      "city": "원주시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 원주시 지정면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "간현 출렁다리·레일바이크 옆. 원주 당일치기 캠핑으로 검색이 많습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "punchbowl",
+      "name": "양구 펀치볼 캠핑장",
+      "aliases": [
+        "펀치볼캠핑"
+      ],
+      "region": "강원",
+      "city": "양구군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "강원특별자치도 양구군 해안면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "해안분지 펀치볼. 을지전망대 일정과 묶는 양구 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "hwacheon-fish",
+      "name": "화천 산천어 캠핑장",
+      "aliases": [
+        "화천산천어캠핑"
+      ],
+      "region": "강원",
+      "city": "화천군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "강원특별자치도 화천군 화천읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "산천어축제·북한강 권역. 겨울 얼음·여름 강변으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jeongseon-dong",
+      "name": "정선 동강 캠핑장",
+      "aliases": [
+        "정선동강"
+      ],
+      "region": "강원",
+      "city": "정선군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "강원특별자치도 정선군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "동강 래프팅 들머리. 영월 당마루·동강전망과 한 강입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "naksan-camp",
+      "name": "양양 낙산 캠핑장",
+      "aliases": [
+        "낙산캠핑"
+      ],
+      "region": "강원",
+      "city": "양양군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "강원특별자치도 양양군 강현면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "낙산사·해수욕장 옆. 동해 일출 캠핑으로 여름·연휴가 바쁩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "goesan-river",
+      "name": "괴산 강변오토캠핑장",
+      "aliases": [
+        "괴산강변캠핑"
+      ],
+      "region": "충청",
+      "city": "괴산군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "한강",
+        "반려견"
+      ],
+      "address": "충청북도 괴산군 괴산읍 충민로 317",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "달천 강변 50면. 산막이옛길·쌍곡과 가깝고 소형견 동반이 됩니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "043-832-7815",
+      "featured": true
+    },
+    {
+      "id": "ssanggok",
+      "name": "쌍곡계곡 캠핑장",
+      "aliases": [
+        "괴산쌍곡"
+      ],
+      "region": "충청",
+      "city": "괴산군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "충청북도 괴산군 칠성면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "쌍곡 아홉 구비 계곡. 여름 물놀이로 충북 계곡 캠핑 검색 상위입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "gallon",
+      "name": "갈론계곡캠핑장",
+      "aliases": [
+        "괴산갈론"
+      ],
+      "region": "충청",
+      "city": "괴산군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "충청북도 괴산군 칠성면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "산막이옛길 근처 갈론계곡. 괴산 칠성 캠핑 벨트입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "hongsam-land",
+      "name": "괴산홍삼랜드 가족캠핑장",
+      "aliases": [
+        "홍삼랜드캠핑"
+      ],
+      "region": "충청",
+      "city": "괴산군",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈"
+      ],
+      "address": "충청북도 괴산군 청천면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 150000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "청천 홍삼랜드 가족 캠핑. 아이 체험과 오토가 같이 있습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "goesan-gukmin",
+      "name": "괴강국민여가캠핑장",
+      "aliases": [
+        "괴강캠핑장"
+      ],
+      "region": "충청",
+      "city": "괴산군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "한강"
+      ],
+      "address": "충청북도 괴산군 괴산읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "괴강 국민여가. 강변오토와 붙어 공공·민영을 나눠 예약합니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "namcheon",
+      "name": "단양 남천캠핑장",
+      "aliases": [
+        "남천캠핑"
+      ],
+      "region": "충청",
+      "city": "단양군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "충청북도 단양군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "단양 남천계곡. 도담삼봉·대강 일정과 하루를 나눕니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mulhan",
+      "name": "영동 물한계곡 캠핑장",
+      "aliases": [
+        "물한계곡캠핑"
+      ],
+      "region": "충청",
+      "city": "영동군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "충청북도 영동군 용화면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "물한계곡 래프팅·캠핑. 충북 남부 여름 계곡으로 유명합니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "janggye",
+      "name": "옥천 장계국민관광지 캠핑",
+      "aliases": [
+        "장계캠핑"
+      ],
+      "region": "충청",
+      "city": "옥천군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "충청북도 옥천군 안남면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "대청호 장계. 출렁다리·스카이워크와 하루 일정입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "chunjangdae",
+      "name": "서천 춘장대 캠핑장",
+      "aliases": [
+        "춘장대캠핑"
+      ],
+      "region": "충청",
+      "city": "서천군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "충청남도 서천군 서면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "춘장대 해수욕장 솔숲. 서해 일몰 캠핑으로 보령 대천과 비교됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "samgilpo",
+      "name": "서산 삼길포 캠핑장",
+      "aliases": [
+        "삼길포캠핑"
+      ],
+      "region": "충청",
+      "city": "서산시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "충청남도 서산시 대산읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "삼길포항 바다. 우럭·일몰 일정과 태안 학암포를 잇습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "waemok",
+      "name": "당진 왜목마을 캠핑장",
+      "aliases": [
+        "왜목캠핑"
+      ],
+      "region": "충청",
+      "city": "당진시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "충청남도 당진시 석문면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "왜목 일출 해변. 서해에서 해가 뜨는 캠핑으로 연휴가 바쁩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "baekma",
+      "name": "부여 백마강 캠핑장",
+      "aliases": [
+        "백마강캠핑"
+      ],
+      "region": "충청",
+      "city": "부여군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "한강"
+      ],
+      "address": "충청남도 부여군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "백마강·궁남지 권역. 백제 고도와 강변 캠핑을 하루로 묶습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "evergreen-ns",
+      "name": "논산 에버그린 캠핑장",
+      "aliases": [
+        "논산에버그린"
+      ],
+      "region": "충청",
+      "city": "논산시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "충청남도 논산시 벌곡면 수락로237번길 26-98",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "벌곡 에버그린. 땡큐캠핑에 올라 있는 논산 숲 오토캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "010-2313-0577"
+    },
+    {
+      "id": "unilam",
+      "name": "운일암반일암 캠핑장",
+      "aliases": [
+        "운일암캠핑",
+        "반일암"
+      ],
+      "region": "전라",
+      "city": "진안군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡"
+      ],
+      "address": "전라북도 진안군 주천면 동상주천로 1996-13",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 20000,
+          "priceMax": 40000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "운일암·반일암 국민여가. 마이산과 하루를 나누는 진안 대표 계곡입니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "featured": true
+    },
+    {
+      "id": "banghwa",
+      "name": "장수 방화동 가족휴가촌",
+      "aliases": [
+        "방화동캠핑"
+      ],
+      "region": "전라",
+      "city": "장수군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "키즈"
+      ],
+      "address": "전라북도 장수군 번암면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "방화동 계곡 가족휴가촌. 전북 남부 물놀이 캠핑으로 유명합니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "okjeong",
+      "name": "임실 옥정호 캠핑장",
+      "aliases": [
+        "옥정호캠핑"
+      ],
+      "region": "전라",
+      "city": "임실군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "전라북도 임실군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "옥정호 무지개다리 옆. 출렁다리 인증샷 일정과 붙습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "seonun",
+      "name": "고창 선운산 야영장",
+      "aliases": [
+        "선운산야영"
+      ],
+      "region": "전라",
+      "city": "고창군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "전라북도 고창군 아산면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 15000,
+          "priceMax": 35000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "선운사 동백·도솔암 들머리 야영. 가을·겨울 꽃 시즌이 바쁩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "damyang-meta",
+      "name": "담양 메타프로방스 캠핑",
+      "aliases": [
+        "메타프로방스"
+      ],
+      "region": "전라",
+      "city": "담양군",
+      "kinds": [
+        "glamping",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "키즈"
+      ],
+      "address": "전라남도 담양군",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 80000,
+          "priceMax": 220000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "메타세쿼이아·프로방스 권역. 담양 가족 글램핑 검색에 자주 오릅니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "yeosu-hyang",
+      "name": "여수 향일암 캠핑",
+      "aliases": [
+        "향일암캠핑"
+      ],
+      "region": "전라",
+      "city": "여수시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전라남도 여수시 돌산읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 35000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "향일암 일출 들머리. 여수 바다 캠핑으로 연말이 특히 바쁩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "wando-cheong",
+      "name": "완도 청산도 캠핑",
+      "aliases": [
+        "청산도캠핑"
+      ],
+      "region": "전라",
+      "city": "완도군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전라남도 완도군 청산면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "슬로시티 청산도. 봄 꽃길·바다 야영으로 예약이 빨리 찹니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jeungdo",
+      "name": "신안 증도 캠핑장",
+      "aliases": [
+        "증도캠핑"
+      ],
+      "region": "전라",
+      "city": "신안군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전라남도 신안군 증도면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "소금밭·갯벌 증도. 신안 섬 캠핑으로 태평염전 일정과 맞습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "evergreen-sinan",
+      "name": "신안 에버그린캠핑장",
+      "aliases": [
+        "임자도에버그린"
+      ],
+      "region": "전라",
+      "city": "신안군",
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전라남도 신안군 임자면 독우길 61",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 120000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "임자도 대광해변 숲 글램핑. 고캠핑에 올라 있는 신안 바다 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "061-271-3401"
+    },
+    {
+      "id": "gwangyang",
+      "name": "광양 백운산 캠핑장",
+      "aliases": [
+        "백운산캠핑"
+      ],
+      "region": "전라",
+      "city": "광양시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
+      "address": "전라남도 광양시 옥룡면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "백운산 계곡. 하동 섬진강과 하루를 잇는 동부 전남 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "goraebul",
+      "name": "영덕 고래불 국민야영장",
+      "aliases": [
+        "고래불야영장",
+        "고래불캠핑"
+      ],
+      "region": "경상",
+      "city": "영덕군",
+      "kinds": [
+        "auto",
+        "tent",
+        "caravan"
+      ],
+      "tags": [
+        "바다",
+        "키즈"
+      ],
+      "address": "경상북도 영덕군 병곡면 고래불로 12",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 20000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "고래불 솔숲 110면+오토 13+카라반 25. 영덕군 예약, 동해 대표 국민야영장입니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "phone": "054-734-6220",
+      "homepage": "http://stay.yd.go.kr/",
+      "reservationUrl": "http://stay.yd.go.kr/",
+      "featured": true
+    },
+    {
+      "id": "gyeongju-bomun",
+      "name": "경주 보문단지 캠핑장",
+      "aliases": [
+        "보문캠핑"
+      ],
+      "region": "경상",
+      "city": "경주시",
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경상북도 경주시 신평동",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 120000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "보문호 리조트 권역. 불국사·야경 일정과 카라반을 같이 잡습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "andong-hahoe",
+      "name": "안동 하회마을 캠핑장",
+      "aliases": [
+        "하회캠핑"
+      ],
+      "region": "경상",
+      "city": "안동시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경상북도 안동시 풍천면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "하회마을·병산서원 들머리. 안동 문화 여행 캠핑으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "upo",
+      "name": "창녕 우포늪 캠핑장",
+      "aliases": [
+        "우포늪캠핑"
+      ],
+      "region": "경상",
+      "city": "창녕군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경상남도 창녕군 유어면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "우포늪 탐방 옆. 철새·생태 일정과 하루를 묶습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "eoreumgol",
+      "name": "밀양 얼음골 캠핑장",
+      "aliases": [
+        "얼음골캠핑"
+      ],
+      "region": "경상",
+      "city": "밀양시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
+      "address": "경상남도 밀양시 산내면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "재약산 얼음골. 여름에도 찬 계곡으로 밀양 대표 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "imrang",
+      "name": "기장 임랑해수욕장 캠핑장",
+      "aliases": [
+        "임랑캠핑"
+      ],
+      "region": "경상",
+      "city": "부산시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "부산광역시 기장군 장안읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "임랑 해변 솔숲. 부산에서 가까운 바다 캠핑으로 여름이 바쁩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "bijin",
+      "name": "통영 비진도 캠핑장",
+      "aliases": [
+        "비진도캠핑"
+      ],
+      "region": "경상",
+      "city": "통영시",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경상남도 통영시 한산면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "비진도 모래밭. 배 타고 들어가는 섬 캠핑으로 예약이 필수입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "tongdo",
+      "name": "양산 통도사 캠핑장",
+      "aliases": [
+        "통도캠핑"
+      ],
+      "region": "경상",
+      "city": "양산시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경상남도 양산시 하북면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "통도사 들머리. 울산·양산 근교 사찰 캠핑으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "mungyeong",
+      "name": "문경 단산 캠핑장",
+      "aliases": [
+        "단산캠핑"
+      ],
+      "region": "경상",
+      "city": "문경시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경상북도 문경시",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "단산·활공랜드 권역. 문경새재 일정과 하루를 나눕니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "gyeongcheondae",
+      "name": "상주 경천대 캠핑장",
+      "aliases": [
+        "경천대캠핑"
+      ],
+      "region": "경상",
+      "city": "상주시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "한강"
+      ],
+      "address": "경상북도 상주시 사벌국면",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "낙동강 경천대. 전망대·강변 캠핑으로 상주 대표 야영입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jinhae",
+      "name": "창원 진해 캠핑장",
+      "aliases": [
+        "진해캠핑"
+      ],
+      "region": "경상",
+      "city": "창원시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경상남도 창원시 진해구",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "진해 군항·벚꽃 권역. 봄 주말과 바다 캠핑으로 검색됩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "sacheon",
+      "name": "사천 실안해수욕장 캠핑",
+      "aliases": [
+        "실안캠핑"
+      ],
+      "region": "경상",
+      "city": "사천시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경상남도 사천시",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 25000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "실안 해변. 남해 편백·삼천포 일정과 잇는 사천 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "hyeopjae",
+      "name": "협재해수욕장 야영장",
+      "aliases": [
+        "협재캠핑",
+        "협재야영장"
+      ],
+      "region": "제주",
+      "city": "제주시",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "제주특별자치도 제주시 한림읍 협재리 2497-1",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 20000,
+          "priceMax": 40000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "협재 솔숲 야영. 비양도 낙조로 제주 서쪽 캠핑 1순위에 자주 오릅니다.",
+      "ratings": {
+        "naver": 4.3
+      },
+      "featured": true
+    },
+    {
+      "id": "geumneung",
+      "name": "금능으뜸원해변 캠핑장",
+      "aliases": [
+        "금능캠핑"
+      ],
+      "region": "제주",
+      "city": "제주시",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "제주특별자치도 제주시 한림읍 협재리",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 20000,
+          "priceMax": 40000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "금능 야자 숲 야영. 협재와 이어진 해변, 비양도 해넘이가 유명합니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "gimnyeong",
+      "name": "김녕성세기해변 야영장",
+      "aliases": [
+        "김녕캠핑"
+      ],
+      "region": "제주",
+      "city": "제주시",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "제주특별자치도 제주시 구좌읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 20000,
+          "priceMax": 40000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "김녕 성세기 해변. 동쪽 해안도로 캠핑으로 만장굴 일정과 맞습니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "seongsan-camp",
+      "name": "성산일출봉 캠핑",
+      "aliases": [
+        "성산캠핑"
+      ],
+      "region": "제주",
+      "city": "서귀포시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "제주특별자치도 서귀포시 성산읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 30000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "일출봉 들머리 권역. 섭지코지·성산 일출 캠핑으로 연휴가 바쁩니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "aewol-camp",
+      "name": "애월 캠핑장",
+      "aliases": [
+        "애월캠핑"
+      ],
+      "region": "제주",
+      "city": "제주시",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "제주특별자치도 제주시 애월읍",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "애월 해안 글램핑·오토. 카페거리와 하루를 나누는 서쪽 캠핑입니다.",
+      "ratings": {
+        "naver": 4.3
+      }
+    },
+    {
+      "id": "jungmun-camp",
+      "name": "중문 색달 인근 캠핑",
+      "aliases": [
+        "중문캠핑"
+      ],
+      "region": "제주",
+      "city": "서귀포시",
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "제주특별자치도 서귀포시 색달동",
+      "reservationPlatform": "캠프픽 · 캠핏 · 네이버",
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠프픽·캠핏·네이버에서 배치도와 빈자리를 확인하세요."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 80000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
+      "description": "중문·색달 권역. 이미 있는 색달해변과 다른 민간 글램핑을 같이 비교하세요.",
+      "ratings": {
+        "naver": 4.3
+      }
+    }
+  ]
+}

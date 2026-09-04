@@ -14,6 +14,7 @@
       "phone": "0507-1305-5661",
       "homepage": "https://hyggeforest.co.kr/",
       "reservationUrl": "https://hyggeforest.co.kr/content/5",
+      "layoutUrl": "https://www.camppick.com/camps/e794f91f-eba6-4985-ad75-f090d459452a",
       "reservationPlatform": "캠핏 · 자체 홈페이지",
       "reservationWindows": [
         { "label": "매월 1일 21:00", "rule": "다음 달 한 달치를 캠핏에서 오픈. 2박 우선 자리 지정. 1박은 방문 5일 전부터." }
@@ -55,6 +56,7 @@
       "kinds": ["auto"],
       "tags": ["계곡", "산", "반려견"],
       "address": "경기도 가평군 조종면 명지산로 475",
+      "layoutUrl": "https://www.camppick.com/camps/7a069975-bcb8-41c5-b6f6-270c841d302a",
       "phone": "0507-1345-7817",
       "reservationPlatform": "캠프픽 · 캠핏",
       "reservationWindows": [{ "label": "상시", "rule": "귀목계곡 상류. 소형견 동반. 사이트 약 28면." }],
@@ -93,6 +95,7 @@
       "kinds": ["glamping"],
       "tags": ["산", "계곡", "물놀이"],
       "address": "경기도 가평군 조종면 운악청계로333번길 19",
+      "layoutUrl": "https://www.camppick.com/camps/7db5ca4a-cc2a-49e8-8b94-06f42197b8a4",
       "phone": "010-4431-4165",
       "reservationPlatform": "자체 · 와그",
       "reservationWindows": [{ "label": "여름", "rule": "운악산 계곡·야외수영장. 복층 글램핑 주말은 빨리 찹니다." }],
@@ -185,6 +188,7 @@
       "kinds": ["glamping"],
       "tags": ["계곡", "키즈", "물놀이"],
       "address": "경기도 가평군 상면 물골길 102",
+      "layoutUrl": "https://www.camppick.com/camps/e49c53db-ce9b-4258-9836-0da624dd01c1",
       "phone": "0507-1308-7621",
       "reservationPlatform": "네이버예약 · 캠프픽",
       "reservationWindows": [{ "label": "상시", "rule": "사계절 온수풀·핀란드 사우나. 성수기 주말 마감이 빠릅니다." }],

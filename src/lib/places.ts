@@ -54,3 +54,11 @@ export function placeLinks(camp: Camp): PlaceLink[] {
   if (kakao) links.push({ name: "카카오맵", url: kakao, hint: "길찾기" });
   return links;
 }
+
+export function officialLayoutUrl(camp: Camp): string | undefined {
+  return camp.layoutUrl || camp.layoutImage;
+}
+
+export function camppickLayoutUrl(name: string): string {
+  return `https://www.camppick.com/search?query=${q(name)}`;
+}

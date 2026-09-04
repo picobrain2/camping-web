@@ -69,6 +69,7 @@ export interface Camp {
   amenities: string[];
   description: string;
   layoutImage?: string;
+  layoutUrl?: string;
   photos: string[];
   ratings: CampRatings;
   featured?: boolean;

@@ -257,6 +257,40 @@ a { color: var(--moss); }
 
 .layout-svg { width: 100%; height: auto; border-radius: 16px; display: block; }
 .layout-photo { width: 100%; border-radius: 16px; margin-bottom: 12px; }
+.layout-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.layout-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(44, 38, 28, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.layout-modal-card {
+  width: min(920px, 100%);
+  max-height: min(88dvh, 900px);
+  overflow: auto;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  display: grid;
+  gap: 10px;
+}
+.layout-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.layout-modal-photo { width: 100%; border-radius: 12px; }
+.layout-modal-frame {
+  width: 100%;
+  height: min(64dvh, 620px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
 .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--muted); }
 .legend span::before {
   content: "";

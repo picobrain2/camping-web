@@ -9,6 +9,7 @@
     "packs/apps.json",
     "packs/famous.json",
     "packs/valley.json",
-    "packs/premium.json"
+    "packs/premium.json",
+    "packs/hit.json"
   ]
 }

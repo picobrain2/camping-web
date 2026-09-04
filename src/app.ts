@@ -1,7 +1,7 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
 import { inferLayout, LAYOUT_LEGEND, renderLayoutSvg } from "./lib/layout";
-import { placeLinks } from "./lib/places";
+import { camppickLayoutUrl, officialLayoutUrl, placeLinks } from "./lib/places";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
   loadOverlay,
@@ -36,6 +36,7 @@ let tag = "all";
 let selectedId: string | null = null;
 let panel: "none" | "add" | "data" = "none";
 let searchTimer = 0;
+let layoutPopup: { title: string; url: string; image?: string } | null = null;
 
 let root: HTMLElement;
 
@@ -104,7 +105,8 @@ function render(): void {
     <div class="shell ${selectedId || panel !== "none" ? "has-detail" : ""}">
       ${renderSearchPane()}
       ${renderDetailPane()}
-    </div>`;
+    </div>
+    ${layoutPopup ? renderLayoutModal() : ""}`;
   bindOnce();
   restoreSearchCaret(keep);
 }
@@ -400,19 +402,47 @@ function priceBlock(camp: Camp): string {
 }
 
 function layoutBlock(camp: Camp): string {
-  const image = camp.layoutImage
-    ? `<img class="layout-photo" src="${esc(camp.layoutImage)}" alt="${esc(camp.name)} 배치도" />`
-    : "";
+  const official = officialLayoutUrl(camp);
+  const pick = camppickLayoutUrl(camp.name);
   const layout = camp.layout ?? inferLayout(camp.kinds, camp.siteTypes, camp.tags);
   const svg = renderLayoutSvg(layout, camp.name);
   const legend = `<div class="legend">${LAYOUT_LEGEND.map((l) => `<span data-kind="${l.kind}">${esc(l.label)}</span>`).join("")}</div>`;
+  const officialBtn = official
+    ? `<button type="button" class="btn" data-action="open-layout" data-url="${esc(official)}" data-title="${esc(`${camp.name} 공식 배치도`)}" ${camp.layoutImage ? `data-image="${esc(camp.layoutImage)}"` : ""}>공식 배치도</button>`
+    : "";
   return `
     <section class="block">
       <h3>전체 배치도</h3>
-      ${image}
+      <div class="layout-actions">
+        ${officialBtn}
+        <button type="button" class="btn ghost" data-action="open-layout" data-url="${esc(pick)}" data-title="${esc(`${camp.name} 캠프픽 배치도`)}">캠프픽 배치도</button>
+      </div>
+      <p class="muted">사이트·캠프픽 도면은 팝업으로 보고, 아래는 종류와 태그로 그린 대략도입니다.</p>
       ${svg}
       ${legend}
     </section>`;
+}
+
+function renderLayoutModal(): string {
+  if (!layoutPopup) return "";
+  const image = layoutPopup.image
+    ? `<img class="layout-modal-photo" src="${esc(layoutPopup.image)}" alt="${esc(layoutPopup.title)}" />`
+    : "";
+  const frame = layoutPopup.image
+    ? ""
+    : `<iframe class="layout-modal-frame" src="${esc(layoutPopup.url)}" title="${esc(layoutPopup.title)}" referrerpolicy="no-referrer"></iframe>`;
+  return `
+    <div class="layout-modal" data-action="close-layout">
+      <div class="layout-modal-card" data-action="keep-layout">
+        <header class="layout-modal-head">
+          <strong>${esc(layoutPopup.title)}</strong>
+          <button type="button" class="btn ghost btn-sm" data-action="close-layout">닫기</button>
+        </header>
+        ${image}
+        ${frame}
+        <p class="muted">팝업에 안 뜨면 사이트가 막은 것입니다. <a href="${esc(layoutPopup.url)}" target="_blank" rel="noreferrer">새 창에서 열기</a></p>
+      </div>
+    </div>`;
 }
 
 function reviewEditor(camp: Camp, mine?: PersonalReview): string {
@@ -584,6 +614,19 @@ function onClick(e: MouseEvent): void {
       saveOverlay(overlay);
       void reloadMerged();
       break;
+    case "open-layout": {
+      const url = el.dataset.url;
+      if (!url) return;
+      layoutPopup = { title: el.dataset.title || "배치도", url, image: el.dataset.image };
+      render();
+      break;
+    }
+    case "keep-layout":
+      break;
+    case "close-layout":
+      layoutPopup = null;
+      render();
+      break;
   }
 }
 
@@ -600,6 +643,11 @@ function onInput(e: Event): void {
 
 function onKeydown(e: KeyboardEvent): void {
   if (e.key === "Escape") {
+    if (layoutPopup) {
+      layoutPopup = null;
+      render();
+      return;
+    }
     go("");
   }
   if (e.key === "Enter" && (e.target as HTMLElement).id === "search-input") {
