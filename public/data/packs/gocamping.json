@@ -1,5 +1,2211 @@
 {
   "updatedAt": "2026-09-04",
   "note": "고캠핑 공식 API에서 신규만 붙인 팩입니다. GitHub Actions가 매주 인기 후보를 추가합니다.",
-  "camps": []
+  "camps": [
+    {
+      "id": "gc-2200",
+      "curated": false,
+      "gocampingId": "2200",
+      "name": "연천재인폭포오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "연천군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 연천군 연천읍 현문로508번길 140",
+      "lat": 38.0643824786917,
+      "lng": 127.127391478322,
+      "phone": "031-834-7271",
+      "homepage": "https://yccs.or.kr/pub/jeincamp_guide.do",
+      "reservationUrl": "https://tickets.interpark.com/goods/22016459",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 100
+        },
+        {
+          "name": "카라반",
+          "count": 20
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "오토캠핑과 캐러밴을 한 자리에서",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2200/thumb/thumb_720_9710tLEUQP75UsZO5t9Mru03.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2399",
+      "curated": false,
+      "gocampingId": "2399",
+      "name": "용인랜드 숲속캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "용인시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기 용인시 처인구 양지면 한터로454번길 33-17",
+      "lat": 37.2588754545515,
+      "lng": 127.258253273288,
+      "phone": "031-336-3838",
+      "homepage": "http://jdweb.kr/yiland/",
+      "reservationUrl": "http://r6.camperstory.com/?1865",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 100
+        },
+        {
+          "name": "일반야영",
+          "count": 100
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "숲으로 둘러싸인 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2399/thumb/thumb_720_8469etKLujLulBZJOqzgxi41.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7826",
+      "curated": false,
+      "gocampingId": "7826",
+      "name": "연천 전곡리유적 구석기 체험숲",
+      "aliases": [],
+      "region": "경기",
+      "city": "연천군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경기도 연천군 전곡읍 평화로495번길 89",
+      "lat": 38.0127419,
+      "lng": 127.0656618,
+      "phone": "031-833-2206",
+      "homepage": "https://www.yeoncheon.go.kr/reserve/contents.do?key=4963",
+      "reservationUrl": "네이버 (https://naver.me/FxF7Aw7M)",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 54
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "놀이터",
+        "산책로",
+        "운동장"
+      ],
+      "description": "연천군에서 직접 운영하는 조용하고 안전한 캠핑",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7826/thumb/thumb_720_82425LGoc0WQtHsD7ab9zjMg.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-100181",
+      "curated": false,
+      "gocampingId": "100181",
+      "name": "캠프여주",
+      "aliases": [],
+      "region": "경기",
+      "city": "여주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 여주시 북내면 중암2길 19-22, 여주관광농원",
+      "lat": 37.3571279,
+      "lng": 127.7102973,
+      "phone": "010-9252-8762",
+      "homepage": "http://www.yjfarm.co.kr/",
+      "reservationUrl": "http://www.yjfarm.co.kr/",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 56
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "마트.편의점"
+      ],
+      "description": "저수지 낚시터 풍광이 일품인 관광농원내 야영장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100181/thumb/thumb_720_26812fK5Mv8MVZ5g1jfnp7oC.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-101201",
+      "curated": false,
+      "gocampingId": "101201",
+      "name": "가평캠핑장숨캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수"
+      ],
+      "address": "경기 가평군 설악면 미사리로 766-11",
+      "lat": 37.7180867,
+      "lng": 127.5447241,
+      "phone": "010-9661-7541",
+      "homepage": "https://sumcamping.imweb.me/",
+      "reservationUrl": "https://www.camfit.co.kr/camp/656da0790797fa001ebdae28/656da287bad3ff001ff0cd2d",
+      "reservationPlatform": "전화",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 10
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 20
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "산책로"
+      ],
+      "description": "홍천강이 바로 보이는 가평설악 뷰캠핑장!",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101201/thumb/thumb_720_96977MghBOZsBADcl46hTk2U.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2032",
+      "curated": false,
+      "gocampingId": "2032",
+      "name": "안성비봉산 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기 안성시 삼죽면 상삼로 188-36",
+      "lat": 37.088803,
+      "lng": 127.4071687,
+      "phone": "010-6462-2844",
+      "homepage": "http://xn--9n3bnwg7cxvju3a2hj54bt5m.jdweb.kr/",
+      "reservationUrl": "http://xn--9n3bnwg7cxvju3a2hj54bt5m.jdweb.kr/",
+      "reservationPlatform": "전화,현장",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 50
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "마트.편의점"
+      ],
+      "description": "벚꽃, 철쭉 명소에 비봉산 숲속에 자리한 힐링 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2032/thumb/thumb_720_3002XG26glKabKf95ttLFkZN.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-3275",
+      "curated": false,
+      "gocampingId": "3275",
+      "name": "포천 화적연 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수"
+      ],
+      "address": "경기 포천시 관인면 뗏마루길 43-118",
+      "lat": 38.1166557196707,
+      "lng": 127.262006693802,
+      "phone": "031-531-0575",
+      "homepage": "https://xn--ej5b84a3hy7uz2ikqb.kr/",
+      "reservationUrl": "https://xn--ej5b84a3hy7uz2ikqb.kr/",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 41
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "신비로운 기암괴석도 보고 캠핑도 하고 일거양득!",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3275/thumb/thumb_720_4106hIdZXgueXCtmWy0LOxrz.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-100917",
+      "curated": false,
+      "gocampingId": "100917",
+      "name": "포천 리버빌캠핑&카페",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "auto",
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기 포천시 이동면 성장로 1024-116",
+      "lat": 38.0075884,
+      "lng": 127.353803,
+      "homepage": "http://xn--703-y18my7iba403a.com/",
+      "reservationUrl": "http://xn--703-y18my7iba403a.com/r/rev_make.php?pen_code=j1634&s_group_num=0",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 40
+        },
+        {
+          "name": "글램핑",
+          "count": 5
+        },
+        {
+          "name": "카라반",
+          "count": 5
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "서울에서 1시간정도 거리에 위치한 포천 캠핑장입니다. 도심을 벗어나 자연과 어울리며 사랑하는 연인과 가족, 친구들과 함께 추억을 만들어가세요. 행복한 기억이 되는 곳. 편안한 여행이 되도록 최선을 다하겠습니다.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100917/thumb/thumb_720_8775odXC8CPt0Ae6bR7NnndM.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-1107",
+      "curated": false,
+      "gocampingId": "1107",
+      "name": "무안황토갯벌랜드 오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "무안군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전남광주통합특별시 무안군 해제면 만송로 36",
+      "lat": 35.1037694,
+      "lng": 126.3321981,
+      "phone": "061-450-5636",
+      "homepage": "http://getbol.muan.go.kr/",
+      "reservationUrl": "http://getbol.muan.go.kr/",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 37
+        },
+        {
+          "name": "카라반",
+          "count": 19
+        },
+        {
+          "name": "일반야영",
+          "count": 37
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "갯벌 체험이 함께하는 대규모 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/1107/thumb/thumb_720_4555nui8icN45cOw1AVaEH56.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2304",
+      "curated": false,
+      "gocampingId": "2304",
+      "name": "오시아노 오토캠핑리조트",
+      "aliases": [],
+      "region": "경기",
+      "city": "해남군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전남광주통합특별시 해남군 화원면 시아로 552",
+      "lat": 34.6683151346406,
+      "lng": 126.259674387,
+      "phone": "061-534-0122",
+      "homepage": "https://www.oceanoparapark.co.kr/",
+      "reservationUrl": "https://www.oceanoparapark.co.kr/camping_intro.php",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 170
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설"
+      ],
+      "description": "한국관광공사에서 개발한 오시아노 관광단지내 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2304/thumb/thumb_720_9607b282oTxlFRDN0tBt8naY.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-100434",
+      "curated": false,
+      "gocampingId": "100434",
+      "name": "홀통183 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "무안군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다",
+        "반려견"
+      ],
+      "address": "전남광주통합특별시 무안군 현경면 홀통길 183",
+      "lat": 35.060622,
+      "lng": 126.3332752,
+      "phone": "0507-1481-0272",
+      "homepage": "https://www.instagram.com/ht_camping",
+      "reservationUrl": "https://pf.kakao.com/_xnxbJzxj",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 51
+        },
+        {
+          "name": "일반야영",
+          "count": 30
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "홀통해수욕장 앞에 자리한 캠핑장  홀통유원지캠핑장은 전남 무안군 현경면에 자리 잡고 있다. 홀통해수욕장 코앞에 위치한 덕분에 무안 앞바다를 조망하며 캠핑을 즐길 수 있다. 캠핑장에는 맨흙으로 이뤄진 오토캠핑 사이트 30면이 마련되어 있다. 반려견 동반 입장이 가능하다. 개인 트레일러와 개인 카라반도 출입할 수 있다. 주변에 무안황토갯벌랜드가 있어 연계 여행이 수월하다.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100434/thumb/thumb_720_6310noowevCkisnnQqoc9ESi.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-6790",
+      "curated": false,
+      "gocampingId": "6790",
+      "name": "마실 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "남양주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "경기도 남양주시 오남읍 팔현로216번길 24-1",
+      "lat": 37.6892145673857,
+      "lng": 127.230005263272,
+      "phone": "070-4226-6545",
+      "homepage": "http://cafe.daum.net/maseal/",
+      "reservationUrl": "http://campinggo.kr/html/new_fcal.php?seq=126",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 50
+        },
+        {
+          "name": "글램핑",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 50
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "수도권에서 자동차로 40분이면 닿은 숲속 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/6790/thumb/thumb_720_2714q2bRrHkmLE3YnRKoWz6l.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-6944",
+      "curated": false,
+      "gocampingId": "6944",
+      "name": "(주)수동자연마을 힐링별밤수목원캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "남양주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "경기 남양주시 수동면 비룡로 1516-17",
+      "lat": 37.7496262406254,
+      "lng": 127.2732370588,
+      "phone": "010-8957-0012",
+      "homepage": "http://cafe.naver.com/healingforestcamping",
+      "reservationUrl": "http://booking.naver.com/3/booking/svc/19384",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 40
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 40
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "마트.편의점"
+      ],
+      "description": "계곡으로 둘러쌓인 나무가 많은 약 3만평의 숲으로 우거진 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/6944/thumb/thumb_720_1991w7lB7x7jsOTjcaVxX3xw.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-101096",
+      "curated": false,
+      "gocampingId": "101096",
+      "name": "가평뷰캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "호수"
+      ],
+      "address": "경기 가평군 북면 화악산로 270",
+      "lat": 37.9050192415022,
+      "lng": 127.560395546666,
+      "phone": "010-9139-1950",
+      "homepage": "https://blog.naver.com/gapyeong-viewcamping",
+      "reservationUrl": "https://blog.naver.com/gapyeong-viewcamping",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 16
+        },
+        {
+          "name": "카라반",
+          "count": 16
+        },
+        {
+          "name": "일반야영",
+          "count": 16
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "마트.편의점"
+      ],
+      "description": "가평 계곡 바로 앞 물멍하기 좋은 신생 가평뷰캠핑장입니다.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101096/thumb/thumb_720_2030Zijzwf7NrINsrgwmPbod.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7200",
+      "curated": false,
+      "gocampingId": "7200",
+      "name": "풀문캠핑앤글램핑리조트",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수",
+        "반려견"
+      ],
+      "address": "경기 가평군 상면 청군로 1487",
+      "lat": 37.8194432,
+      "lng": 127.3282548,
+      "phone": "031-585-3063",
+      "homepage": "http://www.ercamp.net",
+      "reservationUrl": "http://r4.camperstory.com/?1651",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 30
+        },
+        {
+          "name": "글램핑",
+          "count": 14
+        },
+        {
+          "name": "카라반",
+          "count": 3
+        },
+        {
+          "name": "일반야영",
+          "count": 30
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설"
+      ],
+      "description": "대단위 다양한 캠핑사이트와 이벤트로 즐길 거리가 많은 편안한 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7200/thumb/thumb_720_4979PdoqnfJMIPDJpRZ323rp.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-101375",
+      "curated": false,
+      "gocampingId": "101375",
+      "name": "가평아지트캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수"
+      ],
+      "address": "경기 가평군 가평읍 당목가일길 139-120",
+      "lat": 37.8682026,
+      "lng": 127.5254645,
+      "phone": "050-7976-4617",
+      "homepage": "가평 아지트캠핑장",
+      "reservationUrl": "가평아지트캠핑장,네이버,캠핏",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 6
+        },
+        {
+          "name": "일반야영",
+          "count": 30
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "계곡과 나무 그늘이 좋은 조용한 캠핑장\t\t",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101375/thumb/thumb_720_40098k1bhSzjQiRdunLgmfhH.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7175",
+      "curated": false,
+      "gocampingId": "7175",
+      "name": "아리움캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기 가평군 상면 왕대벌길 147",
+      "lat": 37.7684792948149,
+      "lng": 127.373955919401,
+      "phone": "031-584-1279",
+      "homepage": "http://www.ariumcamping.co.kr/",
+      "reservationUrl": "http://www.ariumcamping.co.kr/",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 7
+        },
+        {
+          "name": "카라반",
+          "count": 40
+        },
+        {
+          "name": "일반야영",
+          "count": 40
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "산책로",
+        "운동시설"
+      ],
+      "description": "천연 잔디 운동장에서 맘껏 뛰어놀 수 있는 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7175/thumb/thumb_720_9926woPP7JrHl880WK7NyuD4.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2000",
+      "curated": false,
+      "gocampingId": "2000",
+      "name": "아이에프에이 캠프운악",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 포천시 화현면 화현리 1090-2 ",
+      "lat": 37.8946656,
+      "lng": 127.3058131,
+      "phone": "010-2923-8141",
+      "homepage": "http://www.campunak.co.kr",
+      "reservationUrl": "http://www.campunak.co.kr",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 3
+        },
+        {
+          "name": "일반야영",
+          "count": 78
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "어른, 아이  모두가 행복하고 즐거워하는 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2000/thumb/thumb_720_37728orBdMIWg32sMiME0Jkb.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7096",
+      "curated": false,
+      "gocampingId": "7096",
+      "name": "화성시 향남 오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "화성시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [],
+      "address": "경기도 화성시 만세구 향남읍 도이2길 113-26",
+      "lat": 37.138245,
+      "lng": 126.928181,
+      "phone": "031-8059-4763",
+      "homepage": "https://yeyak.hscity.go.kr/1098/3058/hnNotice.do",
+      "reservationUrl": "https://yeyak.hscity.go.kr/1098/3058/campCalendarList.do?campIdx=2\t\t\t",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 43
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "산책로",
+        "운동장"
+      ],
+      "description": "다회용품 사용으로 친환경 가치를 실천하는 무장애 오토캠핑장\t",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7096/thumb/thumb_720_008450I1PDejjOGkzPgQrvpD.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7981",
+      "curated": false,
+      "gocampingId": "7981",
+      "name": "별빛밤바다",
+      "aliases": [],
+      "region": "경기",
+      "city": "장흥군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다",
+        "반려견"
+      ],
+      "address": "전남광주통합특별시 장흥군 회진면 가학회진로 1020-21",
+      "lat": 34.450953,
+      "lng": 126.9379465,
+      "homepage": "https://jhcamp.kr",
+      "reservationUrl": "https://jhcamp.kr",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 95
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7981/thumb/thumb_720_0553ks33EceeWQxl2KggPdp6.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7071",
+      "curated": false,
+      "gocampingId": "7071",
+      "name": "쿼크밸리캠프 야영장",
+      "aliases": [],
+      "region": "경기",
+      "city": "남양주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "경기도 남양주시 화도읍 가곡리 401번지",
+      "lat": 37.691320161573,
+      "lng": 127.294099602372,
+      "homepage": "https://quarkvalley.camp",
+      "reservationUrl": "https://quarkvalley.camp",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 40
+        },
+        {
+          "name": "일반야영",
+          "count": 40
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "수영장과 맑은 계곡이 있는 숲속 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7071/thumb/thumb_720_756720x9nUHfOhkN4SeBdNVP.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-7187",
+      "curated": false,
+      "gocampingId": "7187",
+      "name": "명사십리 오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "완도군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "전남광주통합특별시 완도군 신지면 해양치유길 54",
+      "lat": 34.330061093794,
+      "lng": 126.812352263664,
+      "phone": "061-552-3179",
+      "homepage": "https://www.wando.go.kr/tour/sub.cs?m=117",
+      "reservationUrl": "www.campwando.com",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 26
+        },
+        {
+          "name": "일반야영",
+          "count": 48
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "마트.편의점"
+      ],
+      "description": "수려한 명사십리 해변이 있는 곳",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7187/thumb/thumb_720_1373KIStrNUnrUaqtNUm7cdB.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-725",
+      "curated": false,
+      "gocampingId": "725",
+      "name": "대궐오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "양주시",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 양주시 백석읍 기산로440번길 177 ",
+      "lat": 37.7687295558095,
+      "lng": 126.939411456572,
+      "phone": "031-871-8989",
+      "homepage": "daegwolcamp.imweb.me",
+      "reservationUrl": "http://me2.do/FZeXh5mZ",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 60
+        },
+        {
+          "name": "글램핑",
+          "count": 17
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설"
+      ],
+      "description": "아늑한 산속 오토캠핑장과 글램핑",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/725/thumb/thumb_720_23020AQIhPInUf2tdGSnoHxA.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-6967",
+      "curated": false,
+      "gocampingId": "6967",
+      "name": "다목적광장 야영장",
+      "aliases": [],
+      "region": "경기",
+      "city": "양평군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 양평군 양동면 계정점말길102번길 195",
+      "lat": 37.439294083735,
+      "lng": 127.787167339189,
+      "phone": "010-5592-7520",
+      "homepage": "http://ypcamp.modoo.at",
+      "reservationUrl": "http://cafe.naver.com/yangpyeongcamping",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 70
+        },
+        {
+          "name": "글램핑",
+          "count": 10
+        },
+        {
+          "name": "카라반",
+          "count": 16
+        }
+      ],
+      "amenities": [
+        "트렘폴린",
+        "물놀이장",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "도심과 지친 일상에서 벗어나 자연속 힐링은 어떠세요? 양평 다목적 캠핑장은 여러분의 건강한 삶과 즐거운 웃음을 응원합니다. 울창한 잣나무숲을 테마로 아름다운 자연 풍경에서 삶의 에너지를 채워 보세요. 저희 양평 다목적 캠핑장은 수영장과 각종 놀이시설을 즐기실 수 있으며 산림 속 족욕장과 울창한 잣나무에서 나오는 피톤치드는 저희 캠핑장의 큰 특징입니다. 캠핑, 글램핑, 카라반 의외에도 체험학습, 둘레길등 시설확충중 입니다.    ☎ 문의전화 : 010-5592-7520",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/6967/thumb/thumb_720_3730bOBJzatmw1LIeexpGoqX.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2563",
+      "curated": false,
+      "gocampingId": "2563",
+      "name": "대신 오토 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "여주시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 여주시 대신면 여양로 1935-177 ",
+      "lat": 37.3856138535273,
+      "lng": 127.548958309908,
+      "phone": "031-880-9879",
+      "homepage": "https://camp.yeojuuc.or.kr/epoc/index.html",
+      "reservationUrl": "https://mirihae.com/epoc/camping/Z65332353?gateToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFTlRFUklOR19UT0tFTiIsImV4cCI6MTc3MDM1MTI3MywiVE9LRU5fSUQiOiIxYjNmNDU0MzY4NTI0NzNlOGNiNThmODg5ZDMzMzMyZiIsIkdST1VQX0lEIjoiNjZkYWNmYWM2OThlNmMxZGZjNjQ1NTY2In0.7bx4csADUWvbHtHm5JCvocjBRhZfX4s_z9whjmdQpmI",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 85
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "산책로",
+        "운동장",
+        "마트.편의점"
+      ],
+      "description": "자전거길과 공존하는 오토캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2563/thumb/thumb_720_59099fu5ih4UZ9SR8h66KhNb.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2564",
+      "curated": false,
+      "gocampingId": "2564",
+      "name": "대신 웰빙 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "여주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 여주시 대신면 여양로 1935-69",
+      "lat": 37.3935847268938,
+      "lng": 127.548282853328,
+      "phone": "031-880-9879",
+      "homepage": "https://camp.yeojuuc.or.kr/epoc/index.html",
+      "reservationUrl": "https://mirihae.com/epoc/camping/B24626523?gateToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFTlRFUklOR19UT0tFTiIsImV4cCI6MTc3MDM1MTk1OCwiVE9LRU5fSUQiOiJlODkwNGFmMDhlZDM0N2Y5ODhmZmQxMjJhNGU1YmZiOSIsIkdST1VQX0lEIjoiNjZkYWNmYWM2OThlNmMxZGZjNjQ1NTY2In0.XvcDaUm_zf3ri-7sSI7n-SMTjIg5Mi5bun8It_q79bc",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 95
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "산책로"
+      ],
+      "description": "호젓한 캠핑에 안성맞춤",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2564/thumb/thumb_720_2047aq6xAa8J7oJvlFc3NBlg.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-3423",
+      "curated": false,
+      "gocampingId": "3423",
+      "name": "한탄강관광지오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "연천군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기도 연천군 전곡읍 선사로 76",
+      "lat": 38.0088769865378,
+      "lng": 127.058860391302,
+      "phone": "031-833-0030",
+      "homepage": "http://www.hantan.co.kr",
+      "reservationUrl": "http://www.hantan.co.kr/index.php?PageID=ht_a03_b01",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 105
+        },
+        {
+          "name": "카라반",
+          "count": 34
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "한탄강을 배경으로 펼쳐진 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3423/thumb/thumb_720_1014auNFYaUpAajXhNi2vNdP.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-3436",
+      "curated": false,
+      "gocampingId": "3436",
+      "name": "함허동천야영장",
+      "aliases": [],
+      "region": "경기",
+      "city": "강화군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "인천광역시 강화군 화도면 해안남로1196번길 38 ",
+      "lat": 37.6113333162471,
+      "lng": 126.452610073585,
+      "phone": "032-930-7066",
+      "homepage": "https://www.ghss.or.kr/ttreserve",
+      "reservationUrl": "https://www.ghss.or.kr/ttreserve",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 200
+        }
+      ],
+      "amenities": [
+        "놀이터",
+        "산책로",
+        "운동시설"
+      ],
+      "description": "캠퍼들이 캠핑의 성지라 부르는 곳",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3436/thumb/thumb_720_1110lT8nNRfefcfc8bjv2m9v.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-3120",
+      "curated": false,
+      "gocampingId": "3120",
+      "name": "킨텍스캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "고양시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [],
+      "address": "경기도 고양시 일산서구 킨텍스로 217-25 (대화동)",
+      "lat": 37.6631279408281,
+      "lng": 126.73969294266,
+      "phone": "031-913-1700",
+      "homepage": "http://www.gys.or.kr/subpage/index/274",
+      "reservationUrl": "http://ticket.interpark.com/Ticket/Goods/GoodsInfo.asp?GoodsCode=16014395",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 31
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 45
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "마트.편의점"
+      ],
+      "description": "서울 근교 도심 속에서 즐기는 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3120/thumb/thumb_720_2230dMoalowTL1SnrYjBhF59.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-508",
+      "curated": false,
+      "gocampingId": "508",
+      "name": "김포한강오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "김포시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 김포시 하성면 월하로912번길 64, 한강오토캠핑장",
+      "lat": 37.7033014859673,
+      "lng": 126.65454190744,
+      "phone": "031-989-1000",
+      "homepage": "kimpocamping.com",
+      "reservationUrl": "https://r.camperstory.com/resMain.hbb?reserve_path=RP&campseq=2249",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 70
+        },
+        {
+          "name": "카라반",
+          "count": 12
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "김포한강오토캠핑장을 찾아주셔서 진심으로 감사드립니다. 전류리 포구를 거쳐, 한강의 물줄기를 따라 조성된 환경, 친화적 오토캠핑장입니다. 약 7,000평 규모의 캠핑장에 캠핑 초보자 분들도 쉽게 캠핑을 즐기실 수 있도록 카라반을 설치/운용하고 있으며, 800여평의 수영장과 워터슬라이드, 산책로 등 여러가지 편의시설 등을 통해 캠핑을 더욱더 편하게 즐기실 수 있도록 환경을 조성하였습니다.  수도권에 위치하여 누구나 쉽게 찾으실 수 있으며, 호근처에 다양한 관광지와 볼거리 등이 있어 고객님들에게 소중한 추억과 행복한 시간을 선사할 것입니다.  &lt;카라반&gt; 김포한강오토캠핑장의 10주년을 기념하여 야심차게 준비한 친환경 럭셔리 카라반 입니다. 대한민국 최고의 정박형 카라반 전문 브랜드인 판다카라반은 캠핑용품",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/508/thumb/thumb_720_65266GxKuU2OlqIhiRx717Ci.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2561",
+      "curated": false,
+      "gocampingId": "2561",
+      "name": "인디어라운드(Indiaround)",
+      "aliases": [],
+      "region": "경기",
+      "city": "이천시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [],
+      "address": "경기도 이천시 이섭대천로941번길 49-44 (율현동)",
+      "lat": 37.2519359,
+      "lng": 127.4417691,
+      "phone": "031-633-0700",
+      "homepage": "https://indiaround.co.kr/",
+      "reservationUrl": "http://cafe.naver.com/ichoncamping",
+      "reservationPlatform": "온라인예약대기",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 13
+        },
+        {
+          "name": "일반야영",
+          "count": 67
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "운동장",
+        "운동시설"
+      ],
+      "description": "도심 인근에서 즐기는 캠핑과 글램핑",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2561/thumb/thumb_720_1091Ul2KUkCl5rdNYW9ol2EZ.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-8014",
+      "curated": false,
+      "gocampingId": "8014",
+      "name": "수도권매립지 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "검단구",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "인천광역시 서구 정서진로 500 (오류동)",
+      "lat": 37.5697718419022,
+      "lng": 126.657130748411,
+      "phone": "032-569-4871",
+      "homepage": "https://noeuljin.com/",
+      "reservationUrl": "홈페이지 및 땡큐캠핑 사이트",
+      "reservationPlatform": "전화,온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 86
+        },
+        {
+          "name": "카라반",
+          "count": 32
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "산책로",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/8014/thumb/thumb_720_4703Qm7QalwokiTMJMJJxt8m.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-8008",
+      "curated": false,
+      "gocampingId": "8008",
+      "name": "지리산 호수공원 오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "구례군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수",
+        "반려견"
+      ],
+      "address": "전남광주통합특별시 구례군 산동면 산업로 1590-18",
+      "lat": 35.2807971,
+      "lng": 127.4184841,
+      "phone": "061-783-2800",
+      "homepage": "네이버.지리산호수공원오토캠핑장",
+      "reservationUrl": "네이버.지리산호수공원오토캠핑장",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 2211
+        },
+        {
+          "name": "글램핑",
+          "count": 16
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "놀이터"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/8008/thumb/thumb_720_5653NOn1VrM6jC3dceRh8xYx.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-1057",
+      "curated": false,
+      "gocampingId": "1057",
+      "name": "캠핑플래닛2",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 포천시 화현면 봉화로 400-150",
+      "lat": 37.8864758954842,
+      "lng": 127.285008678578,
+      "phone": "010-2398-5651",
+      "homepage": "https://cafe.naver.com/dotoricamp",
+      "reservationUrl": "네이버 (https://naver.me/5BcR4hcA)",
+      "reservationPlatform": "전화,온라인예약대기,온라인실시간예약,현장",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 100
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "마트.편의점"
+      ],
+      "description": "아치산 중턱에서 바라보는 전망 좋은 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/1057/thumb/thumb_720_5246nNoEtkqUyWATQBzkm5nC.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-3518",
+      "curated": false,
+      "gocampingId": "3518",
+      "name": "호수산장 관광농원",
+      "aliases": [],
+      "region": "경기",
+      "city": "여주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 여주시 가남읍 신해1길 95-52",
+      "lat": 37.2322552,
+      "lng": 127.5417531,
+      "phone": "031-882-9779",
+      "homepage": "http://cafe.daum.net/hosucamp",
+      "reservationUrl": "http://cafe.daum.net/hosucamp",
+      "reservationPlatform": "온라인예약대기",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 100
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설"
+      ],
+      "description": "프라이빗한 캠핑이 가능한 명소",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3518/thumb/thumb_720_5618zWj1PHOx30Rgh61uyGs2.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-2216",
+      "curated": false,
+      "gocampingId": "2216",
+      "name": "김포캠핑파크 주식회사",
+      "aliases": [],
+      "region": "경기",
+      "city": "김포시",
+      "kinds": [
+        "caravan",
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 김포시 월곶면 용강로 325",
+      "lat": 37.7472873,
+      "lng": 126.5587378,
+      "phone": "010-5757-9220",
+      "homepage": "www.gimpocamping.com",
+      "reservationUrl": "https://rsvt.co.kr/rsvt_web_jw/index.html?p_id=kimpo",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 4
+        },
+        {
+          "name": "일반야영",
+          "count": 100
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "마트.편의점"
+      ],
+      "description": "아이와 즐거운 물놀이, 저수지 석양 아래 힐링하는 도심 근교 프리미엄 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2216/thumb/thumb_720_7574Z5dwW4QrEkIsgppJwoKb.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-101507",
+      "curated": false,
+      "gocampingId": "101507",
+      "name": "에버오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 용인시 처인구 포곡읍 삼계리 677 ",
+      "lat": 37.2922359,
+      "lng": 127.236748,
+      "phone": "0507-1377-5354",
+      "homepage": "https://www.instagram.com/evercamping_official/",
+      "reservationUrl": "https://www.camfit.co.kr/camp/666659e213820a001eb3d18c",
+      "reservationPlatform": "온라인예약대기,온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 80
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동장",
+        "마트.편의점"
+      ],
+      "description": "용인IC 5분 거리에 위치한 오토 캠핑장\t\t",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101507/thumb/thumb_720_7841lENOIKHc4KdrtUklnfxR.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-101595",
+      "curated": false,
+      "gocampingId": "101595",
+      "name": "선재담 글램핑&카라반 리조트",
+      "aliases": [],
+      "region": "경기",
+      "city": "옹진군",
+      "kinds": [
+        "glamping",
+        "caravan",
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "반려견"
+      ],
+      "address": "인천 옹진군 영흥면 선재로226번길 130-37",
+      "lat": 37.2559514520782,
+      "lng": 126.524510252637,
+      "phone": "032-880-9903",
+      "homepage": "http://www.sunjedahm.com",
+      "reservationUrl": "https://booking.naver.com/booking/3/bizes/1247314",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 51
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 7
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "국내 최대 규모를 자랑하는 총 68개의 글램핑, 카라반, 캠핑 사이트를 갖춘 선재담 리조트 입니다.  파도에 실려오는 바다 내음, 초록빛 자연의 상쾌함, 자연의 아름다움을 품은 선재담 이 쾌적한 시설과 세심한 서비스로 진정한 휴식을 선사합니다.   - 펫존으로 구분되어있는 5개의 글램핑장이 있습니다.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101595/thumb/thumb_720_08402IhhP5qEKd5Ihfk09mMx.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-805",
+      "curated": false,
+      "gocampingId": "805",
+      "name": "덕산국민여가캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "강화군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "인천시 강화군 내가면 강화서로 227번길 91",
+      "lat": 37.717486,
+      "lng": 126.3801841,
+      "phone": "032-930-7055",
+      "homepage": "https://www.ghss.or.kr/ttreserve",
+      "reservationUrl": "https://www.ghss.or.kr/ttreserve",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 62
+        },
+        {
+          "name": "일반야영",
+          "count": 62
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "놀이터"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/805/thumb/thumb_720_9430fzi3C20Kb24m9MZfyazR.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-331",
+      "curated": false,
+      "gocampingId": "331",
+      "name": "광명도덕산캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "광명시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [],
+      "address": "경기 광명시 밤일안로42번길 69 (하안동)",
+      "lat": 37.4592422,
+      "lng": 126.8607682,
+      "phone": "02-2610-7370",
+      "homepage": "https://www.gmuc.co.kr/user/conn/campIntro.do",
+      "reservationUrl": "https://www.gmuc.co.kr/user/conn/campIntro.do",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 42
+        },
+        {
+          "name": "일반야영",
+          "count": 42
+        }
+      ],
+      "amenities": [
+        "전기",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "대한민국 100대 관광지인 광명동굴과 도덕산 출렁다리 인근에 위치한 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/331/thumb/thumb_720_1853pQU5AAYfN7Ui5tv2HM9h.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-04"
+    }
+  ]
 }
