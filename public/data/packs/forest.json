@@ -4,345 +4,882 @@
     {
       "id": "yumyeongsan",
       "name": "유명산자연휴양림",
-      "aliases": ["가평유명산"],
+      "aliases": [
+        "가평유명산"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "경기도 가평군 설악면 유명산길 79-53",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 주말·성수기는 매월 4일 09:00 전후 오픈(공지 확인)." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "산책로"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 주말·성수기는 매월 4일 09:00 전후 오픈(공지 확인)."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "산책로"
+      ],
       "description": "서울에서 가까운 국립휴양림. 유명산 정상과 옥슬봉 능선을 하루 산행으로 붙이기 좋습니다.",
-      "ratings": { "official": 4.5, "naver": 4.6 },
-      "featured": true
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.6
+      },
+      "featured": true,
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "chukryeong",
       "name": "축령산자연휴양림",
-      "aliases": ["남양주축령산"],
+      "aliases": [
+        "남양주축령산"
+      ],
       "region": "경기",
       "city": "남양주시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "경기도 남양주시 수동면 외방리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 수도권 주말 수요가 많아 오픈 직후를 노리는 편이 좋습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 수도권 주말 수요가 많아 오픈 직후를 노리는 편이 좋습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "남양주·가평 경계의 축령산 숲. 편백과 잣나무 숲길이 잘 정비되어 있습니다.",
-      "ratings": { "official": 4.4, "naver": 4.5 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "asean",
       "name": "아세안자연휴양림",
-      "aliases": ["양주아세안휴양림"],
+      "aliases": [
+        "양주아세안휴양림"
+      ],
       "region": "경기",
       "city": "양주시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "경기도 양주시 남면 상수리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 동남아 정원 테마 산책로가 있습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "산책로"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 동남아 정원 테마 산책로가 있습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "산책로"
+      ],
       "description": "양주 남면의 국립휴양림. 아이와 함께 정원·숲길을 걷기 좋은 구성입니다.",
-      "ratings": { "official": 4.3, "naver": 4.4 }
+      "ratings": {
+        "official": 4.3,
+        "naver": 4.4
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "cheongtae",
       "name": "청태산자연휴양림",
-      "aliases": ["횡성청태산"],
+      "aliases": [
+        "횡성청태산"
+      ],
       "region": "강원",
       "city": "횡성군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "강원특별자치도 횡성군 둔내면 청태산로 577",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 해발이 높아 여름에도 선선합니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 해발이 높아 여름에도 선선합니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "횡성 둔내면 고지대 휴양림. 한우 맛집과 양떼목장 일정을 붙이는 팀이 많습니다.",
-      "ratings": { "official": 4.6, "naver": 4.6 },
-      "featured": true
+      "ratings": {
+        "official": 4.6,
+        "naver": 4.6
+      },
+      "featured": true,
+      "gocampingId": "395",
+      "homepage": "http://www.huyang.go.kr/main.action",
+      "phone": "033-343-9707"
     },
     {
       "id": "sambong",
       "name": "삼봉자연휴양림",
-      "aliases": ["홍천삼봉"],
+      "aliases": [
+        "홍천삼봉"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "강원특별자치도 홍천군 내면 삼봉휴양길",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 내면 방태산·개인산 권역입니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 내면 방태산·개인산 권역입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "홍천 내면의 깊은 숲. 계곡이 가깝고 여름 피서 휴양림으로 자주 추천됩니다.",
-      "ratings": { "official": 4.5, "naver": 4.5 }
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "yonghwa",
       "name": "용화산자연휴양림",
-      "aliases": ["춘천용화산"],
+      "aliases": [
+        "춘천용화산"
+      ],
       "region": "강원",
       "city": "춘천시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "강원특별자치도 춘천시 사북면 지암리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 춘천·화천 중간 권역." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 춘천·화천 중간 권역."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "춘천 사북면 용화산. 소양호와 화천 일정을 하루 더 붙이기 좋습니다.",
-      "ratings": { "official": 4.4, "naver": 4.3 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.3
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "bangtae",
       "name": "방태산자연휴양림",
-      "aliases": ["인제방태산"],
+      "aliases": [
+        "인제방태산"
+      ],
       "region": "강원",
       "city": "인제군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "강원특별자치도 인제군 기린면 방동리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 방동약수·방태산 적가리골과 가깝습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 방동약수·방태산 적가리골과 가깝습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "인제 기린면의 깊은 계곡 휴양림. 물놀이와 숲길이 모두 좋아 여름에 빨리 찹니다.",
-      "ratings": { "official": 4.7, "naver": 4.7 },
-      "featured": true
+      "ratings": {
+        "official": 4.7,
+        "naver": 4.7
+      },
+      "featured": true,
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "micheon",
       "name": "미천골자연휴양림",
-      "aliases": ["양양미천골"],
+      "aliases": [
+        "양양미천골"
+      ],
       "region": "강원",
       "city": "양양군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "강원특별자치도 양양군 서면 미천골길 115",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 양양 해변과 산 일정을 나누기 좋습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 양양 해변과 산 일정을 나누기 좋습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "불바라기약수와 미천골 계곡이 있는 양양 휴양림. 동해 일출과 하루씩 나누기 좋습니다.",
-      "ratings": { "official": 4.5, "naver": 4.5 }
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "gariwang",
       "name": "가리왕산자연휴양림",
-      "aliases": ["정선가리왕산"],
+      "aliases": [
+        "정선가리왕산"
+      ],
       "region": "강원",
       "city": "정선군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "강원특별자치도 정선군 정선읍 회동리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 정선 아리랑·화암동굴 일정과 붙입니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 정선 아리랑·화암동굴 일정과 붙입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "정선 가리왕산 자락. 해발이 높아 한여름 피서와 가을 단풍이 모두 좋습니다.",
-      "ratings": { "official": 4.4, "naver": 4.4 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.4
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "oseosan",
       "name": "오서산자연휴양림",
-      "aliases": ["보령오서산"],
+      "aliases": [
+        "보령오서산"
+      ],
       "region": "충청",
       "city": "보령시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "충청남도 보령시 청라면 오서산길",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 억새 철에는 산행객이 많습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 억새 철에는 산행객이 많습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "서해 가까운 오서산. 억새 능선과 대천 해변을 하루씩 나누기 좋습니다.",
-      "ratings": { "official": 4.4, "naver": 4.4 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.4
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "huiri",
       "name": "희리산해송자연휴양림",
-      "aliases": ["서천희리산"],
+      "aliases": [
+        "서천희리산"
+      ],
       "region": "충청",
       "city": "서천군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림", "바다"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "바다"
+      ],
       "address": "충청남도 서천군 서면 희리산길",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 해송 숲과 서해가 가깝습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 해송 숲과 서해가 가깝습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "서천 희리산 해송 숲. 춘장대해수욕장과 한 주말 일정으로 많이 묶습니다.",
-      "ratings": { "official": 4.5, "naver": 4.5 }
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "yonghyeon",
       "name": "용현자연휴양림",
-      "aliases": ["서산용현"],
+      "aliases": [
+        "서산용현"
+      ],
       "region": "충청",
       "city": "서산시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "충청남도 서산시 운산면 용현리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 용현계곡·마애여래삼존상과 가깝습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 용현계곡·마애여래삼존상과 가깝습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "서산 용현계곡 옆 휴양림. 국보 마애불과 가야산 산행을 붙이기 좋습니다.",
-      "ratings": { "official": 4.3, "naver": 4.3 }
+      "ratings": {
+        "official": 4.3,
+        "naver": 4.3
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "unmun",
       "name": "운문산자연휴양림",
-      "aliases": ["청도운문산"],
+      "aliases": [
+        "청도운문산"
+      ],
       "region": "경상",
       "city": "청도군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "경상북도 청도군 운문면 운문로",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 운문사 들머리 권역." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 운문사 들머리 권역."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "청도 운문산. 운문사와 가지산 산행을 하루 일정으로 짜기 좋습니다.",
-      "ratings": { "official": 4.4, "naver": 4.4 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.4
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "daeya",
       "name": "대야산자연휴양림",
-      "aliases": ["문경대야산"],
+      "aliases": [
+        "문경대야산"
+      ],
       "region": "경상",
       "city": "문경시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "경상북도 문경시 가은읍 용추리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 용추계곡이 가깝습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 용추계곡이 가깝습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "문경 가은 용추계곡 옆. 문경새재와 하루를 나누면 주말 일정이 잘 맞습니다.",
-      "ratings": { "official": 4.4, "naver": 4.5 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "geomma",
       "name": "검마산자연휴양림",
-      "aliases": ["영양검마산"],
+      "aliases": [
+        "영양검마산"
+      ],
       "region": "경상",
       "city": "영양군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "경상북도 영양군 일월면 용화리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 밤하늘이 어두운 편이라 별 보기 좋습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 밤하늘이 어두운 편이라 별 보기 좋습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "영양 일월면의 한적한 휴양림. 반딧불과 별, 영양고추 일정을 붙이기 좋습니다.",
-      "ratings": { "official": 4.5, "naver": 4.5 }
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "tonggo",
       "name": "통고산자연휴양림",
-      "aliases": ["울진통고산"],
+      "aliases": [
+        "울진통고산"
+      ],
       "region": "경상",
       "city": "울진군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "경상북도 울진군 금강송면 소광리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 금강송 군락과 불영계곡 권역." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 금강송 군락과 불영계곡 권역."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "울진 금강송면. 소광리 금강송과 불영사를 보고 들어오기 좋습니다.",
-      "ratings": { "official": 4.5, "naver": 4.5 }
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.5
+      },
+      "gocampingId": "3160",
+      "homepage": "http://www.huyang.go.kr/forest/contentCamp.action?dprtmId=0193",
+      "phone": "054-783-3167"
     },
     {
       "id": "sinbul",
       "name": "신불산폭포자연휴양림",
-      "aliases": ["울산신불산"],
+      "aliases": [
+        "울산신불산"
+      ],
       "region": "경상",
       "city": "울산 울주군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "울산광역시 울주군 삼남읍 가천리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 신불산·영축산 산행 베이스." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 신불산·영축산 산행 베이스."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "영남알프스 들머리 휴양림. 신불산 억새 철에는 예약이 빨리 마감됩니다.",
-      "ratings": { "official": 4.5, "naver": 4.5 }
+      "ratings": {
+        "official": 4.5,
+        "naver": 4.5
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "byeonsan-forest",
       "name": "변산자연휴양림",
-      "aliases": ["부안변산휴양림"],
+      "aliases": [
+        "부안변산휴양림"
+      ],
       "region": "전라",
       "city": "부안군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림", "바다"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "바다"
+      ],
       "address": "전북특별자치도 부안군 변산면 마포리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 고사포 야영장과 다른 숲속 숙영입니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 고사포 야영장과 다른 숲속 숙영입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "변산반도 숲속 휴양림. 채석강·고사포를 보고 숲에서 자기 좋습니다.",
-      "ratings": { "official": 4.4, "naver": 4.4 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.4
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "nagan",
       "name": "낙안민속자연휴양림",
-      "aliases": ["순천낙안휴양림"],
+      "aliases": [
+        "순천낙안휴양림"
+      ],
       "region": "전라",
       "city": "순천시",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "전라남도 순천시 낙안면 동내리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 낙안읍성과 가깝습니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 낙안읍성과 가깝습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "낙안읍성 옆 휴양림. 순천만·선암사와 주말 일정을 짜기 좋습니다.",
-      "ratings": { "official": 4.3, "naver": 4.3 }
+      "ratings": {
+        "official": 4.3,
+        "naver": 4.3
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     },
     {
       "id": "jirisan-forest",
       "name": "함양 지리산자연휴양림",
-      "aliases": ["함양지리산휴양림"],
+      "aliases": [
+        "함양지리산휴양림"
+      ],
       "region": "경상",
       "city": "함양군",
-      "kinds": ["tent"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "경상남도 함양군 마천면 가흥리",
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
-      "reservationWindows": [{ "label": "선착순", "rule": "숲나들e. 백무동 야영장과는 별도 시설입니다." }],
-      "siteTypes": [{ "name": "야영데크", "priceMin": 12000, "priceMax": 20000 }],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "reservationWindows": [
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 백무동 야영장과는 별도 시설입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "야영데크",
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "함양 마천의 지리산 휴양림. 백무동 산행 전후 숲속 숙영으로 쓰입니다.",
-      "ratings": { "official": 4.4, "naver": 4.4 }
+      "ratings": {
+        "official": 4.4,
+        "naver": 4.4
+      },
+      "homepage": "https://www.foresttrip.go.kr"
     }
   ]
 }

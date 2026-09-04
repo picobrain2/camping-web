@@ -116,7 +116,10 @@
           "rating": 4.5,
           "body": "자작나무와 계곡 풍경 칭찬이 많고, 차도와 사이트가 나뉘어 아이와 편하다는 후기입니다."
         }
-      ]
+      ],
+      "gocampingId": "944",
+      "homepage": "http://ddoolleh.itpage.kr/",
+      "reservationUrl": "http://ddoolleh.itpage.kr/?no=7"
     },
     {
       "id": "myeongdongol",
@@ -309,7 +312,9 @@
       "description": "상면 축령산 하이몽. 실내수영장과 그늘로 아이 동반 가족 캠핑 후기가 많습니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "7731",
+      "reservationUrl": "https://pureunsoop.co.kr"
     },
     {
       "id": "yp-arboretum",
@@ -419,7 +424,8 @@
           "rating": 4.5,
           "body": "계곡이 사이트 앞이라 물놀이 만족이 높고, 개별 화장실 자리는 더 빨리 찹니다."
         }
-      ]
+      ],
+      "gocampingId": "100297"
     },
     {
       "id": "biryong",
@@ -470,7 +476,8 @@
           "rating": 4.4,
           "body": "사이트 간격이 넓어 조용하고, 홈페이지에서 자리를 고른다는 후기가 많습니다."
         }
-      ]
+      ],
+      "gocampingId": "8202"
     },
     {
       "id": "seohuri",
@@ -569,7 +576,10 @@
         "official": 4.3,
         "naver": 4.4
       },
-      "featured": true
+      "featured": true,
+      "gocampingId": "953",
+      "homepage": "http://www.laonglamping.co.kr/",
+      "reservationUrl": "http://www.laonglamping.co.kr/"
     },
     {
       "id": "lagom",
@@ -623,7 +633,9 @@
           "rating": 4.6,
           "body": "사이트마다 화장실·샤워가 있어 위생 칭찬이 많고, 반려견 동반 후기도 있습니다."
         }
-      ]
+      ],
+      "gocampingId": "100590",
+      "homepage": "https://camfit.co.kr/camp/631fe026dd78d6001e749d86"
     },
     {
       "id": "starsky",
@@ -667,7 +679,9 @@
       "description": "양양 서면 밤하늘별. 캠핏 양양 목록에 자주 오르는 계곡 오토캠핑입니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "101714",
+      "homepage": "https://www.camfit.co.kr/camp/67d27c661de7af001dbee773"
     },
     {
       "id": "geureuteogi",
@@ -753,7 +767,8 @@
       "description": "양지 추계관광농원 캠핑. 캠핏 신설 목록에 올라 용인·동탄에서 가까운 오토캠핑으로 잡힙니다.",
       "ratings": {
         "naver": 4.2
-      }
+      },
+      "gocampingId": "102172"
     },
     {
       "id": "byeolarae",

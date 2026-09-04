@@ -162,7 +162,10 @@
       "description": "가평읍 북한강변 남이섬 베스트. 남이섬·자라섬 일정과 맞물리는 강변 캠핑입니다.",
       "ratings": {
         "naver": 4.2
-      }
+      },
+      "gocampingId": "1306",
+      "homepage": "https://www.bestcamping.co.kr",
+      "reservationUrl": "https://www.bestcamping.co.kr"
     },
     {
       "id": "gg-nest",
@@ -203,7 +206,11 @@
       "description": "북면 화악산 네스트. 금다래·에버그린과 같은 화악산로 벨트입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7125",
+      "homepage": "http://m.cafe.naver.com/nestcamping23.cafe?",
+      "reservationUrl": "http://www.camfit.co.kr/camp/6409a1065664d7001e06c7de",
+      "phone": "010-3889-0443"
     },
     {
       "id": "gg-clover",
@@ -246,7 +253,11 @@
       "description": "설악면 네잎클로버. 카라반·글램핑으로 여기어때 가평 베스트에 자주 오릅니다.",
       "ratings": {
         "naver": 4.5
-      }
+      },
+      "gocampingId": "8206",
+      "homepage": "https://www.clovercamp.co.kr/",
+      "reservationUrl": "https://www.clovercamp.co.kr/",
+      "phone": "070-8859-8800"
     },
     {
       "id": "gg-neptune",
@@ -409,7 +420,11 @@
       "description": "설악 유명산 달빛정원. 가일리 글램핑 벨트에서 자주 비교됩니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100141",
+      "homepage": "http://moonglamping.co.kr",
+      "reservationUrl": "https://naver.me/GOPesw3D",
+      "phone": "010-3004-4434"
     },
     {
       "id": "gg-the-m",
@@ -940,7 +955,11 @@
       "description": "어비산 리즈밸리. 융프라우·유명산힐링캠프와 한 골입니다.",
       "ratings": {
         "naver": 4.5
-      }
+      },
+      "gocampingId": "7139",
+      "homepage": "http://lizvalley.com/sub/index.php",
+      "reservationUrl": "http://lizvalley.com/bbs/board.php?bo_table=04_02",
+      "phone": "031-584-2750"
     },
     {
       "id": "gg-linkedog",
@@ -995,7 +1014,11 @@
           "body": "시설은 깨끗한데 성수기엔 예약이 빨리 찬다는 이야기가 반복됩니다."
         }
       ],
-      "featured": true
+      "featured": true,
+      "gocampingId": "6721",
+      "homepage": "http://링크독애견파크.kr/introduction/introduction01",
+      "reservationUrl": "http://www.ddnayo.com/RsvSys/Calendar.aspx?id_hotel=6178",
+      "phone": "010-5382-1943"
     },
     {
       "id": "gg-malgeun-mul",
@@ -1213,7 +1236,11 @@
           "body": "주말 바베큐 연기가 겹친다는 글과, 아이 물놀이로는 만족한다는 글이 같이 있습니다."
         }
       ],
-      "featured": true
+      "featured": true,
+      "gocampingId": "101132",
+      "homepage": "https://blog.naver.com/kek8821",
+      "reservationUrl": "https://blog.naver.com/kek8821",
+      "phone": "055-834-1008"
     },
     {
       "id": "gg-mulgol-samhwa",
@@ -1373,7 +1400,8 @@
       "description": "가평읍 개곡 별드림. 읍내와 가까운 소규모 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1324"
     },
     {
       "id": "gg-star-dung",
@@ -1494,7 +1522,11 @@
       "description": "설악 묵안 별빛오토. 한송·캠핑소리251과 같은 묵안로입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1499",
+      "homepage": "https://blog.naver.com/starlightcamping",
+      "reservationUrl": "https://map.naver.com/p/entry/place/2027393892?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=127.1932294&lat=38.1580290",
+      "phone": "010-6599-3072"
     },
     {
       "id": "gg-byeolcheon",
@@ -1535,7 +1567,11 @@
       "description": "북면 화악산 별천지. 사이트 수가 적은 계곡 야영장입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "101344",
+      "homepage": "http://www.buyun2fv.com/",
+      "reservationUrl": "http://www.buyun2fv.com/",
+      "phone": "010-5212-3260"
     },
     {
       "id": "gg-buenos",
@@ -1736,7 +1772,10 @@
       "description": "가평읍 분자골 산유리. 소규모 숲속 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7628",
+      "homepage": "https://m.place.naver.com/accommodation/1895133609/location?subtab=location",
+      "reservationUrl": "https://m.place.naver.com/accommodation/1895133609/location?subtab=location"
     },
     {
       "id": "gg-sanjang",
@@ -1900,7 +1939,10 @@
       "description": "설악 설곡 세라핌. 여기어때 가평 글램핑 10에 자주 오릅니다.",
       "ratings": {
         "naver": 4.5
-      }
+      },
+      "gocampingId": "1696",
+      "homepage": "http://cafe.naver.com/seraphimcamp",
+      "reservationUrl": "https://www.coupang.com/np/search?q=%EA%B0%80%ED%8F%89+%EC%84%B8%EB%9D%BC%ED%95%8C+%EA%B8%80%EB%9E%A8%ED%95%91&channel=relate"
     },
     {
       "id": "gg-solbaram",
@@ -2306,7 +2348,11 @@
       "description": "북면 백둔 연인산 다목적. 군 운영 야영으로 가성비 검색에 자주 나옵니다.",
       "ratings": {
         "naver": 4.2
-      }
+      },
+      "gocampingId": "8042",
+      "homepage": "http://www.gpyeonin.co.kr/",
+      "reservationUrl": "http://www.gpyeonin.co.kr/",
+      "phone": "031-8078-8068"
     },
     {
       "id": "gg-yeoldudal",
@@ -2628,7 +2674,11 @@
       "description": "북면 화악산로 우리들. 메타피아와 가까운 소규모 오토입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7192",
+      "homepage": "https://cafe.naver.com/orangenpnqo",
+      "reservationUrl": "http://r.camperstory.com/?2069",
+      "phone": "010-2261-8138"
     },
     {
       "id": "gg-weekfarm",
@@ -2750,7 +2800,11 @@
       "description": "유명산 휴양림 들머리 밸리. 철이네·푸른숲과 가깝습니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7194",
+      "homepage": "http://yumyoungsan-valley.co.kr",
+      "reservationUrl": "http://yumyoungsan-valley.co.kr",
+      "phone": "031-584-3114"
     },
     {
       "id": "gg-yumyeong-heal",
@@ -2790,7 +2844,11 @@
       "description": "어비산 유명산힐링캠프. 리즈밸리·융프라우 옆입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7195",
+      "homepage": "http://forsthealingcamp.com/",
+      "reservationUrl": "http://forsthealingcamp.com/",
+      "phone": "010-7612-1372"
     },
     {
       "id": "gg-yumyeonghan",
@@ -2910,7 +2968,11 @@
       "description": "하면 대보 은빛물결. 청평호 하면 쪽 호숫가 캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7039",
+      "homepage": "https://cafe.naver.com/eunmulcamp",
+      "reservationUrl": "https://booking.naver.com/booking/3/bizes/84933?area=bns",
+      "phone": "010-6764-5061"
     },
     {
       "id": "gg-eumnae",
@@ -3193,7 +3255,11 @@
       "description": "가평읍 호반로 청춘. 청평호 상류 호숫가 오토입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100022",
+      "homepage": "https://Www.toycamp.kr",
+      "reservationUrl": "https://Www.toycamp.kr",
+      "phone": "031-581-9977"
     },
     {
       "id": "gg-won-leisure",
@@ -3357,7 +3423,10 @@
       "description": "상면 비룡로 캠플레이. 청군로·축령산 사이입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7212",
+      "homepage": "https://cafe.naver.com/campplay3333",
+      "reservationUrl": "https://cafe.naver.com/campplay3333"
     },
     {
       "id": "gg-679",
@@ -3477,7 +3546,10 @@
       "description": "조종 연인산 캠핑스마일. 캠핑어클락과 같은 골짜기입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100555",
+      "reservationUrl": "https://www.camfit.co.kr/camp/63107c0c01e51e001f3271da",
+      "homepage": "https://www.camfit.co.kr/camp/63107c0c01e51e001f3271da"
     },
     {
       "id": "gg-oclock",
@@ -3517,7 +3589,11 @@
       "description": "조종 연인산 캠핑어클락. 헬로우힐·달무리와 가깝습니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7214",
+      "homepage": "http://www.campingoclock.com",
+      "reservationUrl": "https://camfit.co.kr/camp/6200b4535ed420001e9d2ab8",
+      "phone": "031-585-3501"
     },
     {
       "id": "gg-kellie",
@@ -3844,7 +3920,11 @@
       "description": "북면 화악 포시즌. 에버그린빌리지 바로 옆 화악산로입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7222",
+      "homepage": "http://xn--oi2bl1go2gxuhprg65i.jdweb.kr/",
+      "reservationUrl": "http://xn--oi2bl1go2gxuhprg65i.jdweb.kr/",
+      "phone": "043-422-7070"
     },
     {
       "id": "gg-prado",
@@ -3965,7 +4045,10 @@
       "description": "북면 제령 플로렌스. 구름계곡·오하브 사이입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7227",
+      "homepage": "http://campflorence.com/",
+      "reservationUrl": "http://happy.pen-ple.com/reservation/reserve.php?ps_code=5d06f8a024db"
     },
     {
       "id": "gg-skyforest-glamp",
@@ -4046,7 +4129,10 @@
       "description": "가평읍 호반로 하늘숲. 청평호 상류 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100748",
+      "homepage": "http://www.xn--wh1bx90au2c9wbj5qwtebvhpb.com/#__344745__item2",
+      "reservationUrl": "http://www.xn--wh1bx90au2c9wbj5qwtebvhpb.com/page/page4"
     },
     {
       "id": "gg-hi",
@@ -4087,7 +4173,8 @@
       "description": "북면 적목 하이캠핑장. 명지산카라반과 같은 적목리입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "102192"
     },
     {
       "id": "gg-hansong",
@@ -4329,7 +4416,11 @@
       "description": "설악 유명로 화야. 썬샤인캠프와 가까운 유명산 하단입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7234",
+      "homepage": "http://www.hwayacamp.com",
+      "reservationUrl": "http://www.hwayacamp.com",
+      "phone": "010-5123-7281"
     },
     {
       "id": "gg-healing-leisure",
@@ -4916,7 +5007,8 @@
       "description": "가평 더캠프 카라반. 강변 카라반·글램핑으로 여기어때 목록에 나옵니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7740"
     },
     {
       "id": "gg-deprivate",
@@ -5517,7 +5609,11 @@
       "description": "포천 운악Hi. 운악산 들머리 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "101775",
+      "homepage": "https://www.campunak.co.kr/main.aspx",
+      "reservationUrl": "https://www.campunak.co.kr/Reservation/Reservation_Status.aspx",
+      "phone": "010-8458-8141"
     },
     {
       "id": "pc-forestay",
@@ -5557,7 +5653,8 @@
       "description": "포천 포레스테이. 숲속 오토로 캠핏 신설 목록에 자주 보입니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "101719"
     },
     {
       "id": "pc-myeongseong",
@@ -5719,7 +5816,9 @@
       "description": "포천 산아래. 소규모 산자락 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "101430",
+      "phone": "0507-1428-3430"
     },
     {
       "id": "pc-gurai",
@@ -5759,7 +5858,9 @@
       "description": "포천 구라이골. 한적한 골짜기 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7034",
+      "phone": "031-536-0008"
     },
     {
       "id": "pc-jailand",
@@ -5921,7 +6022,11 @@
       "description": "포천 자연마을. 서울 근교 소규모 오토로 검색됩니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "3287",
+      "homepage": "http://blog.naver.com/seoul_camp",
+      "reservationUrl": "https://yeyak.seoul.go.kr/web/main.do",
+      "phone": "031-533-9535"
     },
     {
       "id": "pc-supia",
@@ -6002,7 +6107,11 @@
       "description": "영북 산정호수 가족글램핑. 호수 오토캠핑장과 별도로 검색됩니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1528",
+      "homepage": "http://sjglamping.com/main.htm",
+      "reservationUrl": "https://naver.me/xxYL6zMK",
+      "phone": "010-5768-3868"
     },
     {
       "id": "yp-seminar",
@@ -6125,7 +6234,11 @@
       "description": "양평 카라반파파. 캠핏 양평 인기 목록에 자주 보입니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "7975",
+      "reservationUrl": "https://naver.me/FzSZmUL1",
+      "phone": "010-4517-8070",
+      "homepage": "https://naver.me/FzSZmUL1"
     },
     {
       "id": "yp-seojong",
@@ -6209,7 +6322,10 @@
       "ratings": {
         "naver": 4.4
       },
-      "homepage": "https://www.foresttrip.go.kr"
+      "homepage": "https://www.foresttrip.go.kr",
+      "gocampingId": "2377",
+      "reservationUrl": "http://www.ypforest.com/main.php?sp=reserv",
+      "phone": "031-775-4005"
     },
     {
       "id": "yp-suhyang",
@@ -6780,7 +6896,11 @@
           "body": "접근성이 좋아 초보 가족 캠핑으로 많이 찾고, 바람은 강변이라 세다는 글이 있습니다."
         }
       ],
-      "featured": true
+      "featured": true,
+      "gocampingId": "7254",
+      "homepage": "https://ggtour.or.kr/camping/main.web",
+      "reservationUrl": "https://ggtour.or.kr/camping/main.web",
+      "phone": "031-956-8350"
     },
     {
       "id": "pj-yulgok",
@@ -6860,7 +6980,11 @@
       "description": "파주 명학산. 숲속 오토로 파주 캠핑 검색에 보입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1066",
+      "homepage": "http://www.myeonghakcamp.com/",
+      "reservationUrl": "http://www.myeonghakcamp.com/bbs/board.php?bo_table=0502",
+      "phone": "010-6649-2387"
     },
     {
       "id": "pj-bandi",
@@ -6900,7 +7024,10 @@
       "description": "파주 반디캠프. 소규모 오토캠핑입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1220",
+      "homepage": "http://cafe.naver.com/ksm8558k",
+      "reservationUrl": "http://cafe.naver.com/ksm8558k"
     },
     {
       "id": "pj-gisan",
@@ -6981,7 +7108,10 @@
       "description": "교하 심학산 야영. 파주 출퇴근권 야영으로 검색됩니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "1931",
+      "homepage": "https://glampinggarden.modoo.at/",
+      "reservationUrl": "https://glampinggarden.modoo.at/"
     },
     {
       "id": "pj-haetsal",
@@ -7022,7 +7152,9 @@
       "description": "파주 임진강 햇살. 여기어때 경기 글램핑 10에 오릅니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "101879",
+      "phone": "010-5345-8253"
     },
     {
       "id": "yj-guam",
@@ -7062,7 +7194,9 @@
       "description": "양주 구암. 캠핏 양주 인기 목록에 자주 보입니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "101726",
+      "phone": "031-851-9548"
     },
     {
       "id": "yj-jangheung",
@@ -7509,7 +7643,11 @@
       "description": "안성맞춤. 공공형 가족 캠핑으로 경기 남부 추천 글에 반복됩니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "2031",
+      "homepage": "https://www.anseong.go.kr/tourPortal/camp/main.do",
+      "reservationUrl": "https://tickets.interpark.com/goods/20004468",
+      "phone": "031-677-8267~8"
     },
     {
       "id": "as-multi",
@@ -7605,7 +7743,9 @@
           "body": "가을 억새 시즌은 주말 마감이 빠르고, 바람은 섬이라 세다는 후기가 있습니다."
         }
       ],
-      "featured": true
+      "featured": true,
+      "gocampingId": "101637",
+      "reservationUrl": "https://camp.yjcf.or.kr"
     },
     {
       "id": "yj-charcoal",
@@ -7646,7 +7786,10 @@
       "ratings": {
         "naver": 4.3
       },
-      "homepage": "https://www.yjcharmsoot.co.kr/"
+      "homepage": "https://www.yjcharmsoot.co.kr/",
+      "gocampingId": "2179",
+      "reservationUrl": "https://www.yjcharmsoot.co.kr",
+      "phone": "031-886-1119"
     },
     {
       "id": "yj-geumeun",
@@ -7687,7 +7830,11 @@
       "description": "여주 금은모래. 남한강 둔치 가족 캠핑으로 경기 남부 추천에 오릅니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "484",
+      "homepage": "https://camp.yeojuuc.or.kr/gsmc",
+      "reservationUrl": "https://mirihae.com/gsmc/camping/Q86949745?gateToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFTlRFUklOR19UT0tFTiIsImV4cCI6MTc2ODIwNDE2MiwiVE9LRU5fSUQiOiJjNmI1ODg3OTFhMDM0YTc3YjNmNDE0M2NlMjdhNGZmNSIsIkdST1VQX0lEIjoiNjZkYWNmYWM2OThlNmMxZGZjNjQ1NTY2In0.CGiGVzSnBT0cu6eo9aC3EQl84_c7MzQ3o7zeCidUs5w",
+      "phone": "031-880-4095"
     },
     {
       "id": "pt-jinwi",

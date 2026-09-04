@@ -71,7 +71,8 @@
           "source": "후기 요약",
           "body": "사이트 간격과 매너타임이 잘 지켜져 조용히 쉬기 좋다는 평이 많습니다."
         }
-      ]
+      ],
+      "gocampingId": "1605"
     },
     {
       "id": "glampark",
@@ -133,7 +134,8 @@
           "source": "후기 요약",
           "body": "돔·수영장 시즌은 예약이 빠르니 평일을 노리라는 후기가 많습니다."
         }
-      ]
+      ],
+      "gocampingId": "100066"
     },
     {
       "id": "muluinara",
@@ -272,7 +274,10 @@
       "description": "조종 운악산 루체른. 복층 글램핑과 계곡·수영장으로 캠프픽 감성 글램핑 목록에 자주 보입니다.",
       "ratings": {
         "naver": 4.6
-      }
+      },
+      "gocampingId": "100711",
+      "homepage": "http://lucerneglamping.com/",
+      "reservationUrl": "https://booking.ddnayo.com/booking-calendar-status?accommodationId=15281"
     },
     {
       "id": "stay-edge",
@@ -368,7 +373,8 @@
       "ratings": {
         "naver": 4.6
       },
-      "featured": true
+      "featured": true,
+      "gocampingId": "100702"
     },
     {
       "id": "jibbakkeuro",
@@ -655,7 +661,10 @@
       "description": "청평 북한강 더 글램. 강뷰 인피니티 수영장으로 가평 고급 글램핑 검색에 자주 나옵니다.",
       "ratings": {
         "naver": 4.5
-      }
+      },
+      "gocampingId": "101939",
+      "homepage": "https://www.instagram.com/the.glam_glamping/",
+      "reservationUrl": "https://naver.me/F0AzdO0p"
     },
     {
       "id": "ourforest",
@@ -702,7 +711,8 @@
       "description": "가평읍 아워포레스트. 반려견 전용 돔과 수영장으로 애견 캠핑 검색에 자주 오릅니다.",
       "ratings": {
         "naver": 4.4
-      }
+      },
+      "gocampingId": "100468"
     },
     {
       "id": "pine-forest",
@@ -744,7 +754,10 @@
       "description": "가평읍 개곡 파인 포레스트. 복층 글램핑으로 자라섬 일정과 하루를 나누기 좋습니다.",
       "ratings": {
         "naver": 4.3
-      }
+      },
+      "gocampingId": "7218",
+      "reservationUrl": "http://www.pine4rest.co.kr",
+      "phone": "070-4279-5074"
     },
     {
       "id": "jat-hyang",
