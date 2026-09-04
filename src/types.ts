@@ -119,6 +119,21 @@ export interface SavedCampRef {
   savedAt: string;
 }
 
+/** 즐겨찾기·숨김·리뷰를 묶는 로컬 계정 (서버 없음) */
+export interface LocalAccount {
+  id: string;
+  name: string;
+  /** PIN이 있으면 SHA-256 해시. 없으면 바로 전환 */
+  pinHash?: string;
+  createdAt: string;
+}
+
+export interface AccountBundle {
+  favorites: SavedCampRef[];
+  hidden: SavedCampRef[];
+  reviews: Record<string, PersonalReview>;
+}
+
 export interface OverlayDraft extends Camp {
   source: "overlay";
 }

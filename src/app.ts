@@ -5,11 +5,18 @@ import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirectio
 import { officialLayoutImage, placeLinks } from "./lib/places";
 import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
+  createAccount,
+  currentAccount,
+  deleteAccount,
+  listAccounts,
   loadFavorites,
   loadHidden,
   loadOverlay,
   loadRecent,
   loadReviews,
+  loginAccount,
+  logoutAccount,
+  reloadPersonalData,
   rememberQuery,
   saveFavorites,
   saveHidden,
@@ -20,6 +27,7 @@ import {
   Camp,
   CampKind,
   KIND_LABEL,
+  LocalAccount,
   OverlayDraft,
   PersonalReview,
   REGION_OPTIONS,
@@ -34,6 +42,10 @@ let overlay: OverlayDraft[] = loadOverlay();
 let recent: string[] = loadRecent();
 let favorites: SavedCampRef[] = loadFavorites();
 let hidden: SavedCampRef[] = loadHidden();
+let account: LocalAccount | null = currentAccount();
+let accountError: string | null = null;
+let accountMode: "home" | "create" | "login" = "home";
+let loginTargetId: string | null = null;
 let catalogNote = "";
 let catalogUpdated = "";
 let loadError: string | null = null;
@@ -45,7 +57,7 @@ let tags: string[] = [];
 let sort: "recommend" | "rating" | "distance" = "recommend";
 let selectedId: string | null = null;
 let panel: "none" | "add" | "data" | "lists" = "none";
-let listsTab: "favorites" | "hidden" = "favorites";
+let listsTab: "favorites" | "hidden" | "account" = "favorites";
 let searchTimer = 0;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
 let myPos: GeoPos | null = null;
@@ -91,9 +103,9 @@ function applyRoute(): void {
     selectedId = null;
     return;
   }
-  if (hash === "lists" || hash === "favorites" || hash === "hidden") {
+  if (hash === "lists" || hash === "favorites" || hash === "hidden" || hash === "account") {
     panel = "lists";
-    listsTab = hash === "hidden" ? "hidden" : "favorites";
+    listsTab = hash === "hidden" ? "hidden" : hash === "account" ? "account" : "favorites";
     selectedId = null;
     return;
   }
@@ -309,7 +321,7 @@ function renderSearchPane(): string {
           <p>평점 · 배치도 · 예약 · 내 리뷰</p>
         </button>
         <div class="brand-actions">
-          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">내 목록${favorites.length || hidden.length ? ` · ${favorites.length + hidden.length}` : ""}</button>
+          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">${account ? esc(account.name) : "내 목록"}${favorites.length || hidden.length ? ` · ${favorites.length + hidden.length}` : ""}</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-add">추가</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-data">데이터</button>
         </div>
@@ -845,7 +857,39 @@ function renderDataPanel(): string {
     </main>`;
 }
 
+function applyPersonalData(): void {
+  const data = reloadPersonalData();
+  favorites = data.favorites;
+  hidden = data.hidden;
+  reviews = data.reviews;
+  account = currentAccount();
+}
+
 function renderListsPanel(): string {
+  return `
+    <main class="pane-detail">
+      <header class="mobile-bar">
+        <button type="button" class="back-btn" data-action="close-panel">닫기</button>
+        <strong>내 목록</strong>
+      </header>
+      <div class="detail-scroll">
+        <h2>즐겨찾기 · 숨김 · 계정</h2>
+        <p class="muted">${
+          account
+            ? `<strong>${esc(account.name)}</strong> 계정으로 저장 중입니다. 이 기기의 브라우저에만 남습니다.`
+            : "지금은 게스트입니다. 계정을 만들면 즐겨찾기·숨김·리뷰를 이름별로 나눠 둘 수 있습니다."
+        }</p>
+        <div class="seg lists-tabs" role="tablist">
+          <button type="button" class="seg-btn ${listsTab === "favorites" ? "active" : ""}" data-action="lists-tab" data-tab="favorites">즐겨찾기 ${favorites.length}</button>
+          <button type="button" class="seg-btn ${listsTab === "hidden" ? "active" : ""}" data-action="lists-tab" data-tab="hidden">숨김 ${hidden.length}</button>
+          <button type="button" class="seg-btn ${listsTab === "account" ? "active" : ""}" data-action="lists-tab" data-tab="account">계정</button>
+        </div>
+        ${listsTab === "account" ? renderAccountPanel() : renderSavedListPanel()}
+      </div>
+    </main>`;
+}
+
+function renderSavedListPanel(): string {
   const rows = listsTab === "favorites" ? favorites : hidden;
   const items = rows
     .map((item) => {
@@ -868,38 +912,103 @@ function renderListsPanel(): string {
     })
     .join("");
 
+  if (!rows.length) {
+    return empty(
+      listsTab === "favorites" ? "즐겨찾기가 없습니다" : "숨긴 캠핑장이 없습니다",
+      listsTab === "favorites"
+        ? "캠핑장 상세에서 즐겨찾기를 누르면 여기에 모입니다."
+        : "보고 싶지 않은 캠핑장은 상세에서 숨기면 됩니다."
+    );
+  }
+
   return `
-    <main class="pane-detail">
-      <header class="mobile-bar">
-        <button type="button" class="back-btn" data-action="close-panel">닫기</button>
-        <strong>내 목록</strong>
-      </header>
-      <div class="detail-scroll">
-        <h2>즐겨찾기 · 숨김</h2>
-        <p class="muted">이 기기에만 저장됩니다. 숨긴 캠핑장은 검색·홈 목록에서 빠집니다.</p>
-        <div class="seg lists-tabs" role="tablist">
-          <button type="button" class="seg-btn ${listsTab === "favorites" ? "active" : ""}" data-action="lists-tab" data-tab="favorites">즐겨찾기 ${favorites.length}</button>
-          <button type="button" class="seg-btn ${listsTab === "hidden" ? "active" : ""}" data-action="lists-tab" data-tab="hidden">숨김 ${hidden.length}</button>
-        </div>
-        ${
-          rows.length
-            ? `<ul class="saved-list">${items}</ul>
-               <div class="form-actions">
-                 ${
-                   listsTab === "favorites"
-                     ? `<button type="button" class="btn ghost" data-action="clear-favorites">즐겨찾기 비우기</button>`
-                     : `<button type="button" class="btn ghost" data-action="clear-hidden">숨김 목록 비우기</button>`
-                 }
-               </div>`
-            : empty(
-                listsTab === "favorites" ? "즐겨찾기가 없습니다" : "숨긴 캠핑장이 없습니다",
-                listsTab === "favorites"
-                  ? "캠핑장 상세에서 즐겨찾기를 누르면 여기에 모입니다."
-                  : "보고 싶지 않은 캠핑장은 상세에서 숨기면 됩니다."
-              )
-        }
+    <ul class="saved-list">${items}</ul>
+    <div class="form-actions">
+      ${
+        listsTab === "favorites"
+          ? `<button type="button" class="btn ghost" data-action="clear-favorites">즐겨찾기 비우기</button>`
+          : `<button type="button" class="btn ghost" data-action="clear-hidden">숨김 목록 비우기</button>`
+      }
+    </div>`;
+}
+
+function renderAccountPanel(): string {
+  const accounts = listAccounts();
+  if (accountMode === "create") {
+    return `
+      <section class="account-card">
+        <h3>계정 만들기</h3>
+        <p class="muted">이름만으로도 됩니다. PIN(숫자 4자리)을 넣으면 바꿀 때 확인합니다.</p>
+        ${accountError ? `<p class="loc-msg">${esc(accountError)}</p>` : ""}
+        <form class="stack-form" data-action="create-account">
+          <label>이름 <input name="name" required minlength="2" maxlength="20" placeholder="예: 이현" autocomplete="username" /></label>
+          <label>PIN (선택) <input name="pin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="숫자 4자리" autocomplete="new-password" /></label>
+          <label class="check"><input type="checkbox" name="migrate" checked /> 지금 게스트에 있는 즐겨찾기·숨김·리뷰 가져오기</label>
+          <div class="form-actions">
+            <button type="submit" class="btn">만들기</button>
+            <button type="button" class="btn ghost" data-action="account-mode" data-mode="home">취소</button>
+          </div>
+        </form>
+      </section>`;
+  }
+
+  if (accountMode === "login" && loginTargetId) {
+    const target = accounts.find((row) => row.id === loginTargetId);
+    return `
+      <section class="account-card">
+        <h3>${esc(target?.name ?? "계정")} 열기</h3>
+        <p class="muted">PIN을 입력해 주세요.</p>
+        ${accountError ? `<p class="loc-msg">${esc(accountError)}</p>` : ""}
+        <form class="stack-form" data-action="login-account">
+          <input type="hidden" name="id" value="${esc(loginTargetId)}" />
+          <label>PIN <input name="pin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required placeholder="숫자 4자리" autocomplete="current-password" /></label>
+          <div class="form-actions">
+            <button type="submit" class="btn">열기</button>
+            <button type="button" class="btn ghost" data-action="account-mode" data-mode="home">취소</button>
+          </div>
+        </form>
+      </section>`;
+  }
+
+  return `
+    <section class="account-card">
+      <h3>현재 계정</h3>
+      <p>${account ? `<strong>${esc(account.name)}</strong>` : "<strong>게스트</strong> (이 기기 임시)"}</p>
+      <p class="muted">서버 없이 이 브라우저에만 저장됩니다. 같은 폰·같은 브라우저에서 이름별로 목록을 나눌 때 씁니다.</p>
+      ${accountError ? `<p class="loc-msg">${esc(accountError)}</p>` : ""}
+      <div class="form-actions">
+        <button type="button" class="btn" data-action="account-mode" data-mode="create">계정 만들기</button>
+        ${account ? `<button type="button" class="btn ghost" data-action="logout-account">게스트로 돌아가기</button>` : ""}
       </div>
-    </main>`;
+    </section>
+    ${
+      accounts.length
+        ? `<section class="account-card">
+            <h3>이 기기 계정</h3>
+            <ul class="account-list">
+              ${accounts
+                .map(
+                  (row) => `
+                <li class="account-row ${account?.id === row.id ? "active" : ""}">
+                  <div>
+                    <strong>${esc(row.name)}</strong>
+                    <span class="muted">${esc(row.createdAt)} · ${row.pinHash ? "PIN 있음" : "PIN 없음"}</span>
+                  </div>
+                  <div class="saved-actions">
+                    ${
+                      account?.id === row.id
+                        ? `<span class="pill fav">사용 중</span>`
+                        : `<button type="button" class="btn-ghost btn-sm" data-action="switch-account" data-id="${esc(row.id)}" data-pin="${row.pinHash ? "1" : "0"}">열기</button>`
+                    }
+                    <button type="button" class="btn-ghost btn-sm" data-action="delete-account" data-id="${esc(row.id)}" data-name="${esc(row.name)}">삭제</button>
+                  </div>
+                </li>`
+                )
+                .join("")}
+            </ul>
+          </section>`
+        : `<p class="muted">아직 만든 계정이 없습니다.</p>`
+    }`;
 }
 
 function toggleFilter(list: string[], value: string): string[] {
@@ -1044,13 +1153,57 @@ function onClick(e: MouseEvent): void {
       go("data");
       break;
     case "open-lists":
-      listsTab = el.dataset.tab === "hidden" ? "hidden" : "favorites";
-      go(listsTab === "hidden" ? "hidden" : "lists");
+      listsTab = el.dataset.tab === "hidden" ? "hidden" : el.dataset.tab === "account" ? "account" : "favorites";
+      accountMode = "home";
+      accountError = null;
+      go(listsTab === "hidden" ? "hidden" : listsTab === "account" ? "account" : "lists");
       break;
     case "lists-tab":
-      listsTab = el.dataset.tab === "hidden" ? "hidden" : "favorites";
-      go(listsTab === "hidden" ? "hidden" : "lists");
+      listsTab = el.dataset.tab === "hidden" ? "hidden" : el.dataset.tab === "account" ? "account" : "favorites";
+      accountMode = "home";
+      accountError = null;
+      go(listsTab === "hidden" ? "hidden" : listsTab === "account" ? "account" : "lists");
       break;
+    case "account-mode":
+      accountMode = el.dataset.mode === "create" ? "create" : el.dataset.mode === "login" ? "login" : "home";
+      accountError = null;
+      if (accountMode !== "login") loginTargetId = null;
+      listsTab = "account";
+      render();
+      break;
+    case "switch-account": {
+      const id = el.dataset.id;
+      if (!id) break;
+      if (el.dataset.pin === "1") {
+        loginTargetId = id;
+        accountMode = "login";
+        accountError = null;
+        listsTab = "account";
+        render();
+        break;
+      }
+      void switchAccount(id);
+      break;
+    }
+    case "logout-account":
+      logoutAccount();
+      applyPersonalData();
+      accountMode = "home";
+      accountError = null;
+      render();
+      break;
+    case "delete-account": {
+      const id = el.dataset.id;
+      const name = el.dataset.name || "이 계정";
+      if (!id) break;
+      if (!confirm(`${name} 계정을 삭제할까요? 즐겨찾기·숨김·리뷰도 함께 지워집니다.`)) return;
+      deleteAccount(id);
+      applyPersonalData();
+      accountMode = "home";
+      accountError = null;
+      render();
+      break;
+    }
     case "toggle-favorite": {
       const id = el.dataset.id;
       if (!id) break;
@@ -1186,6 +1339,16 @@ function onSubmit(e: Event): void {
   const form = e.target as HTMLFormElement;
   if (!(form instanceof HTMLFormElement)) return;
   const action = form.dataset.action;
+  if (action === "create-account") {
+    e.preventDefault();
+    void submitCreateAccount(form);
+    return;
+  }
+  if (action === "login-account") {
+    e.preventDefault();
+    void submitLoginAccount(form);
+    return;
+  }
   if (action === "save-review") {
     e.preventDefault();
     const id = form.dataset.id;
@@ -1247,6 +1410,49 @@ function onSubmit(e: Event): void {
     saveOverlay(overlay);
     camps = mergeCatalog(camps.filter((c) => c.source !== "overlay"), overlay);
     go(`camp/${encodeURIComponent(draft.id)}`);
+  }
+}
+
+async function submitCreateAccount(form: HTMLFormElement): Promise<void> {
+  const data = new FormData(form);
+  const name = String(data.get("name") ?? "");
+  const pin = String(data.get("pin") ?? "").trim();
+  const migrate = data.get("migrate") === "on";
+  try {
+    await createAccount(name, pin || undefined, migrate);
+    applyPersonalData();
+    accountMode = "home";
+    accountError = null;
+    listsTab = "favorites";
+    go("lists");
+  } catch (error) {
+    accountError = error instanceof Error ? error.message : "계정을 만들지 못했습니다.";
+    render();
+  }
+}
+
+async function submitLoginAccount(form: HTMLFormElement): Promise<void> {
+  const data = new FormData(form);
+  const id = String(data.get("id") ?? "");
+  const pin = String(data.get("pin") ?? "").trim();
+  await switchAccount(id, pin);
+}
+
+async function switchAccount(id: string, pin?: string): Promise<void> {
+  try {
+    await loginAccount(id, pin);
+    applyPersonalData();
+    accountMode = "home";
+    accountError = null;
+    loginTargetId = null;
+    listsTab = "favorites";
+    go("lists");
+  } catch (error) {
+    accountError = error instanceof Error ? error.message : "계정을 열지 못했습니다.";
+    accountMode = pin ? "login" : "home";
+    loginTargetId = pin ? id : loginTargetId;
+    listsTab = "account";
+    render();
   }
 }
 
