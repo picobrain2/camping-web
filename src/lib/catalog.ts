@@ -1,4 +1,5 @@
 import { deriveFacilityTags } from "./tags";
+import { normalizeExternalUrl } from "./url";
 import type { Camp, CampDraft, CatalogFile, CatalogIndex, OverlayDraft } from "../types";
 
 export function normalizeCamp(raw: CampDraft): Camp {
@@ -32,6 +33,13 @@ export function normalizeCamp(raw: CampDraft): Camp {
     description: raw.description ?? description,
     siteTypes,
     layout: raw.layout,
+    homepage: normalizeExternalUrl(raw.homepage),
+    reservationUrl: normalizeExternalUrl(raw.reservationUrl),
+    camfitUrl: normalizeExternalUrl(raw.camfitUrl),
+    campingtalkUrl: normalizeExternalUrl(raw.campingtalkUrl),
+    quotes: raw.quotes?.map((quote) =>
+      quote.url ? { ...quote, url: normalizeExternalUrl(quote.url) } : quote
+    ),
   };
 }
 

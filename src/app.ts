@@ -400,10 +400,10 @@ function renderDetail(camp: Camp): string {
       ${reviewEditor(camp, mine)}
 
       <div class="link-row">
-        ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}" target="_blank" rel="noopener noreferrer">예약하기</a>` : ""}
-        ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}" target="_blank" rel="noopener noreferrer">홈페이지</a>` : ""}
-        ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}" target="_blank" rel="noopener noreferrer">네이버 자동차</a>` : ""}
-        ${map ? `<a class="btn ghost" href="${esc(map)}" target="_blank" rel="noopener noreferrer">카카오맵</a>` : ""}
+        ${camp.reservationUrl ? `<a class="btn" href="${esc(camp.reservationUrl)}">예약하기</a>` : ""}
+        ${camp.homepage ? `<a class="btn ghost" href="${esc(camp.homepage)}">홈페이지</a>` : ""}
+        ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}">네이버 자동차</a>` : ""}
+        ${map ? `<a class="btn ghost" href="${esc(map)}">카카오맵</a>` : ""}
       </div>
       <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 내 리뷰는 이 브라우저에만 저장됩니다.</p>
     </div>`;
@@ -425,7 +425,7 @@ function driveBlock(camp: Camp): string {
               : `<p class="muted">이 캠핑장은 좌표가 없어 차 거리를 계산하지 못했습니다.</p>`
             : `<p class="muted">왼쪽에서 내 위치를 켜면 차로 가는 시간을 보여 줍니다.</p>`
       }
-      <p><a href="${esc(naver)}" target="_blank" rel="noopener noreferrer">${myPos ? "네이버지도 자동차 길찾기" : "네이버지도에서 찾기"}</a></p>
+      <p><a href="${esc(naver)}">${myPos ? "네이버지도 자동차 길찾기" : "네이버지도에서 찾기"}</a></p>
     </section>`;
 }
 
@@ -436,7 +436,7 @@ function photosBlock(camp: Camp): string {
     return `
     <section class="block">
       <h3>사진</h3>
-      <p class="muted">고캠핑에 등록된 제공 사진이 없습니다. <a href="${esc(naver)}" target="_blank" rel="noopener noreferrer">네이버에서 후기 사진 보기</a></p>
+      <p class="muted">고캠핑에 등록된 제공 사진이 없습니다. <a href="${esc(naver)}">네이버에서 후기 사진 보기</a></p>
     </section>`;
   }
   const tiles = photos
@@ -453,7 +453,7 @@ function photosBlock(camp: Camp): string {
       <h3>사진</h3>
       <p class="muted">고캠핑에 올라온 제공 사진입니다.</p>
       <div class="photo-grid">${tiles}</div>
-      <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noopener noreferrer">네이버에서 후기 사진 더 보기</a></p>
+      <p class="muted"><a href="${esc(naver)}">네이버에서 후기 사진 더 보기</a></p>
     </section>`;
 }
 
@@ -473,7 +473,7 @@ function ratingsRow(camp: Camp, mine?: PersonalReview): string {
       <div class="badge-row">
         ${items.join("") || `<p class="muted">저장된 점수가 없으면 네이버지도에서 최신 평점·후기를 보세요.</p>`}
       </div>
-      <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noopener noreferrer">네이버지도에서 실시간 평점 보기</a></p>
+      <p class="muted"><a href="${esc(naver)}">네이버지도에서 실시간 평점 보기</a></p>
     </section>`;
 }
 
@@ -492,7 +492,7 @@ function quotesBlock(camp: Camp, mine?: PersonalReview): string {
     const inner = `<p>${esc(quote.body)}</p><span>${esc(quote.source)}${quote.rating ? ` · ★${quote.rating}` : ""}</span>`;
     cards.push(
       quote.url
-        ? `<a class="quote-card" href="${esc(quote.url)}" target="_blank" rel="noopener noreferrer">${inner}</a>`
+        ? `<a class="quote-card" href="${esc(quote.url)}">${inner}</a>`
         : `<article class="quote-card">${inner}</article>`
     );
   }
@@ -500,14 +500,14 @@ function quotesBlock(camp: Camp, mine?: PersonalReview): string {
     return `
     <section class="block">
       <h3>리뷰</h3>
-      <p class="muted">저장된 후기가 아직 없습니다. <a href="${esc(naver)}" target="_blank" rel="noopener noreferrer">네이버 후기</a>에서 최근 글을 볼 수 있습니다.</p>
+      <p class="muted">저장된 후기가 아직 없습니다. <a href="${esc(naver)}">네이버 후기</a>에서 최근 글을 볼 수 있습니다.</p>
     </section>`;
   }
   return `
     <section class="block">
       <h3>리뷰</h3>
       <div class="quote-list">${cards.join("")}</div>
-      <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noopener noreferrer">네이버에서 후기 더 보기</a></p>
+      <p class="muted"><a href="${esc(naver)}">네이버에서 후기 더 보기</a></p>
     </section>`;
 }
 
@@ -515,7 +515,7 @@ function appsBlock(camp: Camp): string {
   const cards = placeLinks(camp)
     .map(
       (link) => `
-      <a class="app-card" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">
+      <a class="app-card" href="${esc(link.url)}">
         <strong>${esc(link.name)}</strong>
         <span>${esc(link.hint)}</span>
       </a>`
@@ -554,7 +554,7 @@ function reservationBlock(camp: Camp): string {
       <h3>예약</h3>
       <p><span class="muted">사이트</span> ${
         camp.reservationUrl
-          ? `<a href="${esc(camp.reservationUrl)}" target="_blank" rel="noopener noreferrer">${esc(camp.reservationPlatform || camp.reservationUrl)}</a>`
+          ? `<a href="${esc(camp.reservationUrl)}">${esc(camp.reservationPlatform || camp.reservationUrl)}</a>`
           : esc(camp.reservationPlatform || "정보 없음")
       }</p>
       ${windows ? `<ul class="window-list">${windows}</ul>` : `<p class="muted">예약 일시 규칙이 아직 파일 DB에 없습니다.</p>`}
@@ -600,8 +600,8 @@ function layoutBlock(camp: Camp): string {
         <img class="layout-photo" src="${esc(image)}" alt="${esc(`${camp.name} 배치도`)}" />
       </button>
       <p class="muted">
-        <a href="${esc(image)}" target="_blank" rel="noopener noreferrer">원본 이미지</a>
-        ${site ? ` · <a href="${esc(site)}" target="_blank" rel="noopener noreferrer">캠핑장 사이트</a>` : ""}
+        <a href="${esc(image)}">원본 이미지</a>
+        ${site ? ` · <a href="${esc(site)}">캠핑장 사이트</a>` : ""}
       </p>
     </section>`;
   }
@@ -611,7 +611,7 @@ function layoutBlock(camp: Camp): string {
       <h3>배치도</h3>
       <p class="muted">등록된 공식 도면이 없어 캠핑장 사이트에서 확인하세요.</p>
       <div class="layout-actions">
-        <a class="btn" href="${esc(site)}" target="_blank" rel="noopener noreferrer">캠핑장 사이트에서 보기</a>
+        <a class="btn" href="${esc(site)}">캠핑장 사이트에서 보기</a>
       </div>
     </section>`;
   }
@@ -633,7 +633,7 @@ function renderLayoutModal(): string {
           <button type="button" class="btn ghost btn-sm" data-action="close-layout">닫기</button>
         </header>
         <img class="layout-modal-photo" src="${esc(src)}" alt="${esc(layoutPopup.title)}" />
-        <p class="muted"><a href="${esc(src)}" target="_blank" rel="noopener noreferrer">이미지 새 창에서 열기</a></p>
+        <p class="muted"><a href="${esc(src)}">이미지 새 창에서 열기</a></p>
       </div>
     </div>`;
 }
