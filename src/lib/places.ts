@@ -39,6 +39,16 @@ export function placeLinks(camp: Camp): PlaceLink[] {
       url: `https://www.thankqcamping.com/search/?keyword=${q(name)}`,
       hint: "예약 · 빈자리",
     },
+    {
+      name: "캠프픽",
+      url: `https://www.camppick.com/search?query=${q(name)}`,
+      hint: "후기 · 자리 추천",
+    },
+    {
+      name: "네이버예약",
+      url: `https://booking.naver.com/search?query=${q(name)}`,
+      hint: "네이버 실시간 예약",
+    },
   ];
   const kakao = mapLink(camp);
   if (kakao) links.push({ name: "카카오맵", url: kakao, hint: "길찾기" });

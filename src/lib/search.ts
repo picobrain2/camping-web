@@ -12,15 +12,19 @@ function haystack(camp: Camp): string {
     .join(" ");
 }
 
+function loose(text: string): string {
+  return compact(text).replace(/의/g, "");
+}
+
 export function relevance(camp: Camp, query: string): number {
   const q = compact(query);
   if (!q) return 0;
   const name = compact(camp.name);
-  if (name === q) return 100;
+  if (name === q || loose(name) === loose(query)) return 100;
   if (name.startsWith(q) || q.startsWith(name)) return 90;
-  if (name.includes(q)) return 80;
-  if (camp.aliases.some((alias) => compact(alias).includes(q))) return 70;
-  if (compact(haystack(camp)).includes(q)) return 50;
+  if (name.includes(q) || loose(name).includes(loose(query))) return 80;
+  if (camp.aliases.some((alias) => compact(alias).includes(q) || loose(alias).includes(loose(query)))) return 70;
+  if (compact(haystack(camp)).includes(q) || loose(haystack(camp)).includes(loose(query))) return 50;
   return 0;
 }
 
