@@ -34,7 +34,8 @@ export function filterCamps(
   region: string,
   kind: string,
   tag: string,
-  reviews: Record<string, PersonalReview>
+  reviews: Record<string, PersonalReview>,
+  sort: "recommend" | "rating" = "recommend"
 ): Camp[] {
   const trimmed = query.trim();
   return camps
@@ -47,6 +48,11 @@ export function filterCamps(
       return relevance(camp, trimmed) > 0;
     })
     .sort((a, b) => {
+      if (sort === "rating") {
+        const delta = (displayScore(b, reviews) ?? -1) - (displayScore(a, reviews) ?? -1);
+        if (delta !== 0) return delta;
+        return a.name.localeCompare(b.name, "ko");
+      }
       if (trimmed) return relevance(b, trimmed) - relevance(a, trimmed);
       const featured = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
       if (featured !== 0) return featured;

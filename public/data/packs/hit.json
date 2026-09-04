@@ -46,7 +46,14 @@
       },
       "phone": "031-536-5565",
       "layoutUrl": "https://www.camppick.com/camps/246d8520-5849-468d-96bf-016560e82cfe",
-      "featured": true
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.5,
+          "body": "수영장과 계곡을 같이 써서 서울 근교 물놀이 캠핑 1순위로 자주 꼽힙니다."
+        }
+      ]
     },
     {
       "id": "evergreen-vil",
@@ -91,7 +98,14 @@
       "ratings": {
         "naver": 4.3
       },
-      "phone": "010-8422-6851"
+      "phone": "010-8422-6851",
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.4,
+          "body": "유황 노천탕·글램핑 후기가 많고, 화악산 계곡과 함께 쓰는 점이 장점으로 나옵니다."
+        }
+      ]
     },
     {
       "id": "haejayeon",
@@ -134,7 +148,14 @@
       "ratings": {
         "naver": 4.3
       },
-      "phone": "010-8307-3800"
+      "phone": "010-8307-3800",
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.4,
+          "body": "서울에서 가깝고 전망이 좋아 근교 수영장 캠핑 비교글에 자주 올라옵니다."
+        }
+      ]
     },
     {
       "id": "bravo-gp",

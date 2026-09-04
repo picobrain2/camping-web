@@ -14,6 +14,7 @@ export function normalizeCamp(raw: CampDraft): Camp {
     amenities: [] as string[],
     description: "",
     photos: [] as string[],
+    quotes: [] as Camp["quotes"],
     ratings: {},
     featured: false,
     source: "manual" as const,

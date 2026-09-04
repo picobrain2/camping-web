@@ -1,7 +1,7 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
 import { inferLayout, LAYOUT_LEGEND, renderLayoutSvg } from "./lib/layout";
-import { camppickLayoutUrl, officialLayoutUrl, placeLinks } from "./lib/places";
+import { officialLayoutImage, placeLinks } from "./lib/places";
 import { displayScore, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
 import {
   loadOverlay,
@@ -33,6 +33,7 @@ let query = "";
 let region = "all";
 let kind = "all";
 let tag = "all";
+let sort: "recommend" | "rating" = "recommend";
 let selectedId: string | null = null;
 let panel: "none" | "add" | "data" = "none";
 let searchTimer = 0;
@@ -96,7 +97,7 @@ function selected(): Camp | undefined {
 }
 
 function visible(): Camp[] {
-  return filterCamps(camps, query, region, kind, tag, reviews);
+  return filterCamps(camps, query, region, kind, tag, reviews, sort);
 }
 
 function render(): void {
@@ -139,10 +140,10 @@ function renderSearchPane(): string {
   return `
     <aside class="pane-search">
       <header class="brand">
-        <div>
+        <button type="button" class="brand-home" data-action="go-home" aria-label="첫 화면">
           <h1>어디캠</h1>
           <p>평점 · 배치도 · 예약 · 내 리뷰</p>
-        </div>
+        </button>
         <div class="brand-actions">
           <button type="button" class="btn-ghost btn-sm" data-action="open-add">추가</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-data">데이터</button>
@@ -154,6 +155,7 @@ function renderSearchPane(): string {
       ${segment("region", region, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))])}
       ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
       ${segment("tag", tag, [{ value: "all", label: "태그" }, { value: "reviewed", label: "내 리뷰" }, ...TAG_OPTIONS.map((t) => ({ value: t, label: t }))])}
+      ${segment("sort", sort, [{ value: "recommend", label: "추천" }, { value: "rating", label: "평점순" }])}
       <div class="list-wrap">
         ${renderList()}
       </div>
@@ -177,7 +179,7 @@ function renderList(): string {
     return empty("파일 DB를 읽지 못했습니다", loadError);
   }
   const trimmed = query.trim();
-  if (!trimmed && region === "all" && kind === "all" && tag === "all") {
+  if (!trimmed && region === "all" && kind === "all" && tag === "all" && sort === "recommend") {
     return renderHomeLists();
   }
   const rows = visible();
@@ -288,6 +290,7 @@ function renderDetail(camp: Camp): string {
       </header>
 
       ${ratingsRow(camp, mine)}
+      ${quotesBlock(camp, mine)}
       ${appsBlock(camp)}
       ${reservationBlock(camp)}
       ${priceBlock(camp)}
@@ -320,6 +323,40 @@ function ratingsRow(camp: Camp, mine?: PersonalReview): string {
         ${items.join("") || `<p class="muted">저장된 점수가 없으면 네이버지도에서 최신 평점·후기를 보세요.</p>`}
       </div>
       <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noreferrer">네이버지도에서 실시간 평점 보기</a></p>
+    </section>`;
+}
+
+function quotesBlock(camp: Camp, mine?: PersonalReview): string {
+  const quotes = camp.quotes?.filter((q) => q.body) ?? [];
+  const naver = `https://search.naver.com/search.naver?query=${encodeURIComponent(`${camp.name} 캠핑장 후기`)}`;
+  const cards: string[] = [];
+  if (mine?.body) {
+    cards.push(`
+      <article class="quote-card mine">
+        <p>${esc(mine.body)}</p>
+        <span>내 리뷰 · ★${mine.rating}${mine.siteName ? ` · ${esc(mine.siteName)}` : ""}</span>
+      </article>`);
+  }
+  for (const quote of quotes.slice(0, 3)) {
+    const inner = `<p>${esc(quote.body)}</p><span>${esc(quote.source)}${quote.rating ? ` · ★${quote.rating}` : ""}</span>`;
+    cards.push(
+      quote.url
+        ? `<a class="quote-card" href="${esc(quote.url)}" target="_blank" rel="noreferrer">${inner}</a>`
+        : `<article class="quote-card">${inner}</article>`
+    );
+  }
+  if (!cards.length) {
+    return `
+    <section class="block">
+      <h3>리뷰</h3>
+      <p class="muted">저장된 후기가 아직 없습니다. <a href="${esc(naver)}" target="_blank" rel="noreferrer">네이버 후기</a>에서 최근 글을 볼 수 있습니다.</p>
+    </section>`;
+  }
+  return `
+    <section class="block">
+      <h3>리뷰</h3>
+      <div class="quote-list">${cards.join("")}</div>
+      <p class="muted"><a href="${esc(naver)}" target="_blank" rel="noreferrer">네이버에서 후기 더 보기</a></p>
     </section>`;
 }
 
@@ -402,22 +439,31 @@ function priceBlock(camp: Camp): string {
 }
 
 function layoutBlock(camp: Camp): string {
-  const official = officialLayoutUrl(camp);
-  const pick = camppickLayoutUrl(camp.name);
+  const image = officialLayoutImage(camp);
   const layout = camp.layout ?? inferLayout(camp.kinds, camp.siteTypes, camp.tags);
   const svg = renderLayoutSvg(layout, camp.name);
   const legend = `<div class="legend">${LAYOUT_LEGEND.map((l) => `<span data-kind="${l.kind}">${esc(l.label)}</span>`).join("")}</div>`;
-  const officialBtn = official
-    ? `<button type="button" class="btn" data-action="open-layout" data-url="${esc(official)}" data-title="${esc(`${camp.name} 공식 배치도`)}" ${camp.layoutImage ? `data-image="${esc(camp.layoutImage)}"` : ""}>공식 배치도</button>`
-    : "";
+  const actions: string[] = [];
+  if (image) {
+    actions.push(
+      `<button type="button" class="btn" data-action="open-layout" data-url="${esc(image)}" data-image="${esc(image)}" data-title="${esc(`${camp.name} 배치도`)}">공식 배치도</button>`
+    );
+  } else if (camp.homepage) {
+    actions.push(
+      `<a class="btn" href="${esc(camp.homepage)}" target="_blank" rel="noreferrer">홈페이지에서 배치도 보기</a>`
+    );
+  }
   return `
     <section class="block">
       <h3>전체 배치도</h3>
-      <div class="layout-actions">
-        ${officialBtn}
-        <button type="button" class="btn ghost" data-action="open-layout" data-url="${esc(pick)}" data-title="${esc(`${camp.name} 캠프픽 배치도`)}">캠프픽 배치도</button>
-      </div>
-      <p class="muted">사이트·캠프픽 도면은 팝업으로 보고, 아래는 종류와 태그로 그린 대략도입니다.</p>
+      ${actions.length ? `<div class="layout-actions">${actions.join("")}</div>` : ""}
+      <p class="muted">${
+        image
+          ? "캠핑장 사이트에 올라온 도면을 팝업으로 엽니다. 아래는 종류와 태그로 그린 대략도입니다."
+          : camp.homepage
+            ? "공식 도면 파일이 없으면 홈페이지에서 확인하세요. 아래는 종류와 태그로 그린 대략도입니다."
+            : "아래는 종류와 태그로 그린 대략도입니다."
+      }</p>
       ${svg}
       ${legend}
     </section>`;
@@ -425,12 +471,7 @@ function layoutBlock(camp: Camp): string {
 
 function renderLayoutModal(): string {
   if (!layoutPopup) return "";
-  const image = layoutPopup.image
-    ? `<img class="layout-modal-photo" src="${esc(layoutPopup.image)}" alt="${esc(layoutPopup.title)}" />`
-    : "";
-  const frame = layoutPopup.image
-    ? ""
-    : `<iframe class="layout-modal-frame" src="${esc(layoutPopup.url)}" title="${esc(layoutPopup.title)}" referrerpolicy="no-referrer"></iframe>`;
+  const src = layoutPopup.image || layoutPopup.url;
   return `
     <div class="layout-modal" data-action="close-layout">
       <div class="layout-modal-card" data-action="keep-layout">
@@ -438,9 +479,8 @@ function renderLayoutModal(): string {
           <strong>${esc(layoutPopup.title)}</strong>
           <button type="button" class="btn ghost btn-sm" data-action="close-layout">닫기</button>
         </header>
-        ${image}
-        ${frame}
-        <p class="muted">팝업에 안 뜨면 사이트가 막은 것입니다. <a href="${esc(layoutPopup.url)}" target="_blank" rel="noreferrer">새 창에서 열기</a></p>
+        <img class="layout-modal-photo" src="${esc(src)}" alt="${esc(layoutPopup.title)}" />
+        <p class="muted"><a href="${esc(src)}" target="_blank" rel="noreferrer">이미지 새 창에서 열기</a></p>
       </div>
     </div>`;
 }
@@ -524,7 +564,7 @@ function renderDataPanel(): string {
         <p>목록은 <code>public/data/index.json</code> 의 packs 파일들을 합쳐 만듭니다. 지금 ${camps.length}곳입니다.</p>
         <ol class="steps">
           <li><strong>팩 파일 추가</strong> — <code>public/data/packs/</code> 에 JSON을 만들고 index.json 의 packs 에 경로만 넣으면 배포 목록이 늘어납니다. 국립공원·휴양림·지역 유명지는 이미 이 방식입니다.</li>
-          <li><strong>고캠핑 동기화</strong> — 공공데이터포털 인증키로 <code>GOCAMPING_KEY=키 npm run sync</code>. 전국 수천 곳이 파일에 붙고, 손본 항목의 가격·예약규칙은 덮어쓰지 않습니다.</li>
+          <li><strong>고캠핑 주간 동기화</strong> — GitHub Actions가 매주 월요일 고캠핑 공식 API에서 인기 후보(경기 우선)를 골라 PR을 엽니다. 로컬은 <code>GOCAMPING_KEY=키 npm run sync</code>. 캠핏·네이버는 긁지 않습니다.</li>
           <li><strong>앱에서 추가</strong> — 추가 폼이나 아래 JSON 가져오기로 이 기기에 붙인 뒤, 복사해서 팩 파일에 넣으면 웹에도 남습니다.</li>
         </ol>
         <p class="muted">파일 갱신일 ${esc(catalogUpdated || "–")} · 이 기기 임시 추가 ${overlay.length}곳</p>
@@ -555,12 +595,22 @@ function onClick(e: MouseEvent): void {
     case "clear-select":
       go("");
       break;
+    case "go-home":
+      query = "";
+      region = "all";
+      kind = "all";
+      tag = "all";
+      sort = "recommend";
+      layoutPopup = null;
+      go("");
+      break;
     case "set-filter": {
       const group = el.dataset.group;
       const value = el.dataset.value ?? "all";
       if (group === "region") region = value;
       if (group === "kind") kind = value;
       if (group === "tag") tag = value;
+      if (group === "sort") sort = value === "rating" ? "rating" : "recommend";
       render();
       break;
     }

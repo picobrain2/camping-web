@@ -44,6 +44,13 @@ export interface CampRatings {
   kakao?: number;
 }
 
+export interface ReviewQuote {
+  source: string;
+  rating?: number;
+  body: string;
+  url?: string;
+}
+
 export interface Camp {
   id: string;
   curated?: boolean;
@@ -70,6 +77,7 @@ export interface Camp {
   description: string;
   layoutImage?: string;
   layoutUrl?: string;
+  quotes?: ReviewQuote[];
   photos: string[];
   ratings: CampRatings;
   featured?: boolean;

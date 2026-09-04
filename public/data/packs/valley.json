@@ -5,298 +5,798 @@
     {
       "id": "gureum",
       "name": "구름계곡 오토캠핑장",
-      "aliases": ["구름계곡", "가평구름계곡"],
+      "aliases": [
+        "구름계곡",
+        "가평구름계곡"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "tent"],
-      "tags": ["계곡", "키즈", "물놀이"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 북면 제령아랫말길 71",
       "phone": "010-6489-2903",
       "homepage": "http://www.cloudcamping.co.kr/",
       "reservationPlatform": "땡큐캠핑 · 전화",
-      "reservationWindows": [{ "label": "여름", "rule": "땡큐캠핑 실시간. 북면 제령리 계곡. 사이트 약 30면." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 30, "priceMin": 40000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점", "수영장", "놀이터"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "땡큐캠핑 실시간. 북면 제령리 계곡. 사이트 약 30면."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 30,
+          "priceMin": 40000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점",
+        "수영장",
+        "놀이터"
+      ],
       "description": "가평 북면 제령리 구름계곡. 얕은 계곡과 제1·2캠프장이 나뉘어 여름 가족 물놀이 추천에 자주 1위로 올라옵니다.",
-      "ratings": { "naver": 4.4 },
-      "featured": true
+      "ratings": {
+        "naver": 4.4
+      },
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.4,
+          "body": "계곡이 얕아 아이 물놀이에 좋고, 1·2캠프장 중 계곡 가까운 쪽이 더 인기입니다."
+        },
+        {
+          "source": "후기 요약",
+          "body": "여름 주말은 빠르게 차고, 매점·수영장 덕에 장비 부담이 적다는 글이 많습니다."
+        }
+      ]
     },
     {
       "id": "ttoollae",
       "name": "또올래캠핑장",
-      "aliases": ["또올래캠프", "가평또올래"],
+      "aliases": [
+        "또올래캠프",
+        "가평또올래"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["계곡", "키즈"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "키즈"
+      ],
       "address": "경기도 가평군 북면 가화로 2745-70",
       "layoutUrl": "https://www.camppick.com/camps/ada3f257-6772-4f68-92b7-0d7e823b5abe",
       "phone": "010-2918-7780",
       "reservationPlatform": "자체 · 캠프픽",
-      "reservationWindows": [{ "label": "성수기", "rule": "자체 예약·캠프픽. 명지산 계곡, 자작나무 사이트." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 90000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점", "놀이터"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "자체 예약·캠프픽. 명지산 계곡, 자작나무 사이트."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 90000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점",
+        "놀이터"
+      ],
       "description": "북면 명지산 방향 또올래. 차도와 사이트가 갈라져 있고 계곡·자작나무가 있어 캠프픽 후기가 많습니다.",
-      "ratings": { "naver": 4.5 },
-      "featured": true
+      "ratings": {
+        "naver": 4.5
+      },
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.5,
+          "body": "자작나무와 계곡 풍경 칭찬이 많고, 차도와 사이트가 나뉘어 아이와 편하다는 후기입니다."
+        }
+      ]
     },
     {
       "id": "myeongdongol",
       "name": "명돈골캠핑장",
-      "aliases": ["명돈골"],
+      "aliases": [
+        "명돈골"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["계곡", "키즈", "물놀이"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 북면 논남기길 19-36",
       "phone": "010-6778-1199",
       "homepage": "http://www.mdgolcamp.co.kr/",
       "reservationUrl": "http://www.mdgolcamp.co.kr/reservation",
       "reservationPlatform": "자체 홈페이지",
-      "reservationWindows": [{ "label": "여름", "rule": "홈페이지 예약. 계곡과 수영장을 같이 씁니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 40000, "priceMax": 160000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장", "매점"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "홈페이지 예약. 계곡과 수영장을 같이 씁니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 40000,
+          "priceMax": 160000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장",
+        "매점"
+      ],
       "description": "명지산 명돈골. 소나무 그늘과 앞 계곡, 수영장·트램펄린이 있어 아이 동반 후기가 많습니다.",
-      "ratings": { "naver": 4.4 },
-      "featured": true
+      "ratings": {
+        "naver": 4.4
+      },
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.4,
+          "body": "소나무 그늘과 수영장·계곡을 같이 쓸 수 있어 한여름 가족 캠핑으로 자주 추천됩니다."
+        }
+      ]
     },
     {
       "id": "gyegokpung",
       "name": "계곡풍경캠핑장",
-      "aliases": ["가평계곡풍경"],
+      "aliases": [
+        "가평계곡풍경"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "tent"],
-      "tags": ["계곡", "산"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
       "address": "경기도 가평군 북면 가화로 2389-38",
       "reservationPlatform": "캠핑톡 · 전화",
-      "reservationWindows": [{ "label": "여름", "rule": "명지계곡 옆. 펜션과 같이 운영합니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 15, "priceMin": 40000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "명지계곡 옆. 펜션과 같이 운영합니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 15,
+          "priceMin": 40000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "북면 명지계곡 계곡풍경. 그늘과 잔디 마당이 있어 조용한 힐링 계곡 캠핑으로 자주 추천됩니다.",
-      "ratings": { "naver": 4.6 }
+      "ratings": {
+        "naver": 4.6
+      }
     },
     {
       "id": "geumdarae",
       "name": "금다래캠핑장",
-      "aliases": ["가평금다래"],
+      "aliases": [
+        "가평금다래"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
       "address": "경기도 가평군 북면 화악산로 1087-24",
       "phone": "010-6374-5263",
       "reservationPlatform": "캠퍼스토리 · 전화",
-      "reservationWindows": [{ "label": "여름", "rule": "화악산 계곡. 사이트가 적어 주말 마감이 빠릅니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 12, "priceMin": 45000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "화악산 계곡. 사이트가 적어 주말 마감이 빠릅니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 12,
+          "priceMin": 45000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "북면 화악산 금다래. 수량 많은 계곡으로 가평 계곡 TOP 목록에 자주 오릅니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      }
     },
     {
       "id": "himong",
       "name": "하이몽글램핑앤캠핑",
-      "aliases": ["하이몽", "가평하이몽"],
+      "aliases": [
+        "하이몽",
+        "가평하이몽"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "키즈", "물놀이"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 상면 축령로 171-28",
       "phone": "070-4364-9493",
       "homepage": "https://pureunsoop.co.kr/",
       "reservationPlatform": "자체 · 네이버예약",
-      "reservationWindows": [{ "label": "상시", "rule": "축령산 들머리. 실내수영장이 있어 비 오는 날에도 잡힙니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "priceMin": 60000, "priceMax": 90000 },
-        { "name": "글램핑", "priceMin": 150000, "priceMax": 250000 }
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "축령산 들머리. 실내수영장이 있어 비 오는 날에도 잡힙니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 60000,
+          "priceMax": 90000
+        },
+        {
+          "name": "글램핑",
+          "priceMin": 150000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장"
+      ],
       "description": "상면 축령산 하이몽. 실내수영장과 그늘로 아이 동반 가족 캠핑 후기가 많습니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      }
     },
     {
       "id": "yp-arboretum",
       "name": "양평수목원캠핑장",
-      "aliases": ["양평수목원"],
+      "aliases": [
+        "양평수목원"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["auto", "caravan"],
-      "tags": ["산", "키즈", "물놀이"],
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "산",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 양평군 지평면 부일길 35-70",
       "phone": "1666-5492",
       "reservationPlatform": "캠퍼스토리 · 전화",
-      "reservationWindows": [{ "label": "상시", "rule": "수목원 안 약 140면. 여름 수영장·놀이터가 있습니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "count": 140, "priceMin": 50000, "priceMax": 120000 },
-        { "name": "카라반", "priceMin": 150000, "priceMax": 250000 }
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "수목원 안 약 140면. 여름 수영장·놀이터가 있습니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장", "놀이터", "산책로", "매점"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 140,
+          "priceMin": 50000,
+          "priceMax": 120000
+        },
+        {
+          "name": "카라반",
+          "priceMin": 150000,
+          "priceMax": 250000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장",
+        "놀이터",
+        "산책로",
+        "매점"
+      ],
       "description": "지평 양평수목원 안 대규모 가족 캠핑. 산책로와 호숫가 카라반으로 양평 추천 글 1위에 자주 나옵니다.",
-      "ratings": { "naver": 4.3 },
-      "featured": true
+      "ratings": {
+        "naver": 4.3
+      },
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.3,
+          "body": "면 수가 많아 초보 가족에게 편하고, 여름 수영장·산책로 칭찬이 많습니다."
+        }
+      ]
     },
     {
       "id": "onnuri",
       "name": "양평온누리캠핑장",
-      "aliases": ["온누리캠핑장"],
+      "aliases": [
+        "온누리캠핑장"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["auto"],
-      "tags": ["계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡"
+      ],
       "address": "경기도 양평군 서종면 갈문길 29-1",
       "reservationPlatform": "캠핏 · 네이버예약",
-      "reservationWindows": [{ "label": "여름", "rule": "서종 계곡 바로 앞. 개별 화장실 사이트가 있어 주말이 빨리 찹니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 90000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "서종 계곡 바로 앞. 개별 화장실 사이트가 있어 주말이 빨리 찹니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 90000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "서종 온누리. 계곡이 사이트 앞이라 양평 가족 캠핑 추천에 자주 2위로 올라옵니다.",
-      "ratings": { "naver": 4.5 },
-      "featured": true
+      "ratings": {
+        "naver": 4.5
+      },
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.5,
+          "body": "계곡이 사이트 앞이라 물놀이 만족이 높고, 개별 화장실 자리는 더 빨리 찹니다."
+        }
+      ]
     },
     {
       "id": "biryong",
       "name": "양평숲 비룡캠핑장",
-      "aliases": ["비룡캠핑장", "양평비룡"],
+      "aliases": [
+        "비룡캠핑장",
+        "양평비룡"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "경기도 양평군 청운면 목내미길 83-219",
       "phone": "010-3169-9571",
       "homepage": "https://beeryongcamp.com/",
       "reservationUrl": "https://beeryongcamp.com/",
       "reservationPlatform": "자체 홈페이지",
-      "reservationWindows": [{ "label": "상시", "rule": "청운 숲속 프라이빗. 홈페이지·전화 예약." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "청운 숲속 프라이빗. 홈페이지·전화 예약."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "청운면 양평숲 비룡. 사이트 간격이 넓어 조용한 숲 캠핑으로 양평 BEST에 자주 붙습니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      },
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.4,
+          "body": "사이트 간격이 넓어 조용하고, 홈페이지에서 자리를 고른다는 후기가 많습니다."
+        }
+      ]
     },
     {
       "id": "seohuri",
       "name": "서후리캠핑장",
-      "aliases": ["양평서후리"],
+      "aliases": [
+        "양평서후리"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["auto"],
-      "tags": ["산", "반려견"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
       "address": "경기도 양평군 서종면 서차남1길 4",
       "phone": "010-9143-6482",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 소형견 동반. 민박과 같이 운영." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 20, "priceMin": 30000, "priceMax": 45000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 소형견 동반. 민박과 같이 운영."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 20,
+          "priceMin": 30000,
+          "priceMax": 45000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "서종 서후리. 캠핏 할인에 자주 오르고, 한적한 밭 옆 오토캠핑입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "raon",
       "name": "포천 라온 캠핑장",
-      "aliases": ["라온캠핑장", "라온글램핑"],
+      "aliases": [
+        "라온캠핑장",
+        "라온글램핑"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "키즈", "물놀이"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 포천시 영중면 성장로55번길 15",
       "phone": "031-535-5720",
       "reservationPlatform": "캠핏 · 고캠핑",
-      "reservationWindows": [{ "label": "성수기", "rule": "캠핏 실시간. 복층 데크·수영장·글램핑이 같이 있습니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "count": 8, "priceMin": 50000, "priceMax": 80000 },
-        { "name": "글램핑", "count": 20, "priceMin": 99000, "priceMax": 329000 }
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "캠핏 실시간. 복층 데크·수영장·글램핑이 같이 있습니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장", "놀이터"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 8,
+          "priceMin": 50000,
+          "priceMax": 80000
+        },
+        {
+          "name": "글램핑",
+          "count": 20,
+          "priceMin": 99000,
+          "priceMax": 329000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장",
+        "놀이터"
+      ],
       "description": "영중 라온. 유황온천수 글램핑과 복층 데크로 캠핏 신설·가족 목록에 자주 보입니다.",
-      "ratings": { "official": 4.3, "naver": 4.4 },
+      "ratings": {
+        "official": 4.3,
+        "naver": 4.4
+      },
       "featured": true
     },
     {
       "id": "lagom",
       "name": "연천 라곰캠핑장",
-      "aliases": ["라곰캠핑장", "라곰"],
+      "aliases": [
+        "라곰캠핑장",
+        "라곰"
+      ],
       "region": "경기",
       "city": "연천군",
-      "kinds": ["auto"],
-      "tags": ["산", "반려견"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
       "address": "경기도 연천군 신서면 합내로 493-1",
       "phone": "0507-1312-5246",
       "camfitUrl": "https://camfit.co.kr/camp/631fe026dd78d6001e749d86",
       "reservationUrl": "https://camfit.co.kr/camp/631fe026dd78d6001e749d86",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏. 전 사이트 개별 화장실·샤워. 반려견 가능." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 12, "priceMin": 65000, "priceMax": 70000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏. 전 사이트 개별 화장실·샤워. 반려견 가능."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 12,
+          "priceMin": 65000,
+          "priceMax": 70000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "신서면 라곰. 개별 욕실 오토캠핑으로 캠핏·캠프픽 후기가 많습니다. 오캄과 같은 골짜기입니다.",
-      "ratings": { "naver": 4.6 },
-      "featured": true
+      "ratings": {
+        "naver": 4.6
+      },
+      "featured": true,
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.6,
+          "body": "사이트마다 화장실·샤워가 있어 위생 칭찬이 많고, 반려견 동반 후기도 있습니다."
+        }
+      ]
     },
     {
       "id": "starsky",
       "name": "밤하늘별캠프",
-      "aliases": ["양양밤하늘별"],
+      "aliases": [
+        "양양밤하늘별"
+      ],
       "region": "강원",
       "city": "양양군",
-      "kinds": ["auto"],
-      "tags": ["산", "계곡"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "계곡"
+      ],
       "address": "강원특별자치도 양양군 서면 고인돌길 200-13",
       "phone": "010-5398-1246",
       "camfitUrl": "https://www.camfit.co.kr/camp/67d27c661de7af001dbee773",
       "reservationUrl": "https://www.camfit.co.kr/camp/67d27c661de7af001dbee773",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏 실시간. 서면 고인돌 계곡." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 55000, "priceMax": 55000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏 실시간. 서면 고인돌 계곡."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 55000,
+          "priceMax": 55000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "양양 서면 밤하늘별. 캠핏 양양 목록에 자주 오르는 계곡 오토캠핑입니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      }
     },
     {
       "id": "geureuteogi",
       "name": "그루터기캠핑장",
-      "aliases": ["양양그루터기"],
+      "aliases": [
+        "양양그루터기"
+      ],
       "region": "강원",
       "city": "양양군",
-      "kinds": ["auto", "caravan"],
-      "tags": ["계곡"],
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "계곡"
+      ],
       "address": "강원특별자치도 양양군 서면 구룡령로 1694",
       "phone": "033-673-8767",
       "homepage": "http://www.yygrtgpension.com/",
       "reservationPlatform": "캠핏 · 캠퍼스토리",
-      "reservationWindows": [{ "label": "여름", "rule": "미천골 휴양림 근처. 얕은 계곡 물놀이." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 30, "priceMin": 40000, "priceMax": 100000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "미천골 휴양림 근처. 얕은 계곡 물놀이."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 30,
+          "priceMin": 40000,
+          "priceMax": 100000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "구룡령·미천골 그루터기. 데크·파쇄석 30면, 캠핏 양양 목록에 자주 보입니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "chugye",
       "name": "용인 추계캠핑장",
-      "aliases": ["추계관광농원", "추계캠핑장"],
+      "aliases": [
+        "추계관광농원",
+        "추계캠핑장"
+      ],
       "region": "경기",
       "city": "용인시",
-      "kinds": ["auto"],
-      "tags": ["산"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "경기도 용인시 처인구 양지읍 추계로 118",
       "reservationPlatform": "캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "캠핏에서 용인 추계로 검색. 수도권 남부 접근이 좋습니다." }],
-      "siteTypes": [{ "name": "오토캠핑", "priceMin": 50000, "priceMax": 80000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "캠핏에서 용인 추계로 검색. 수도권 남부 접근이 좋습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "priceMin": 50000,
+          "priceMax": 80000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "양지 추계관광농원 캠핑. 캠핏 신설 목록에 올라 용인·동탄에서 가까운 오토캠핑으로 잡힙니다.",
-      "ratings": { "naver": 4.2 }
+      "ratings": {
+        "naver": 4.2
+      }
     },
     {
       "id": "byeolarae",
       "name": "별아래캠핑장",
-      "aliases": ["용인별아래"],
+      "aliases": [
+        "용인별아래"
+      ],
       "region": "경기",
       "city": "용인시",
-      "kinds": ["auto", "tent"],
-      "tags": ["산", "호수"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "호수"
+      ],
       "address": "경기도 용인시 처인구 양지면 한터로662번길 34-34",
       "reservationPlatform": "캠핑톡 · 네이버",
-      "reservationWindows": [{ "label": "상시", "rule": "대대저수지 안쪽. 잔디·파쇄석 약 60면." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 60, "priceMin": 30000, "priceMax": 50000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "대대저수지 안쪽. 잔디·파쇄석 약 60면."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 60,
+          "priceMin": 30000,
+          "priceMax": 50000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "양지 별아래. 저수지 들머리 한적한 오토캠핑으로 수도권 남부에서 당일치기도 많습니다.",
-      "ratings": { "naver": 4.1 }
+      "ratings": {
+        "naver": 4.1
+      }
     }
   ]
 }

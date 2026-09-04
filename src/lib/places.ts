@@ -55,10 +55,13 @@ export function placeLinks(camp: Camp): PlaceLink[] {
   return links;
 }
 
-export function officialLayoutUrl(camp: Camp): string | undefined {
-  return camp.layoutUrl || camp.layoutImage;
-}
-
-export function camppickLayoutUrl(name: string): string {
-  return `https://www.camppick.com/search?query=${q(name)}`;
+export function officialLayoutImage(camp: Camp): string | undefined {
+  const candidates = [camp.layoutImage, camp.layoutUrl].filter(Boolean) as string[];
+  for (const url of candidates) {
+    if (/camppick\.com/i.test(url)) continue;
+    if (/\.(jpg|jpeg|png|webp|gif)(\?|$)/i.test(url) || /%eb%b0%b0%ec%b9%98%eb%8f%84|배치도/i.test(url)) {
+      return url;
+    }
+  }
+  return undefined;
 }

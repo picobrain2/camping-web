@@ -5,305 +5,791 @@
     {
       "id": "hygge-forest",
       "name": "휘게포레스트",
-      "aliases": ["휘게", "휘게 포레스트", "hyggeforest", "평창휘게", "휘게포레스트캠핑장"],
+      "aliases": [
+        "휘게",
+        "휘게 포레스트",
+        "hyggeforest",
+        "평창휘게",
+        "휘게포레스트캠핑장"
+      ],
       "region": "강원",
       "city": "평창군",
-      "kinds": ["auto", "tent"],
-      "tags": ["산", "계곡", "반려견"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "계곡",
+        "반려견"
+      ],
       "address": "강원특별자치도 평창군 용평면 이승복생가길 114",
       "phone": "0507-1305-5661",
       "homepage": "https://hyggeforest.co.kr/",
       "reservationUrl": "https://hyggeforest.co.kr/content/5",
-      "layoutUrl": "https://www.camppick.com/camps/e794f91f-eba6-4985-ad75-f090d459452a",
       "reservationPlatform": "캠핏 · 자체 홈페이지",
       "reservationWindows": [
-        { "label": "매월 1일 21:00", "rule": "다음 달 한 달치를 캠핏에서 오픈. 2박 우선 자리 지정. 1박은 방문 5일 전부터." }
+        {
+          "label": "매월 1일 21:00",
+          "rule": "다음 달 한 달치를 캠핏에서 오픈. 2박 우선 자리 지정. 1박은 방문 5일 전부터."
+        }
       ],
       "siteTypes": [
-        { "name": "오토·일반야영", "count": 31, "priceMin": 80000, "priceMax": 100000, "peakPriceMin": 100000, "peakPriceMax": 100000, "notes": "숲속 A·B, 계곡, 잔디, 정원, 루프탑. B존은 노키즈." }
+        {
+          "name": "오토·일반야영",
+          "count": 31,
+          "priceMin": 80000,
+          "priceMax": 100000,
+          "peakPriceMin": 100000,
+          "peakPriceMax": 100000,
+          "notes": "숲속 A·B, 계곡, 잔디, 정원, 루프탑. B존은 노키즈."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "산책로"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "산책로"
+      ],
       "mannersTime": "23:00–07:00",
       "description": "평창 용평 해발 800m 숲·계곡 캠핑. 5성급으로 불리며 매월 1일 캠핏 오픈이 바로 마감됩니다. 지정 사이트만 반려견 가능, 전 구역 금연.",
-      "ratings": { "official": 4.7, "naver": 4.8 },
-      "featured": true
+      "ratings": {
+        "official": 4.7,
+        "naver": 4.8
+      },
+      "featured": true,
+      "layoutImage": "https://hyggeforest.co.kr/resources/user/assets/images/sub/img_map.jpg",
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.8,
+          "body": "숲·계곡 풍경이 잘 정돈되어 있고, 매월 1일 오픈은 순식간에 마감된다는 글이 반복됩니다."
+        },
+        {
+          "source": "후기 요약",
+          "body": "사이트 간격과 매너타임이 잘 지켜져 조용히 쉬기 좋다는 평이 많습니다."
+        }
+      ]
     },
     {
       "id": "glampark",
       "name": "포천 글램파크",
-      "aliases": ["글램파크", "글램파크글램핑", "포천글램파크"],
+      "aliases": [
+        "글램파크",
+        "글램파크글램핑",
+        "포천글램파크"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["glamping", "caravan"],
-      "tags": ["산", "키즈", "물놀이"],
+      "kinds": [
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "산",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 포천시 이동면 화동로 1925-47",
       "homepage": "https://glampark.co.kr/",
       "reservationUrl": "https://glampark.co.kr/",
       "reservationPlatform": "자체 · 네이버예약",
-      "reservationWindows": [{ "label": "상시", "rule": "홈페이지·네이버예약. 온수풀·돔 수영장 시즌은 주말 마감이 빠릅니다." }],
-      "siteTypes": [{ "name": "글램핑·카라반", "priceMin": 180000, "priceMax": 400000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장", "놀이터", "사우나"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "홈페이지·네이버예약. 온수풀·돔 수영장 시즌은 주말 마감이 빠릅니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑·카라반",
+          "priceMin": 180000,
+          "priceMax": 400000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장",
+        "놀이터",
+        "사우나"
+      ],
       "description": "이동면 글램파크. 중앙공원과 사계절 온수풀로 포천 프리미엄 글램핑 검색 1순위에 자주 오릅니다.",
-      "ratings": { "naver": 4.6 },
-      "featured": true
+      "ratings": {
+        "naver": 4.6
+      },
+      "featured": true,
+      "layoutImage": "https://glampark.co.kr/wp-content/uploads/2022/07/배치도_220703.jpg",
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.6,
+          "body": "온수풀과 아이들 시설 칭찬이 많고, 주말 글램핑 요금은 부담된다는 글도 있습니다."
+        },
+        {
+          "source": "후기 요약",
+          "body": "돔·수영장 시즌은 예약이 빠르니 평일을 노리라는 후기가 많습니다."
+        }
+      ]
     },
     {
       "id": "muluinara",
       "name": "가평물의나라 오토캠핑장",
-      "aliases": ["물의나라", "물의나라캠핑장"],
+      "aliases": [
+        "물의나라",
+        "물의나라캠핑장"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto"],
-      "tags": ["계곡", "산", "반려견"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "반려견"
+      ],
       "address": "경기도 가평군 조종면 명지산로 475",
       "layoutUrl": "https://www.camppick.com/camps/7a069975-bcb8-41c5-b6f6-270c841d302a",
       "phone": "0507-1345-7817",
       "reservationPlatform": "캠프픽 · 캠핏",
-      "reservationWindows": [{ "label": "상시", "rule": "귀목계곡 상류. 소형견 동반. 사이트 약 28면." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 28, "priceMin": 50000, "priceMax": 60000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "귀목계곡 상류. 소형견 동반. 사이트 약 28면."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 28,
+          "priceMin": 50000,
+          "priceMax": 60000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "조종 귀목계곡 물의나라. 사이트 앞으로 계곡이 흘러 캠프픽 가평 계곡 목록에 자주 나옵니다.",
-      "ratings": { "naver": 4.5 },
+      "ratings": {
+        "naver": 4.5
+      },
       "featured": true
     },
     {
       "id": "nomad-glamp",
       "name": "노마드글램핑",
-      "aliases": ["가평노마드", "노마드 글램핑"],
+      "aliases": [
+        "가평노마드",
+        "노마드 글램핑"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping"],
-      "tags": ["산", "키즈", "물놀이"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 상면 원흥길 46-12",
       "phone": "1660-0960",
       "homepage": "http://nomadglamping.kr",
       "reservationUrl": "https://booking.naver.com/booking/3/bizes/580055",
       "reservationPlatform": "네이버예약",
-      "reservationWindows": [{ "label": "상시", "rule": "네이버예약. 독채 글램핑·수영장. 성수기 주말 마감이 빠릅니다." }],
-      "siteTypes": [{ "name": "글램핑", "priceMin": 180000, "priceMax": 350000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "네이버예약. 독채 글램핑·수영장. 성수기 주말 마감이 빠릅니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 180000,
+          "priceMax": 350000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장"
+      ],
       "description": "상면 원흥 노마드. 감성 독채 글램핑으로 네이버 평점·후기가 많은 가평 대표 글램핑입니다.",
-      "ratings": { "naver": 4.8 },
+      "ratings": {
+        "naver": 4.8
+      },
       "featured": true
     },
     {
       "id": "lucerne",
       "name": "루체른글램핑",
-      "aliases": ["가평루체른", "루체른"],
+      "aliases": [
+        "가평루체른",
+        "루체른"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping"],
-      "tags": ["산", "계곡", "물놀이"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "계곡",
+        "물놀이"
+      ],
       "address": "경기도 가평군 조종면 운악청계로333번길 19",
       "layoutUrl": "https://www.camppick.com/camps/7db5ca4a-cc2a-49e8-8b94-06f42197b8a4",
       "phone": "010-4431-4165",
       "reservationPlatform": "자체 · 와그",
-      "reservationWindows": [{ "label": "여름", "rule": "운악산 계곡·야외수영장. 복층 글램핑 주말은 빨리 찹니다." }],
-      "siteTypes": [{ "name": "글램핑", "priceMin": 180000, "priceMax": 350000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "운악산 계곡·야외수영장. 복층 글램핑 주말은 빨리 찹니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 180000,
+          "priceMax": 350000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장"
+      ],
       "description": "조종 운악산 루체른. 복층 글램핑과 계곡·수영장으로 캠프픽 감성 글램핑 목록에 자주 보입니다.",
-      "ratings": { "naver": 4.6 }
+      "ratings": {
+        "naver": 4.6
+      }
     },
     {
       "id": "stay-edge",
       "name": "스테이온디엣지",
-      "aliases": ["가평풀램핑", "풀램핑", "Stay On The Edge"],
+      "aliases": [
+        "가평풀램핑",
+        "풀램핑",
+        "Stay On The Edge"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping"],
-      "tags": ["산", "물놀이"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "물놀이"
+      ],
       "address": "경기도 가평군 청평면 남이터길 52-35",
       "homepage": "http://www.poolamping.com/",
       "reservationUrl": "http://www.poolamping.com/",
       "reservationPlatform": "자체 홈페이지",
-      "reservationWindows": [{ "label": "상시", "rule": "가평 풀램핑 브랜드. 홈페이지에서 스테이온디엣지로 예약." }],
-      "siteTypes": [{ "name": "글램핑", "priceMin": 200000, "priceMax": 400000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "가평 풀램핑 브랜드. 홈페이지에서 스테이온디엣지로 예약."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 200000,
+          "priceMax": 400000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장"
+      ],
       "description": "청평 남이터 스테이온디엣지. 풀빌라형 글램핑으로 인스타·네이버에서 가평 풀램핑으로 많이 검색됩니다.",
-      "ratings": { "naver": 4.6 },
+      "ratings": {
+        "naver": 4.6
+      },
       "featured": true
     },
     {
       "id": "billypool",
       "name": "빌리풀램핑",
-      "aliases": ["빌리글램핑", "양평빌리", "빌리 풀램핑"],
+      "aliases": [
+        "빌리글램핑",
+        "양평빌리",
+        "빌리 풀램핑"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["glamping"],
-      "tags": ["산", "키즈", "물놀이", "반려견"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈",
+        "물놀이",
+        "반려견"
+      ],
       "address": "경기도 양평군 단월면 고북길 236",
       "phone": "031-774-1107",
       "homepage": "http://billypoolamping.com/",
       "reservationUrl": "http://billypoolamping.com/",
       "reservationPlatform": "자체 · 네이버예약",
-      "reservationWindows": [{ "label": "상시", "rule": "산음 휴양림 근처. 풀·글램핑. 홈페이지·1660-0960." }],
-      "siteTypes": [{ "name": "글램핑", "count": 13, "priceMin": 200000, "priceMax": 400000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "산음 휴양림 근처. 풀·글램핑. 홈페이지·1660-0960."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 13,
+          "priceMin": 200000,
+          "priceMax": 400000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장"
+      ],
       "description": "단월 산음 빌리풀램핑. 호텔급 풀 글램핑으로 양평 가족 일정 추천에 자주 오릅니다.",
-      "ratings": { "naver": 4.6 },
+      "ratings": {
+        "naver": 4.6
+      },
       "featured": true
     },
     {
       "id": "jibbakkeuro",
       "name": "집 밖으로",
-      "aliases": ["집밖으로", "민경훈캠핑장", "산음캠핑"],
+      "aliases": [
+        "집밖으로",
+        "민경훈캠핑장",
+        "산음캠핑"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "반려견"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
       "address": "경기도 양평군 단월면 석산로 832",
       "reservationPlatform": "캠프픽 · 캠핏",
-      "reservationWindows": [{ "label": "확인 필요", "rule": "산음 계단식 사이트. 캠프픽에 휴업 표기가 있으니 예약 전 확인." }],
-      "siteTypes": [{ "name": "오토캠핑", "count": 22, "priceMin": 80000, "priceMax": 150000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "reservationWindows": [
+        {
+          "label": "확인 필요",
+          "rule": "산음 계단식 사이트. 캠프픽에 휴업 표기가 있으니 예약 전 확인."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 22,
+          "priceMin": 80000,
+          "priceMax": 150000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "단월 산음 집 밖으로. 민경훈 캠핑장으로 알려져 사이트 간격이 넓습니다. 운영 여부는 예약 전에 확인하세요.",
-      "ratings": { "naver": 4.5 }
+      "ratings": {
+        "naver": 4.5
+      }
     },
     {
       "id": "outofpark",
       "name": "아웃오브파크",
-      "aliases": ["아웃 오브 파크", "outofpark"],
+      "aliases": [
+        "아웃 오브 파크",
+        "outofpark"
+      ],
       "region": "강원",
       "city": "춘천시",
-      "kinds": ["caravan"],
-      "tags": ["호수", "키즈", "물놀이"],
+      "kinds": [
+        "caravan"
+      ],
+      "tags": [
+        "호수",
+        "키즈",
+        "물놀이"
+      ],
       "address": "강원특별자치도 춘천시 남면 가옹개길 52-9",
       "phone": "1522-1861",
       "homepage": "http://outofpark.com/",
       "reservationUrl": "http://outofpark.com/",
       "reservationPlatform": "자체 홈페이지",
-      "reservationWindows": [{ "label": "성수기", "rule": "홈페이지 실시간. 유럽형·에어스트림 카라반. 동절기 휴장 구간이 있습니다." }],
-      "siteTypes": [{ "name": "카라반", "count": 40, "priceMin": 120000, "priceMax": 470000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장", "카페", "스파"],
+      "reservationWindows": [
+        {
+          "label": "성수기",
+          "rule": "홈페이지 실시간. 유럽형·에어스트림 카라반. 동절기 휴장 구간이 있습니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 40,
+          "priceMin": 120000,
+          "priceMax": 470000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장",
+        "카페",
+        "스파"
+      ],
       "description": "춘천 남면 북한강변 아웃오브파크. 테마 카라반과 수영장·스파로 감성 카라반 검색에 빠지지 않습니다.",
-      "ratings": { "naver": 4.5 },
+      "ratings": {
+        "naver": 4.5
+      },
       "featured": true
     },
     {
       "id": "finland-castle",
       "name": "핀란드캠핑성",
-      "aliases": ["가평핀란드", "핀란드 캠핑성"],
+      "aliases": [
+        "가평핀란드",
+        "핀란드 캠핑성"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping"],
-      "tags": ["계곡", "키즈", "물놀이"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "계곡",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 상면 물골길 102",
       "layoutUrl": "https://www.camppick.com/camps/e49c53db-ce9b-4258-9836-0da624dd01c1",
       "phone": "0507-1308-7621",
       "reservationPlatform": "네이버예약 · 캠프픽",
-      "reservationWindows": [{ "label": "상시", "rule": "사계절 온수풀·핀란드 사우나. 성수기 주말 마감이 빠릅니다." }],
-      "siteTypes": [{ "name": "글램핑", "priceMin": 180000, "priceMax": 350000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장", "사우나", "놀이터"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "사계절 온수풀·핀란드 사우나. 성수기 주말 마감이 빠릅니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "priceMin": 180000,
+          "priceMax": 350000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장",
+        "사우나",
+        "놀이터"
+      ],
       "description": "상면 물골 핀란드캠핑성. 계곡과 온수풀·사우나로 가평 가족 글램핑 후기가 많습니다.",
-      "ratings": { "naver": 4.5 },
+      "ratings": {
+        "naver": 4.5
+      },
       "featured": true
     },
     {
       "id": "nokcheon",
       "name": "녹천캠핑",
-      "aliases": ["가평녹천"],
+      "aliases": [
+        "가평녹천"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "키즈"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "키즈"
+      ],
       "address": "경기도 가평군 조종면 운악청계로333번길 55-51",
       "phone": "010-8933-1958",
       "reservationPlatform": "캠퍼스토리 · 전화",
-      "reservationWindows": [{ "label": "상시", "rule": "운악산 숲. 오토 10·글램핑 9. 농작물 체험이 있습니다." }],
-      "siteTypes": [
-        { "name": "오토캠핑", "count": 10, "priceMin": 45000, "priceMax": 90000 },
-        { "name": "글램핑", "count": 9, "priceMin": 120000, "priceMax": 199000 }
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "운악산 숲. 오토 10·글램핑 9. 농작물 체험이 있습니다."
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점", "놀이터"],
+      "siteTypes": [
+        {
+          "name": "오토캠핑",
+          "count": 10,
+          "priceMin": 45000,
+          "priceMax": 90000
+        },
+        {
+          "name": "글램핑",
+          "count": 9,
+          "priceMin": 120000,
+          "priceMax": 199000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점",
+        "놀이터"
+      ],
       "description": "조종 운악산 녹천. 조용한 숲과 아이들 체험으로 가평 추천 글에 자주 붙습니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "poseidon",
       "name": "청평 포세이돈",
-      "aliases": ["포세이돈", "가평포세이돈", "포세이돈카라반"],
+      "aliases": [
+        "포세이돈",
+        "가평포세이돈",
+        "포세이돈카라반"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["caravan", "glamping"],
-      "tags": ["호수", "키즈", "물놀이"],
+      "kinds": [
+        "caravan",
+        "glamping"
+      ],
+      "tags": [
+        "호수",
+        "키즈",
+        "물놀이"
+      ],
       "address": "경기도 가평군 청평면 고재길 262-101",
       "phone": "031-585-7461",
       "reservationPlatform": "자체 · 네이버",
-      "reservationWindows": [{ "label": "여름", "rule": "청평호 수상레저·카라반. 수영장 시즌 주말이 바쁩니다." }],
-      "siteTypes": [{ "name": "카라반", "count": 19, "priceMin": 150000, "priceMax": 350000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장", "매점"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "청평호 수상레저·카라반. 수영장 시즌 주말이 바쁩니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 19,
+          "priceMin": 150000,
+          "priceMax": 350000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장",
+        "매점"
+      ],
       "description": "청평호 포세이돈. 수상스키·보트와 카라반을 하루로 묶는 팀이 네이버에서 많이 찾습니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "the-glam",
       "name": "더 글램",
-      "aliases": ["더글램", "가평더글램"],
+      "aliases": [
+        "더글램",
+        "가평더글램"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping"],
-      "tags": ["한강", "물놀이"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "한강",
+        "물놀이"
+      ],
       "address": "경기도 가평군 청평면 북한강로 1587",
       "phone": "010-2294-0209",
       "reservationPlatform": "자체 · 네이버예약",
-      "reservationWindows": [{ "label": "여름", "rule": "북한강 인피니티 풀 글램핑. 주말 마감이 빠릅니다." }],
-      "siteTypes": [{ "name": "글램핑", "count": 15, "priceMin": 200000, "priceMax": 400000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "여름",
+          "rule": "북한강 인피니티 풀 글램핑. 주말 마감이 빠릅니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 15,
+          "priceMin": 200000,
+          "priceMax": 400000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장"
+      ],
       "description": "청평 북한강 더 글램. 강뷰 인피니티 수영장으로 가평 고급 글램핑 검색에 자주 나옵니다.",
-      "ratings": { "naver": 4.5 }
+      "ratings": {
+        "naver": 4.5
+      }
     },
     {
       "id": "ourforest",
       "name": "아워포레스트",
-      "aliases": ["아워 포레스트", "가평아워포레스트"],
+      "aliases": [
+        "아워 포레스트",
+        "가평아워포레스트"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping", "auto"],
-      "tags": ["산", "반려견", "물놀이"],
+      "kinds": [
+        "glamping",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견",
+        "물놀이"
+      ],
       "address": "경기도 가평군 가평읍 가화로 440-117",
       "phone": "010-3794-1166",
       "homepage": "http://ourforest.co.kr/",
       "reservationUrl": "http://ourforest.co.kr/",
       "reservationPlatform": "자체 홈페이지",
-      "reservationWindows": [{ "label": "상시", "rule": "반려견 전용 돔글램핑. 수영장 3곳. 홈페이지 예약." }],
-      "siteTypes": [{ "name": "돔글램핑·오토", "priceMin": 120000, "priceMax": 280000 }],
-      "amenities": ["화장실", "샤워장", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "반려견 전용 돔글램핑. 수영장 3곳. 홈페이지 예약."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "돔글램핑·오토",
+          "priceMin": 120000,
+          "priceMax": 280000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기",
+        "수영장"
+      ],
       "description": "가평읍 아워포레스트. 반려견 전용 돔과 수영장으로 애견 캠핑 검색에 자주 오릅니다.",
-      "ratings": { "naver": 4.4 }
+      "ratings": {
+        "naver": 4.4
+      }
     },
     {
       "id": "pine-forest",
       "name": "파인 포레스트 글램핑",
-      "aliases": ["파인포레스트", "가평파인포레스트"],
+      "aliases": [
+        "파인포레스트",
+        "가평파인포레스트"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["glamping"],
-      "tags": ["산"],
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산"
+      ],
       "address": "경기도 가평군 가평읍 당목가일길 645",
       "homepage": "http://www.pine4rest.co.kr/",
       "reservationPlatform": "자체 · 떠나요",
-      "reservationWindows": [{ "label": "상시", "rule": "복층 글램핑 8동. 홈페이지·떠나요 예약." }],
-      "siteTypes": [{ "name": "글램핑", "count": 8, "priceMin": 160000, "priceMax": 280000 }],
-      "amenities": ["화장실", "샤워장", "전기"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "복층 글램핑 8동. 홈페이지·떠나요 예약."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 8,
+          "priceMin": 160000,
+          "priceMax": 280000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "전기"
+      ],
       "description": "가평읍 개곡 파인 포레스트. 복층 글램핑으로 자라섬 일정과 하루를 나누기 좋습니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     },
     {
       "id": "jat-hyang",
       "name": "잣향기푸른숲캠핑장",
-      "aliases": ["잣향기푸른숲", "가평잣향기"],
+      "aliases": [
+        "잣향기푸른숲",
+        "가평잣향기"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "glamping"],
-      "tags": ["산", "계곡", "키즈"],
+      "kinds": [
+        "auto",
+        "glamping"
+      ],
+      "tags": [
+        "산",
+        "계곡",
+        "키즈"
+      ],
       "address": "경기도 가평군 상면 축령로 183-53",
       "phone": "031-585-8385",
       "reservationPlatform": "캠핑톡 · 네이버",
-      "reservationWindows": [{ "label": "상시", "rule": "잣향기푸른숲 수목원 들머리. 하이몽과 같은 축령로입니다." }],
-      "siteTypes": [{ "name": "오토·글램핑", "priceMin": 60000, "priceMax": 200000 }],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장"],
+      "reservationWindows": [
+        {
+          "label": "상시",
+          "rule": "잣향기푸른숲 수목원 들머리. 하이몽과 같은 축령로입니다."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "오토·글램핑",
+          "priceMin": 60000,
+          "priceMax": 200000
+        }
+      ],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장"
+      ],
       "description": "상면 축령산 잣향기푸른숲. 잣나무 군락과 계곡이 가까워 가평 가족 캠핑 추천에 자주 나옵니다.",
-      "ratings": { "naver": 4.3 }
+      "ratings": {
+        "naver": 4.3
+      }
     }
   ]
 }

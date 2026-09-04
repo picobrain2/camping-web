@@ -7,11 +7,20 @@
       "id": "nanji",
       "curated": true,
       "name": "난지캠핑장",
-      "aliases": ["한강난지", "난지한강공원캠핑장"],
+      "aliases": [
+        "한강난지",
+        "난지한강공원캠핑장"
+      ],
       "region": "서울",
       "city": "마포구",
-      "kinds": ["auto", "tent"],
-      "tags": ["한강", "도심"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "한강",
+        "도심"
+      ],
       "address": "서울특별시 마포구 한강난지로 28",
       "lat": 37.5668,
       "lng": 126.8766,
@@ -20,16 +29,41 @@
       "reservationUrl": "https://yeyak.seoul.go.kr",
       "reservationPlatform": "서울시 공공서비스예약",
       "reservationWindows": [
-        { "label": "정기 예약", "rule": "서울시 공공서비스예약에서 월별 선착순 오픈. 한강공원 캠핑장 공지 일정 확인." }
+        {
+          "label": "정기 예약",
+          "rule": "서울시 공공서비스예약에서 월별 선착순 오픈. 한강공원 캠핑장 공지 일정 확인."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 51, "priceMin": 20000, "priceMax": 30000, "notes": "사이트 옆 주차" },
-        { "name": "일반 텐트", "count": 28, "priceMin": 15000, "priceMax": 25000 }
+        {
+          "name": "오토캠핑",
+          "count": 51,
+          "priceMin": 20000,
+          "priceMax": 30000,
+          "notes": "사이트 옆 주차"
+        },
+        {
+          "name": "일반 텐트",
+          "count": 28,
+          "priceMin": 15000,
+          "priceMax": 25000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "한강 난지한강공원 안의 도심 캠핑장. 지하철·자전거길로 오기 쉽고, 스카이라인과 한강을 같이 볼 수 있습니다.",
       "photos": [],
-      "ratings": { "official": 4.2, "officialCount": 1280, "naver": 4.3, "kakao": 4.1 },
+      "ratings": {
+        "official": 4.2,
+        "officialCount": 1280,
+        "naver": 4.3,
+        "kakao": 4.1
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -37,25 +71,96 @@
         "cols": 12,
         "rows": 7,
         "zones": [
-          { "id": "gate", "label": "출입구", "x": 0, "y": 3, "w": 2, "h": 1, "kind": "amenity" },
-          { "id": "road", "label": "내부도로", "x": 2, "y": 3, "w": 8, "h": 1, "kind": "road" },
-          { "id": "A", "label": "오토 A", "x": 2, "y": 0, "w": 5, "h": 3, "kind": "auto" },
-          { "id": "B", "label": "오토 B", "x": 7, "y": 0, "w": 5, "h": 3, "kind": "auto" },
-          { "id": "T", "label": "텐트존", "x": 2, "y": 4, "w": 5, "h": 3, "kind": "tent" },
-          { "id": "wc", "label": "화장실·샤워", "x": 7, "y": 4, "w": 3, "h": 2, "kind": "amenity" },
-          { "id": "han", "label": "한강", "x": 10, "y": 4, "w": 2, "h": 3, "kind": "water" }
+          {
+            "id": "gate",
+            "label": "출입구",
+            "x": 0,
+            "y": 3,
+            "w": 2,
+            "h": 1,
+            "kind": "amenity"
+          },
+          {
+            "id": "road",
+            "label": "내부도로",
+            "x": 2,
+            "y": 3,
+            "w": 8,
+            "h": 1,
+            "kind": "road"
+          },
+          {
+            "id": "A",
+            "label": "오토 A",
+            "x": 2,
+            "y": 0,
+            "w": 5,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "오토 B",
+            "x": 7,
+            "y": 0,
+            "w": 5,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "T",
+            "label": "텐트존",
+            "x": 2,
+            "y": 4,
+            "w": 5,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "wc",
+            "label": "화장실·샤워",
+            "x": 7,
+            "y": 4,
+            "w": 3,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "han",
+            "label": "한강",
+            "x": 10,
+            "y": 4,
+            "w": 2,
+            "h": 3,
+            "kind": "water"
+          }
         ]
-      }
+      },
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "body": "대중교통으로 갈 수 있는 한강 캠핑이라 입문에 좋고, 사이트는  dens하다는 평이 있습니다."
+        }
+      ]
     },
     {
       "id": "noeul",
       "curated": true,
       "name": "노을캠핑장",
-      "aliases": ["하늘공원캠핑장", "월드컵공원캠핑"],
+      "aliases": [
+        "하늘공원캠핑장",
+        "월드컵공원캠핑"
+      ],
       "region": "서울",
       "city": "마포구",
-      "kinds": ["auto", "tent"],
-      "tags": ["도심", "산"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "도심",
+        "산"
+      ],
       "address": "서울특별시 마포구 하늘공원로 108-1",
       "lat": 37.5692,
       "lng": 126.8874,
@@ -64,16 +169,39 @@
       "reservationUrl": "https://yeyak.seoul.go.kr",
       "reservationPlatform": "서울시 공공서비스예약",
       "reservationWindows": [
-        { "label": "정기 예약", "rule": "서울시 공공서비스예약 선착순. 하늘공원·노을공원 공지 확인." }
+        {
+          "label": "정기 예약",
+          "rule": "서울시 공공서비스예약 선착순. 하늘공원·노을공원 공지 확인."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 40, "priceMin": 20000, "priceMax": 28000 },
-        { "name": "일반 텐트", "count": 20, "priceMin": 15000, "priceMax": 22000 }
+        {
+          "name": "오토캠핑",
+          "count": 40,
+          "priceMin": 20000,
+          "priceMax": 28000
+        },
+        {
+          "name": "일반 텐트",
+          "count": 20,
+          "priceMin": 15000,
+          "priceMax": 22000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "월드컵공원 하늘공원 옆. 해질 무렵 노을과 억새 풍경이 좋아 주말 예약이 빨리 마감됩니다.",
       "photos": [],
-      "ratings": { "official": 4.4, "officialCount": 960, "naver": 4.5, "kakao": 4.3 },
+      "ratings": {
+        "official": 4.4,
+        "officialCount": 960,
+        "naver": 4.5,
+        "kakao": 4.3
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -81,23 +209,78 @@
         "cols": 10,
         "rows": 6,
         "zones": [
-          { "id": "gate", "label": "매표", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "A", "label": "오토", "x": 2, "y": 0, "w": 5, "h": 4, "kind": "auto" },
-          { "id": "T", "label": "텐트", "x": 7, "y": 0, "w": 3, "h": 3, "kind": "tent" },
-          { "id": "wc", "label": "샤워", "x": 7, "y": 3, "w": 3, "h": 2, "kind": "amenity" },
-          { "id": "hill", "label": "노을전망", "x": 2, "y": 4, "w": 5, "h": 2, "kind": "road" }
+          {
+            "id": "gate",
+            "label": "매표",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "A",
+            "label": "오토",
+            "x": 2,
+            "y": 0,
+            "w": 5,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "T",
+            "label": "텐트",
+            "x": 7,
+            "y": 0,
+            "w": 3,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "wc",
+            "label": "샤워",
+            "x": 7,
+            "y": 3,
+            "w": 3,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "hill",
+            "label": "노을전망",
+            "x": 2,
+            "y": 4,
+            "w": 5,
+            "h": 2,
+            "kind": "road"
+          }
         ]
-      }
+      },
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "body": "노을 뷰는 분명하고, 난지와 비교해 가족 단위로 더 많이 찾는다는 글이 있습니다."
+        }
+      ]
     },
     {
       "id": "seoulgrandpark",
       "curated": true,
       "name": "서울대공원 캠핑장",
-      "aliases": ["과천캠핑장", "대공원캠핑"],
+      "aliases": [
+        "과천캠핑장",
+        "대공원캠핑"
+      ],
       "region": "경기",
       "city": "과천시",
-      "kinds": ["auto", "tent"],
-      "tags": ["산", "가족"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "가족"
+      ],
       "address": "경기도 과천시 대공원광장로 102",
       "lat": 37.4362,
       "lng": 127.0146,
@@ -106,15 +289,36 @@
       "reservationUrl": "https://yeyak.seoul.go.kr",
       "reservationPlatform": "서울시 공공서비스예약",
       "reservationWindows": [
-        { "label": "정기 예약", "rule": "서울시 공공서비스예약. 성수기·주말은 오픈 직후 마감되는 편." }
+        {
+          "label": "정기 예약",
+          "rule": "서울시 공공서비스예약. 성수기·주말은 오픈 직후 마감되는 편."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 60, "priceMin": 25000, "priceMax": 35000, "peakPriceMin": 35000, "peakPriceMax": 45000 }
+        {
+          "name": "오토캠핑",
+          "count": 60,
+          "priceMin": 25000,
+          "priceMax": 35000,
+          "peakPriceMin": 35000,
+          "peakPriceMax": 45000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "서울대공원 숲속 캠핑장. 동물원·리프트와 이어져 아이 동반 가족에게 자주 추천됩니다.",
       "photos": [],
-      "ratings": { "official": 4.3, "officialCount": 740, "naver": 4.2, "kakao": 4.1 },
+      "ratings": {
+        "official": 4.3,
+        "officialCount": 740,
+        "naver": 4.2,
+        "kakao": 4.1
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -122,11 +326,51 @@
         "cols": 11,
         "rows": 6,
         "zones": [
-          { "id": "gate", "label": "입구", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "A", "label": "A존", "x": 2, "y": 0, "w": 4, "h": 3, "kind": "auto" },
-          { "id": "B", "label": "B존", "x": 6, "y": 0, "w": 5, "h": 3, "kind": "auto" },
-          { "id": "C", "label": "C존", "x": 2, "y": 3, "w": 5, "h": 3, "kind": "tent" },
-          { "id": "wc", "label": "관리동", "x": 7, "y": 3, "w": 4, "h": 3, "kind": "amenity" }
+          {
+            "id": "gate",
+            "label": "입구",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "A",
+            "label": "A존",
+            "x": 2,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "B존",
+            "x": 6,
+            "y": 0,
+            "w": 5,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "C",
+            "label": "C존",
+            "x": 2,
+            "y": 3,
+            "w": 5,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "wc",
+            "label": "관리동",
+            "x": 7,
+            "y": 3,
+            "w": 4,
+            "h": 3,
+            "kind": "amenity"
+          }
         ]
       }
     },
@@ -134,11 +378,21 @@
       "id": "jarasum",
       "curated": true,
       "name": "자라섬캠핑장",
-      "aliases": ["가평자라섬", "자라섬오토캠핑"],
+      "aliases": [
+        "가평자라섬",
+        "자라섬오토캠핑"
+      ],
       "region": "경기",
       "city": "가평군",
-      "kinds": ["auto", "tent", "glamping"],
-      "tags": ["호수", "물놀이"],
+      "kinds": [
+        "auto",
+        "tent",
+        "glamping"
+      ],
+      "tags": [
+        "호수",
+        "물놀이"
+      ],
       "address": "경기도 가평군 가평읍 자라섬로 60",
       "lat": 37.8216,
       "lng": 127.5128,
@@ -147,16 +401,43 @@
       "reservationUrl": "https://www.jarasumcamping.com",
       "reservationPlatform": "자체 홈페이지",
       "reservationWindows": [
-        { "label": "성수기", "rule": "여름·가을 주말은 한 달 전후 선착순. 재즈페스티벌 기간은 별도 공지." }
+        {
+          "label": "성수기",
+          "rule": "여름·가을 주말은 한 달 전후 선착순. 재즈페스티벌 기간은 별도 공지."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 200, "priceMin": 40000, "priceMax": 60000, "peakPriceMin": 70000, "peakPriceMax": 90000 },
-        { "name": "글램핑", "count": 20, "priceMin": 150000, "priceMax": 220000 }
+        {
+          "name": "오토캠핑",
+          "count": 200,
+          "priceMin": 40000,
+          "priceMax": 60000,
+          "peakPriceMin": 70000,
+          "peakPriceMax": 90000
+        },
+        {
+          "name": "글램핑",
+          "count": 20,
+          "priceMin": 150000,
+          "priceMax": 220000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점", "수영장"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점",
+        "수영장"
+      ],
       "description": "북한강 위 자라섬. 사이트 수가 많아 초보도 들어가기 쉽고, 물놀이·자전거 라이딩이 잘 맞습니다.",
       "photos": [],
-      "ratings": { "official": 4.1, "officialCount": 2100, "naver": 4.2, "kakao": 4.0 },
+      "ratings": {
+        "official": 4.1,
+        "officialCount": 2100,
+        "naver": 4.2,
+        "kakao": 4.0
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -164,24 +445,93 @@
         "cols": 14,
         "rows": 7,
         "zones": [
-          { "id": "bridge", "label": "진입교", "x": 0, "y": 3, "w": 2, "h": 1, "kind": "road" },
-          { "id": "A", "label": "1섬 오토", "x": 2, "y": 0, "w": 5, "h": 4, "kind": "auto" },
-          { "id": "G", "label": "글램핑", "x": 7, "y": 0, "w": 3, "h": 3, "kind": "glamping" },
-          { "id": "B", "label": "2섬 오토", "x": 10, "y": 0, "w": 4, "h": 4, "kind": "auto" },
-          { "id": "river", "label": "북한강", "x": 2, "y": 5, "w": 12, "h": 2, "kind": "water" },
-          { "id": "wc", "label": "편의시설", "x": 7, "y": 3, "w": 3, "h": 2, "kind": "amenity" }
+          {
+            "id": "bridge",
+            "label": "진입교",
+            "x": 0,
+            "y": 3,
+            "w": 2,
+            "h": 1,
+            "kind": "road"
+          },
+          {
+            "id": "A",
+            "label": "1섬 오토",
+            "x": 2,
+            "y": 0,
+            "w": 5,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "G",
+            "label": "글램핑",
+            "x": 7,
+            "y": 0,
+            "w": 3,
+            "h": 3,
+            "kind": "glamping"
+          },
+          {
+            "id": "B",
+            "label": "2섬 오토",
+            "x": 10,
+            "y": 0,
+            "w": 4,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "river",
+            "label": "북한강",
+            "x": 2,
+            "y": 5,
+            "w": 12,
+            "h": 2,
+            "kind": "water"
+          },
+          {
+            "id": "wc",
+            "label": "편의시설",
+            "x": 7,
+            "y": 3,
+            "w": 3,
+            "h": 2,
+            "kind": "amenity"
+          }
         ]
-      }
+      },
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.3,
+          "body": "섬 캠핑 특유의 풍경이 좋고, 재즈페스티벌·벚꽃 시즌은 미리 예약하라는 글이 많습니다."
+        },
+        {
+          "source": "후기 요약",
+          "body": "시설이 최근 정비됐다는 후기와, 주말 바람·벌레는 강변이라 있다는 글이 같이 있습니다."
+        }
+      ]
     },
     {
       "id": "jungmisan",
       "curated": true,
       "name": "중미산자연휴양림",
-      "aliases": ["양평중미산", "중미산캠핑"],
+      "aliases": [
+        "양평중미산",
+        "중미산캠핑"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "경기도 양평군 옥천면 중미산로 1152",
       "lat": 37.5814,
       "lng": 127.4542,
@@ -190,16 +540,39 @@
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
       "reservationWindows": [
-        { "label": "선착순", "rule": "숲나들e · 주중은 이용일 6개월 전, 주말·성수기는 매월 4일 09:00 선착순(공지 확인)." }
+        {
+          "label": "선착순",
+          "rule": "숲나들e · 주중은 이용일 6개월 전, 주말·성수기는 매월 4일 09:00 선착순(공지 확인)."
+        }
       ],
       "siteTypes": [
-        { "name": "야영데크", "count": 35, "priceMin": 12000, "priceMax": 19000 },
-        { "name": "자동차야영", "count": 12, "priceMin": 15000, "priceMax": 22000 }
+        {
+          "name": "야영데크",
+          "count": 35,
+          "priceMin": 12000,
+          "priceMax": 19000
+        },
+        {
+          "name": "자동차야영",
+          "count": 12,
+          "priceMin": 15000,
+          "priceMax": 22000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "산책로"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "산책로"
+      ],
       "description": "서울에서 가까운 국립자연휴양림. 숲이 짙고 야영데크 중심이라 텐트 캠핑 분위기가 납니다.",
       "photos": [],
-      "ratings": { "official": 4.5, "officialCount": 540, "naver": 4.6, "kakao": 4.4 },
+      "ratings": {
+        "official": 4.5,
+        "officialCount": 540,
+        "naver": 4.6,
+        "kakao": 4.4
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -207,11 +580,51 @@
         "cols": 10,
         "rows": 6,
         "zones": [
-          { "id": "office", "label": "매표소", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "D1", "label": "데크 상단", "x": 2, "y": 0, "w": 4, "h": 3, "kind": "tent" },
-          { "id": "D2", "label": "데크 하단", "x": 6, "y": 0, "w": 4, "h": 3, "kind": "tent" },
-          { "id": "auto", "label": "자동차야영", "x": 2, "y": 3, "w": 4, "h": 3, "kind": "auto" },
-          { "id": "wc", "label": "샤워·취사", "x": 6, "y": 3, "w": 4, "h": 3, "kind": "amenity" }
+          {
+            "id": "office",
+            "label": "매표소",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "D1",
+            "label": "데크 상단",
+            "x": 2,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "D2",
+            "label": "데크 하단",
+            "x": 6,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "auto",
+            "label": "자동차야영",
+            "x": 2,
+            "y": 3,
+            "w": 4,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "wc",
+            "label": "샤워·취사",
+            "x": 6,
+            "y": 3,
+            "w": 4,
+            "h": 3,
+            "kind": "amenity"
+          }
         ]
       }
     },
@@ -219,11 +632,20 @@
       "id": "sanjeong",
       "curated": true,
       "name": "산정호수 관광지 오토캠핑장",
-      "aliases": ["포천산정호수", "산정호수캠핑"],
+      "aliases": [
+        "포천산정호수",
+        "산정호수캠핑"
+      ],
       "region": "경기",
       "city": "포천시",
-      "kinds": ["auto", "caravan"],
-      "tags": ["호수", "물놀이"],
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "호수",
+        "물놀이"
+      ],
       "address": "경기도 포천시 영북면 산정호수로 364",
       "lat": 38.0668,
       "lng": 127.3214,
@@ -232,16 +654,42 @@
       "reservationUrl": "https://www.pocheon.go.kr",
       "reservationPlatform": "포천시·현장/홈페이지",
       "reservationWindows": [
-        { "label": "성수기", "rule": "여름 주말은 홈페이지 선착순. 비수기는 현장 접수 가능한 날이 있습니다." }
+        {
+          "label": "성수기",
+          "rule": "여름 주말은 홈페이지 선착순. 비수기는 현장 접수 가능한 날이 있습니다."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 80, "priceMin": 30000, "priceMax": 45000, "peakPriceMin": 50000, "peakPriceMax": 65000 },
-        { "name": "카라반존", "count": 10, "priceMin": 40000, "priceMax": 55000 }
+        {
+          "name": "오토캠핑",
+          "count": 80,
+          "priceMin": 30000,
+          "priceMax": 45000,
+          "peakPriceMin": 50000,
+          "peakPriceMax": 65000
+        },
+        {
+          "name": "카라반존",
+          "count": 10,
+          "priceMin": 40000,
+          "priceMax": 55000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "산정호수 바로 옆. 산책과 유람선, 명성산 억새와 묶기 좋은 포천 대표 오토캠핑장입니다.",
       "photos": [],
-      "ratings": { "official": 4.0, "officialCount": 880, "naver": 4.1, "kakao": 3.9 },
+      "ratings": {
+        "official": 4.0,
+        "officialCount": 880,
+        "naver": 4.1,
+        "kakao": 3.9
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -249,11 +697,51 @@
         "cols": 12,
         "rows": 6,
         "zones": [
-          { "id": "lake", "label": "산정호수", "x": 0, "y": 0, "w": 3, "h": 6, "kind": "water" },
-          { "id": "A", "label": "호숫가 오토", "x": 3, "y": 0, "w": 5, "h": 3, "kind": "auto" },
-          { "id": "B", "label": "언덕 오토", "x": 8, "y": 0, "w": 4, "h": 3, "kind": "auto" },
-          { "id": "C", "label": "카라반", "x": 3, "y": 3, "w": 4, "h": 3, "kind": "caravan" },
-          { "id": "wc", "label": "관리동", "x": 7, "y": 3, "w": 5, "h": 3, "kind": "amenity" }
+          {
+            "id": "lake",
+            "label": "산정호수",
+            "x": 0,
+            "y": 0,
+            "w": 3,
+            "h": 6,
+            "kind": "water"
+          },
+          {
+            "id": "A",
+            "label": "호숫가 오토",
+            "x": 3,
+            "y": 0,
+            "w": 5,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "언덕 오토",
+            "x": 8,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "C",
+            "label": "카라반",
+            "x": 3,
+            "y": 3,
+            "w": 4,
+            "h": 3,
+            "kind": "caravan"
+          },
+          {
+            "id": "wc",
+            "label": "관리동",
+            "x": 7,
+            "y": 3,
+            "w": 5,
+            "h": 3,
+            "kind": "amenity"
+          }
         ]
       }
     },
@@ -261,11 +749,20 @@
       "id": "mongsanpo",
       "curated": true,
       "name": "몽산포 오토캠핑장",
-      "aliases": ["태안몽산포", "몽산포해수욕장캠핑"],
+      "aliases": [
+        "태안몽산포",
+        "몽산포해수욕장캠핑"
+      ],
       "region": "충청",
       "city": "태안군",
-      "kinds": ["auto", "tent"],
-      "tags": ["바다", "물놀이"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "물놀이"
+      ],
       "address": "충청남도 태안군 남면 몽산포길 69-51",
       "lat": 36.6702,
       "lng": 126.2841,
@@ -274,15 +771,35 @@
       "reservationUrl": "https://www.taean.go.kr",
       "reservationPlatform": "태안군·현장",
       "reservationWindows": [
-        { "label": "여름", "rule": "해수욕장 성수기는 군 예약 또는 현장. 비수기는 한산한 편." }
+        {
+          "label": "여름",
+          "rule": "해수욕장 성수기는 군 예약 또는 현장. 비수기는 한산한 편."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 70, "priceMin": 25000, "priceMax": 40000, "peakPriceMin": 40000, "peakPriceMax": 60000 }
+        {
+          "name": "오토캠핑",
+          "count": 70,
+          "priceMin": 25000,
+          "priceMax": 40000,
+          "peakPriceMin": 40000,
+          "peakPriceMax": 60000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "몽산포 해변과 맞닿은 서해 오토캠핑. 밀물·썰물 차가 커서 아이들과 갯벌 놀이에 잘 맞습니다.",
       "photos": [],
-      "ratings": { "official": 4.1, "officialCount": 620, "naver": 4.2, "kakao": 4.0 },
+      "ratings": {
+        "official": 4.1,
+        "officialCount": 620,
+        "naver": 4.2,
+        "kakao": 4.0
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -290,10 +807,42 @@
         "cols": 12,
         "rows": 6,
         "zones": [
-          { "id": "A", "label": "전면 오토", "x": 0, "y": 0, "w": 6, "h": 3, "kind": "auto" },
-          { "id": "B", "label": "후면 오토", "x": 6, "y": 0, "w": 6, "h": 3, "kind": "auto" },
-          { "id": "wc", "label": "샤워장", "x": 0, "y": 3, "w": 3, "h": 2, "kind": "amenity" },
-          { "id": "beach", "label": "몽산포 해변", "x": 3, "y": 3, "w": 9, "h": 3, "kind": "water" }
+          {
+            "id": "A",
+            "label": "전면 오토",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "후면 오토",
+            "x": 6,
+            "y": 0,
+            "w": 6,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "wc",
+            "label": "샤워장",
+            "x": 0,
+            "y": 3,
+            "w": 3,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "beach",
+            "label": "몽산포 해변",
+            "x": 3,
+            "y": 3,
+            "w": 9,
+            "h": 3,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -301,11 +850,18 @@
       "id": "hakampo",
       "curated": true,
       "name": "학암포 오토캠핑장",
-      "aliases": ["태안학암포"],
+      "aliases": [
+        "태안학암포"
+      ],
       "region": "충청",
       "city": "태안군",
-      "kinds": ["auto"],
-      "tags": ["바다", "국립공원"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다",
+        "국립공원"
+      ],
       "address": "충청남도 태안군 원북면 학암포길 198",
       "lat": 36.8965,
       "lng": 126.2038,
@@ -314,15 +870,33 @@
       "reservationUrl": "https://reservation.knps.or.kr",
       "reservationPlatform": "국립공원공단 예약",
       "reservationWindows": [
-        { "label": "야영장", "rule": "국립공원 예약시스템. 이용일 약 6주 전 수요일 14:00 오픈(공지 확인)." }
+        {
+          "label": "야영장",
+          "rule": "국립공원 예약시스템. 이용일 약 6주 전 수요일 14:00 오픈(공지 확인)."
+        }
       ],
       "siteTypes": [
-        { "name": "자동차야영", "count": 50, "priceMin": 15000, "priceMax": 25000 }
+        {
+          "name": "자동차야영",
+          "count": 50,
+          "priceMin": 15000,
+          "priceMax": 25000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "태안해안국립공원 학암포. 해안사구와 일몰이 좋고, 국립공원 예약 경쟁이 있는 편입니다.",
       "photos": [],
-      "ratings": { "official": 4.4, "officialCount": 410, "naver": 4.5, "kakao": 4.3 },
+      "ratings": {
+        "official": 4.4,
+        "officialCount": 410,
+        "naver": 4.5,
+        "kakao": 4.3
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -330,10 +904,42 @@
         "cols": 11,
         "rows": 6,
         "zones": [
-          { "id": "gate", "label": "매표", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "A", "label": "A구역", "x": 2, "y": 0, "w": 4, "h": 4, "kind": "auto" },
-          { "id": "B", "label": "B구역", "x": 6, "y": 0, "w": 5, "h": 4, "kind": "auto" },
-          { "id": "sea", "label": "학암포", "x": 2, "y": 4, "w": 9, "h": 2, "kind": "water" }
+          {
+            "id": "gate",
+            "label": "매표",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "A",
+            "label": "A구역",
+            "x": 2,
+            "y": 0,
+            "w": 4,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "B구역",
+            "x": 6,
+            "y": 0,
+            "w": 5,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "sea",
+            "label": "학암포",
+            "x": 2,
+            "y": 4,
+            "w": 9,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -341,11 +947,19 @@
       "id": "gyeongpo",
       "curated": true,
       "name": "경포해변 오토캠핑장",
-      "aliases": ["강릉경포캠핑", "경포오토캠핑"],
+      "aliases": [
+        "강릉경포캠핑",
+        "경포오토캠핑"
+      ],
       "region": "강원",
       "city": "강릉시",
-      "kinds": ["auto", "caravan"],
-      "tags": ["바다"],
+      "kinds": [
+        "auto",
+        "caravan"
+      ],
+      "tags": [
+        "바다"
+      ],
       "address": "강원특별자치도 강릉시 창해로 514",
       "lat": 37.7958,
       "lng": 128.9112,
@@ -354,15 +968,36 @@
       "reservationUrl": "https://www.gn.go.kr",
       "reservationPlatform": "강릉시",
       "reservationWindows": [
-        { "label": "여름", "rule": "성수기는 강릉시 예약 페이지 선착순. 비수기 요금·운영은 공지 확인." }
+        {
+          "label": "여름",
+          "rule": "성수기는 강릉시 예약 페이지 선착순. 비수기 요금·운영은 공지 확인."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 90, "priceMin": 30000, "priceMax": 50000, "peakPriceMin": 50000, "peakPriceMax": 80000 }
+        {
+          "name": "오토캠핑",
+          "count": 90,
+          "priceMin": 30000,
+          "priceMax": 50000,
+          "peakPriceMin": 50000,
+          "peakPriceMax": 80000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점"
+      ],
       "description": "경포해변과 가까운 동해 오토캠핑. 일출과 경포호 산책을 하루 일정으로 묶기 좋습니다.",
       "photos": [],
-      "ratings": { "official": 4.0, "officialCount": 990, "naver": 4.1, "kakao": 3.9 },
+      "ratings": {
+        "official": 4.0,
+        "officialCount": 990,
+        "naver": 4.1,
+        "kakao": 3.9
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -370,11 +1005,51 @@
         "cols": 12,
         "rows": 6,
         "zones": [
-          { "id": "A", "label": "해변쪽", "x": 0, "y": 0, "w": 6, "h": 3, "kind": "auto" },
-          { "id": "B", "label": "도로쪽", "x": 6, "y": 0, "w": 6, "h": 3, "kind": "auto" },
-          { "id": "caravan", "label": "카라반", "x": 0, "y": 3, "w": 4, "h": 3, "kind": "caravan" },
-          { "id": "wc", "label": "샤워·매점", "x": 4, "y": 3, "w": 3, "h": 3, "kind": "amenity" },
-          { "id": "sea", "label": "경포해변", "x": 7, "y": 3, "w": 5, "h": 3, "kind": "water" }
+          {
+            "id": "A",
+            "label": "해변쪽",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "도로쪽",
+            "x": 6,
+            "y": 0,
+            "w": 6,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "caravan",
+            "label": "카라반",
+            "x": 0,
+            "y": 3,
+            "w": 4,
+            "h": 3,
+            "kind": "caravan"
+          },
+          {
+            "id": "wc",
+            "label": "샤워·매점",
+            "x": 4,
+            "y": 3,
+            "w": 3,
+            "h": 3,
+            "kind": "amenity"
+          },
+          {
+            "id": "sea",
+            "label": "경포해변",
+            "x": 7,
+            "y": 3,
+            "w": 5,
+            "h": 3,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -382,11 +1057,21 @@
       "id": "seorak-dong",
       "curated": true,
       "name": "설악산 설악동 야영장",
-      "aliases": ["설악동야영장", "설악캠핑"],
+      "aliases": [
+        "설악동야영장",
+        "설악캠핑"
+      ],
       "region": "강원",
       "city": "속초시",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "국립공원", "계곡"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "국립공원",
+        "계곡"
+      ],
       "address": "강원특별자치도 속초시 설악동 산 41-1",
       "lat": 38.1672,
       "lng": 128.5194,
@@ -395,16 +1080,38 @@
       "reservationUrl": "https://reservation.knps.or.kr",
       "reservationPlatform": "국립공원공단 예약",
       "reservationWindows": [
-        { "label": "야영장", "rule": "국립공원 예약시스템. 이용일 약 6주 전 오픈. 단풍철은 매우 빨리 마감." }
+        {
+          "label": "야영장",
+          "rule": "국립공원 예약시스템. 이용일 약 6주 전 오픈. 단풍철은 매우 빨리 마감."
+        }
       ],
       "siteTypes": [
-        { "name": "일반야영", "count": 80, "priceMin": 7000, "priceMax": 15000 },
-        { "name": "자동차야영", "count": 20, "priceMin": 15000, "priceMax": 22000 }
+        {
+          "name": "일반야영",
+          "count": 80,
+          "priceMin": 7000,
+          "priceMax": 15000
+        },
+        {
+          "name": "자동차야영",
+          "count": 20,
+          "priceMin": 15000,
+          "priceMax": 22000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "설악산 진입부 야영장. 울산바위·비선대 들머리와 가깝고, 국립공원 규칙(화기·소음)이 엄격합니다.",
       "photos": [],
-      "ratings": { "official": 4.6, "officialCount": 1500, "naver": 4.5, "kakao": 4.4 },
+      "ratings": {
+        "official": 4.6,
+        "officialCount": 1500,
+        "naver": 4.5,
+        "kakao": 4.4
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -412,10 +1119,42 @@
         "cols": 11,
         "rows": 6,
         "zones": [
-          { "id": "gate", "label": "탐방지원", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "T", "label": "일반야영", "x": 2, "y": 0, "w": 6, "h": 4, "kind": "tent" },
-          { "id": "A", "label": "자동차야영", "x": 8, "y": 0, "w": 3, "h": 4, "kind": "auto" },
-          { "id": "creek", "label": "계곡", "x": 2, "y": 4, "w": 9, "h": 2, "kind": "water" }
+          {
+            "id": "gate",
+            "label": "탐방지원",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "T",
+            "label": "일반야영",
+            "x": 2,
+            "y": 0,
+            "w": 6,
+            "h": 4,
+            "kind": "tent"
+          },
+          {
+            "id": "A",
+            "label": "자동차야영",
+            "x": 8,
+            "y": 0,
+            "w": 3,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "creek",
+            "label": "계곡",
+            "x": 2,
+            "y": 4,
+            "w": 9,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -423,11 +1162,18 @@
       "id": "songjiho",
       "curated": true,
       "name": "송지호 오토캠핑장",
-      "aliases": ["고성송지호"],
+      "aliases": [
+        "고성송지호"
+      ],
       "region": "강원",
       "city": "고성군",
-      "kinds": ["auto"],
-      "tags": ["바다", "호수"],
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "바다",
+        "호수"
+      ],
       "address": "강원특별자치도 고성군 죽왕면 동해대로 6021",
       "lat": 38.3341,
       "lng": 128.5162,
@@ -436,15 +1182,35 @@
       "reservationUrl": "https://www.gwgs.go.kr",
       "reservationPlatform": "고성군",
       "reservationWindows": [
-        { "label": "성수기", "rule": "여름·가을 주말은 군 예약 선착순. 호수·해변 산책이 장점." }
+        {
+          "label": "성수기",
+          "rule": "여름·가을 주말은 군 예약 선착순. 호수·해변 산책이 장점."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 55, "priceMin": 25000, "priceMax": 40000, "peakPriceMin": 40000, "peakPriceMax": 55000 }
+        {
+          "name": "오토캠핑",
+          "count": 55,
+          "priceMin": 25000,
+          "priceMax": 40000,
+          "peakPriceMin": 40000,
+          "peakPriceMax": 55000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "송지호와 동해가 가까운 고성 오토캠핑. 철새 탐조와 해변을 같이 보기 좋습니다.",
       "photos": [],
-      "ratings": { "official": 4.2, "officialCount": 430, "naver": 4.3, "kakao": 4.1 },
+      "ratings": {
+        "official": 4.2,
+        "officialCount": 430,
+        "naver": 4.3,
+        "kakao": 4.1
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -452,10 +1218,42 @@
         "cols": 11,
         "rows": 6,
         "zones": [
-          { "id": "lake", "label": "송지호", "x": 0, "y": 0, "w": 3, "h": 6, "kind": "water" },
-          { "id": "A", "label": "오토 A", "x": 3, "y": 0, "w": 5, "h": 4, "kind": "auto" },
-          { "id": "B", "label": "오토 B", "x": 8, "y": 0, "w": 3, "h": 4, "kind": "auto" },
-          { "id": "wc", "label": "관리", "x": 3, "y": 4, "w": 8, "h": 2, "kind": "amenity" }
+          {
+            "id": "lake",
+            "label": "송지호",
+            "x": 0,
+            "y": 0,
+            "w": 3,
+            "h": 6,
+            "kind": "water"
+          },
+          {
+            "id": "A",
+            "label": "오토 A",
+            "x": 3,
+            "y": 0,
+            "w": 5,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "B",
+            "label": "오토 B",
+            "x": 8,
+            "y": 0,
+            "w": 3,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "wc",
+            "label": "관리",
+            "x": 3,
+            "y": 4,
+            "w": 8,
+            "h": 2,
+            "kind": "amenity"
+          }
         ]
       }
     },
@@ -463,11 +1261,21 @@
       "id": "camptong",
       "curated": true,
       "name": "캠프통 두레촌",
-      "aliases": ["춘천캠프통", "두레촌캠핑"],
+      "aliases": [
+        "춘천캠프통",
+        "두레촌캠핑"
+      ],
       "region": "강원",
       "city": "춘천시",
-      "kinds": ["auto", "glamping", "caravan"],
-      "tags": ["호수", "반려견"],
+      "kinds": [
+        "auto",
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "호수",
+        "반려견"
+      ],
       "address": "강원특별자치도 춘천시 남산면 홍천화악로 1085",
       "lat": 37.7648,
       "lng": 127.6462,
@@ -476,17 +1284,49 @@
       "reservationUrl": "https://www.camptong.com",
       "reservationPlatform": "자체 홈페이지",
       "reservationWindows": [
-        { "label": "상시", "rule": "홈페이지 실시간 예약. 성수기·주말 글램핑은 2~4주 전 마감되는 편." }
+        {
+          "label": "상시",
+          "rule": "홈페이지 실시간 예약. 성수기·주말 글램핑은 2~4주 전 마감되는 편."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 40, "priceMin": 50000, "priceMax": 70000, "peakPriceMin": 80000, "peakPriceMax": 100000 },
-        { "name": "글램핑", "count": 25, "priceMin": 180000, "priceMax": 280000 },
-        { "name": "카라반", "count": 15, "priceMin": 160000, "priceMax": 240000 }
+        {
+          "name": "오토캠핑",
+          "count": 40,
+          "priceMin": 50000,
+          "priceMax": 70000,
+          "peakPriceMin": 80000,
+          "peakPriceMax": 100000
+        },
+        {
+          "name": "글램핑",
+          "count": 25,
+          "priceMin": 180000,
+          "priceMax": 280000
+        },
+        {
+          "name": "카라반",
+          "count": 15,
+          "priceMin": 160000,
+          "priceMax": 240000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "매점", "수영장"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "매점",
+        "수영장"
+      ],
       "description": "춘천 남산면의 대형 캠핑 리조트. 초보·반려견 동반, 글램핑까지 한곳에서 고를 수 있습니다.",
       "photos": [],
-      "ratings": { "official": 4.3, "officialCount": 1800, "naver": 4.4, "kakao": 4.2 },
+      "ratings": {
+        "official": 4.3,
+        "officialCount": 1800,
+        "naver": 4.4,
+        "kakao": 4.2
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -494,25 +1334,102 @@
         "cols": 13,
         "rows": 7,
         "zones": [
-          { "id": "gate", "label": "리셉션", "x": 0, "y": 3, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "A", "label": "오토", "x": 2, "y": 0, "w": 4, "h": 4, "kind": "auto" },
-          { "id": "G", "label": "글램핑", "x": 6, "y": 0, "w": 4, "h": 3, "kind": "glamping" },
-          { "id": "C", "label": "카라반", "x": 10, "y": 0, "w": 3, "h": 4, "kind": "caravan" },
-          { "id": "pool", "label": "수영장", "x": 6, "y": 3, "w": 4, "h": 2, "kind": "water" },
-          { "id": "shop", "label": "매점·편의", "x": 2, "y": 4, "w": 4, "h": 3, "kind": "amenity" },
-          { "id": "pet", "label": "반려견존", "x": 6, "y": 5, "w": 7, "h": 2, "kind": "tent" }
+          {
+            "id": "gate",
+            "label": "리셉션",
+            "x": 0,
+            "y": 3,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "A",
+            "label": "오토",
+            "x": 2,
+            "y": 0,
+            "w": 4,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "G",
+            "label": "글램핑",
+            "x": 6,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "glamping"
+          },
+          {
+            "id": "C",
+            "label": "카라반",
+            "x": 10,
+            "y": 0,
+            "w": 3,
+            "h": 4,
+            "kind": "caravan"
+          },
+          {
+            "id": "pool",
+            "label": "수영장",
+            "x": 6,
+            "y": 3,
+            "w": 4,
+            "h": 2,
+            "kind": "water"
+          },
+          {
+            "id": "shop",
+            "label": "매점·편의",
+            "x": 2,
+            "y": 4,
+            "w": 4,
+            "h": 3,
+            "kind": "amenity"
+          },
+          {
+            "id": "pet",
+            "label": "반려견존",
+            "x": 6,
+            "y": 5,
+            "w": 7,
+            "h": 2,
+            "kind": "tent"
+          }
         ]
-      }
+      },
+      "layoutImage": "https://www.smartinfini.com/shop_images/ct/cf_cground_260827.jpg",
+      "quotes": [
+        {
+          "source": "후기 요약",
+          "rating": 4.4,
+          "body": "청평호가 바로 앞이라 뷰는 좋은데, 성수기는 사람이 많다는 글이 있습니다."
+        },
+        {
+          "source": "후기 요약",
+          "body": "오토·글램핑·카라반을 한곳에서 고를 수 있어 초보 가족에게 편하다는 평입니다."
+        }
+      ]
     },
     {
       "id": "garisan",
       "curated": true,
       "name": "가리산자연휴양림",
-      "aliases": ["홍천가리산"],
+      "aliases": [
+        "홍천가리산"
+      ],
       "region": "강원",
       "city": "홍천군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "강원특별자치도 홍천군 두촌면 가리산길 426",
       "lat": 37.8684,
       "lng": 127.9562,
@@ -521,15 +1438,33 @@
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
       "reservationWindows": [
-        { "label": "선착순", "rule": "숲나들e. 주말·여름은 매월 4일 09:00 전후 오픈(공지 확인)." }
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 주말·여름은 매월 4일 09:00 전후 오픈(공지 확인)."
+        }
       ],
       "siteTypes": [
-        { "name": "야영데크", "count": 40, "priceMin": 12000, "priceMax": 20000 }
+        {
+          "name": "야영데크",
+          "count": 40,
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "산책로"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "산책로"
+      ],
       "description": "홍천 가리산 기슭의 휴양림. 숲이 깊고 계곡이 가까워 한여름 피서 캠핑으로 많이 찾습니다.",
       "photos": [],
-      "ratings": { "official": 4.5, "officialCount": 360, "naver": 4.6, "kakao": 4.4 },
+      "ratings": {
+        "official": 4.5,
+        "officialCount": 360,
+        "naver": 4.6,
+        "kakao": 4.4
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -537,9 +1472,33 @@
         "cols": 10,
         "rows": 6,
         "zones": [
-          { "id": "office", "label": "매표", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "D", "label": "데크존", "x": 2, "y": 0, "w": 8, "h": 4, "kind": "tent" },
-          { "id": "creek", "label": "계곡", "x": 2, "y": 4, "w": 8, "h": 2, "kind": "water" }
+          {
+            "id": "office",
+            "label": "매표",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "D",
+            "label": "데크존",
+            "x": 2,
+            "y": 0,
+            "w": 8,
+            "h": 4,
+            "kind": "tent"
+          },
+          {
+            "id": "creek",
+            "label": "계곡",
+            "x": 2,
+            "y": 4,
+            "w": 8,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -547,11 +1506,19 @@
       "id": "daegwallyeong",
       "curated": true,
       "name": "대관령자연휴양림",
-      "aliases": ["평창대관령캠핑"],
+      "aliases": [
+        "평창대관령캠핑"
+      ],
       "region": "강원",
       "city": "평창군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "강원특별자치도 평창군 대관령면 대관령마루길 330",
       "lat": 37.7108,
       "lng": 128.7176,
@@ -560,16 +1527,38 @@
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
       "reservationWindows": [
-        { "label": "선착순", "rule": "숲나들e. 한여름에도 서늘해 7~8월 주말 경쟁이 셉니다." }
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 한여름에도 서늘해 7~8월 주말 경쟁이 셉니다."
+        }
       ],
       "siteTypes": [
-        { "name": "야영데크", "count": 30, "priceMin": 12000, "priceMax": 20000 },
-        { "name": "자동차야영", "count": 8, "priceMin": 15000, "priceMax": 23000 }
+        {
+          "name": "야영데크",
+          "count": 30,
+          "priceMin": 12000,
+          "priceMax": 20000
+        },
+        {
+          "name": "자동차야영",
+          "count": 8,
+          "priceMin": 15000,
+          "priceMax": 23000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "해발 높은 대관령 숲. 여름 피서와 양떼목장·경포 일정을 이어 가기 좋습니다. 밤에는 기온이 크게 떨어집니다.",
       "photos": [],
-      "ratings": { "official": 4.6, "officialCount": 510, "naver": 4.7, "kakao": 4.5 },
+      "ratings": {
+        "official": 4.6,
+        "officialCount": 510,
+        "naver": 4.7,
+        "kakao": 4.5
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -577,10 +1566,42 @@
         "cols": 10,
         "rows": 6,
         "zones": [
-          { "id": "office", "label": "방문자", "x": 0, "y": 2, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "D", "label": "데크", "x": 2, "y": 0, "w": 5, "h": 4, "kind": "tent" },
-          { "id": "A", "label": "자동차야영", "x": 7, "y": 0, "w": 3, "h": 4, "kind": "auto" },
-          { "id": "wc", "label": "취사·샤워", "x": 2, "y": 4, "w": 8, "h": 2, "kind": "amenity" }
+          {
+            "id": "office",
+            "label": "방문자",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "D",
+            "label": "데크",
+            "x": 2,
+            "y": 0,
+            "w": 5,
+            "h": 4,
+            "kind": "tent"
+          },
+          {
+            "id": "A",
+            "label": "자동차야영",
+            "x": 7,
+            "y": 0,
+            "w": 3,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "wc",
+            "label": "취사·샤워",
+            "x": 2,
+            "y": 4,
+            "w": 8,
+            "h": 2,
+            "kind": "amenity"
+          }
         ]
       }
     },
@@ -588,11 +1609,21 @@
       "id": "donggang",
       "curated": true,
       "name": "동강전망자연휴양림",
-      "aliases": ["영월동강", "동강전망"],
+      "aliases": [
+        "영월동강",
+        "동강전망"
+      ],
       "region": "강원",
       "city": "영월군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림", "계곡"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림",
+        "계곡"
+      ],
       "address": "강원특별자치도 영월군 영월읍 토정길 345",
       "lat": 37.2048,
       "lng": 128.4962,
@@ -601,15 +1632,33 @@
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
       "reservationWindows": [
-        { "label": "선착순", "rule": "숲나들e. 전망 좋은 사이트는 오픈 직후 마감되는 경우가 많습니다." }
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 전망 좋은 사이트는 오픈 직후 마감되는 경우가 많습니다."
+        }
       ],
       "siteTypes": [
-        { "name": "야영데크", "count": 20, "priceMin": 12000, "priceMax": 20000 }
+        {
+          "name": "야영데크",
+          "count": 20,
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전망대"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전망대"
+      ],
       "description": "동강이 내려다보이는 휴양림. 사이트 수는 적지만 전망 때문에 단골이 많은 곳입니다.",
       "photos": [],
-      "ratings": { "official": 4.7, "officialCount": 280, "naver": 4.8, "kakao": 4.6 },
+      "ratings": {
+        "official": 4.7,
+        "officialCount": 280,
+        "naver": 4.8,
+        "kakao": 4.6
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -617,10 +1666,42 @@
         "cols": 10,
         "rows": 6,
         "zones": [
-          { "id": "view", "label": "동강전망", "x": 0, "y": 0, "w": 10, "h": 2, "kind": "water" },
-          { "id": "D", "label": "전망 데크", "x": 0, "y": 2, "w": 6, "h": 3, "kind": "tent" },
-          { "id": "office", "label": "관리·샤워", "x": 6, "y": 2, "w": 4, "h": 4, "kind": "amenity" },
-          { "id": "A", "label": "하단 야영", "x": 0, "y": 5, "w": 6, "h": 1, "kind": "auto" }
+          {
+            "id": "view",
+            "label": "동강전망",
+            "x": 0,
+            "y": 0,
+            "w": 10,
+            "h": 2,
+            "kind": "water"
+          },
+          {
+            "id": "D",
+            "label": "전망 데크",
+            "x": 0,
+            "y": 2,
+            "w": 6,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "office",
+            "label": "관리·샤워",
+            "x": 6,
+            "y": 2,
+            "w": 4,
+            "h": 4,
+            "kind": "amenity"
+          },
+          {
+            "id": "A",
+            "label": "하단 야영",
+            "x": 0,
+            "y": 5,
+            "w": 6,
+            "h": 1,
+            "kind": "auto"
+          }
         ]
       }
     },
@@ -628,11 +1709,21 @@
       "id": "guryong",
       "curated": true,
       "name": "치악산 구룡 야영장",
-      "aliases": ["구룡야영장", "치악산캠핑"],
+      "aliases": [
+        "구룡야영장",
+        "치악산캠핑"
+      ],
       "region": "강원",
       "city": "원주시",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "국립공원", "계곡"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "국립공원",
+        "계곡"
+      ],
       "address": "강원특별자치도 원주시 소초면 구룡사로 500",
       "lat": 37.3926,
       "lng": 128.0498,
@@ -641,16 +1732,38 @@
       "reservationUrl": "https://reservation.knps.or.kr",
       "reservationPlatform": "국립공원공단 예약",
       "reservationWindows": [
-        { "label": "야영장", "rule": "국립공원 예약시스템. 구룡사·세렴폭포 들머리와 가깝습니다." }
+        {
+          "label": "야영장",
+          "rule": "국립공원 예약시스템. 구룡사·세렴폭포 들머리와 가깝습니다."
+        }
       ],
       "siteTypes": [
-        { "name": "일반야영", "count": 60, "priceMin": 7000, "priceMax": 15000 },
-        { "name": "자동차야영", "count": 15, "priceMin": 15000, "priceMax": 22000 }
+        {
+          "name": "일반야영",
+          "count": 60,
+          "priceMin": 7000,
+          "priceMax": 15000
+        },
+        {
+          "name": "자동차야영",
+          "count": 15,
+          "priceMin": 15000,
+          "priceMax": 22000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "치악산국립공원 구룡사 쪽 야영장. 계곡 물소리가 가깝고 주말 등산과 같이 예약하는 팀이 많습니다.",
       "photos": [],
-      "ratings": { "official": 4.4, "officialCount": 670, "naver": 4.4, "kakao": 4.3 },
+      "ratings": {
+        "official": 4.4,
+        "officialCount": 670,
+        "naver": 4.4,
+        "kakao": 4.3
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -658,10 +1771,42 @@
         "cols": 10,
         "rows": 6,
         "zones": [
-          { "id": "T", "label": "일반야영", "x": 0, "y": 0, "w": 6, "h": 4, "kind": "tent" },
-          { "id": "A", "label": "자동차야영", "x": 6, "y": 0, "w": 4, "h": 3, "kind": "auto" },
-          { "id": "wc", "label": "화장실", "x": 6, "y": 3, "w": 4, "h": 2, "kind": "amenity" },
-          { "id": "creek", "label": "구룡계곡", "x": 0, "y": 4, "w": 10, "h": 2, "kind": "water" }
+          {
+            "id": "T",
+            "label": "일반야영",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 4,
+            "kind": "tent"
+          },
+          {
+            "id": "A",
+            "label": "자동차야영",
+            "x": 6,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "wc",
+            "label": "화장실",
+            "x": 6,
+            "y": 3,
+            "w": 4,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "creek",
+            "label": "구룡계곡",
+            "x": 0,
+            "y": 4,
+            "w": 10,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -669,11 +1814,20 @@
       "id": "gosapo",
       "curated": true,
       "name": "변산반도 고사포 야영장",
-      "aliases": ["고사포야영장", "변산캠핑"],
+      "aliases": [
+        "고사포야영장",
+        "변산캠핑"
+      ],
       "region": "전라",
       "city": "부안군",
-      "kinds": ["tent", "auto"],
-      "tags": ["바다", "국립공원"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다",
+        "국립공원"
+      ],
       "address": "전북특별자치도 부안군 변산면 운산리",
       "lat": 35.6598,
       "lng": 126.5084,
@@ -682,16 +1836,39 @@
       "reservationUrl": "https://reservation.knps.or.kr",
       "reservationPlatform": "국립공원공단 예약",
       "reservationWindows": [
-        { "label": "야영장", "rule": "국립공원 예약시스템. 여름 해수욕 시즌은 오픈 직후 마감." }
+        {
+          "label": "야영장",
+          "rule": "국립공원 예약시스템. 여름 해수욕 시즌은 오픈 직후 마감."
+        }
       ],
       "siteTypes": [
-        { "name": "일반야영", "count": 100, "priceMin": 7000, "priceMax": 15000 },
-        { "name": "자동차야영", "count": 30, "priceMin": 15000, "priceMax": 22000 }
+        {
+          "name": "일반야영",
+          "count": 100,
+          "priceMin": 7000,
+          "priceMax": 15000
+        },
+        {
+          "name": "자동차야영",
+          "count": 30,
+          "priceMin": 15000,
+          "priceMax": 22000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "고사포 해변 앞 국립공원 야영장. 솔숲과 바다가 한 프레임에 들어 여름·가을 모두 인기입니다.",
       "photos": [],
-      "ratings": { "official": 4.5, "officialCount": 1200, "naver": 4.6, "kakao": 4.4 },
+      "ratings": {
+        "official": 4.5,
+        "officialCount": 1200,
+        "naver": 4.6,
+        "kakao": 4.4
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -699,10 +1876,42 @@
         "cols": 12,
         "rows": 6,
         "zones": [
-          { "id": "pine", "label": "솔숲 야영", "x": 0, "y": 0, "w": 7, "h": 4, "kind": "tent" },
-          { "id": "A", "label": "자동차야영", "x": 7, "y": 0, "w": 5, "h": 3, "kind": "auto" },
-          { "id": "wc", "label": "샤워", "x": 7, "y": 3, "w": 5, "h": 2, "kind": "amenity" },
-          { "id": "beach", "label": "고사포 해변", "x": 0, "y": 4, "w": 12, "h": 2, "kind": "water" }
+          {
+            "id": "pine",
+            "label": "솔숲 야영",
+            "x": 0,
+            "y": 0,
+            "w": 7,
+            "h": 4,
+            "kind": "tent"
+          },
+          {
+            "id": "A",
+            "label": "자동차야영",
+            "x": 7,
+            "y": 0,
+            "w": 5,
+            "h": 3,
+            "kind": "auto"
+          },
+          {
+            "id": "wc",
+            "label": "샤워",
+            "x": 7,
+            "y": 3,
+            "w": 5,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "beach",
+            "label": "고사포 해변",
+            "x": 0,
+            "y": 4,
+            "w": 12,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -710,11 +1919,19 @@
       "id": "hakdong",
       "curated": true,
       "name": "한려해상 학동 야영장",
-      "aliases": ["거제학동", "학동몽돌"],
+      "aliases": [
+        "거제학동",
+        "학동몽돌"
+      ],
       "region": "경상",
       "city": "거제시",
-      "kinds": ["tent"],
-      "tags": ["바다", "국립공원"],
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "국립공원"
+      ],
       "address": "경상남도 거제시 동부면 학동리",
       "lat": 34.7712,
       "lng": 128.6418,
@@ -723,15 +1940,32 @@
       "reservationUrl": "https://reservation.knps.or.kr",
       "reservationPlatform": "국립공원공단 예약",
       "reservationWindows": [
-        { "label": "야영장", "rule": "국립공원 예약시스템. 공깃돌 해변 옆이라 여름 주말 경쟁이 셉니다." }
+        {
+          "label": "야영장",
+          "rule": "국립공원 예약시스템. 공깃돌 해변 옆이라 여름 주말 경쟁이 셉니다."
+        }
       ],
       "siteTypes": [
-        { "name": "일반야영", "count": 40, "priceMin": 7000, "priceMax": 15000 }
+        {
+          "name": "일반야영",
+          "count": 40,
+          "priceMin": 7000,
+          "priceMax": 15000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "학동 몽돌해변 옆 국립공원 야영장. 파도 소리가 가깝고, 거제 남쪽 일정을 묶기 좋습니다.",
       "photos": [],
-      "ratings": { "official": 4.4, "officialCount": 520, "naver": 4.5, "kakao": 4.3 },
+      "ratings": {
+        "official": 4.4,
+        "officialCount": 520,
+        "naver": 4.5,
+        "kakao": 4.3
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -739,9 +1973,33 @@
         "cols": 10,
         "rows": 5,
         "zones": [
-          { "id": "T", "label": "야영장", "x": 0, "y": 0, "w": 7, "h": 3, "kind": "tent" },
-          { "id": "wc", "label": "편의", "x": 7, "y": 0, "w": 3, "h": 3, "kind": "amenity" },
-          { "id": "beach", "label": "학동 몽돌", "x": 0, "y": 3, "w": 10, "h": 2, "kind": "water" }
+          {
+            "id": "T",
+            "label": "야영장",
+            "x": 0,
+            "y": 0,
+            "w": 7,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "wc",
+            "label": "편의",
+            "x": 7,
+            "y": 0,
+            "w": 3,
+            "h": 3,
+            "kind": "amenity"
+          },
+          {
+            "id": "beach",
+            "label": "학동 몽돌",
+            "x": 0,
+            "y": 3,
+            "w": 10,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -749,11 +2007,19 @@
       "id": "daejeo",
       "curated": true,
       "name": "대저생태공원 캠핑장",
-      "aliases": ["부산대저캠핑", "강서캠핑장"],
+      "aliases": [
+        "부산대저캠핑",
+        "강서캠핑장"
+      ],
       "region": "경상",
       "city": "부산 강서구",
-      "kinds": ["auto", "tent"],
-      "tags": ["도심"],
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "도심"
+      ],
       "address": "부산광역시 강서구 대저동 평강천로 159",
       "lat": 35.2118,
       "lng": 128.9736,
@@ -762,15 +2028,33 @@
       "reservationUrl": "https://www.busan.go.kr",
       "reservationPlatform": "부산시",
       "reservationWindows": [
-        { "label": "정기 예약", "rule": "부산시 예약 페이지 선착순. 김해공항·강서와 가까워 주말 수요가 있습니다." }
+        {
+          "label": "정기 예약",
+          "rule": "부산시 예약 페이지 선착순. 김해공항·강서와 가까워 주말 수요가 있습니다."
+        }
       ],
       "siteTypes": [
-        { "name": "오토캠핑", "count": 45, "priceMin": 20000, "priceMax": 35000 }
+        {
+          "name": "오토캠핑",
+          "count": 45,
+          "priceMin": 20000,
+          "priceMax": 35000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기"
+      ],
       "description": "낙동강 생태공원 안의 부산 도심형 캠핑장. 유채·코스모스 축제 시즌에는 주변이 붐빕니다.",
       "photos": [],
-      "ratings": { "official": 4.0, "officialCount": 390, "naver": 4.1, "kakao": 3.9 },
+      "ratings": {
+        "official": 4.0,
+        "officialCount": 390,
+        "naver": 4.1,
+        "kakao": 3.9
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -778,10 +2062,42 @@
         "cols": 10,
         "rows": 5,
         "zones": [
-          { "id": "A", "label": "오토", "x": 0, "y": 0, "w": 6, "h": 4, "kind": "auto" },
-          { "id": "T", "label": "텐트", "x": 6, "y": 0, "w": 4, "h": 3, "kind": "tent" },
-          { "id": "wc", "label": "관리", "x": 6, "y": 3, "w": 4, "h": 2, "kind": "amenity" },
-          { "id": "park", "label": "생태공원", "x": 0, "y": 4, "w": 6, "h": 1, "kind": "road" }
+          {
+            "id": "A",
+            "label": "오토",
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "T",
+            "label": "텐트",
+            "x": 6,
+            "y": 0,
+            "w": 4,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "wc",
+            "label": "관리",
+            "x": 6,
+            "y": 3,
+            "w": 4,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "park",
+            "label": "생태공원",
+            "x": 0,
+            "y": 4,
+            "w": 6,
+            "h": 1,
+            "kind": "road"
+          }
         ]
       }
     },
@@ -789,11 +2105,20 @@
       "id": "hamdeok",
       "curated": true,
       "name": "함덕서우봉 해변 야영장",
-      "aliases": ["함덕캠핑", "제주함덕야영"],
+      "aliases": [
+        "함덕캠핑",
+        "제주함덕야영"
+      ],
       "region": "제주",
       "city": "제주시",
-      "kinds": ["tent", "auto"],
-      "tags": ["바다", "물놀이"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "바다",
+        "물놀이"
+      ],
       "address": "제주특별자치도 제주시 조천읍 함덕리",
       "lat": 33.5432,
       "lng": 126.6698,
@@ -802,15 +2127,32 @@
       "reservationUrl": "https://www.jeju.go.kr",
       "reservationPlatform": "제주시",
       "reservationWindows": [
-        { "label": "성수기", "rule": "제주시 예약. 여름·연휴는 오픈 직후 마감. 렌터카 동선과 같이 짜는 편이 좋습니다." }
+        {
+          "label": "성수기",
+          "rule": "제주시 예약. 여름·연휴는 오픈 직후 마감. 렌터카 동선과 같이 짜는 편이 좋습니다."
+        }
       ],
       "siteTypes": [
-        { "name": "일반야영", "count": 30, "priceMin": 15000, "priceMax": 25000 }
+        {
+          "name": "일반야영",
+          "count": 30,
+          "priceMin": 15000,
+          "priceMax": 25000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
       "description": "함덕 해수욕장·서우봉 아래. 에메랄드 바다를 보고 자는 제주 야영지로 유명합니다.",
       "photos": [],
-      "ratings": { "official": 4.3, "officialCount": 640, "naver": 4.4, "kakao": 4.2 },
+      "ratings": {
+        "official": 4.3,
+        "officialCount": 640,
+        "naver": 4.4,
+        "kakao": 4.2
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -818,9 +2160,33 @@
         "cols": 10,
         "rows": 5,
         "zones": [
-          { "id": "hill", "label": "서우봉", "x": 0, "y": 0, "w": 3, "h": 3, "kind": "road" },
-          { "id": "T", "label": "야영장", "x": 3, "y": 0, "w": 7, "h": 3, "kind": "tent" },
-          { "id": "beach", "label": "함덕해변", "x": 0, "y": 3, "w": 10, "h": 2, "kind": "water" }
+          {
+            "id": "hill",
+            "label": "서우봉",
+            "x": 0,
+            "y": 0,
+            "w": 3,
+            "h": 3,
+            "kind": "road"
+          },
+          {
+            "id": "T",
+            "label": "야영장",
+            "x": 3,
+            "y": 0,
+            "w": 7,
+            "h": 3,
+            "kind": "tent"
+          },
+          {
+            "id": "beach",
+            "label": "함덕해변",
+            "x": 0,
+            "y": 3,
+            "w": 10,
+            "h": 2,
+            "kind": "water"
+          }
         ]
       }
     },
@@ -828,11 +2194,22 @@
       "id": "thestay",
       "curated": true,
       "name": "더스테이 힐링파크",
-      "aliases": ["양평더스테이", "더스테이글램핑"],
+      "aliases": [
+        "양평더스테이",
+        "더스테이글램핑"
+      ],
       "region": "경기",
       "city": "양평군",
-      "kinds": ["glamping", "caravan", "auto"],
-      "tags": ["호수", "물놀이", "반려견"],
+      "kinds": [
+        "glamping",
+        "caravan",
+        "auto"
+      ],
+      "tags": [
+        "호수",
+        "물놀이",
+        "반려견"
+      ],
       "address": "경기도 양평군 옥천면 사나사길 64",
       "lat": 37.5198,
       "lng": 127.4546,
@@ -841,17 +2218,49 @@
       "reservationUrl": "https://www.thestay.co.kr",
       "reservationPlatform": "자체 홈페이지",
       "reservationWindows": [
-        { "label": "상시", "rule": "홈페이지·예약 플랫폼 실시간. 수영장 시즌 주말은 한 달 전 마감되는 편." }
+        {
+          "label": "상시",
+          "rule": "홈페이지·예약 플랫폼 실시간. 수영장 시즌 주말은 한 달 전 마감되는 편."
+        }
       ],
       "siteTypes": [
-        { "name": "글램핑", "count": 40, "priceMin": 180000, "priceMax": 280000, "peakPriceMin": 280000, "peakPriceMax": 380000 },
-        { "name": "카라반", "count": 20, "priceMin": 160000, "priceMax": 250000 },
-        { "name": "오토캠핑", "count": 15, "priceMin": 70000, "priceMax": 100000 }
+        {
+          "name": "글램핑",
+          "count": 40,
+          "priceMin": 180000,
+          "priceMax": 280000,
+          "peakPriceMin": 280000,
+          "peakPriceMax": 380000
+        },
+        {
+          "name": "카라반",
+          "count": 20,
+          "priceMin": 160000,
+          "priceMax": 250000
+        },
+        {
+          "name": "오토캠핑",
+          "count": 15,
+          "priceMin": 70000,
+          "priceMax": 100000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "전기", "수영장", "매점"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "전기",
+        "수영장",
+        "매점"
+      ],
       "description": "양평의 대형 글램핑·캠핑 리조트. 초보와 아이 동반, 장비 없이 가는 일정에 잘 맞습니다.",
       "photos": [],
-      "ratings": { "official": 4.2, "officialCount": 2400, "naver": 4.3, "kakao": 4.1 },
+      "ratings": {
+        "official": 4.2,
+        "officialCount": 2400,
+        "naver": 4.3,
+        "kakao": 4.1
+      },
       "featured": true,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -859,12 +2268,60 @@
         "cols": 13,
         "rows": 7,
         "zones": [
-          { "id": "gate", "label": "로비", "x": 0, "y": 2, "w": 2, "h": 3, "kind": "amenity" },
-          { "id": "G", "label": "글램핑", "x": 2, "y": 0, "w": 5, "h": 4, "kind": "glamping" },
-          { "id": "C", "label": "카라반", "x": 7, "y": 0, "w": 3, "h": 4, "kind": "caravan" },
-          { "id": "A", "label": "오토", "x": 10, "y": 0, "w": 3, "h": 4, "kind": "auto" },
-          { "id": "pool", "label": "수영장", "x": 2, "y": 4, "w": 5, "h": 3, "kind": "water" },
-          { "id": "shop", "label": "편의·카페", "x": 7, "y": 4, "w": 6, "h": 3, "kind": "amenity" }
+          {
+            "id": "gate",
+            "label": "로비",
+            "x": 0,
+            "y": 2,
+            "w": 2,
+            "h": 3,
+            "kind": "amenity"
+          },
+          {
+            "id": "G",
+            "label": "글램핑",
+            "x": 2,
+            "y": 0,
+            "w": 5,
+            "h": 4,
+            "kind": "glamping"
+          },
+          {
+            "id": "C",
+            "label": "카라반",
+            "x": 7,
+            "y": 0,
+            "w": 3,
+            "h": 4,
+            "kind": "caravan"
+          },
+          {
+            "id": "A",
+            "label": "오토",
+            "x": 10,
+            "y": 0,
+            "w": 3,
+            "h": 4,
+            "kind": "auto"
+          },
+          {
+            "id": "pool",
+            "label": "수영장",
+            "x": 2,
+            "y": 4,
+            "w": 5,
+            "h": 3,
+            "kind": "water"
+          },
+          {
+            "id": "shop",
+            "label": "편의·카페",
+            "x": 7,
+            "y": 4,
+            "w": 6,
+            "h": 3,
+            "kind": "amenity"
+          }
         ]
       }
     },
@@ -872,11 +2329,20 @@
       "id": "namhae-pyeonbaek",
       "curated": true,
       "name": "남해편백자연휴양림",
-      "aliases": ["남해편백", "편백휴양림"],
+      "aliases": [
+        "남해편백",
+        "편백휴양림"
+      ],
       "region": "경상",
       "city": "남해군",
-      "kinds": ["tent", "auto"],
-      "tags": ["산", "휴양림"],
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "휴양림"
+      ],
       "address": "경상남도 남해군 남면 남서대로 1179-16",
       "lat": 34.7674,
       "lng": 127.8926,
@@ -885,15 +2351,33 @@
       "reservationUrl": "https://www.foresttrip.go.kr",
       "reservationPlatform": "숲나들e",
       "reservationWindows": [
-        { "label": "선착순", "rule": "숲나들e. 편백 숲길과 남해 해변 일정을 같이 짜기 좋습니다." }
+        {
+          "label": "선착순",
+          "rule": "숲나들e. 편백 숲길과 남해 해변 일정을 같이 짜기 좋습니다."
+        }
       ],
       "siteTypes": [
-        { "name": "야영데크", "count": 25, "priceMin": 12000, "priceMax": 20000 }
+        {
+          "name": "야영데크",
+          "count": 25,
+          "priceMin": 12000,
+          "priceMax": 20000
+        }
       ],
-      "amenities": ["화장실", "샤워장", "개수대", "산책로"],
+      "amenities": [
+        "화장실",
+        "샤워장",
+        "개수대",
+        "산책로"
+      ],
       "description": "편백 숲이 짙은 남해 휴양림. 독일마을·상주은모래비치와 하루 일정으로 묶는 팀이 많습니다.",
       "photos": [],
-      "ratings": { "official": 4.5, "officialCount": 210, "naver": 4.6, "kakao": 4.4 },
+      "ratings": {
+        "official": 4.5,
+        "officialCount": 210,
+        "naver": 4.6,
+        "kakao": 4.4
+      },
       "featured": false,
       "source": "manual",
       "updatedAt": "2026-09-04",
@@ -901,9 +2385,33 @@
         "cols": 9,
         "rows": 5,
         "zones": [
-          { "id": "office", "label": "매표", "x": 0, "y": 1, "w": 2, "h": 2, "kind": "amenity" },
-          { "id": "D", "label": "편백 데크", "x": 2, "y": 0, "w": 7, "h": 4, "kind": "tent" },
-          { "id": "trail", "label": "숲길", "x": 0, "y": 4, "w": 9, "h": 1, "kind": "road" }
+          {
+            "id": "office",
+            "label": "매표",
+            "x": 0,
+            "y": 1,
+            "w": 2,
+            "h": 2,
+            "kind": "amenity"
+          },
+          {
+            "id": "D",
+            "label": "편백 데크",
+            "x": 2,
+            "y": 0,
+            "w": 7,
+            "h": 4,
+            "kind": "tent"
+          },
+          {
+            "id": "trail",
+            "label": "숲길",
+            "x": 0,
+            "y": 4,
+            "w": 9,
+            "h": 1,
+            "kind": "road"
+          }
         ]
       }
     }
