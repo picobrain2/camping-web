@@ -34,7 +34,13 @@ function namesMatch(a, b) {
   const ca = compactName(a);
   const cb = compactName(b);
   if (!ca || !cb) return false;
-  return ca === cb || ca.includes(cb) || cb.includes(ca);
+  if (ca === cb) return true;
+  // 짧은 이름(예: 휘게)으로 다른 캠핑장에 붙는 일을 막는다
+  const shorter = ca.length <= cb.length ? ca : cb;
+  const longer = ca.length <= cb.length ? cb : ca;
+  if (shorter.length < 5) return false;
+  if (!longer.includes(shorter)) return false;
+  return shorter.length / longer.length >= 0.7;
 }
 
 function keyParam() {
@@ -108,6 +114,11 @@ for (const pack of index.packs) {
   let dirty = false;
 
   for (const camp of payload.camps ?? []) {
+    // 공식 홈페이지 사진 등을 수동으로 넣어 둔 curated 항목은 덮어쓰지 않는다
+    if (camp.curated === true && Array.isArray(camp.photos) && camp.photos.length && !String(camp.photos[0] || "").includes("gocamping.or.kr")) {
+      continue;
+    }
+
     let contentId = camp.gocampingId ? String(camp.gocampingId) : "";
     const hasPhotos = Array.isArray(camp.photos) && camp.photos.length > 0;
 

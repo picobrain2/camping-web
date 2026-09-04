@@ -1,5 +1,5 @@
 import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
-import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO } from "./lib/format";
+import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO, coverPhoto, displayPhotos } from "./lib/format";
 import { geocodePlace, type PlaceHit } from "./lib/geocode";
 import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirections, type DriveETA, type GeoPos } from "./lib/geo";
 import { officialLayoutImage, placeLinks } from "./lib/places";
@@ -584,11 +584,12 @@ function resultRow(camp: Camp): string {
   const price = priceRange(camp);
   const eta = driveById[camp.id];
   const fav = isFavorite(camp.id);
+  const thumb = coverPhoto(camp);
   return `
     <li>
       <button type="button" class="result-row ${selectedId === camp.id ? "active" : ""}" data-action="select" data-id="${esc(camp.id)}">
-        <div class="thumb ${camp.photos[0] ? "has-photo" : ""}" data-region="${esc(camp.region)}">${
-          camp.photos[0] ? `<img src="${esc(camp.photos[0])}" alt="" />` : esc(camp.name.slice(0, 1))
+        <div class="thumb ${thumb ? "has-photo" : ""}" data-region="${esc(camp.region)}">${
+          thumb ? `<img src="${esc(thumb)}" alt="" />` : esc(camp.name.slice(0, 1))
         }</div>
         <div class="result-meta">
           <div class="result-title">
@@ -627,7 +628,7 @@ function renderDetailPane(): string {
 function renderDetail(camp: Camp): string {
   const mine = reviews[camp.id];
   const map = mapLink(camp);
-  const cover = camp.photos[0];
+  const cover = coverPhoto(camp);
   const fav = isFavorite(camp.id);
   const hid = isHidden(camp.id);
   return `
@@ -713,7 +714,7 @@ function driveBlock(camp: Camp): string {
 }
 
 function photosBlock(camp: Camp): string {
-  const photos = [...new Set((camp.photos ?? []).filter(Boolean))];
+  const photos = displayPhotos(camp);
   const naver = `https://search.naver.com/search.naver?where=image&query=${encodeURIComponent(`${camp.name} 캠핑장`)}`;
   if (!photos.length) {
     return `
@@ -734,7 +735,7 @@ function photosBlock(camp: Camp): string {
   return `
     <section class="block">
       <h3>사진</h3>
-      <p class="muted">고캠핑에 올라온 제공 사진입니다.</p>
+      <p class="muted">배치도·약도는 뒤로 두고, 일반 사진부터 보여 줍니다.</p>
       <div class="photo-grid">${tiles}</div>
       <p class="muted"><a href="${esc(naver)}">네이버에서 후기 사진 더 보기</a></p>
     </section>`;

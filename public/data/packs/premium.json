@@ -60,7 +60,19 @@
         "naver": 4.8
       },
       "featured": true,
+      "curated": true,
       "layoutImage": "https://hyggeforest.co.kr/resources/user/assets/images/sub/img_map.jpg",
+      "photos": [
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/uploads/banner/1706688653_66c2e5a6321a40144e3a.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/uploads/banner/1706688653_f56a3d4dedd8b4d5151b.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/uploads/banner/1706688711_f932137083a7f2118d04.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/uploads/banner/1706688711_5d8e7a9222db5c482231.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/uploads/banner/1706688739_be7ebe8938f20120b00d.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/images/main/instagram1.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/images/main/instagram2.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/images/main/instagram3.jpg",
+        "https://hyggeforest-resources.s3.ap-northeast-2.amazonaws.com/images/main/instagram4.jpg"
+      ],
       "quotes": [
         {
           "source": "후기 요약",
@@ -71,14 +83,6 @@
           "source": "후기 요약",
           "body": "사이트 간격과 매너타임이 잘 지켜져 조용히 쉬기 좋다는 평이 많습니다."
         }
-      ],
-      "gocampingId": "1605",
-      "photos": [
-        "https://gocamping.or.kr/upload/camp/1605/70032cLjQ9hDAAOJSwiaoRLK.jpg",
-        "https://gocamping.or.kr/upload/camp/1605/9980CwpCiQdbfTd5dqzfMCCQ.jpg",
-        "https://gocamping.or.kr/upload/camp/1605/9837tCoetIvLPZf5ukvWGrR9.jpg",
-        "https://gocamping.or.kr/upload/camp/1605/3726fadveHMIhbl1L8lukRY5.jpg",
-        "https://gocamping.or.kr/upload/camp/1605/2181jZr3ophCJ0hJQ3fhtgvd.jpg"
       ]
     },
     {
