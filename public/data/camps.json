@@ -629,7 +629,8 @@
             "kind": "amenity"
           }
         ]
-      }
+      },
+      "gocampingId": "2782"
     },
     {
       "id": "sanjeong",
@@ -2422,7 +2423,8 @@
             "kind": "road"
           }
         ]
-      }
+      },
+      "gocampingId": "387"
     }
   ]
 }

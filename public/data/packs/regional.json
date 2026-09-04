@@ -282,7 +282,8 @@
       "ratings": {
         "official": 4.1,
         "naver": 4.2
-      }
+      },
+      "gocampingId": "101590"
     },
     {
       "id": "jangho",
@@ -415,7 +416,9 @@
       "ratings": {
         "official": 4.2,
         "naver": 4.3
-      }
+      },
+      "gocampingId": "100568",
+      "reservationUrl": "http://naerincheon.co.kr/"
     },
     {
       "id": "hantangang",
