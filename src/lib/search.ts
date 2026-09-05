@@ -1,5 +1,5 @@
 import { campHasTag } from "./tags";
-import type { Camp, CampKind, PersonalReview } from "../types";
+import type { Camp, CampKind, PersonalReview, VisitDiaryEntry } from "../types";
 
 function compact(text: string): string {
   return text
@@ -38,7 +38,8 @@ export function filterCamps(
   reviews: Record<string, PersonalReview>,
   sort: "recommend" | "rating" | "distance" = "recommend",
   driveById: Record<string, { durationSec: number; distanceM: number }> = {},
-  favoriteIds: Set<string> = new Set()
+  favoriteIds: Set<string> = new Set(),
+  visitedIds: Set<string> = new Set()
 ): Camp[] {
   const trimmed = query.trim();
   return camps
@@ -52,6 +53,10 @@ export function filterCamps(
         }
         if (tag === "favorite") {
           if (!favoriteIds.has(camp.id)) return false;
+          continue;
+        }
+        if (tag === "visited") {
+          if (!visitedIds.has(camp.id)) return false;
           continue;
         }
         if (!campHasTag(camp, tag)) return false;
@@ -102,6 +107,10 @@ export function favoriteCamps(camps: Camp[], favoriteIds: string[]): Camp[] {
   return camps
     .filter((camp) => order.has(camp.id))
     .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+}
+
+export function visitedCampIds(diary: VisitDiaryEntry[]): Set<string> {
+  return new Set(diary.map((entry) => entry.campId));
 }
 
 export function priceRange(camp: Camp): { min?: number; max?: number } {

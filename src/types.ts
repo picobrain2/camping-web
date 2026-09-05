@@ -110,6 +110,24 @@ export interface PersonalReview {
   updatedAt: string;
 }
 
+/** 방문 다이어리 — 같은 캠핑장을 여러 번 기록할 수 있다 */
+export interface VisitDiaryEntry {
+  id: string;
+  campId: string;
+  campName: string;
+  region: string;
+  city: string;
+  /** YYYY-MM-DD */
+  visitedAt: string;
+  nights?: number;
+  siteName?: string;
+  companions?: string;
+  body: string;
+  rating?: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 /** 이 기기에서만 쓰는 즐겨찾기·숨김 목록 항목 */
 export interface SavedCampRef {
   id: string;
@@ -119,7 +137,7 @@ export interface SavedCampRef {
   savedAt: string;
 }
 
-/** 즐겨찾기·숨김·리뷰를 묶는 로컬 계정 (서버 없음) */
+/** 즐겨찾기·숨김·리뷰·다이어리를 묶는 로컬 계정 (서버 없음) */
 export interface LocalAccount {
   id: string;
   name: string;
@@ -132,6 +150,7 @@ export interface AccountBundle {
   favorites: SavedCampRef[];
   hidden: SavedCampRef[];
   reviews: Record<string, PersonalReview>;
+  diary: VisitDiaryEntry[];
 }
 
 export interface OverlayDraft extends Camp {

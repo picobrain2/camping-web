@@ -14,7 +14,7 @@ import {
   signOutCloud,
   type CloudUser,
 } from "./lib/cloud";
-import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, reviewedCamps } from "./lib/search";
+import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, reviewedCamps, visitedCampIds } from "./lib/search";
 import {
   bindCloudSync,
   createAccount,
@@ -22,6 +22,7 @@ import {
   deleteAccount,
   flushCloudPush,
   listAccounts,
+  loadDiary,
   loadFavorites,
   loadHidden,
   loadOverlay,
@@ -33,6 +34,7 @@ import {
   reloadPersonalData,
   rememberQuery,
   replacePersonalBundle,
+  saveDiary,
   saveFavorites,
   saveHidden,
   saveOverlay,
@@ -51,10 +53,12 @@ import {
   LOCATION_TAGS,
   FACILITY_TAGS,
   SavedCampRef,
+  VisitDiaryEntry,
 } from "./types";
 
 let camps: Camp[] = [];
 let reviews: Record<string, PersonalReview> = loadReviews();
+let diary: VisitDiaryEntry[] = loadDiary();
 let overlay: OverlayDraft[] = loadOverlay();
 let recent: string[] = loadRecent();
 let favorites: SavedCampRef[] = loadFavorites();
@@ -79,7 +83,9 @@ let tags: string[] = [];
 let sort: "recommend" | "rating" | "distance" = "recommend";
 let selectedId: string | null = null;
 let panel: "none" | "add" | "data" | "lists" = "none";
-let listsTab: "favorites" | "hidden" | "account" = "favorites";
+let listsTab: "favorites" | "hidden" | "diary" | "account" = "favorites";
+let editingDiaryId: string | null = null;
+let filtersOpen = false;
 let searchTimer = 0;
 let imeComposing = false;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
@@ -229,9 +235,10 @@ function applyRoute(): void {
     selectedId = null;
     return;
   }
-  if (hash === "lists" || hash === "favorites" || hash === "hidden" || hash === "account") {
+  if (hash === "lists" || hash === "favorites" || hash === "hidden" || hash === "diary" || hash === "account") {
     panel = "lists";
-    listsTab = hash === "hidden" ? "hidden" : hash === "account" ? "account" : "favorites";
+    listsTab =
+      hash === "hidden" ? "hidden" : hash === "diary" ? "diary" : hash === "account" ? "account" : "favorites";
     selectedId = null;
     return;
   }
@@ -254,12 +261,30 @@ function go(path: string): void {
   location.hash = next;
 }
 
+function listsTabFromDataset(tab: string | undefined): typeof listsTab {
+  if (tab === "hidden") return "hidden";
+  if (tab === "diary") return "diary";
+  if (tab === "account") return "account";
+  return "favorites";
+}
+
+function listsHash(tab: typeof listsTab): string {
+  if (tab === "hidden") return "hidden";
+  if (tab === "diary") return "diary";
+  if (tab === "account") return "account";
+  return "lists";
+}
+
 function selected(): Camp | undefined {
   return camps.find((c) => c.id === selectedId);
 }
 
 function favoriteIdSet(): Set<string> {
   return new Set(favorites.map((item) => item.id));
+}
+
+function diaryVisitedSet(): Set<string> {
+  return visitedCampIds(diary);
 }
 
 function hiddenIdSet(): Set<string> {
@@ -325,7 +350,7 @@ function browsable(): Camp[] {
 }
 
 function visible(): Camp[] {
-  return filterCamps(browsable(), query, regions, kind, tags, reviews, sort, driveById, favoriteIdSet());
+  return filterCamps(browsable(), query, regions, kind, tags, reviews, sort, driveById, favoriteIdSet(), diaryVisitedSet());
 }
 
 let skipDriveSchedule = false;
@@ -395,7 +420,7 @@ function renderLoginGate(): string {
       <div class="login-gate-card">
         <p class="login-kicker">캠핑장 조회</p>
         <h1>어디캠</h1>
-        <p class="login-lead">즐겨찾기·숨김·내 리뷰를 구글 계정에 두고<br />폰과 PC에서 같이 쓰세요.</p>
+        <p class="login-lead">즐겨찾기·다이어리·리뷰를 구글 계정에 두고<br />폰과 PC에서 같이 쓰세요.</p>
         ${accountError ? `<p class="loc-msg">${esc(accountError)}</p>` : ""}
         ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
         <button type="button" class="btn login-google" data-action="gate-google" ${cloudBusy ? "disabled" : ""}>
@@ -423,7 +448,7 @@ function scheduleDriveRefresh(): void {
 }
 
 function campsWithCoords(): Camp[] {
-  return filterCamps(browsable(), query, regions, kind, tags, reviews, "recommend", {}, favoriteIdSet()).filter(
+  return filterCamps(browsable(), query, regions, kind, tags, reviews, "recommend", {}, favoriteIdSet(), diaryVisitedSet()).filter(
     (camp) => camp.lat != null && camp.lng != null
   );
 }
@@ -521,7 +546,7 @@ function renderSearchPane(): string {
                 : `<button type="button" class="btn-ghost btn-sm" data-action="open-login-gate">로그인</button>`
               : ""
           }
-          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">${account && !cloudUser ? esc(account.name) : "내 목록"}${favorites.length || hidden.length ? ` · ${favorites.length + hidden.length}` : ""}</button>
+          <button type="button" class="btn-ghost btn-sm" data-action="open-lists">${account && !cloudUser ? esc(account.name) : "내 목록"}${favorites.length || hidden.length || diary.length ? ` · ${favorites.length + hidden.length + diary.length}` : ""}</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-add">추가</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-data">데이터</button>
         </div>
@@ -536,16 +561,90 @@ function renderSearchPane(): string {
       </div>
       ${originHits.length ? `<div class="origin-hits">${originHits.map((hit) => `<button type="button" class="chip" data-action="pick-origin" data-lat="${hit.lat}" data-lng="${hit.lng}" data-name="${esc(hit.name)}">${esc(hit.name)}</button>`).join("")}</div>` : ""}
       ${locError ? `<p class="loc-msg">${esc(locError)}</p>` : ""}
-      ${myPos ? `<p class="loc-msg">이 출발지에서 차로 가는 시간입니다. 네이버지도 길찾기로 확인할 수 있습니다. <button type="button" class="text-btn" data-action="clear-location">끄기</button></p>` : `<p class="loc-msg">차 거리는 출발지를 검색하거나 GPS를 켜면 나옵니다.</p>`}
-      ${segment("region", regions, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))], true)}
-      ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
-      ${segment("tag", tags, [{ value: "all", label: "조건" }, { value: "favorite", label: "즐겨찾기" }, { value: "reviewed", label: "내 리뷰" }, ...LOCATION_TAGS.map((t) => ({ value: t, label: t }))], true)}
-      ${segment("tag", tags, FACILITY_TAGS.map((t) => ({ value: t, label: t })), true)}
-      ${segment("sort", sort, [{ value: "recommend", label: "추천" }, { value: "rating", label: "평점순" }, ...(myPos ? [{ value: "distance", label: "가까운순" }] : [])])}
+      ${
+        myPos
+          ? `<p class="loc-msg">출발지 기준 차 거리 · <button type="button" class="text-btn" data-action="clear-location">끄기</button></p>`
+          : ""
+      }
+      ${renderFilterControls()}
       <div class="list-wrap">
         ${renderList()}
       </div>
     </aside>`;
+}
+
+function tagLabel(value: string): string {
+  if (value === "favorite") return "즐겨찾기";
+  if (value === "visited") return "다녀옴";
+  if (value === "reviewed") return "내 리뷰";
+  return value;
+}
+
+function activeFilterCount(): number {
+  return regions.length + (kind === "all" ? 0 : 1) + tags.length;
+}
+
+function renderFilterControls(): string {
+  const count = activeFilterCount();
+  const summary = [
+    ...regions.map((value) => ({ group: "region", value, label: value })),
+    ...(kind === "all" ? [] : [{ group: "kind", value: "all", label: KIND_LABEL[kind as CampKind] ?? kind }]),
+    ...tags.map((value) => ({ group: "tag", value, label: tagLabel(value) })),
+  ];
+  return `
+    <div class="filter-bar">
+      <button type="button" class="filter-toggle ${filtersOpen || count ? "active" : ""}" data-action="toggle-filters" aria-expanded="${filtersOpen ? "true" : "false"}">
+        필터${count ? ` ${count}` : ""}
+      </button>
+      <div class="sort-seg">
+        ${segment("sort", sort, [
+          { value: "recommend", label: "추천" },
+          { value: "rating", label: "평점" },
+          ...(myPos ? [{ value: "distance", label: "가까운순" }] : []),
+        ])}
+      </div>
+      ${count ? `<button type="button" class="text-btn filter-clear" data-action="clear-filters">초기화</button>` : ""}
+    </div>
+    ${
+      summary.length
+        ? `<div class="filter-summary">${summary
+            .map(
+              (item) =>
+                `<button type="button" class="chip filter-chip" data-action="set-filter" data-group="${item.group}" data-value="${esc(item.value)}" ${item.group !== "kind" ? `data-multi="1"` : ""}>${esc(item.label)} ×</button>`
+            )
+            .join("")}</div>`
+        : ""
+    }
+    ${
+      filtersOpen
+        ? `<div class="filter-panel">
+            <section class="filter-group">
+              <h3>지역 <span>여러 개 가능</span></h3>
+              ${segment("region", regions, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))], true)}
+            </section>
+            <section class="filter-group">
+              <h3>종류</h3>
+              ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
+            </section>
+            <section class="filter-group">
+              <h3>내 기록</h3>
+              ${segment("tag", tags, [
+                { value: "favorite", label: "즐겨찾기" },
+                { value: "visited", label: "다녀옴" },
+                { value: "reviewed", label: "내 리뷰" },
+              ], true)}
+            </section>
+            <section class="filter-group">
+              <h3>장소</h3>
+              ${segment("tag", tags, LOCATION_TAGS.map((t) => ({ value: t, label: t })), true)}
+            </section>
+            <section class="filter-group">
+              <h3>편의</h3>
+              ${segment("tag", tags, FACILITY_TAGS.map((t) => ({ value: t, label: t })), true)}
+            </section>
+          </div>`
+        : ""
+    }`;
 }
 
 function segment(group: string, current: string | string[], options: { value: string; label: string }[], multi = false): string {
@@ -584,7 +683,16 @@ function renderHomeLists(): string {
   const favs = favoriteCamps(pool, favorites.map((item) => item.id));
   const featured = featuredCamps(pool, reviews);
   const mine = reviewedCamps(pool, reviews);
+  const recentDiary = diary.slice(0, 6);
   return `
+    ${
+      recentDiary.length
+        ? `<section class="home-block">
+            <h2>방문 다이어리 <button type="button" class="text-btn" data-action="open-lists" data-tab="diary">전체</button></h2>
+            <ul class="diary-home-list">${recentDiary.map(diaryHomeRow).join("")}</ul>
+          </section>`
+        : ""
+    }
     ${
       favs.length
         ? `<section class="home-block">
@@ -617,12 +725,25 @@ function renderHomeLists(): string {
     }`;
 }
 
+function diaryHomeRow(entry: VisitDiaryEntry): string {
+  const camp = camps.find((c) => c.id === entry.campId);
+  return `
+    <li>
+      <button type="button" class="diary-home-row" data-action="select" data-id="${esc(entry.campId)}" ${camp ? "" : "disabled"}>
+        <strong>${esc(entry.visitedAt)}</strong>
+        <span>${esc(entry.campName)}</span>
+        <span class="muted">${esc([entry.region, entry.city].filter(Boolean).join(" · ") || "위치 없음")}${entry.rating ? ` · ★${entry.rating}` : ""}</span>
+      </button>
+    </li>`;
+}
+
 function resultRow(camp: Camp): string {
   const score = displayScore(camp, reviews);
   const mine = reviews[camp.id];
   const price = priceRange(camp);
   const eta = driveById[camp.id];
   const fav = isFavorite(camp.id);
+  const visited = diaryVisitedSet().has(camp.id);
   const thumb = coverPhoto(camp);
   return `
     <li>
@@ -634,6 +755,7 @@ function resultRow(camp: Camp): string {
           <div class="result-title">
             <strong>${esc(camp.name)}</strong>
             ${fav ? `<span class="pill fav">★</span>` : ""}
+            ${visited ? `<span class="pill visit">다녀옴</span>` : ""}
             ${mine ? `<span class="pill mine">내 ★${mine.rating}</span>` : ""}
           </div>
           <p>${esc(camp.region)} ${esc(camp.city)} · ${esc(kindLabels(camp.kinds))}</p>
@@ -657,7 +779,7 @@ function renderDetailPane(): string {
       <main class="pane-detail">
         <div class="empty hero-empty">
           <strong>캠핑장 선택</strong>
-          <p>왼쪽에서 캠핑장을 고르면 평점, 예약 사이트와 일시, 가격을 보여 줍니다. 다녀온 곳은 나만의 리뷰를 이 기기에 저장할 수 있습니다.</p>
+          <p>왼쪽에서 캠핑장을 고르면 평점, 예약 사이트와 일시, 가격을 보여 줍니다. 다녀온 곳은 방문 다이어리와 리뷰로 남겨 둘 수 있습니다.</p>
         </div>
       </main>`;
   }
@@ -716,6 +838,7 @@ function renderDetail(camp: Camp): string {
       ${reservationBlock(camp)}
       ${priceBlock(camp)}
       ${layoutBlock(camp)}
+      ${diaryEditor(camp)}
       ${reviewEditor(camp, mine)}
 
       <div class="link-row">
@@ -728,7 +851,7 @@ function renderDetail(camp: Camp): string {
         ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}">네이버 자동차</a>` : ""}
         ${map ? `<a class="btn ghost" href="${esc(map)}">카카오맵</a>` : ""}
       </div>
-      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 즐겨찾기·숨김·내 리뷰는 이 브라우저에만 저장됩니다.</p>
+      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 즐겨찾기·숨김·리뷰·다이어리는 Google 로그인하면 기기 간에 맞춥니다.</p>
     </div>`;
 }
 
@@ -967,7 +1090,7 @@ function reviewEditor(camp: Camp, mine?: PersonalReview): string {
   return `
     <section class="block review-block">
       <h3>나만의 리뷰</h3>
-      <p class="muted">이 브라우저에만 저장됩니다. 서버로 올라가지 않습니다.</p>
+      <p class="muted">이 캠핑장에 대한 종합 평점입니다. 방문 날짜별 기록은 위 다이어리를 쓰세요.</p>
       <form data-action="save-review" data-id="${esc(camp.id)}">
         <div class="star-row" role="radiogroup" aria-label="별점">
           ${[1, 2, 3, 4, 5]
@@ -988,6 +1111,74 @@ function reviewEditor(camp: Camp, mine?: PersonalReview): string {
         </div>
       </form>
     </section>`;
+}
+
+function diaryEditor(camp: Camp): string {
+  const entries = diary.filter((entry) => entry.campId === camp.id);
+  const editing = editingDiaryId ? diary.find((entry) => entry.id === editingDiaryId && entry.campId === camp.id) : undefined;
+  const defaultDate = editing?.visitedAt || todayISO();
+  return `
+    <section class="block diary-block">
+      <h3>방문 다이어리</h3>
+      <p class="muted">언제 갔는지, 누구와 갔는지, 어떤 자리였는지 날짜별로 남깁니다. Google 로그인하면 다른 기기에도 맞춰집니다.</p>
+      <form data-action="save-diary" data-id="${esc(camp.id)}" data-entry="${esc(editing?.id ?? "")}">
+        <div class="form-row">
+          <label>방문일 <input type="date" name="visitedAt" required value="${esc(defaultDate)}" /></label>
+          <label>박수 <input type="number" name="nights" min="0" max="30" step="1" placeholder="1" value="${editing?.nights != null ? editing.nights : ""}" /></label>
+        </div>
+        <div class="form-row">
+          <label>사이트 <input type="text" name="siteName" placeholder="오토 A-12" value="${esc(editing?.siteName ?? "")}" /></label>
+          <label>함께한 사람 <input type="text" name="companions" placeholder="가족, 친구…" value="${esc(editing?.companions ?? "")}" /></label>
+        </div>
+        <div class="star-row" role="radiogroup" aria-label="그날 별점">
+          ${[1, 2, 3, 4, 5]
+            .map(
+              (n) =>
+                `<label><input type="radio" name="rating" value="${n}" ${editing?.rating === n ? "checked" : ""} /> ${"★".repeat(n)}</label>`
+            )
+            .join("")}
+        </div>
+        <textarea name="body" rows="4" placeholder="날씨, 자리 느낌, 다음에 다시 오고 싶은지…">${esc(editing?.body ?? "")}</textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn">${editing ? "기록 수정" : "방문 기록 추가"}</button>
+          ${editing ? `<button type="button" class="btn ghost" data-action="cancel-diary-edit">새 기록으로</button>` : ""}
+        </div>
+      </form>
+      ${
+        entries.length
+          ? `<ul class="diary-entry-list">${entries.map((entry) => diaryEntryCard(entry, true)).join("")}</ul>`
+          : `<p class="muted">아직 이 캠핑장 방문 기록이 없습니다.</p>`
+      }
+    </section>`;
+}
+
+function diaryEntryCard(entry: VisitDiaryEntry, showCampActions: boolean): string {
+  const meta = [
+    entry.nights != null ? `${entry.nights}박` : "",
+    entry.siteName || "",
+    entry.companions || "",
+    entry.rating != null ? `★${entry.rating}` : "",
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  return `
+    <li class="diary-entry">
+      <div class="diary-entry-main">
+        <strong>${esc(entry.visitedAt)}</strong>
+        ${showCampActions ? "" : `<span class="diary-camp">${esc(entry.campName)}</span>`}
+        ${meta ? `<span class="muted">${esc(meta)}</span>` : ""}
+        ${entry.body ? `<p>${esc(entry.body)}</p>` : `<p class="muted">메모 없음</p>`}
+      </div>
+      <div class="diary-entry-actions">
+        ${
+          showCampActions
+            ? ""
+            : `<button type="button" class="btn-ghost btn-sm" data-action="select" data-id="${esc(entry.campId)}">캠핑장</button>`
+        }
+        <button type="button" class="btn-ghost btn-sm" data-action="edit-diary" data-entry="${esc(entry.id)}" data-id="${esc(entry.campId)}">수정</button>
+        <button type="button" class="btn-ghost btn-sm" data-action="delete-diary" data-entry="${esc(entry.id)}">삭제</button>
+      </div>
+    </li>`;
 }
 
 function renderAddPanel(): string {
@@ -1067,6 +1258,7 @@ function applyPersonalData(): void {
   favorites = data.favorites;
   hidden = data.hidden;
   reviews = data.reviews;
+  diary = data.diary;
   account = currentAccount();
 }
 
@@ -1078,20 +1270,49 @@ function renderListsPanel(): string {
         <strong>내 목록</strong>
       </header>
       <div class="detail-scroll">
-        <h2>즐겨찾기 · 숨김 · 계정</h2>
+        <h2>즐겨찾기 · 다이어리 · 숨김</h2>
         <p class="muted">${
-          account
-            ? `<strong>${esc(account.name)}</strong> 계정으로 저장 중입니다. 이 기기의 브라우저에만 남습니다.`
-            : "지금은 게스트입니다. 계정을 만들면 즐겨찾기·숨김·리뷰를 이름별로 나눠 둘 수 있습니다."
+          cloudUser
+            ? `<strong>${esc(cloudUser.name || cloudUser.email || "Google")}</strong> 계정으로 동기화 중입니다.`
+            : account
+              ? `<strong>${esc(account.name)}</strong> 계정으로 저장 중입니다. 이 기기의 브라우저에만 남습니다.`
+              : "지금은 게스트입니다. Google 로그인하면 즐겨찾기·다이어리·리뷰를 다른 기기와 맞출 수 있습니다."
         }</p>
         <div class="seg lists-tabs" role="tablist">
           <button type="button" class="seg-btn ${listsTab === "favorites" ? "active" : ""}" data-action="lists-tab" data-tab="favorites">즐겨찾기 ${favorites.length}</button>
+          <button type="button" class="seg-btn ${listsTab === "diary" ? "active" : ""}" data-action="lists-tab" data-tab="diary">다이어리 ${diary.length}</button>
           <button type="button" class="seg-btn ${listsTab === "hidden" ? "active" : ""}" data-action="lists-tab" data-tab="hidden">숨김 ${hidden.length}</button>
           <button type="button" class="seg-btn ${listsTab === "account" ? "active" : ""}" data-action="lists-tab" data-tab="account">계정</button>
         </div>
-        ${listsTab === "account" ? renderAccountPanel() : renderSavedListPanel()}
+        ${listsTab === "account" ? renderAccountPanel() : listsTab === "diary" ? renderDiaryListPanel() : renderSavedListPanel()}
       </div>
     </main>`;
+}
+
+function renderDiaryListPanel(): string {
+  if (!diary.length) {
+    return empty("방문 기록이 없습니다", "캠핑장 상세에서 방문일을 적고 다이어리를 추가해 보세요.");
+  }
+  const byYear = new Map<string, VisitDiaryEntry[]>();
+  for (const entry of diary) {
+    const year = (entry.visitedAt || "").slice(0, 4) || "날짜 없음";
+    const list = byYear.get(year) ?? [];
+    list.push(entry);
+    byYear.set(year, list);
+  }
+  const years = [...byYear.keys()].sort((a, b) => b.localeCompare(a));
+  return `
+    <p class="muted">총 ${diary.length}번 · ${diaryVisitedSet().size}곳</p>
+    ${years
+      .map((year) => {
+        const rows = byYear.get(year) ?? [];
+        return `
+          <section class="diary-year">
+            <h3>${esc(year)}</h3>
+            <ul class="diary-entry-list">${rows.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>
+          </section>`;
+      })
+      .join("")}`;
 }
 
 function renderSavedListPanel(): string {
@@ -1148,7 +1369,7 @@ function renderAccountPanel(): string {
         <form class="stack-form" data-action="create-account">
           <label>이름 <input name="name" required minlength="2" maxlength="20" placeholder="예: 이현" autocomplete="username" /></label>
           <label>PIN (선택) <input name="pin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="숫자 4자리" autocomplete="new-password" /></label>
-          <label class="check"><input type="checkbox" name="migrate" checked /> 지금 게스트에 있는 즐겨찾기·숨김·리뷰 가져오기</label>
+          <label class="check"><input type="checkbox" name="migrate" checked /> 지금 게스트에 있는 즐겨찾기·숨김·리뷰·다이어리 가져오기</label>
           <div class="form-actions">
             <button type="submit" class="btn">만들기</button>
             <button type="button" class="btn ghost" data-action="account-mode" data-mode="home">취소</button>
@@ -1182,13 +1403,13 @@ function renderAccountPanel(): string {
         isCloudConfigured()
           ? cloudUser
             ? `<p><strong>${esc(cloudUser.name || cloudUser.email || "구글 계정")}</strong>으로 동기화 중입니다.</p>
-               <p class="muted">즐겨찾기·숨김·리뷰만 클라우드에 맞춥니다. 캠핑장 목록은 파일 DB(JSON)입니다.</p>
+               <p class="muted">즐겨찾기·숨김·리뷰·다이어리만 클라우드에 맞춥니다. 캠핑장 목록은 파일 DB(JSON)입니다.</p>
                ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
                <div class="form-actions">
                  <button type="button" class="btn" data-action="cloud-sync-now" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "맞추는 중…" : "지금 맞추기"}</button>
                  <button type="button" class="btn ghost" data-action="cloud-logout" ${cloudBusy ? "disabled" : ""}">동기화 끄기</button>
                </div>`
-            : `<p class="muted">구글 로그인으로 즐겨찾기·숨김·리뷰를 다른 기기와 맞춥니다. 캠핑장 목록은 JSON 파일 그대로입니다.</p>
+            : `<p class="muted">구글 로그인으로 즐겨찾기·숨김·리뷰·다이어리를 다른 기기와 맞춥니다. 캠핑장 목록은 JSON 파일 그대로입니다.</p>
                ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
                <div class="form-actions">
                  <button type="button" class="btn" data-action="cloud-google" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "연결 중…" : "Google로 동기화"}</button>
@@ -1338,8 +1559,19 @@ function onClick(e: MouseEvent): void {
       kind = "all";
       tags = [];
       sort = "recommend";
+      filtersOpen = false;
       layoutPopup = null;
       go("");
+      break;
+    case "toggle-filters":
+      filtersOpen = !filtersOpen;
+      render();
+      break;
+    case "clear-filters":
+      regions = [];
+      kind = "all";
+      tags = [];
+      render();
       break;
     case "set-filter": {
       const group = el.dataset.group;
@@ -1384,16 +1616,16 @@ function onClick(e: MouseEvent): void {
       go("data");
       break;
     case "open-lists":
-      listsTab = el.dataset.tab === "hidden" ? "hidden" : el.dataset.tab === "account" ? "account" : "favorites";
+      listsTab = listsTabFromDataset(el.dataset.tab);
       accountMode = "home";
       accountError = null;
-      go(listsTab === "hidden" ? "hidden" : listsTab === "account" ? "account" : "lists");
+      go(listsHash(listsTab));
       break;
     case "lists-tab":
-      listsTab = el.dataset.tab === "hidden" ? "hidden" : el.dataset.tab === "account" ? "account" : "favorites";
+      listsTab = listsTabFromDataset(el.dataset.tab);
       accountMode = "home";
       accountError = null;
-      go(listsTab === "hidden" ? "hidden" : listsTab === "account" ? "account" : "lists");
+      go(listsHash(listsTab));
       break;
     case "account-mode":
       accountMode = el.dataset.mode === "create" ? "create" : el.dataset.mode === "login" ? "login" : "home";
@@ -1453,7 +1685,7 @@ function onClick(e: MouseEvent): void {
       const id = el.dataset.id;
       const name = el.dataset.name || "이 계정";
       if (!id) break;
-      if (!confirm(`${name} 계정을 삭제할까요? 즐겨찾기·숨김·리뷰도 함께 지워집니다.`)) return;
+      if (!confirm(`${name} 계정을 삭제할까요? 즐겨찾기·숨김·리뷰·다이어리도 함께 지워집니다.`)) return;
       deleteAccount(id);
       applyPersonalData();
       accountMode = "home";
@@ -1503,6 +1735,28 @@ function onClick(e: MouseEvent): void {
       if (!id) return;
       delete reviews[id];
       saveReviews(reviews);
+      render();
+      break;
+    }
+    case "edit-diary": {
+      const entryId = el.dataset.entry;
+      const campId = el.dataset.id;
+      if (!entryId || !campId) break;
+      editingDiaryId = entryId;
+      go(`camp/${encodeURIComponent(campId)}`);
+      break;
+    }
+    case "cancel-diary-edit":
+      editingDiaryId = null;
+      render();
+      break;
+    case "delete-diary": {
+      const entryId = el.dataset.entry;
+      if (!entryId) break;
+      if (!confirm("이 방문 기록을 삭제할까요?")) return;
+      diary = diary.filter((entry) => entry.id !== entryId);
+      saveDiary(diary);
+      if (editingDiaryId === entryId) editingDiaryId = null;
       render();
       break;
     }
@@ -1655,6 +1909,46 @@ function onSubmit(e: Event): void {
       updatedAt: new Date().toISOString(),
     };
     saveReviews(reviews);
+    render();
+    return;
+  }
+  if (action === "save-diary") {
+    e.preventDefault();
+    const campId = form.dataset.id;
+    if (!campId) return;
+    const camp = camps.find((c) => c.id === campId);
+    if (!camp) return;
+    const data = new FormData(form);
+    const visitedAt = String(data.get("visitedAt") ?? "").trim();
+    if (!visitedAt) {
+      alert("방문일을 골라 주세요.");
+      return;
+    }
+    const nightsRaw = String(data.get("nights") ?? "").trim();
+    const nights = nightsRaw === "" ? undefined : Math.max(0, Math.round(Number(nightsRaw)));
+    const ratingRaw = String(data.get("rating") ?? "").trim();
+    const rating = ratingRaw ? Math.min(5, Math.max(1, Math.round(Number(ratingRaw)))) : undefined;
+    const now = new Date().toISOString();
+    const entryId = form.dataset.entry || `diary-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+    const prev = diary.find((entry) => entry.id === entryId);
+    const next: VisitDiaryEntry = {
+      id: entryId,
+      campId: camp.id,
+      campName: camp.name,
+      region: camp.region,
+      city: camp.city,
+      visitedAt,
+      nights: nights != null && Number.isFinite(nights) ? nights : undefined,
+      siteName: String(data.get("siteName") ?? "").trim() || undefined,
+      companions: String(data.get("companions") ?? "").trim() || undefined,
+      body: String(data.get("body") ?? "").trim(),
+      rating: rating != null && Number.isFinite(rating) ? rating : undefined,
+      createdAt: prev?.createdAt ?? now,
+      updatedAt: now,
+    };
+    diary = [next, ...diary.filter((entry) => entry.id !== entryId)];
+    saveDiary(diary);
+    editingDiaryId = null;
     render();
     return;
   }

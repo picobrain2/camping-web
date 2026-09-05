@@ -1,6 +1,6 @@
 ## 다른 기기 동기화 (Firebase)
 
-캠핑장 목록(JSON)은 그대로 두고, **즐겨찾기·숨김·리뷰만** Firestore에 맞춥니다.
+캠핑장 목록(JSON)은 그대로 두고, **즐겨찾기·숨김·리뷰·방문 다이어리**만 Firestore에 맞춥니다.
 
 ### 1. Firebase 프로젝트 만들기
 1. https://console.firebase.google.com/ 에서 프로젝트 생성

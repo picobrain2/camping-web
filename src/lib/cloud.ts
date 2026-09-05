@@ -13,7 +13,7 @@ import {
   type User,
 } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc, type Firestore } from "firebase/firestore";
-import type { AccountBundle, PersonalReview, SavedCampRef } from "../types";
+import type { AccountBundle, PersonalReview, SavedCampRef, VisitDiaryEntry } from "../types";
 
 export interface CloudUser {
   uid: string;
@@ -86,6 +86,35 @@ function asReviews(raw: unknown): Record<string, PersonalReview> {
   return raw as Record<string, PersonalReview>;
 }
 
+function asDiary(raw: unknown): VisitDiaryEntry[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter((row): row is VisitDiaryEntry =>
+      Boolean(
+        row &&
+          typeof (row as VisitDiaryEntry).id === "string" &&
+          typeof (row as VisitDiaryEntry).campId === "string" &&
+          typeof (row as VisitDiaryEntry).campName === "string" &&
+          typeof (row as VisitDiaryEntry).visitedAt === "string"
+      )
+    )
+    .map((row) => ({
+      id: row.id,
+      campId: row.campId,
+      campName: row.campName,
+      region: row.region ?? "",
+      city: row.city ?? "",
+      visitedAt: row.visitedAt,
+      nights: row.nights,
+      siteName: row.siteName,
+      companions: row.companions,
+      body: row.body ?? "",
+      rating: row.rating,
+      createdAt: row.createdAt ?? row.updatedAt ?? new Date().toISOString(),
+      updatedAt: row.updatedAt ?? new Date().toISOString(),
+    }));
+}
+
 export function mergeBundles(local: AccountBundle, remote: AccountBundle): AccountBundle {
   const favMap = new Map<string, SavedCampRef>();
   for (const item of [...remote.favorites, ...local.favorites]) {
@@ -102,10 +131,20 @@ export function mergeBundles(local: AccountBundle, remote: AccountBundle): Accou
     const prev = reviews[id];
     if (!prev || (review.updatedAt || "") >= (prev.updatedAt || "")) reviews[id] = review;
   }
+  const diaryMap = new Map<string, VisitDiaryEntry>();
+  for (const item of [...(remote.diary ?? []), ...(local.diary ?? [])]) {
+    const prev = diaryMap.get(item.id);
+    if (!prev || (item.updatedAt || "") >= (prev.updatedAt || "")) diaryMap.set(item.id, item);
+  }
   return {
     favorites: [...favMap.values()],
     hidden: [...hideMap.values()],
     reviews,
+    diary: [...diaryMap.values()].sort((a, b) => {
+      const byVisit = (b.visitedAt || "").localeCompare(a.visitedAt || "");
+      if (byVisit) return byVisit;
+      return (b.updatedAt || "").localeCompare(a.updatedAt || "");
+    }),
   };
 }
 
@@ -179,6 +218,7 @@ export async function pullCloudBundle(uid: string): Promise<AccountBundle | null
     favorites: asSavedList(data.favorites),
     hidden: asSavedList(data.hidden),
     reviews: asReviews(data.reviews),
+    diary: asDiary(data.diary),
   };
 }
 
@@ -190,6 +230,7 @@ export async function pushCloudBundle(uid: string, bundle: AccountBundle, profil
       favorites: bundle.favorites,
       hidden: bundle.hidden,
       reviews: bundle.reviews,
+      diary: bundle.diary,
       email: profile?.email ?? null,
       name: profile?.name ?? null,
       updatedAt: new Date().toISOString(),

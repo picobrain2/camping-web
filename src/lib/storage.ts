@@ -1,4 +1,4 @@
-import type { AccountBundle, LocalAccount, OverlayDraft, PersonalReview, SavedCampRef } from "../types";
+import type { AccountBundle, LocalAccount, OverlayDraft, PersonalReview, SavedCampRef, VisitDiaryEntry } from "../types";
 
 const KEYS = {
   reviews: "eodicamp.reviews.v1",
@@ -6,6 +6,7 @@ const KEYS = {
   recent: "eodicamp.recent.v1",
   hidden: "eodicamp.hidden.v1",
   favorites: "eodicamp.favorites.v1",
+  diary: "eodicamp.diary.v1",
   accounts: "eodicamp.accounts.v1",
   session: "eodicamp.session.v1",
   gateDismissed: "eodicamp.gate.dismissed.v1",
@@ -44,12 +45,46 @@ function loadSavedList(raw: unknown): SavedCampRef[] {
     }));
 }
 
+function loadDiaryList(raw: unknown): VisitDiaryEntry[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter((row): row is Partial<VisitDiaryEntry> & { id: string; campId: string; campName: string; visitedAt: string } =>
+      Boolean(
+        row &&
+          typeof (row as VisitDiaryEntry).id === "string" &&
+          typeof (row as VisitDiaryEntry).campId === "string" &&
+          typeof (row as VisitDiaryEntry).campName === "string" &&
+          typeof (row as VisitDiaryEntry).visitedAt === "string"
+      )
+    )
+    .map((row) => {
+      const now = new Date().toISOString();
+      const nights = row.nights != null && Number.isFinite(Number(row.nights)) ? Math.max(0, Math.round(Number(row.nights))) : undefined;
+      const rating = row.rating != null && Number.isFinite(Number(row.rating)) ? Math.min(5, Math.max(1, Math.round(Number(row.rating)))) : undefined;
+      return {
+        id: row.id,
+        campId: row.campId,
+        campName: row.campName,
+        region: row.region ?? "",
+        city: row.city ?? "",
+        visitedAt: row.visitedAt,
+        nights,
+        siteName: row.siteName?.trim() || undefined,
+        companions: row.companions?.trim() || undefined,
+        body: row.body ?? "",
+        rating,
+        createdAt: row.createdAt ?? row.updatedAt ?? now,
+        updatedAt: row.updatedAt ?? now,
+      };
+    });
+}
+
 function bundleKey(accountId: string): string {
   return `eodicamp.account.${accountId}.v1`;
 }
 
 function emptyBundle(): AccountBundle {
-  return { favorites: [], hidden: [], reviews: {} };
+  return { favorites: [], hidden: [], reviews: {}, diary: [] };
 }
 
 function readGuestBundle(): AccountBundle {
@@ -57,6 +92,7 @@ function readGuestBundle(): AccountBundle {
     favorites: loadSavedList(safeGet(KEYS.favorites, [])),
     hidden: loadSavedList(safeGet(KEYS.hidden, [])),
     reviews: safeGet<Record<string, PersonalReview>>(KEYS.reviews, {}),
+    diary: loadDiaryList(safeGet(KEYS.diary, [])),
   };
 }
 
@@ -64,6 +100,7 @@ function writeGuestBundle(bundle: AccountBundle): void {
   safeSet(KEYS.favorites, bundle.favorites);
   safeSet(KEYS.hidden, bundle.hidden);
   safeSet(KEYS.reviews, bundle.reviews);
+  safeSet(KEYS.diary, bundle.diary);
 }
 
 function readAccountBundle(accountId: string): AccountBundle {
@@ -72,6 +109,7 @@ function readAccountBundle(accountId: string): AccountBundle {
     favorites: loadSavedList(raw.favorites),
     hidden: loadSavedList(raw.hidden),
     reviews: raw.reviews && typeof raw.reviews === "object" ? raw.reviews : {},
+    diary: loadDiaryList(raw.diary),
   };
 }
 
@@ -180,6 +218,23 @@ export function saveReviews(reviews: Record<string, PersonalReview>): void {
   scheduleCloudPush();
 }
 
+export function loadDiary(): VisitDiaryEntry[] {
+  return sortDiary(currentBundle().diary);
+}
+
+export function saveDiary(diary: VisitDiaryEntry[]): void {
+  saveCurrentBundle({ ...currentBundle(), diary: sortDiary(diary) });
+  scheduleCloudPush();
+}
+
+export function sortDiary(entries: VisitDiaryEntry[]): VisitDiaryEntry[] {
+  return [...entries].sort((a, b) => {
+    const byVisit = (b.visitedAt || "").localeCompare(a.visitedAt || "");
+    if (byVisit) return byVisit;
+    return (b.updatedAt || "").localeCompare(a.updatedAt || "");
+  });
+}
+
 export function loadOverlay(): OverlayDraft[] {
   return safeGet<OverlayDraft[]>(KEYS.overlay, []);
 }
@@ -224,6 +279,7 @@ export function replacePersonalBundle(bundle: AccountBundle): void {
     favorites: loadSavedList(bundle.favorites),
     hidden: loadSavedList(bundle.hidden),
     reviews: bundle.reviews ?? {},
+    diary: loadDiaryList(bundle.diary),
   });
 }
 
@@ -236,12 +292,14 @@ export function reloadPersonalData(): {
   favorites: SavedCampRef[];
   hidden: SavedCampRef[];
   reviews: Record<string, PersonalReview>;
+  diary: VisitDiaryEntry[];
 } {
   const bundle = currentBundle();
   return {
     favorites: bundle.favorites,
     hidden: bundle.hidden,
     reviews: bundle.reviews,
+    diary: sortDiary(bundle.diary),
   };
 }
 
