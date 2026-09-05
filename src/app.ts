@@ -81,6 +81,7 @@ let selectedId: string | null = null;
 let panel: "none" | "add" | "data" | "lists" = "none";
 let listsTab: "favorites" | "hidden" | "account" = "favorites";
 let searchTimer = 0;
+let imeComposing = false;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
 let myPos: GeoPos | null = null;
 let originQuery = "";
@@ -329,6 +330,13 @@ function visible(): Camp[] {
 
 let skipDriveSchedule = false;
 function render(): void {
+  // 한글 IME 조합 중에 DOM을 갈아끼우면 자모가 분리된다
+  if (imeComposing) return;
+  const activeId = (document.activeElement as HTMLElement | null)?.id;
+  if (activeId === "search-input" || activeId === "origin-input") {
+    refreshSearchList();
+    return;
+  }
   const keep = preserveCaret("search-input") ?? preserveCaret("origin-input");
   if (isCloudConfigured() && !cloudAuthReady) {
     root.innerHTML = `<div class="boot">로그인 상태를 확인하는 중…</div>`;
@@ -349,6 +357,35 @@ function render(): void {
   bindOnce();
   restoreCaret(keep);
   if (!skipDriveSchedule) scheduleDriveRefresh();
+}
+
+/** 검색창은 유지한 채 결과 목록만 갱신 (한글 입력 깨짐 방지) */
+function refreshSearchList(): void {
+  const wrap = root.querySelector(".list-wrap");
+  if (!wrap) {
+    // 검색창이 없는 화면이면 전체 렌더로 복귀
+    const keep = preserveCaret("search-input") ?? preserveCaret("origin-input");
+    if (isCloudConfigured() && !cloudAuthReady) {
+      root.innerHTML = `<div class="boot">로그인 상태를 확인하는 중…</div>`;
+      bindOnce();
+      return;
+    }
+    if (showLoginGate && !cloudUser) {
+      root.innerHTML = renderLoginGate();
+      bindOnce();
+      return;
+    }
+    root.innerHTML = `
+      <div class="shell ${selectedId || panel !== "none" ? "has-detail" : ""}">
+        ${renderSearchPane()}
+        ${renderDetailPane()}
+      </div>
+      ${layoutPopup ? renderLayoutModal() : ""}`;
+    bindOnce();
+    restoreCaret(keep);
+    return;
+  }
+  wrap.innerHTML = renderList();
 }
 
 function renderLoginGate(): string {
@@ -439,6 +476,8 @@ function bindOnce(): void {
   root.addEventListener("input", onInput);
   root.addEventListener("submit", onSubmit);
   root.addEventListener("keydown", onKeydown);
+  root.addEventListener("compositionstart", onCompositionStart, true);
+  root.addEventListener("compositionend", onCompositionEnd, true);
 }
 
 function openHttpInNewTab(e: MouseEvent): void {
@@ -1512,8 +1551,31 @@ function onClick(e: MouseEvent): void {
   }
 }
 
+function onCompositionStart(e: Event): void {
+  const id = (e.target as HTMLElement).id;
+  if (id === "search-input" || id === "origin-input") imeComposing = true;
+}
+
+function onCompositionEnd(e: Event): void {
+  const target = e.target as HTMLInputElement;
+  if (target.id !== "search-input" && target.id !== "origin-input") return;
+  imeComposing = false;
+  if (target.id === "origin-input") {
+    originQuery = target.value;
+    return;
+  }
+  query = target.value;
+  window.clearTimeout(searchTimer);
+  searchTimer = window.setTimeout(() => {
+    if (imeComposing) return;
+    if (query.trim().length >= 2) recent = rememberQuery(query);
+    refreshSearchList();
+  }, 200);
+}
+
 function onInput(e: Event): void {
   const target = e.target as HTMLInputElement;
+  const composing = imeComposing || Boolean((e as InputEvent).isComposing);
   if (target.id === "origin-input") {
     originQuery = target.value;
     if (locError) locError = null;
@@ -1521,11 +1583,13 @@ function onInput(e: Event): void {
   }
   if (target.id !== "search-input") return;
   query = target.value;
+  if (composing) return;
   window.clearTimeout(searchTimer);
   searchTimer = window.setTimeout(() => {
+    if (imeComposing) return;
     if (query.trim().length >= 2) recent = rememberQuery(query);
-    render();
-  }, 280);
+    refreshSearchList();
+  }, 200);
 }
 
 function onKeydown(e: KeyboardEvent): void {
