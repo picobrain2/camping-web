@@ -1429,6 +1429,12 @@ function dayStayTone(day: string): 0 | 1 | 2 | 3 {
   return 1;
 }
 
+function shortCampLabel(name: string, max = 7): string {
+  const trimmed = name.trim().replace(/\s+/g, " ");
+  if (trimmed.length <= max) return trimmed;
+  return `${trimmed.slice(0, max)}…`;
+}
+
 function searchDiaryCamps(q: string): Camp[] {
   const trimmed = q.trim();
   if (trimmed.length < 1) return [];
@@ -1533,10 +1539,17 @@ function renderDiaryCalendarPanel(): string {
     const tone = dayStayTone(iso);
     const hits = entriesCoveringDay(iso);
     const selected = diaryDay === iso;
+    const names = [...new Set(hits.map((entry) => entry.campName).filter(Boolean))];
+    const label = names.length
+      ? names.length === 1
+        ? shortCampLabel(names[0])
+        : `${shortCampLabel(names[0])} 외${names.length - 1}`
+      : "";
+    const title = names.length ? names.join(", ") : iso;
     cells.push(`
-      <button type="button" class="cal-cell ${tone ? `stay-${tone}` : ""} ${selected ? "selected" : ""} ${iso === today ? "today" : ""}" data-action="diary-select-day" data-day="${iso}">
+      <button type="button" class="cal-cell ${tone ? `stay-${tone}` : ""} ${names.length ? "named" : ""} ${selected ? "selected" : ""} ${iso === today ? "today" : ""}" data-action="diary-select-day" data-day="${iso}" title="${esc(title)}">
         <span class="cal-day">${day}</span>
-        ${hits.length > 1 ? `<span class="cal-count">${hits.length}</span>` : ""}
+        ${label ? `<span class="cal-camp">${esc(label)}</span>` : ""}
       </button>`);
   }
 
