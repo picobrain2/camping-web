@@ -14,7 +14,7 @@ import {
   signOutCloud,
   type CloudUser,
 } from "./lib/cloud";
-import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, reviewedCamps, visitedCampIds } from "./lib/search";
+import { displayScore, favoriteCamps, featuredCamps, filterCamps, priceRange, relevance, reviewedCamps, visitedCampIds } from "./lib/search";
 import {
   bindCloudSync,
   createAccount,
@@ -87,6 +87,10 @@ let listsTab: "favorites" | "visited" | "hidden" | "diary" | "account" = "favori
 let editingDiaryId: string | null = null;
 let diaryMonth = todayISO().slice(0, 7);
 let diaryDay: string | null = null;
+let diaryCampQuery = "";
+let diaryCampHits: Camp[] = [];
+let diaryDraftCampId: string | null = null;
+let diaryCampTimer = 0;
 let filtersOpen = false;
 let originOpen = false;
 let searchTimer = 0;
@@ -1181,11 +1185,11 @@ function diaryEditor(camp: Camp): string {
   return `
     <section class="block diary-block">
       <h3>방문 다이어리</h3>
-      <p class="muted">언제 갔는지, 누구와 갔는지, 어떤 자리였는지 날짜별로 남깁니다. Google 로그인하면 다른 기기에도 맞춰집니다.</p>
+      <p class="muted">언제 갔는지, 몇 박인지 남기면 다이어리 달력에 날짜 색으로 이어져 표시됩니다. Google 로그인하면 다른 기기에도 맞춰집니다.</p>
       <form data-action="save-diary" data-id="${esc(camp.id)}" data-entry="${esc(editing?.id ?? "")}">
         <div class="form-row">
-          <label>방문일 <input type="date" name="visitedAt" required value="${esc(defaultDate)}" /></label>
-          <label>박수 <input type="number" name="nights" min="0" max="30" step="1" placeholder="1" value="${editing?.nights != null ? editing.nights : ""}" /></label>
+          <label>방문 시작일 <input type="date" name="visitedAt" required value="${esc(defaultDate)}" /></label>
+          <label>박수 <input type="number" name="nights" min="0" max="30" step="1" placeholder="1" value="${editing?.nights != null ? editing.nights : "1"}" /></label>
         </div>
         <div class="form-row">
           <label>사이트 <input type="text" name="siteName" placeholder="오토 A-12" value="${esc(editing?.siteName ?? "")}" /></label>
@@ -1214,8 +1218,9 @@ function diaryEditor(camp: Camp): string {
 }
 
 function diaryEntryCard(entry: VisitDiaryEntry, showCampActions: boolean): string {
+  const days = stayDayCount(entry);
   const meta = [
-    entry.nights != null ? `${entry.nights}박` : "",
+    entry.nights != null ? `${entry.nights}박 ${days}일` : `${days}일`,
     entry.siteName || "",
     entry.companions || "",
     entry.rating != null ? `★${entry.rating}` : "",
@@ -1392,62 +1397,184 @@ function shiftMonth(month: string, delta: number): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
 }
 
+/** 박수 → 달력에 칠할 일수 (0박=당일 1일, 1박=2일, 2박=3일) */
+function stayDayCount(entry: VisitDiaryEntry): number {
+  const nights = entry.nights != null && Number.isFinite(entry.nights) ? Math.max(0, Math.round(entry.nights)) : 0;
+  return Math.max(1, nights + 1);
+}
+
+function addDaysISO(iso: string, days: number): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  const dt = new Date(y, m - 1, d + days);
+  return `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`;
+}
+
+function entryCoversDay(entry: VisitDiaryEntry, day: string): boolean {
+  if (!entry.visitedAt || !/^\d{4}-\d{2}-\d{2}$/.test(entry.visitedAt) || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return false;
+  const end = addDaysISO(entry.visitedAt, stayDayCount(entry) - 1);
+  return day >= entry.visitedAt && day <= end;
+}
+
+function entriesCoveringDay(day: string): VisitDiaryEntry[] {
+  return diary.filter((entry) => entryCoversDay(entry, day));
+}
+
+/** 달력 색 단계: 1일 / 2일 / 3일+ */
+function dayStayTone(day: string): 0 | 1 | 2 | 3 {
+  const covering = entriesCoveringDay(day);
+  if (!covering.length) return 0;
+  const maxDays = Math.max(...covering.map(stayDayCount));
+  if (maxDays >= 3) return 3;
+  if (maxDays === 2) return 2;
+  return 1;
+}
+
+function searchDiaryCamps(q: string): Camp[] {
+  const trimmed = q.trim();
+  if (trimmed.length < 1) return [];
+  return browsable()
+    .map((camp) => ({ camp, score: relevance(camp, trimmed) }))
+    .filter((row) => row.score > 0)
+    .sort((a, b) => b.score - a.score || a.camp.name.localeCompare(b.camp.name, "ko"))
+    .slice(0, 8)
+    .map((row) => row.camp);
+}
+
+function refreshDiaryCampHits(): void {
+  const wrap = root.querySelector(".diary-camp-hits");
+  if (!wrap) {
+    render();
+    return;
+  }
+  wrap.innerHTML = renderDiaryCampHits();
+}
+
+function renderDiaryCampHits(): string {
+  if (!diaryCampQuery.trim()) return "";
+  if (!diaryCampHits.length) return `<p class="muted">검색 결과가 없습니다.</p>`;
+  return `<div class="diary-camp-hit-list">${diaryCampHits
+    .map(
+      (camp) =>
+        `<button type="button" class="chip" data-action="pick-diary-camp" data-id="${esc(camp.id)}">${esc(camp.name)} <span class="muted">${esc(camp.region)} ${esc(camp.city)}</span></button>`
+    )
+    .join("")}</div>`;
+}
+
+function renderDiaryComposer(): string {
+  const draft = diaryDraftCampId ? camps.find((c) => c.id === diaryDraftCampId) : undefined;
+  const editing = editingDiaryId ? diary.find((entry) => entry.id === editingDiaryId) : undefined;
+  const camp = editing ? camps.find((c) => c.id === editing.campId) ?? draft : draft;
+  const defaultDate = editing?.visitedAt || diaryDay || todayISO();
+  if (!camp && !editing) {
+    return `
+      <section class="diary-composer">
+        <h3>방문 기록 추가</h3>
+        <p class="muted">캠핑장 상세에서도 남길 수 있고, 여기서 검색해서 바로 넣을 수도 있습니다. 박수만큼 달력에 색이 이어집니다. (1박→2일, 2박→3일)</p>
+        <label>캠핑장 검색
+          <input id="diary-camp-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 이름 · 지역" value="${esc(diaryCampQuery)}" />
+        </label>
+        <div class="diary-camp-hits">${renderDiaryCampHits()}</div>
+      </section>`;
+  }
+  const target = camp ?? {
+    id: editing!.campId,
+    name: editing!.campName,
+    region: editing!.region,
+    city: editing!.city,
+  };
+  return `
+    <section class="diary-composer">
+      <h3>${editing ? "기록 수정" : "방문 기록 추가"}</h3>
+      <p class="composer-camp"><strong>${esc(target.name)}</strong> <span class="muted">${esc([target.region, target.city].filter(Boolean).join(" · "))}</span>
+        ${editing ? "" : `<button type="button" class="text-btn" data-action="clear-diary-camp">캠핑장 다시 고르기</button>`}
+      </p>
+      <form data-action="save-diary" data-id="${esc(target.id)}" data-entry="${esc(editing?.id ?? "")}">
+        <div class="form-row">
+          <label>방문 시작일 <input type="date" name="visitedAt" required value="${esc(defaultDate)}" /></label>
+          <label>박수 <input type="number" name="nights" min="0" max="30" step="1" placeholder="1" value="${editing?.nights != null ? editing.nights : "1"}" /></label>
+        </div>
+        <div class="form-row">
+          <label>사이트 <input type="text" name="siteName" placeholder="오토 A-12" value="${esc(editing?.siteName ?? "")}" /></label>
+          <label>함께한 사람 <input type="text" name="companions" placeholder="가족, 친구…" value="${esc(editing?.companions ?? "")}" /></label>
+        </div>
+        <div class="star-row" role="radiogroup" aria-label="그날 별점">
+          ${[1, 2, 3, 4, 5]
+            .map((n) => `<label><input type="radio" name="rating" value="${n}" ${editing?.rating === n ? "checked" : ""} /> ${"★".repeat(n)}</label>`)
+            .join("")}
+        </div>
+        <textarea name="body" rows="3" placeholder="날씨, 자리 느낌, 다음에 다시 오고 싶은지…">${esc(editing?.body ?? "")}</textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn">${editing ? "기록 수정" : "달력에 넣기"}</button>
+          ${editing ? `<button type="button" class="btn ghost" data-action="cancel-diary-edit">취소</button>` : ""}
+        </div>
+      </form>
+    </section>`;
+}
+
 function renderDiaryCalendarPanel(): string {
   const [year, month] = diaryMonth.split("-").map(Number);
   const firstWeekday = new Date(year, month - 1, 1).getDay();
   const daysInMonth = new Date(year, month, 0).getDate();
   const today = todayISO();
-  const byDay = new Map<string, VisitDiaryEntry[]>();
-  for (const entry of diary) {
-    if (!entry.visitedAt?.startsWith(diaryMonth)) continue;
-    const list = byDay.get(entry.visitedAt) ?? [];
-    list.push(entry);
-    byDay.set(entry.visitedAt, list);
-  }
+  const monthStart = `${diaryMonth}-01`;
+  const monthEnd = `${diaryMonth}-${String(daysInMonth).padStart(2, "0")}`;
+  const monthEntries = diary
+    .filter((entry) => {
+      if (!entry.visitedAt) return false;
+      const end = addDaysISO(entry.visitedAt, stayDayCount(entry) - 1);
+      return entry.visitedAt <= monthEnd && end >= monthStart;
+    })
+    .sort((a, b) => (b.visitedAt || "").localeCompare(a.visitedAt || ""));
+
   const cells: string[] = [];
   for (let i = 0; i < firstWeekday; i++) cells.push(`<div class="cal-cell empty"></div>`);
   for (let day = 1; day <= daysInMonth; day++) {
     const iso = `${diaryMonth}-${String(day).padStart(2, "0")}`;
-    const hits = byDay.get(iso) ?? [];
+    const tone = dayStayTone(iso);
+    const hits = entriesCoveringDay(iso);
     const selected = diaryDay === iso;
     cells.push(`
-      <button type="button" class="cal-cell ${hits.length ? "has-entry" : ""} ${selected ? "selected" : ""} ${iso === today ? "today" : ""}" data-action="diary-select-day" data-day="${iso}">
+      <button type="button" class="cal-cell ${tone ? `stay-${tone}` : ""} ${selected ? "selected" : ""} ${iso === today ? "today" : ""}" data-action="diary-select-day" data-day="${iso}">
         <span class="cal-day">${day}</span>
-        ${hits.length ? `<span class="cal-dot" aria-hidden="true"></span><span class="cal-count">${hits.length}</span>` : ""}
+        ${hits.length > 1 ? `<span class="cal-count">${hits.length}</span>` : ""}
       </button>`);
   }
-  const selectedEntries = diaryDay ? diary.filter((entry) => entry.visitedAt === diaryDay) : [];
-  const monthEntries = [...byDay.values()].flat().sort((a, b) => (b.visitedAt || "").localeCompare(a.visitedAt || ""));
+
+  const selectedEntries = diaryDay ? entriesCoveringDay(diaryDay) : [];
   return `
     <section class="diary-calendar">
+      ${renderDiaryComposer()}
       <div class="cal-head">
         <button type="button" class="btn-ghost btn-sm" data-action="diary-prev-month" aria-label="이전 달">‹</button>
         <strong>${year}년 ${month}월</strong>
         <button type="button" class="btn-ghost btn-sm" data-action="diary-next-month" aria-label="다음 달">›</button>
       </div>
-      <p class="muted">이달 ${monthEntries.length}번 · 전체 ${diary.length}번 · ${diaryVisitedSet().size}곳</p>
+      <div class="cal-legend" aria-hidden="true">
+        <span><i class="stay-1"></i> 1일</span>
+        <span><i class="stay-2"></i> 2일</span>
+        <span><i class="stay-3"></i> 3일+</span>
+      </div>
+      <p class="muted">이달 ${monthEntries.length}번 · 전체 ${diary.length}번 · ${diaryVisitedSet().size}곳 · 박수만큼 날짜가 이어져 칠해집니다</p>
       <div class="cal-weekdays" aria-hidden="true">
         <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
       </div>
       <div class="cal-grid">${cells.join("")}</div>
       ${
-        !diary.length
-          ? empty("방문 기록이 없습니다", "캠핑장 상세에서 방문일을 적고 다이어리를 추가해 보세요.")
-          : diaryDay
+        diaryDay
+          ? `<div class="cal-day-panel">
+              <h3>${esc(diaryDay)}</h3>
+              ${
+                selectedEntries.length
+                  ? `<ul class="diary-entry-list">${selectedEntries.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>`
+                  : `<p class="muted">이 날 기록이 없습니다. 위에서 캠핑장을 찾아 추가해 보세요.</p>`
+              }
+            </div>`
+          : monthEntries.length
             ? `<div class="cal-day-panel">
-                <h3>${esc(diaryDay)}</h3>
-                ${
-                  selectedEntries.length
-                    ? `<ul class="diary-entry-list">${selectedEntries.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>`
-                    : `<p class="muted">이 날 기록이 없습니다.</p>`
-                }
+                <h3>이달 기록</h3>
+                <ul class="diary-entry-list">${monthEntries.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>
               </div>`
-            : monthEntries.length
-              ? `<div class="cal-day-panel">
-                  <h3>이달 기록</h3>
-                  <ul class="diary-entry-list">${monthEntries.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>
-                </div>`
-              : `<p class="muted">이달 방문 기록이 없습니다. 날짜를 고르거나 다른 달로 넘겨 보세요.</p>`
+            : `<p class="muted">이달 방문 기록이 없습니다. 위에서 캠핑장을 검색해 넣거나, 날짜를 고른 뒤 추가해 보세요.</p>`
       }
     </section>`;
 }
@@ -1793,6 +1920,23 @@ function onClick(e: MouseEvent): void {
       render();
       break;
     }
+    case "pick-diary-camp": {
+      const id = el.dataset.id;
+      if (!id) break;
+      diaryDraftCampId = id;
+      diaryCampQuery = "";
+      diaryCampHits = [];
+      editingDiaryId = null;
+      render();
+      break;
+    }
+    case "clear-diary-camp":
+      diaryDraftCampId = null;
+      diaryCampQuery = "";
+      diaryCampHits = [];
+      editingDiaryId = null;
+      render();
+      break;
     case "open-diary-day": {
       const day = el.dataset.day;
       if (day && /^\d{4}-\d{2}-\d{2}$/.test(day)) {
@@ -1921,11 +2065,26 @@ function onClick(e: MouseEvent): void {
       const campId = el.dataset.id;
       if (!entryId || !campId) break;
       editingDiaryId = entryId;
+      diaryDraftCampId = campId;
+      const entry = diary.find((row) => row.id === entryId);
+      if (entry?.visitedAt && /^\d{4}-\d{2}-\d{2}$/.test(entry.visitedAt)) {
+        diaryMonth = entry.visitedAt.slice(0, 7);
+        diaryDay = entry.visitedAt;
+      }
+      if (panel === "lists" && listsTab === "diary") {
+        render();
+        break;
+      }
       go(`camp/${encodeURIComponent(campId)}`);
       break;
     }
     case "cancel-diary-edit":
       editingDiaryId = null;
+      if (panel === "lists" && listsTab === "diary") {
+        diaryDraftCampId = null;
+        diaryCampQuery = "";
+        diaryCampHits = [];
+      }
       render();
       break;
     case "delete-diary": {
@@ -1985,15 +2144,22 @@ function onClick(e: MouseEvent): void {
 
 function onCompositionStart(e: Event): void {
   const id = (e.target as HTMLElement).id;
-  if (id === "search-input" || id === "origin-input") imeComposing = true;
+  if (id === "search-input" || id === "origin-input" || id === "diary-camp-input") imeComposing = true;
 }
 
 function onCompositionEnd(e: Event): void {
   const target = e.target as HTMLInputElement;
-  if (target.id !== "search-input" && target.id !== "origin-input") return;
+  if (target.id !== "search-input" && target.id !== "origin-input" && target.id !== "diary-camp-input") return;
   imeComposing = false;
   if (target.id === "origin-input") {
     originQuery = target.value;
+    return;
+  }
+  if (target.id === "diary-camp-input") {
+    diaryCampQuery = target.value;
+    window.clearTimeout(diaryCampTimer);
+    diaryCampHits = searchDiaryCamps(diaryCampQuery);
+    refreshDiaryCampHits();
     return;
   }
   query = target.value;
@@ -2011,6 +2177,17 @@ function onInput(e: Event): void {
   if (target.id === "origin-input") {
     originQuery = target.value;
     if (locError) locError = null;
+    return;
+  }
+  if (target.id === "diary-camp-input") {
+    diaryCampQuery = target.value;
+    if (composing) return;
+    window.clearTimeout(diaryCampTimer);
+    diaryCampTimer = window.setTimeout(() => {
+      if (imeComposing) return;
+      diaryCampHits = searchDiaryCamps(diaryCampQuery);
+      refreshDiaryCampHits();
+    }, 180);
     return;
   }
   if (target.id !== "search-input") return;
@@ -2127,6 +2304,12 @@ function onSubmit(e: Event): void {
     diary = [next, ...diary.filter((entry) => entry.id !== entryId)];
     saveDiary(diary);
     editingDiaryId = null;
+    diaryDraftCampId = null;
+    diaryCampQuery = "";
+    diaryCampHits = [];
+    diaryMonth = visitedAt.slice(0, 7);
+    diaryDay = visitedAt;
+    if (panel === "lists") listsTab = "diary";
     render();
     return;
   }

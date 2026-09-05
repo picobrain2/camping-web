@@ -645,6 +645,67 @@ a { color: var(--moss); }
   background: var(--moss-soft);
   border-color: color-mix(in srgb, var(--moss) 28%, transparent);
 }
+.cal-cell.stay-1 {
+  background: #e7f0e4;
+  border-color: #b7d0b0;
+}
+.cal-cell.stay-2 {
+  background: #cfe3c8;
+  border-color: #7fad74;
+}
+.cal-cell.stay-3 {
+  background: #9fbf92;
+  border-color: #4f7d45;
+  color: #1f3320;
+}
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 650;
+}
+.cal-legend i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  margin-right: 4px;
+  vertical-align: -1px;
+  border: 1px solid transparent;
+}
+.cal-legend i.stay-1 { background: #e7f0e4; border-color: #b7d0b0; }
+.cal-legend i.stay-2 { background: #cfe3c8; border-color: #7fad74; }
+.cal-legend i.stay-3 { background: #9fbf92; border-color: #4f7d45; }
+.diary-composer {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+.diary-composer h3 { margin: 0; font-size: 15px; }
+.composer-camp {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+.diary-camp-hits { display: grid; gap: 6px; }
+.diary-camp-hit-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.diary-camp-hit-list .chip {
+  border: 1px solid var(--line);
+  background: #fff;
+  text-align: left;
+}
+.diary-camp-hit-list .muted { font-weight: 600; }
 .cal-cell.today .cal-day { font-weight: 800; color: var(--fire); }
 .cal-cell.selected {
   border-color: var(--moss);
