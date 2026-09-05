@@ -1593,6 +1593,9 @@ function onInput(e: Event): void {
 }
 
 function onKeydown(e: KeyboardEvent): void {
+  // 한글 IME 조합 중 Enter/키는 조합 확정용. 여기서 가로채면 마지막 글자가 중복된다.
+  if (e.isComposing || e.keyCode === 229 || imeComposing) return;
+
   if (e.key === "Escape") {
     if (layoutPopup) {
       layoutPopup = null;
@@ -1603,11 +1606,13 @@ function onKeydown(e: KeyboardEvent): void {
   }
   if (e.key === "Enter" && (e.target as HTMLElement).id === "origin-input") {
     e.preventDefault();
+    originQuery = (e.target as HTMLInputElement).value;
     void searchOrigin();
     return;
   }
   if (e.key === "Enter" && (e.target as HTMLElement).id === "search-input") {
     e.preventDefault();
+    query = (e.target as HTMLInputElement).value;
     window.clearTimeout(searchTimer);
     if (query.trim().length >= 2) recent = rememberQuery(query);
     const first = visible()[0];
