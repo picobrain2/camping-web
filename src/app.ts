@@ -85,6 +85,8 @@ let selectedId: string | null = null;
 let panel: "none" | "add" | "data" | "lists" = "none";
 let listsTab: "favorites" | "visited" | "hidden" | "diary" | "account" = "favorites";
 let editingDiaryId: string | null = null;
+let diaryMonth = todayISO().slice(0, 7);
+let diaryDay: string | null = null;
 let filtersOpen = false;
 let originOpen = false;
 let searchTimer = 0;
@@ -636,7 +638,7 @@ function renderSearchPane(): string {
 
 function tagLabel(value: string): string {
   if (value === "favorite") return "즐겨찾기";
-  if (value === "visited") return "다녀옴";
+  if (value === "visited") return "다녀온 곳";
   if (value === "reviewed") return "내 리뷰";
   return value;
 }
@@ -707,10 +709,10 @@ function renderFilterControls(): string {
               ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
             </section>
             <section class="filter-group">
-              <h3>내 기록</h3>
+              <h3>내 목록</h3>
               ${segment("tag", tags, [
                 { value: "favorite", label: "즐겨찾기" },
-                { value: "visited", label: "다녀옴" },
+                { value: "visited", label: "다녀온 곳" },
                 { value: "reviewed", label: "내 리뷰" },
               ], true)}
             </section>
@@ -763,16 +765,7 @@ function renderHomeLists(): string {
   const favs = favoriteCamps(pool, favorites.map((item) => item.id));
   const featured = featuredCamps(pool, reviews);
   const mine = reviewedCamps(pool, reviews);
-  const recentDiary = diary.slice(0, 6);
   return `
-    ${
-      recentDiary.length
-        ? `<section class="home-block">
-            <h2>다녀온 곳 <button type="button" class="text-btn" data-action="open-lists" data-tab="visited">전체</button></h2>
-            <ul class="diary-home-list">${recentDiary.map(diaryHomeRow).join("")}</ul>
-          </section>`
-        : ""
-    }
     ${
       favs.length
         ? `<section class="home-block">
@@ -803,18 +796,6 @@ function renderHomeLists(): string {
           </section>`
         : ""
     }`;
-}
-
-function diaryHomeRow(entry: VisitDiaryEntry): string {
-  const camp = camps.find((c) => c.id === entry.campId);
-  return `
-    <li>
-      <button type="button" class="diary-home-row" data-action="select" data-id="${esc(entry.campId)}" ${camp ? "" : "disabled"}>
-        <strong>${esc(entry.visitedAt)}</strong>
-        <span>${esc(entry.campName)}</span>
-        <span class="muted">${esc([entry.region, entry.city].filter(Boolean).join(" · ") || "위치 없음")}${entry.rating ? ` · ★${entry.rating}` : ""}</span>
-      </button>
-    </li>`;
 }
 
 function resultRow(camp: Camp): string {
@@ -1362,15 +1343,15 @@ function renderListsPanel(): string {
         <div class="seg lists-tabs" role="tablist">
           <button type="button" class="seg-btn ${listsTab === "favorites" ? "active" : ""}" data-action="lists-tab" data-tab="favorites">즐겨찾기 ${favorites.length}</button>
           <button type="button" class="seg-btn ${listsTab === "visited" ? "active" : ""}" data-action="lists-tab" data-tab="visited">다녀온 곳 ${visitedCount}</button>
-          <button type="button" class="seg-btn ${listsTab === "diary" ? "active" : ""}" data-action="lists-tab" data-tab="diary">다이어리 ${diary.length}</button>
           <button type="button" class="seg-btn ${listsTab === "hidden" ? "active" : ""}" data-action="lists-tab" data-tab="hidden">숨김 ${hidden.length}</button>
           <button type="button" class="seg-btn ${listsTab === "account" ? "active" : ""}" data-action="lists-tab" data-tab="account">계정</button>
+          <button type="button" class="seg-btn diary-tab ${listsTab === "diary" ? "active" : ""}" data-action="lists-tab" data-tab="diary">다이어리 ${diary.length}</button>
         </div>
         ${
           listsTab === "account"
             ? renderAccountPanel()
             : listsTab === "diary"
-              ? renderDiaryListPanel()
+              ? renderDiaryCalendarPanel()
               : listsTab === "visited"
                 ? renderVisitedListPanel()
                 : renderSavedListPanel()
@@ -1395,40 +1376,80 @@ function renderVisitedListPanel(): string {
             <span class="muted">${esc(item.lastVisitedAt)} 최근 · ${item.visitCount}회${item.lastRating != null ? ` · ★${item.lastRating}` : ""}${camp ? "" : " · 목록에서 찾을 수 없음"}</span>
           </button>
           <div class="saved-actions">
-            <button type="button" class="btn-ghost btn-sm" data-action="open-lists" data-tab="diary">기록</button>
+            <button type="button" class="btn-ghost btn-sm" data-action="open-diary-day" data-day="${esc(item.lastVisitedAt)}">달력</button>
           </div>
         </li>`;
     })
     .join("");
   return `
-    <p class="muted">다이어리에 남긴 방문 기준으로 ${rows.length}곳입니다.</p>
+    <p class="muted">방문 다이어리 기준으로 ${rows.length}곳입니다. 날짜별 기록은 다이어리 달력에서 보세요.</p>
     <ul class="saved-list">${items}</ul>`;
 }
 
-function renderDiaryListPanel(): string {
-  if (!diary.length) {
-    return empty("방문 기록이 없습니다", "캠핑장 상세에서 방문일을 적고 다이어리를 추가해 보세요.");
-  }
-  const byYear = new Map<string, VisitDiaryEntry[]>();
+function shiftMonth(month: string, delta: number): string {
+  const [y, m] = month.split("-").map(Number);
+  const d = new Date(y, m - 1 + delta, 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+}
+
+function renderDiaryCalendarPanel(): string {
+  const [year, month] = diaryMonth.split("-").map(Number);
+  const firstWeekday = new Date(year, month - 1, 1).getDay();
+  const daysInMonth = new Date(year, month, 0).getDate();
+  const today = todayISO();
+  const byDay = new Map<string, VisitDiaryEntry[]>();
   for (const entry of diary) {
-    const year = (entry.visitedAt || "").slice(0, 4) || "날짜 없음";
-    const list = byYear.get(year) ?? [];
+    if (!entry.visitedAt?.startsWith(diaryMonth)) continue;
+    const list = byDay.get(entry.visitedAt) ?? [];
     list.push(entry);
-    byYear.set(year, list);
+    byDay.set(entry.visitedAt, list);
   }
-  const years = [...byYear.keys()].sort((a, b) => b.localeCompare(a));
+  const cells: string[] = [];
+  for (let i = 0; i < firstWeekday; i++) cells.push(`<div class="cal-cell empty"></div>`);
+  for (let day = 1; day <= daysInMonth; day++) {
+    const iso = `${diaryMonth}-${String(day).padStart(2, "0")}`;
+    const hits = byDay.get(iso) ?? [];
+    const selected = diaryDay === iso;
+    cells.push(`
+      <button type="button" class="cal-cell ${hits.length ? "has-entry" : ""} ${selected ? "selected" : ""} ${iso === today ? "today" : ""}" data-action="diary-select-day" data-day="${iso}">
+        <span class="cal-day">${day}</span>
+        ${hits.length ? `<span class="cal-dot" aria-hidden="true"></span><span class="cal-count">${hits.length}</span>` : ""}
+      </button>`);
+  }
+  const selectedEntries = diaryDay ? diary.filter((entry) => entry.visitedAt === diaryDay) : [];
+  const monthEntries = [...byDay.values()].flat().sort((a, b) => (b.visitedAt || "").localeCompare(a.visitedAt || ""));
   return `
-    <p class="muted">총 ${diary.length}번 · ${diaryVisitedSet().size}곳</p>
-    ${years
-      .map((year) => {
-        const rows = byYear.get(year) ?? [];
-        return `
-          <section class="diary-year">
-            <h3>${esc(year)}</h3>
-            <ul class="diary-entry-list">${rows.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>
-          </section>`;
-      })
-      .join("")}`;
+    <section class="diary-calendar">
+      <div class="cal-head">
+        <button type="button" class="btn-ghost btn-sm" data-action="diary-prev-month" aria-label="이전 달">‹</button>
+        <strong>${year}년 ${month}월</strong>
+        <button type="button" class="btn-ghost btn-sm" data-action="diary-next-month" aria-label="다음 달">›</button>
+      </div>
+      <p class="muted">이달 ${monthEntries.length}번 · 전체 ${diary.length}번 · ${diaryVisitedSet().size}곳</p>
+      <div class="cal-weekdays" aria-hidden="true">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+      <div class="cal-grid">${cells.join("")}</div>
+      ${
+        !diary.length
+          ? empty("방문 기록이 없습니다", "캠핑장 상세에서 방문일을 적고 다이어리를 추가해 보세요.")
+          : diaryDay
+            ? `<div class="cal-day-panel">
+                <h3>${esc(diaryDay)}</h3>
+                ${
+                  selectedEntries.length
+                    ? `<ul class="diary-entry-list">${selectedEntries.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>`
+                    : `<p class="muted">이 날 기록이 없습니다.</p>`
+                }
+              </div>`
+            : monthEntries.length
+              ? `<div class="cal-day-panel">
+                  <h3>이달 기록</h3>
+                  <ul class="diary-entry-list">${monthEntries.map((entry) => diaryEntryCard(entry, false)).join("")}</ul>
+                </div>`
+              : `<p class="muted">이달 방문 기록이 없습니다. 날짜를 고르거나 다른 달로 넘겨 보세요.</p>`
+      }
+    </section>`;
 }
 
 function renderSavedListPanel(): string {
@@ -1755,6 +1776,35 @@ function onClick(e: MouseEvent): void {
       accountError = null;
       go(listsHash(listsTab));
       break;
+    case "diary-prev-month":
+      diaryMonth = shiftMonth(diaryMonth, -1);
+      diaryDay = null;
+      render();
+      break;
+    case "diary-next-month":
+      diaryMonth = shiftMonth(diaryMonth, 1);
+      diaryDay = null;
+      render();
+      break;
+    case "diary-select-day": {
+      const day = el.dataset.day;
+      if (!day) break;
+      diaryDay = diaryDay === day ? null : day;
+      render();
+      break;
+    }
+    case "open-diary-day": {
+      const day = el.dataset.day;
+      if (day && /^\d{4}-\d{2}-\d{2}$/.test(day)) {
+        diaryMonth = day.slice(0, 7);
+        diaryDay = day;
+      }
+      listsTab = "diary";
+      accountMode = "home";
+      accountError = null;
+      go("diary");
+      break;
+    }
     case "account-mode":
       accountMode = el.dataset.mode === "create" ? "create" : el.dataset.mode === "login" ? "login" : "home";
       accountError = null;
