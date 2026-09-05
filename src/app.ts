@@ -86,6 +86,7 @@ let panel: "none" | "add" | "data" | "lists" = "none";
 let listsTab: "favorites" | "hidden" | "diary" | "account" = "favorites";
 let editingDiaryId: string | null = null;
 let filtersOpen = false;
+let originOpen = false;
 let searchTimer = 0;
 let imeComposing = false;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
@@ -553,18 +554,29 @@ function renderSearchPane(): string {
       </header>
       <div class="search-box">
         <input id="search-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 · 지역 · 위생 · 전기" value="${esc(query)}" />
-        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : myPos ? "위치 켜짐" : "내 위치"}</button>
       </div>
-      <div class="search-box origin-box">
-        <input id="origin-input" type="search" enterkeyhint="search" autocomplete="off" placeholder="출발지 · 김포시청 · 우리 동네" value="${esc(originQuery)}" />
-        <button type="button" class="btn-ghost btn-sm" data-action="search-origin">${originLoading ? "찾는 중" : "찾기"}</button>
+      <div class="loc-bar">
+        <button type="button" class="btn-ghost btn-sm loc-btn ${myPos && originQuery === "현재 위치" ? "active" : ""}" data-action="pin-location">${locLoading ? "위치…" : "내 위치"}</button>
+        <button type="button" class="btn-ghost btn-sm loc-btn ${originOpen || (myPos && originQuery !== "현재 위치") ? "active" : ""}" data-action="toggle-origin" aria-expanded="${originOpen ? "true" : "false"}">수동 출발지</button>
+        ${
+          myPos
+            ? `<span class="loc-status">${esc(originQuery || "출발지 설정됨")} · <button type="button" class="text-btn" data-action="clear-location">끄기</button></span>`
+            : ""
+        }
       </div>
-      ${originHits.length ? `<div class="origin-hits">${originHits.map((hit) => `<button type="button" class="chip" data-action="pick-origin" data-lat="${hit.lat}" data-lng="${hit.lng}" data-name="${esc(hit.name)}">${esc(hit.name)}</button>`).join("")}</div>` : ""}
-      ${locError ? `<p class="loc-msg">${esc(locError)}</p>` : ""}
       ${
-        myPos
-          ? `<p class="loc-msg">출발지 기준 차 거리 · <button type="button" class="text-btn" data-action="clear-location">끄기</button></p>`
-          : ""
+        originOpen
+          ? `<div class="origin-panel">
+              <div class="search-box origin-box">
+                <input id="origin-input" type="search" enterkeyhint="search" autocomplete="off" placeholder="김포시청 · 우리 동네" value="${esc(originQuery === "현재 위치" ? "" : originQuery)}" />
+                <button type="button" class="btn-ghost btn-sm" data-action="search-origin">${originLoading ? "찾는 중" : "찾기"}</button>
+              </div>
+              ${originHits.length ? `<div class="origin-hits">${originHits.map((hit) => `<button type="button" class="chip" data-action="pick-origin" data-lat="${hit.lat}" data-lng="${hit.lng}" data-name="${esc(hit.name)}">${esc(hit.name)}</button>`).join("")}</div>` : ""}
+              ${locError ? `<p class="loc-msg">${esc(locError)}</p>` : `<p class="loc-msg">차 거리·가까운순에 쓸 출발지를 검색합니다. 지역 필터와는 다릅니다.</p>`}
+            </div>`
+          : locError
+            ? `<p class="loc-msg">${esc(locError)}</p>`
+            : ""
       }
       ${renderFilterControls()}
       <div class="list-wrap">
@@ -584,6 +596,24 @@ function activeFilterCount(): number {
   return regions.length + (kind === "all" ? 0 : 1) + tags.length;
 }
 
+function highRatedVisible(minScore = 4): Camp[] {
+  return visible().filter((camp) => {
+    const score = displayScore(camp, reviews);
+    return score != null && score >= minScore;
+  });
+}
+
+function pickRandomCamp(): void {
+  const pool = highRatedVisible(4);
+  if (!pool.length) {
+    alert("지금 필터에서 4점 이상 캠핑장이 없습니다. 필터를 넓혀 보세요.");
+    return;
+  }
+  const others = selectedId ? pool.filter((camp) => camp.id !== selectedId) : pool;
+  const pick = (others.length ? others : pool)[Math.floor(Math.random() * (others.length ? others.length : pool.length))];
+  go(`camp/${encodeURIComponent(pick.id)}`);
+}
+
 function renderFilterControls(): string {
   const count = activeFilterCount();
   const summary = [
@@ -596,6 +626,7 @@ function renderFilterControls(): string {
       <button type="button" class="filter-toggle ${filtersOpen || count ? "active" : ""}" data-action="toggle-filters" aria-expanded="${filtersOpen ? "true" : "false"}">
         필터${count ? ` ${count}` : ""}
       </button>
+      <button type="button" class="filter-toggle random-btn" data-action="random-camp" title="지금 필터에서 4점 이상 랜덤">랜덤</button>
       <div class="sort-seg">
         ${segment("sort", sort, [
           { value: "recommend", label: "추천" },
@@ -1492,6 +1523,7 @@ function pinMyLocation(): void {
   const onFail = (err: GeolocationPositionError): void => {
     locLoading = false;
     locError = locationFailMessage(err);
+    originOpen = true;
     render();
     document.getElementById("origin-input")?.focus();
   };
@@ -1511,6 +1543,7 @@ function applyOrigin(pos: GeoPos, label: string): void {
   locError = null;
   locLoading = false;
   originLoading = false;
+  originOpen = false;
   sort = "distance";
   render();
 }
@@ -1560,6 +1593,7 @@ function onClick(e: MouseEvent): void {
       tags = [];
       sort = "recommend";
       filtersOpen = false;
+      originOpen = false;
       layoutPopup = null;
       go("");
       break;
@@ -1567,11 +1601,20 @@ function onClick(e: MouseEvent): void {
       filtersOpen = !filtersOpen;
       render();
       break;
+    case "toggle-origin":
+      originOpen = !originOpen;
+      if (originOpen) locError = null;
+      render();
+      if (originOpen) document.getElementById("origin-input")?.focus();
+      break;
     case "clear-filters":
       regions = [];
       kind = "all";
       tags = [];
       render();
+      break;
+    case "random-camp":
+      pickRandomCamp();
       break;
     case "set-filter": {
       const group = el.dataset.group;
