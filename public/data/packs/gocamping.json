@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-14",
   "note": "고캠핑 공식 API에서 신규만 붙인 팩입니다. GitHub Actions가 매주 인기 후보를 추가합니다.",
   "camps": [
     {
@@ -5184,6 +5184,2508 @@
       "featured": false,
       "source": "gocamping",
       "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-102229",
+      "curated": false,
+      "gocampingId": "102229",
+      "name": "화성에코팜테마파크 오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "화성시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [],
+      "address": "경기도 화성시 만세구 서신면 영종로안길 24",
+      "lat": 37.1198280836175,
+      "lng": 126.693593856916,
+      "phone": "031-5180-7820",
+      "homepage": "https://hsecofarm.hscity.go.kr/",
+      "reservationUrl": "https://hsecofarm.hscity.go.kr/",
+      "reservationPlatform": "온라인예약대기",
+      "reservationWindows": [],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 106
+        }
+      ],
+      "amenities": [],
+      "description": "[화성에코팜테마파크 내 에코팜캠프는 저탄소 캠핑장 운영]  환경과 화재 예방을 위해 장작, 숯, 깔탄 등 사용이 제한됩니다.  인근 주민들의 피해 예방과 화재를 예방할 수 있도록 운영중입니다.   이 점 사전 양해 부탁드립니다.  ",
+      "photos": [],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100247",
+      "curated": false,
+      "gocampingId": "100247",
+      "name": "남한산성 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "광주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기 광주시 남한산성면 남한산성로 144",
+      "lat": 37.4550879,
+      "lng": 127.2350577,
+      "phone": "031-747-9488",
+      "reservationUrl": "https://www.camfit.co.kr/camp/61dfd4b10af65b001eb59ab7",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 36
+        },
+        {
+          "name": "카라반",
+          "count": 22
+        },
+        {
+          "name": "일반야영",
+          "count": 30
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "운동시설"
+      ],
+      "description": " 서울, 성남 등과 가까운 남한산성에 계곡을 끼고있는 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100247/thumb/thumb_720_4573U29cCzGcTmCTIhb84p0P.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/2072SjbabOmv00fXxqZcgBJQ.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/4573U29cCzGcTmCTIhb84p0P.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/3217becqYS9EV1SgDXWF1JgT.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/9708wjJyYwNmBkzG1lxYHVOC.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/78917jumZa3J7VovZ57SrsOv.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/6404IQbzEoVrfPKIlWugJW1U.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/0624gkzuDofMW2tJIKXeBMvD.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/0611g3w2dUaeXbGYI8HfspyU.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/4291gZwix94l4dPLxYdvddjm.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/3567Ys5N8QI1gS5kf5xw9Def.jpg",
+        "https://gocamping.or.kr/upload/camp/100247/7482CQnB85p5rdNobEFqPOcf.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-2506",
+      "curated": false,
+      "gocampingId": "2506",
+      "name": "가평아일렛 위크팜 글램핑",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "경기도 가평군 상면 원흥길 37-6",
+      "lat": 37.8180165,
+      "lng": 127.3257623,
+      "phone": "010-2011-314",
+      "homepage": "www.태봉.com",
+      "reservationUrl": "www.태봉.com",
+      "reservationPlatform": "전화,온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 7
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "예쁜 전원주택 단지의 이국적인 글램핑장 ",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2506/thumb/thumb_720_9581PHUsdYHbjC2GJCDGuhNI.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/0210T0Uh12Qb8HuXVQt1SMMJ.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/9581PHUsdYHbjC2GJCDGuhNI.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/7705c0MHijUMOWKiC4RPFXRO.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/1974v8lhWy6eEJ550cJawMES.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/3047keGD5r3NDiEIIQTTLqGC.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/6205RTH8AAi3uGMzjZAVJaq0.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/2935rr7IEVj3lDPF7GZu53fy.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/7765RtikqrHEkLB8OCzWiPWF.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/1312b8drdoTxOIm7WEkSpbCG.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/4132CHpfizbbte73fzndX3FS.jpg",
+        "https://gocamping.or.kr/upload/camp/2506/7067xv5ZXW9GxCIm8hBbVygK.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101459",
+      "curated": false,
+      "gocampingId": "101459",
+      "name": "포천탑글램핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "glamping"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기도 포천시 소흘읍 광릉수목원로874번길 51",
+      "lat": 37.7807608,
+      "lng": 127.142516,
+      "phone": "010-5127-8627",
+      "homepage": "http://포천탑글램핑.kr",
+      "reservationUrl": "http://포천탑글램핑.kr",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 15
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "마트.편의점"
+      ],
+      "description": "서울 근교에 위치한 다양한 소리와 향기가 주는 힐링시간을 가져보세요",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101459/thumb/thumb_720_3627qW8cVtH2UHf41AbDmdrU.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/8894GMMneYlj4nscB2up7HAy.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/3627qW8cVtH2UHf41AbDmdrU.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/3141gZnUewL5N3nGFaP9rDYI.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/0501mDO2wXm2NRedToIBab7l.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/1879ZfWj3O4o6XwC4EQxI7I4.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/2437roeSBWLLQpC6LyvZC7Tj.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/3466EW1Sdn8gKb7ewCh33zO9.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/4001FVJWPBP0Szy0ZTM5Dua0.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/5247CNnnbFPcQQsmPCcjP5bi.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/0727KdyOW9ZXFgEZZALGildw.jpg",
+        "https://gocamping.or.kr/upload/camp/101459/8490WbylVOf4cLZW8s2mFMkb.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101036",
+      "curated": false,
+      "gocampingId": "101036",
+      "name": "(주)너의아지트가되어줄게",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기 가평군 설악면 묵안로 746-20",
+      "lat": 37.6170972,
+      "lng": 127.5184552,
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 88
+        },
+        {
+          "name": "글램핑",
+          "count": 7
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "글램핑시설과 대여캠프 25동, 90개의 사이트를 갖춘 초대형 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101036/thumb/thumb_720_6618I1huIvaRiHXsusKeilc5.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/11098Np1wd6ee3oLdLlpOOq3.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/6618I1huIvaRiHXsusKeilc5.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/6033uTeyLP20mEJ3VoU02R4V.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/4970VUrf082n4XErvippuBUK.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/9635wmdlk4aXr1uYthXbRDJ1.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/9619aMkgcXBNfzTwuM0uAmTI.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/4678Oq1BfyM6WGVVZYf6EX5F.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/4444ito2DLxM9HECY5AnCIPz.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/2734QFU4lrlKhD7gyZLbtDcQ.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/7335GfmqbqhjSKjUwGm5FYxg.jpg",
+        "https://gocamping.or.kr/upload/camp/101036/6361izKIMA9y7rAgjYETDzlY.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101063",
+      "curated": false,
+      "gocampingId": "101063",
+      "name": "캠프 노마드",
+      "aliases": [],
+      "region": "경기",
+      "city": "옹진군",
+      "kinds": [
+        "glamping",
+        "caravan",
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "인천 옹진군 영흥면 영흥로757번길 280",
+      "lat": 37.2633423,
+      "lng": 126.4497582,
+      "phone": "070-8835-6820",
+      "homepage": "www.campnomade.co.kr",
+      "reservationUrl": "https://www.camfit.co.kr/camp/64d5839f3e73f7001e3b5414",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 5
+        },
+        {
+          "name": "일반야영",
+          "count": 50
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "운동장",
+        "마트.편의점"
+      ],
+      "description": "장경리해변 옆 숲속 럭셔리 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101063/thumb/thumb_720_0628X3dKH2T7RFldJ3qu3PnW.jpeg",
+        "https://gocamping.or.kr/upload/camp/101063/0628X3dKH2T7RFldJ3qu3PnW.jpeg",
+        "https://gocamping.or.kr/upload/camp/101063/2636BwwUMgq0YoDTIPxkuMHn.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/9319dWmU9QmrWEUeB8FfkTBP.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/8844qcPQcWHuZthwhnEmB7E7.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/4514myixZcia5JJeyirhRhA1.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/75147P3kcq5eQYl5bTjSbm3D.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/7787dcrVPGh4sMRaBlnjddxl.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/58102ZgjRUURybDRFDE1M4gl.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/8077LJ4IOy4QQcEtDFVP08fA.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/1896on6DVD1qCTRG6nLcAasR.jpg",
+        "https://gocamping.or.kr/upload/camp/101063/16520q5eGEpdQIVQdYEwoH05.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-1357",
+      "curated": false,
+      "gocampingId": "1357",
+      "name": "병목안캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "안양시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "산"
+      ],
+      "address": "경기도 안양시 만안구 병목안로247번길 37 (안양동)",
+      "lat": 37.3826397393716,
+      "lng": 126.91055078517,
+      "phone": "031-389-5293",
+      "homepage": "www.auc.or.kr",
+      "reservationUrl": "www.auc.or.kr\t\t\t",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 16
+        },
+        {
+          "name": "일반야영",
+          "count": 34
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "물놀이장"
+      ],
+      "description": "병목안캠핑장은 경기도 안양시의 병목안 시민공원 내에 위치한 도심 속 힐링형 캠핑장으로, 도심 접근성이 뛰어나면서도 계곡과 숲이 어우러진 천혜의 자연환경을 갖추고 있습니다. 안양도시공사에서 직접 관리·운영하는 공영 캠핑장으로, 깨끗한 시설과 합리적인 이용 요금으로 많은 시민들에게 사랑받고 있습니다.  캠핑장은 시내와 가까워 교통이 편리하며, 안양 중심가에서 불과 10분 내외 거리로 이동할 수 있습니다. 하지만 도심과 가까움에도 불구하고 주변에는 울창한 숲과 맑은 계곡이 자리해 있어, 마치 산속 깊은 자연 속에 있는 듯한 고요함을 느낄 수 있습니다.  사이트는 파쇄석과 데크 형태로 잘 정돈되어 있어 이용이 편리하며, 캠핑 장비를 설치하기 쉽고 청결하게 관리되고 있습니다. 또한 공공기관이 운영하는 만큼 시설의 위",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/1357/thumb/thumb_720_54445TeBWcVyQ5zPMvAQMmHJ.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/54445TeBWcVyQ5zPMvAQMmHJ.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/08496wcSWwJCGgO1Fx7iim1a.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/1991LEAuJfS8PawsRrRrQAh6.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/0733l7qx90uqZZTthizj1ym0.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/5766vGRhml8dwMrut4bGb6vI.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/5445hDiauujZWrCeO8sVaoti.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/9924Pjv3B37Hn2rE9VprZHf0.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/11778chZC7HknkIztJUzGPtG.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/9764qA49qVu3AjWMRHZSxDLq.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/7556Oqod9SOr7jNKoKs2jJHY.jpg",
+        "https://gocamping.or.kr/upload/camp/1357/7962ESQqRSzRMeHZzAHtfKAE.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-1085",
+      "curated": false,
+      "gocampingId": "1085",
+      "name": "몬테비얀코",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "호수",
+        "반려견"
+      ],
+      "address": "경기도 포천시 이동면 늠바위길 181",
+      "lat": 38.0294047,
+      "lng": 127.3864808,
+      "phone": "010-2102-7993",
+      "homepage": "https://cafe.naver.com/montebianco",
+      "reservationUrl": "https://cafe.naver.com/montebianco\t\t\t",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 40
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "산책로",
+        "운동장",
+        "마트.편의점"
+      ],
+      "description": "한국의 알프스 몬테비얀코\t\t",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/1085/thumb/thumb_720_6898IarKLdJkf293ZHsFRVWD.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/90626jw4Li4df2lKsPDsNPIQ.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/6898IarKLdJkf293ZHsFRVWD.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/314130PhWQNOTw8IY3ztXlMN.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/9312coYKRkifEmqQtcdWKcAW.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/5749SOW5scIZzkWG0u0uR0Ws.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/8237JvE4WJ4POF9w5VShZi3G.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/0903kyEDK7j28YQGztkNuD2j.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/5059HeynT7aGKHeMvbYEze31.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/5909Vh97GdOfzRcAdi8H1zWG.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/7732qqKOguE6s9N3DaIox5EY.jpg",
+        "https://gocamping.or.kr/upload/camp/1085/7812cbf0t10GUJLdAOKAzOH6.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101261",
+      "curated": false,
+      "gocampingId": "101261",
+      "name": "파주 옥돌캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "산"
+      ],
+      "address": "경기 파주시 월롱면 엘지로 438-235",
+      "lat": 37.8276783,
+      "lng": 126.7603775,
+      "phone": "010-2860-4585",
+      "reservationUrl": "네이버\t\t\t",
+      "reservationPlatform": "온라인실시간예약,현장",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 30
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "마트.편의점"
+      ],
+      "description": "경기도 파주에 위치한 옥돌캠핑장은 파주시내와 가까워 접근성이 뛰어난 도심형 캠핑장으로, 가족 단위 캠퍼들이 편리하게 찾을 수 있는 힐링 공간입니다. 도심과 가까우면서도 자연 속 여유를 즐길 수 있어 주말 나들이 장소로 꾸준히 인기를 얻고 있습니다.  캠핑장 사이트는 파쇄석으로 깔끔하게 정비되어 있어 비가 오거나 날씨 변화에도 안정적인 이용이 가능합니다. 넓고 체계적으로 배치된 사이트는 간격이 넉넉해 프라이빗한 캠핑을 즐기기에 좋으며, 차량 이동과 주차도 편리해 초보 캠퍼들도 안심하고 찾을 수 있습니다.  옥돌캠핑장의 가장 큰 장점 중 하나는 아이들을 위한 시설입니다. 캠핑장 내에는 실내 유아 놀이터가 마련되어 있어 날씨에 구애받지 않고 아이들이 안전하게 뛰어놀 수 있으며, 여름철에는 물놀이 시설까지 운영되어",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101261/thumb/thumb_720_74811waTYDKhL0cO7YOpEIP6.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/44755WltJsKgDUUdqyessUeN.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/74811waTYDKhL0cO7YOpEIP6.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/1407vl5bV1UPq6sJExfpbJMc.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/5416fSyvz2aZ2LIDVS4DugBw.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/2289HaFaeQoIZms8TXpzgvWo.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/7276k4mY6pMEaD6A7uJo2kzv.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/5212KmNHSdVv1BZNzx1hUcCa.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/1957E5OdhiYBk713ijC8lKCC.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/7602TCuryheEcDzLb9shnwvQ.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/5819fZHeqGsaWzNVHfABNFud.jpg",
+        "https://gocamping.or.kr/upload/camp/101261/6083UTSo65e5tajd0swT7L6i.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-3262",
+      "curated": false,
+      "gocampingId": "3262",
+      "name": "포시즌스 오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "반려견"
+      ],
+      "address": "경기 포천시 신북면 탑신로 1259-68",
+      "lat": 37.9508415,
+      "lng": 127.1163168,
+      "phone": "031-535-8585",
+      "reservationUrl": "https://naver.me/Fvn7E1Ja",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 70
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "캠핑을 통해 건강한 행복을 느낄 수 있는 곳",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3262/thumb/thumb_720_37738HtYXZ7qeUaXH0LFyU5J.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/37738HtYXZ7qeUaXH0LFyU5J.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/4192gtZjAly7ShsR1ViV3Yue.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/1116lnTt76SYqb829ovz2Pmd.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/5160KCpD0wsszmYnaiQaV6Vg.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/88007OqRk8OFsrl0lNV231Dl.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/8514uOcvRkAFwsSUD9nh46Yp.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/6767xBcNr3glkusm2nupEPGu.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/8686eludi49k4cIUIPalcjot.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/1159sWjG8C6TBKAJzZMnHpVH.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/9429pnfjggA9k8BVdd4UkkAW.jpg",
+        "https://gocamping.or.kr/upload/camp/3262/7272pdLNovHFxJJpwpjoGvze.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100642",
+      "curated": false,
+      "gocampingId": "100642",
+      "name": "주식회사 대부도펜션시티",
+      "aliases": [],
+      "region": "경기",
+      "city": "안산시",
+      "kinds": [
+        "caravan",
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "반려견"
+      ],
+      "address": "경기 안산시 단원구 공마루길 68-97 (대부동동)",
+      "lat": 37.2340931,
+      "lng": 126.5892138,
+      "phone": "1577-0616-",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 60
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100642/thumb/thumb_720_7564kkgOvSiPTpBeH4QGpQ08.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/4763Zblyi4U7V4U9pOzNzlc7.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/7564kkgOvSiPTpBeH4QGpQ08.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/4594CzcDp9OeyTwfWHU7qTCM.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/6057jdHW73c5Qg5c5ZqdNUrg.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/2007WdV5vzlG8bjiTuqVssSf.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/9644mvJ7Z3JbkUZSjMDQGzDQ.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/2775DJhOMR1ZOSgKDVnoi8W0.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/7457wNylCA3QeAGj8giYvHM6.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/0991jZHtED86KQAJymnVS5kZ.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/7987uwWAjfuCwsm9x0Sno91U.jpg",
+        "https://gocamping.or.kr/upload/camp/100642/6013NzHHkTc9WMWyaCfoWR68.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-333",
+      "curated": false,
+      "gocampingId": "333",
+      "name": "광주시민의 숲 야영장",
+      "aliases": [],
+      "region": "경기",
+      "city": "북구",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "호수"
+      ],
+      "address": "전남광주통합특별시 북구 월출동 968번지",
+      "lat": 35.2343999335403,
+      "lng": 126.867213400359,
+      "phone": "062-613-6467",
+      "homepage": "http://greencity.gwangju.go.kr",
+      "reservationUrl": "http://greencity.gwangju.go.kr",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 19
+        },
+        {
+          "name": "일반야영",
+          "count": 38
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "놀이터"
+      ],
+      "description": "도심 속 자연친화적 휴식 공간, 광주시민의숲 야영장!",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/333/thumb/thumb_720_5108pR5b9RxeLAvRZWGRAuSN.jpg",
+        "https://gocamping.or.kr/upload/camp/333/5108pR5b9RxeLAvRZWGRAuSN.jpg",
+        "https://gocamping.or.kr/upload/camp/333/8896iPosFFBHXkKTH1kyvZS8.jpg",
+        "https://gocamping.or.kr/upload/camp/333/497202aTVTv2kQQxXb8Y1ogn.jpg",
+        "https://gocamping.or.kr/upload/camp/333/7822eGH0hx56sNQgnSThXqJJ.jpg",
+        "https://gocamping.or.kr/upload/camp/333/5974rKNGFJIf5aQElDfmgrOA.jpg",
+        "https://gocamping.or.kr/upload/camp/333/79235Gc1HAjZm4Whg6gN6DKT.jpg",
+        "https://gocamping.or.kr/upload/camp/333/9436RdGp0BGD0tWHS3ADhFTx.jpg",
+        "https://gocamping.or.kr/upload/camp/333/0806ndzejuwEheB2VWjDbFcG.jpg",
+        "https://gocamping.or.kr/upload/camp/333/27938Jsjb1iE9obTP1eChzZh.jpg",
+        "https://gocamping.or.kr/upload/camp/333/3128HfVJPTVS9yktBtP5f6A7.jpg",
+        "https://gocamping.or.kr/upload/camp/333/12290OzBLCyELRlCB0lLyOMO.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100939",
+      "curated": false,
+      "gocampingId": "100939",
+      "name": "가평 밤나무숲캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 가평군 북면 화악산로 686-57",
+      "lat": 37.9380748642051,
+      "lng": 127.562638427742,
+      "phone": "010-4330-8834",
+      "reservationUrl": "https://naver.me/xcJf4Oip",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 16
+        },
+        {
+          "name": "카라반",
+          "count": 6
+        },
+        {
+          "name": "일반야영",
+          "count": 40
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "마트.편의점"
+      ],
+      "description": "경기도 가평군 북면에 위치한 풍부한 수량의 화악천 계곡과 30년된 아름들이 밤나무그늘 아래 사이트로 조성되어진 자연 친화적인 캠핑장 입니다.",
+      "photos": [],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101978",
+      "curated": false,
+      "gocampingId": "101978",
+      "name": "스노우피크 에버랜드 캠프필드",
+      "aliases": [],
+      "region": "경기",
+      "city": "용인시",
+      "kinds": [
+        "auto",
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기 용인시 처인구 포곡읍 에버랜드로 392",
+      "lat": 37.3028443441655,
+      "lng": 127.199987913686,
+      "phone": "031-321-1459",
+      "homepage": "https://www.snowpeak.co.kr/campfield",
+      "reservationUrl": "https://www.snowpeak.co.kr/campfield/camps",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 7
+        },
+        {
+          "name": "글램핑",
+          "count": 4
+        },
+        {
+          "name": "카라반",
+          "count": 4
+        },
+        {
+          "name": "일반야영",
+          "count": 42
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "Our Nature Begins Here",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101978/thumb/thumb_720_643576p05fVFF0BVBG1jCxLQ.png",
+        "https://gocamping.or.kr/upload/camp/101978/3988y2ZCgBpdcysSmYfQpoC0.png",
+        "https://gocamping.or.kr/upload/camp/101978/643576p05fVFF0BVBG1jCxLQ.png",
+        "https://gocamping.or.kr/upload/camp/101978/3192pTxhgNx0bT9amO7IircW.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/25568rRMKExTE0Y7YBpWk5oy.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/6116Sz5Dq0DixVUwc1NRuCE6.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/2081l8BVJR8Fm7hlVaKXZGZ6.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/8180DcsmB0eeb9JA1Bkq85xA.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/0181hhGbTiY1BoSBrJeyepTS.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/759078408j93oqFoqgGx7yJq.jpg",
+        "https://gocamping.or.kr/upload/camp/101978/7429C1A3jU8GVPkH7QDw2E13.png",
+        "https://gocamping.or.kr/upload/camp/101978/7989eV8YqjN5IPcQCGbLm9T3.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-7134",
+      "curated": false,
+      "gocampingId": "7134",
+      "name": "두리캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "계양구",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "인천시 계양구 귤현동 28-1",
+      "lat": 37.5705242,
+      "lng": 126.7630615,
+      "phone": "010-3824-0426",
+      "homepage": "http://www.riverguide.go.kr/camp/duri/index.do",
+      "reservationUrl": "http://www.riverguide.go.kr/camp/duri/index.do",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 14
+        },
+        {
+          "name": "일반야영",
+          "count": 39
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "아라뱃길 두리 생태공원내 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7134/thumb/thumb_720_4478E5VDarU01PtaAMWxs4RB.jpg",
+        "https://gocamping.or.kr/upload/camp/7134/9721L7wDAxVpRllSLt714z6p.jpg",
+        "https://gocamping.or.kr/upload/camp/7134/4478E5VDarU01PtaAMWxs4RB.jpg",
+        "https://gocamping.or.kr/upload/camp/7134/2596rZUCg56lHgbgBk5o334K.jpg",
+        "https://gocamping.or.kr/upload/camp/7134/9074gldTwuHw45cecqI5EBUl.jpg",
+        "https://gocamping.or.kr/upload/camp/7134/6164QYv2RFzSDSfSFxl5Z5MJ.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100976",
+      "curated": false,
+      "gocampingId": "100976",
+      "name": "파주 천지연캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "파주시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수",
+        "반려견"
+      ],
+      "address": "경기 파주시 파평면 파평산로 485-155",
+      "lat": 37.9035816,
+      "lng": 126.826736,
+      "phone": "010-4038-0026",
+      "homepage": "https://blog.naver.com/rbdusakstp",
+      "reservationUrl": "https://blog.naver.com/rbdusakstp",
+      "reservationPlatform": "전화",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 9
+        }
+      ],
+      "amenities": [],
+      "description": "파주 임진강옆 두포천을품은 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100976/thumb/thumb_720_9774Tx5fNrzu9WbTjfTXHFqd.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/1968SKNfOmaECs8MFaB0GBAm.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/9774Tx5fNrzu9WbTjfTXHFqd.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/9142B2Qeci3IouB2cjjPDaYL.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/4313lmQrn6uhe8wRjs5QmqHP.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/8522JFOz1gS4Qho1EfMjxrqo.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/5509wE2BK8r13UsDRqdZH7vl.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/26188PWnTOYRp18cw9I2GLn5.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/5529u45S6wcRARP7W3RYtyJu.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/6173fBnUZw18iHTSUXBCStmt.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/58541cCSI5rCbXovCHlCKkDJ.jpg",
+        "https://gocamping.or.kr/upload/camp/100976/7126ynzuMnlUBuK6JkKh5b1N.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-3329",
+      "curated": false,
+      "gocampingId": "3329",
+      "name": "피아골오토캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "구례군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "전남광주통합특별시 구례군 토지면 원기양지길 26 ",
+      "lat": 35.227583,
+      "lng": 127.5894465,
+      "phone": "061-783-5222",
+      "homepage": "http://www.guryecamp.com",
+      "reservationUrl": "http://www.guryecamp.com/pension/reserve_guide.html?pid=24",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 30
+        },
+        {
+          "name": "글램핑",
+          "count": 1
+        },
+        {
+          "name": "카라반",
+          "count": 3
+        },
+        {
+          "name": "일반야영",
+          "count": 14
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설"
+      ],
+      "description": "지리산의 자연으로 가는 길목, 피아골오토캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/3329/thumb/thumb_720_29779hridoagMCe5LJg9ORwb.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/29779hridoagMCe5LJg9ORwb.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/7136RDw7FlQOVmFZsQj6TncZ.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/12422QcpY78jeWOxlwuOoaoB.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/7825cIXWfXstI0nmIR3BsBzz.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/5166LgWE7Q4loXTFxm4LQnVu.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/2459V1PTL6cuGlXsJlBqGBOS.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/7077GogNGZun5xQDRPkVfOdc.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/1815DllLY3EWC9D39VI7Apgn.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/6622agZ59qB47tREv53EUavf.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/3098tJ2KuGD2peuW3f9cpJVd.jpg",
+        "https://gocamping.or.kr/upload/camp/3329/2528hMjo1zswc6ltzVtnZZj5.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100741",
+      "curated": false,
+      "gocampingId": "100741",
+      "name": "가평원더풀카라반&글램핑",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "caravan"
+      ],
+      "tags": [],
+      "address": "경기도 가평군 상면 임초밤안골로 117-27",
+      "lat": 37.7591209,
+      "lng": 127.3725169,
+      "phone": "010-4631-2954",
+      "homepage": "http://wonderfulgc.iwinv.net/wonderfulgc/",
+      "reservationUrl": "http://wonderfulgc.iwinv.net/wonderfulgc/",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 2
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        }
+      ],
+      "amenities": [],
+      "description": "안녕하세요 가평에서 프라이빗한 개별수영장(돔처럼 오픈도 가능합니다)이 있는 원더풀글램핑앤카라반입니다 아이들이 뛰어놀수 있는 안전한 넓은 인조잔디가 있고 공용 야외수영장2개소 운영중입니다. 아이들의 놀수 있는 넓은 놀이터,미니축구를 할수도 있습니다 많이 놀러와주세요",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100741/thumb/thumb_720_1468BTvXgVPTvlnuixJbVD2o.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/41989V44qkkbqRbJCVnPyCTc.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/1468BTvXgVPTvlnuixJbVD2o.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/9043Lud0RMKjC0cH7dmThU4y.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/0856FLaDDoCmuj6ctPEmtgBd.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/4714jqjS6sJWKZlrwxIruBwB.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/19131kqAQt1YwrijQBjpp2bn.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/4999sDI6l95u8kEi7uQUT8Dc.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/4322D8ObLxfGPb4ah7Sdd8tW.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/3767ekktjCNYXP4sd0xeY0HY.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/8948pK9Yg8lccqDL8Xk5JVNT.jpg",
+        "https://gocamping.or.kr/upload/camp/100741/6392N5QlB6jMRKnRFT8r3qO6.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101966",
+      "curated": false,
+      "gocampingId": "101966",
+      "name": "아미힐(ami hill)",
+      "aliases": [],
+      "region": "경기",
+      "city": "연천군",
+      "kinds": [
+        "auto",
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수"
+      ],
+      "address": "경기 연천군 신서면 동내로 943-13",
+      "lat": 38.1276509102042,
+      "lng": 127.134329473062,
+      "phone": "010-9689-2100",
+      "homepage": "https://www.instagram.com/ami_hill__",
+      "reservationUrl": "https://map.naver.com/p/entry/place/2066747227?placePath=/room?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202601131638&locale=ko&svcName=map_pcv5&businessCategory=camping&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202601131638&locale=ko&svcName=map_pcv5&businessCategory=camping&searchType=place&lng=127.1343295&lat=38.1276509&c=15.00,0,0,0,dh",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 44
+        }
+      ],
+      "amenities": [],
+      "description": "물 좋고 공기 좋은 연천 동막계곡에 위치한 캠핑장.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101966/thumb/thumb_720_8609ai4PTyjWDX1DkTEc1jCv.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/8503Lv0oLp989p3k46QwYepY.png",
+        "https://gocamping.or.kr/upload/camp/101966/8609ai4PTyjWDX1DkTEc1jCv.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/5076rH5Unvu6KUjuf7rU9ED1.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/5238v7ODvjJ8wMlk50RtTfLu.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/4356C5JPuK70RAoHKrj3yfIF.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/6322brzRAwPyqKRC9szPT3oZ.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/4117QbRn2AUjPDqSwPSVnowC.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/7131JUD1a3hzvZ8mZVtAFhkR.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/8049ZorbLcVAjuRaahAbgxHP.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/3876EH8mOyq2Zj2sC5EMl7qR.jpg",
+        "https://gocamping.or.kr/upload/camp/101966/1034MNVbMqveCmp6lIQjQPio.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100359",
+      "curated": false,
+      "gocampingId": "100359",
+      "name": "캠핑플레이스 포천점 글램핑&바베큐",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기 포천시 내촌면 내촌로183번길 28-7",
+      "lat": 37.7970616,
+      "lng": 127.2320417,
+      "phone": "031-536-8647",
+      "homepage": "https://m.place.naver.com/accommodation/1974560180/home?businessCategory=camping&entry=plt&subtab=locatio",
+      "reservationUrl": "https://m.place.naver.com/accommodation/1974560180/home?businessCategory=camping&entry=plt&subtab=locatio",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 12
+        }
+      ],
+      "amenities": [],
+      "description": "프라이빗한 개별공간+ 산정상에서 내려보는 드넓은 뷰 + 둘레길 + 주변 호텔과 숙박시설 연계 + 제주에서 공수해오는 바베큐타임",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100359/thumb/thumb_720_3808CFbcSzQAz3PX5U1ISMMy.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/3808CFbcSzQAz3PX5U1ISMMy.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/6738VBSVBGCaPHVxIA2Dkx8b.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/4592XbaQAc7svj0LmFXlBSbA.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/8434DjaGgTHkOWspMiiRH2HC.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/9890WTC8kFHlagOqg0blKZ8V.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/6756NBXrav0Rq1uv4ByVKQpM.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/7603qWKNnCA8lGtO8y30eyex.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/5662gsuBrZTFM6JDrRJqi9Gy.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/9696BoPEfbn0NTvtg1J7FHEH.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/8038exyTRKd4IHJwisqgvTeq.jpg",
+        "https://gocamping.or.kr/upload/camp/100359/2046R82w9NjWBRkY30mZbgfZ.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-7172",
+      "curated": false,
+      "gocampingId": "7172",
+      "name": "씨밀레자연관광농원",
+      "aliases": [],
+      "region": "경기",
+      "city": "용인시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "반려견"
+      ],
+      "address": "경기 용인시 처인구 이동읍 이원로601번길 1-5",
+      "lat": 37.1633605,
+      "lng": 127.2491161,
+      "phone": "010-8354-8645",
+      "homepage": "https://map.naver.com/p/entry/place/1668172134",
+      "reservationUrl": "https://map.naver.com/p/entry/place/1668172134",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 24
+        },
+        {
+          "name": "일반야영",
+          "count": 24
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "유유자적 여유만만 자연친화 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7172/thumb/thumb_720_7697ugCBHfRGDWsteN7CWM3Z.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/1001plCYKmCz5s6iGmafpWFe.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/7697ugCBHfRGDWsteN7CWM3Z.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/8483c06ur1rEP5nVC2lZYT1D.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/5135BA6agDTIOpD91HSenOrz.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/3598CcsNvNjQ6slqjHyCd2LS.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/9561REymy7pa25RdEEOQbI57.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/8159EUO4z4R2zSp5FqL1bkpd.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/9010CLcIcLoa5sQcUT2oFVN3.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/2417sozCfMDKmeJ97zuxCAr4.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/6348BiOjm0nhkjm0CdS7O4va.jpg",
+        "https://gocamping.or.kr/upload/camp/7172/7901SnshcBicIPEyZvowvUCw.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-543",
+      "curated": false,
+      "gocampingId": "543",
+      "name": "나무새 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 포천시 신북면 삼정리 98-3",
+      "lat": 37.9695114,
+      "lng": 127.1505417,
+      "homepage": "네이버카페",
+      "reservationUrl": "네이버카페",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 60
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "침엽수림이 내뿜는 피톤치드 가득한 숲속 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/543/thumb/thumb_720_7183KnxOtKqSCXgKN0bVoOI7.jpg",
+        "https://gocamping.or.kr/upload/camp/543/7183KnxOtKqSCXgKN0bVoOI7.jpg",
+        "https://gocamping.or.kr/upload/camp/543/1705vuTmNcbZfUgqvwW9Udvf.jpg",
+        "https://gocamping.or.kr/upload/camp/543/5535AK2ZEnDIl4gCpIISCJke.jpg",
+        "https://gocamping.or.kr/upload/camp/543/0878ugZ5xjryDr0Md2T4Vhu3.jpg",
+        "https://gocamping.or.kr/upload/camp/543/7171ycv0HtWVWAmeLkoyOmVC.jpg",
+        "https://gocamping.or.kr/upload/camp/543/40865oT3gH3hmgdBcrTaMkx6.jpg",
+        "https://gocamping.or.kr/upload/camp/543/5038ZGh4MHBAMW1qHpXvHCuR.jpg",
+        "https://gocamping.or.kr/upload/camp/543/20035YbjkUhQlCSyNAtKZkN5.jpg",
+        "https://gocamping.or.kr/upload/camp/543/9596klH1sl1AdNl0kEg1t2BV.jpg",
+        "https://gocamping.or.kr/upload/camp/543/6810kyJgDTJ4d1N8w3vO9Rt4.jpg",
+        "https://gocamping.or.kr/upload/camp/543/1155Y6dOzNv8q07Jy0SQ2Cm2.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-7590",
+      "curated": false,
+      "gocampingId": "7590",
+      "name": "백미리 희망캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "화성시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경기 화성시 서신면 백미길 210-22",
+      "lat": 37.1440189274145,
+      "lng": 126.681068548637,
+      "phone": "010-3560-7679",
+      "homepage": "hopecamping.co.kr",
+      "reservationUrl": "hopecamping.co.kr",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 47
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "산책로",
+        "마트.편의점"
+      ],
+      "description": "서해안 끝자락에 위치한 바닷가 앞 백미리희망캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7590/thumb/thumb_720_8246IGXGgtbGkKNxMOCn9kV1.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/1566AaTMJOFaT2QZpeXuHcsj.gif",
+        "https://gocamping.or.kr/upload/camp/7590/8246IGXGgtbGkKNxMOCn9kV1.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/16853esT4J8QUFvQ03KOwhu1.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/6891KIGnoGiyO2jbNnnMqCoc.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/234055c5f05yqll1MOCa5TK2.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/3750rRqSWTQf1jY8YrMMxlxd.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/0040biKYCQKVTQzyie7GpOK9.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/4491jAoxOjbWM3q781N1EeVy.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/2131xfX0GatZpzAYEMTpxixX.gif",
+        "https://gocamping.or.kr/upload/camp/7590/0676TZKTYmfdw29zjSwu2ksa.jpg",
+        "https://gocamping.or.kr/upload/camp/7590/7720aagv4iKhqFtOJk4yxNjs.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-441",
+      "curated": false,
+      "gocampingId": "441",
+      "name": "글램비글램핑",
+      "aliases": [],
+      "region": "경기",
+      "city": "화성시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다"
+      ],
+      "address": "경기도 화성시 만세구 서신면 해안길 64",
+      "lat": 37.1697157812883,
+      "lng": 126.628212306799,
+      "phone": "031-357-7263",
+      "homepage": "www.glambcamp.com",
+      "reservationUrl": "www.glambcamp.com",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 44
+        },
+        {
+          "name": "카라반",
+          "count": 2
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/441/thumb/thumb_720_4090HFB6fDaVh2ftb7Tua5SL.jpg",
+        "https://gocamping.or.kr/upload/camp/441/4090HFB6fDaVh2ftb7Tua5SL.jpg",
+        "https://gocamping.or.kr/upload/camp/441/9394JQdFA17ZoyrvcO0r2JlQ.jpg",
+        "https://gocamping.or.kr/upload/camp/441/8708S3gL2NAAg6eSqm1fzJbm.jpg",
+        "https://gocamping.or.kr/upload/camp/441/4266c7yntu2TIjTBxRX4jjyW.jpg",
+        "https://gocamping.or.kr/upload/camp/441/20857oh4pjcav9zWfWNHqhhz.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-2220",
+      "curated": false,
+      "gocampingId": "2220",
+      "name": "승촌보캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "남구",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "전남광주통합특별시 남구 승촌동 600",
+      "lat": 35.0636086951349,
+      "lng": 126.75649755191,
+      "phone": "061-333-9638",
+      "homepage": "http://www.riverguide.go.kr",
+      "reservationUrl": "http://www.riverguide.go.kr",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 53
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "놀이터",
+        "산책로"
+      ],
+      "description": "영산강을 한눈에! 볼 거리, 즐길 거리 많은 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2220/thumb/thumb_720_0644VTgIPdfNMsVhYMBaaGyH.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/0644VTgIPdfNMsVhYMBaaGyH.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/9783dcpMsVRuyK0MDI2E23NT.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/6943ijt6SQJr5Onx22XWsJCH.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/2165wJcNPkr9ymAxVj2F3ZXa.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/4875sHMKHsdEokIOQhA2cLTk.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/6250hu8OdPRGWuNDqnu5GOmo.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/16815wyZrLoIRHVHJZkVCyyi.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/7845zprAkVPgfCfmEY9FRkgk.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/5095jbcfT1Xk5D9tws6CU8QI.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/9394gM9fld0BKRTkS28Yu52J.jpg",
+        "https://gocamping.or.kr/upload/camp/2220/30582GLcivtXiCQDgeVlMTW7.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-1868",
+      "curated": false,
+      "gocampingId": "1868",
+      "name": "숲속의베리팜",
+      "aliases": [],
+      "region": "경기",
+      "city": "화순군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "전남광주통합특별시 화순군 북면 백아로 25-48",
+      "lat": 35.1799146,
+      "lng": 127.0992454,
+      "phone": "061-372-5955",
+      "homepage": "http://www.munberryfarm.com",
+      "reservationUrl": "http://www.munberryfarm.com",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 10
+        },
+        {
+          "name": "카라반",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 33
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "친환경 무농약 블루베리 농장을 체험해볼 수 있는 숲속의 팜핑",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/1868/thumb/thumb_720_1807DhT92dMuA6o0Rk2v9tJ4.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/1807DhT92dMuA6o0Rk2v9tJ4.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/2890xkexSdy5UJH7scYkG3aQ.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/2710aIDxzQhoUbGrIm2vjquN.png",
+        "https://gocamping.or.kr/upload/camp/1868/9929ilut2yPIJZHWM8mckMli.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/11759Qe87xt3s54ahh6KaxXx.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/1429PjbxvrvHs8Pdx0Ke7zAG.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/0782eKpDMsORicRYz2Tq8px0.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/6981gnQYiv2R0R3YrKuX9DmR.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/0239e4RatkljuBkUepr6lLNJ.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/31391ZpsquuOcUMkVarkdxWm.jpg",
+        "https://gocamping.or.kr/upload/camp/1868/392814bbSRSCYrCfWXfY6nMw.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100270",
+      "curated": false,
+      "gocampingId": "100270",
+      "name": "가평 오블리비아테 수영장 펜션&카라반",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "경기도 가평군 가평읍 당목가일길 410-68",
+      "lat": 37.8661485872164,
+      "lng": 127.55654507108,
+      "phone": "010-5531-6718",
+      "homepage": "http://오블리비아테.com/",
+      "reservationUrl": "야놀자, 여기어때, 네이버 (https://naver.me/FTXDwfNj)",
+      "reservationPlatform": "전화,온라인예약대기,온라인실시간예약,현장",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 4
+        },
+        {
+          "name": "카라반",
+          "count": 5
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "마트.편의점"
+      ],
+      "description": "가족이 함께하기 좋은 오블리비아테",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100270/thumb/thumb_720_3801VibyXnSAciCSSEXui2e0.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/3023uoja3jY2WzCAilrKI3Vm.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/3801VibyXnSAciCSSEXui2e0.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/7475VPvFuIv9YqhYWfdXW3lK.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/125547VBuSYn8qe0THzjHjDo.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/2695gGyzJ4iXPBCYuHClRxiE.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/6710LLELSIeO86Z2HRbqsvEN.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/8685aXyksEVQQlNvatkNEjDU.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/4046loe3L29qQuURMh4fgLqv.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/4233n8HraaRuNlhMd3PMPBqf.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/1502saFnLksjekYH6XYEup0L.jpg",
+        "https://gocamping.or.kr/upload/camp/100270/6978Idrka1otl7ROBYci9jKp.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-7896",
+      "curated": false,
+      "gocampingId": "7896",
+      "name": "천사섬캠핑&글램핑",
+      "aliases": [],
+      "region": "경기",
+      "city": "신안군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "바다",
+        "산",
+        "반려견"
+      ],
+      "address": "전남광주통합특별시 신안군 자은면 한운길 159",
+      "lat": 34.9228141,
+      "lng": 126.0746639,
+      "homepage": "www.1004cam.modoo.at",
+      "reservationUrl": "네이버/ 천사섬캠핑",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 13
+        },
+        {
+          "name": "글램핑",
+          "count": 14
+        },
+        {
+          "name": "카라반",
+          "count": 2
+        },
+        {
+          "name": "일반야영",
+          "count": 20
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "산책로",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7896/thumb/thumb_720_5352buYpClNGErbG7f3d3amr.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/5352buYpClNGErbG7f3d3amr.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/6804xdmTtCSAH20lh7SmrNpd.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/5614hvsAgm150C532AYh0fGy.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/92906G9SPu7ac6361WkcY8Ge.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/8904y5E6pHaUuNNYKJCLFmoL.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/7942tRNdGJ5popnwrpcxx5eJ.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/6677XdGS8DamALPpw0W9GIiu.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/07982fn1yIkGJOCayHBeEc5N.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/8685uqjEUhBqROAPIWt6m4rq.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/9993jWu5En7mA8CUFWebRMX0.jpg",
+        "https://gocamping.or.kr/upload/camp/7896/3613qpTbxHd4gnLNizNwTKUW.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100144",
+      "curated": false,
+      "gocampingId": "100144",
+      "name": "청라캠핑파크",
+      "aliases": [],
+      "region": "경기",
+      "city": "서해구",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "반려견"
+      ],
+      "address": "인천광역시 서해구 첨단서로 190 (청라동)",
+      "lat": 37.5385441797381,
+      "lng": 126.615545321332,
+      "phone": "032-567-4968",
+      "homepage": "https://blog.naver.com/cheongnacamping",
+      "reservationUrl": "https://booking.naver.com/booking/3/bizes/598254",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 38
+        },
+        {
+          "name": "카라반",
+          "count": 14
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "놀이터",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "청라국제도시의 해변공원 내에 위치한 도심 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100144/thumb/thumb_720_57561wuZF0YuXW8QK6AIhg5i.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/57561wuZF0YuXW8QK6AIhg5i.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/61140hsGQ9pCIRhULnYAMGfb.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/91644Q8Zn2lzoeAUU0yNxUYn.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/621863gvUbokcyebFDwOzmZf.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/1293aVF3cCwpfeVbI4P6qvdp.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/7303Kg0debSxZoKG8CVZVzM9.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/4146yJuArEFGkcAbMYfzBpzI.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/1966BkPsHAShN7PsFcq2UY9G.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/1115Ip335ODPh5fuhuBg2QOH.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/0579KiJKrCtwF7Xfi2YQLXHE.jpg",
+        "https://gocamping.or.kr/upload/camp/100144/6246LEHBUW9IBsYqHbIcg3pk.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101156",
+      "curated": false,
+      "gocampingId": "101156",
+      "name": "파랑새 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "장성군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "전남광주통합특별시 장성군 북하면 백양로 447",
+      "lat": 35.4262887,
+      "lng": 126.8472063,
+      "phone": "0507-1403-2556",
+      "homepage": "https://www.instagram.com/bluebird_camping",
+      "reservationUrl": "https://map.naver.com/p/entry/place/1524030930?c=15.00,0,0,0,dh",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 52
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "폐교를 리모델링한 감성적인 캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101156/thumb/thumb_720_7087Q1jDQWc12PcsQzcYLRhL.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/7087Q1jDQWc12PcsQzcYLRhL.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/9708meG0nVEOnmPlTXn8qM1x.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/2615hGsXXRvkvwEEo7RIl41O.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/0037ZcxXTUMkx3E40hgg4ovH.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/104382xHTkvlw5giWHXa8zz1.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/2499Hy8lHJhRL6Pj3mbw4DvY.png",
+        "https://gocamping.or.kr/upload/camp/101156/6542coMteA0mllkqWFe0lxJc.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/08541kkYeJIMnJWFIm8m2Ebh.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/8139SiMnQteb4YP6kyus5AuV.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/3221wmV5Hr1BW4XMEX4EtCE9.jpg",
+        "https://gocamping.or.kr/upload/camp/101156/2403tvEABGCYxQpxMQM2BLQY.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-2094",
+      "curated": false,
+      "gocampingId": "2094",
+      "name": "양평 몽 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "양평군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "호수",
+        "반려견"
+      ],
+      "address": "경기 양평군 청운면 경강로 4882",
+      "lat": 37.5403901015011,
+      "lng": 127.769181901117,
+      "phone": "010-7406-7874",
+      "reservationUrl": "https://www.camfit.co.kr/camp/685e2eca73bdb7001d233a69",
+      "reservationPlatform": "전화,온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 24
+        }
+      ],
+      "amenities": [
+        "트렘폴린",
+        "물놀이장",
+        "운동시설"
+      ],
+      "description": "개울가 옆 캠핑장, 수영장(반려견 pool 별도)과 실내놀이터",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/2094/thumb/thumb_720_1382A6H3fyxwdfLocOHL1OhU.gif",
+        "https://gocamping.or.kr/upload/camp/2094/1382A6H3fyxwdfLocOHL1OhU.gif",
+        "https://gocamping.or.kr/upload/camp/2094/1226SlEFPLpcbyLwYBFN5YkG.gif"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100439",
+      "curated": false,
+      "gocampingId": "100439",
+      "name": "가평자작나무글램핑",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "glamping",
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "반려견"
+      ],
+      "address": "경기 가평군 북면 화악산로 729-17",
+      "lat": 37.9339118,
+      "lng": 127.5567259,
+      "phone": "010-3429-4025",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 10
+        },
+        {
+          "name": "글램핑",
+          "count": 10
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "운동시설"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100439/thumb/thumb_720_74497v9sYE7yeqAOfLO8zClQ.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/81050zP8ucIVmXc3zgK34fIb.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/74497v9sYE7yeqAOfLO8zClQ.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/7571ZKrIgTr5JH9ehwxA73aB.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/1173PuyrDJAodrVTVv88oqrq.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/6407u1sfOUnRtzejzoNUSJOR.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/8701mXHH5X2mFr7xzTVyQzjJ.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/2225lJnAJMafRk8kboMHo4Pb.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/4709iIFWZNevswvvgDWlxx4x.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/756038xM60ZyItNL8Woxh9Zq.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/4558WzNp1BSaCIZues2qxNTF.jpg",
+        "https://gocamping.or.kr/upload/camp/100439/8416KrYalkO9Vm71PMosLADc.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101938",
+      "curated": false,
+      "gocampingId": "101938",
+      "name": "캠프 네버랜드",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산",
+        "호수",
+        "반려견"
+      ],
+      "address": "경기도 가평군 조종면 대보간선로 525-16",
+      "lat": 37.7979335112296,
+      "lng": 127.382067938295,
+      "phone": "010-7319-1678",
+      "homepage": "https://campneverland.com/",
+      "reservationUrl": "https://m.thankqcamping.com/resv/view.hbb?cseq=17644&go_main=Y&path=RP",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 43
+        }
+      ],
+      "amenities": [
+        "전기",
+        "마트.편의점"
+      ],
+      "description": "오직 당신만을 위한 숲속 휴식처",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101938/thumb/thumb_720_490011K6T8PYXDbIOuKRG8IE.jpg",
+        "https://gocamping.or.kr/upload/camp/101938/4853N5rFAvu7i3dABsVpGPQn.png",
+        "https://gocamping.or.kr/upload/camp/101938/490011K6T8PYXDbIOuKRG8IE.jpg",
+        "https://gocamping.or.kr/upload/camp/101938/3641yQdBKMj0qus55NWM1pg1.jpg",
+        "https://gocamping.or.kr/upload/camp/101938/0627KXSnhBYLGZAiOLWc6PC4.jpg",
+        "https://gocamping.or.kr/upload/camp/101938/5504xBY5Z5aSSwZEqNXCxlc0.png",
+        "https://gocamping.or.kr/upload/camp/101938/8191L48cd66mvWXnfSqrv7TT.jpg",
+        "https://gocamping.or.kr/upload/camp/101938/4823uXghN9wTW6K19BhUw21l.jpg",
+        "https://gocamping.or.kr/upload/camp/101938/1246wFWOIOIZGbSsyFVHutfJ.png",
+        "https://gocamping.or.kr/upload/camp/101938/5129JwhDfhAj7bM4Y1vl9SWE.png",
+        "https://gocamping.or.kr/upload/camp/101938/29112i3eiBViSmH9Edv8Pu68.png",
+        "https://gocamping.or.kr/upload/camp/101938/7765CeDJY6aEIdGOeEapPd2R.png"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-101050",
+      "curated": false,
+      "gocampingId": "101050",
+      "name": "우니메이카 포천점",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산"
+      ],
+      "address": "경기 포천시 창수면 포천로2811번길 148",
+      "lat": 37.9939584,
+      "lng": 127.1600998,
+      "homepage": "https://www.instagram.com/woonymaica_pocheon",
+      "reservationUrl": "https://www.instagram.com/woonymaica_pocheon",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 16
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "마트.편의점"
+      ],
+      "description": "상추동저수지 아래 전망좋은 오토캠핑장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/101050/thumb/thumb_720_2566Kx4npfdwygDmW2O3jgSr.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/5531WjGvPv51YQgZKymVIFPK.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/2566Kx4npfdwygDmW2O3jgSr.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/00942rVJVz97JKPzowm8gCqI.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/90165443s9L1ko4c5v1gC01W.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/04918uXOapHv4axsQP5jB7Yu.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/0218aRHKHJCHD7bvol1QPtOL.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/7860y2M789wW9ksSxKZi81cH.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/1724BZw5P1j2WIRZqaVZBBxk.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/43205vICpCcHeOrRyeYu7ID9.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/4890dBIyqnokq2HKMTNaal85.jpg",
+        "https://gocamping.or.kr/upload/camp/101050/8303WqxvrYwdh4AIo5pQ4fre.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100370",
+      "curated": false,
+      "gocampingId": "100370",
+      "name": "포천그린별캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "포천시",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "반려견"
+      ],
+      "address": "경기 포천시 신북면 탑신로 1431",
+      "lat": 37.9566202,
+      "lng": 127.1230004,
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 28
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "물놀이장",
+        "운동시설"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100370/thumb/thumb_720_0325CNmZ6adMro6NmqfqZSEc.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/7160DzNwV7ugpsNewcBDHzkW.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/0325CNmZ6adMro6NmqfqZSEc.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/9627KMHWuEwjLGwsAqEYyuf1.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/2959g1Tg2C3Spj7kTfvytgeo.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/2292hNih7owNmZXxW7FND21t.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/8301EugEOxDqFu1eu1wgLU8o.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/6701IUBtVSG85UEDFyhY86Oq.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/59866fTgAXXTsaRvDyl79NKr.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/5738kAWYKhufOvEQJw2vs5YE.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/2112G0ODIXsVdHwujfGD2oCe.jpg",
+        "https://gocamping.or.kr/upload/camp/100370/72395dAicGWCnyGoqyBQePg5.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-829",
+      "curated": false,
+      "gocampingId": "829",
+      "name": "도림사오토캠핑리조트",
+      "aliases": [],
+      "region": "경기",
+      "city": "곡성군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "전남광주통합특별시 곡성군 곡성읍 도림로 63",
+      "lat": 35.2614705916042,
+      "lng": 127.267902526748,
+      "phone": "061-363-6224",
+      "homepage": "http://dorimsacamping.com/main/",
+      "reservationUrl": "http://dorimsacamping.co.kr",
+      "reservationPlatform": "온라인예약대기,현장",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "카라반",
+          "count": 10
+        },
+        {
+          "name": "일반야영",
+          "count": 40
+        }
+      ],
+      "amenities": [
+        "전기",
+        "온수",
+        "트렘폴린",
+        "놀이터",
+        "산책로",
+        "운동장",
+        "운동시설",
+        "마트.편의점"
+      ],
+      "description": "도림사오토캠핑장에서 자연과 벗 삼아 놀아보자.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/829/thumb/thumb_720_51633LGP4BYdoifPNuanv2pB.jpg",
+        "https://gocamping.or.kr/upload/camp/829/51633LGP4BYdoifPNuanv2pB.jpg",
+        "https://gocamping.or.kr/upload/camp/829/0440sBrmwHnfPc1aA0ZSnizL.jpg",
+        "https://gocamping.or.kr/upload/camp/829/3479l6NW2Ljv4WF0IhG9xb9u.jpg",
+        "https://gocamping.or.kr/upload/camp/829/3059klLOvA5peu6hFSYd1KW8.jpg",
+        "https://gocamping.or.kr/upload/camp/829/8698HiZIzX4xQaDuvBHGsQK6.jpg",
+        "https://gocamping.or.kr/upload/camp/829/7001t0W7VFdz4dc0tobmqSF5.jpg",
+        "https://gocamping.or.kr/upload/camp/829/2579t0VSp9jycskcsF9uK9T6.jpg",
+        "https://gocamping.or.kr/upload/camp/829/8327FvjGMUohaHh3L1SDRa9z.jpg",
+        "https://gocamping.or.kr/upload/camp/829/8164cf3oV9OFbL9Ykntgd0F5.jpg",
+        "https://gocamping.or.kr/upload/camp/829/3684psQ1t3pghf5lY1u2CNBY.jpg",
+        "https://gocamping.or.kr/upload/camp/829/37999DiGGuM3D9RHnn8Lzcyg.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-7228",
+      "curated": false,
+      "gocampingId": "7228",
+      "name": "하느제 캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "보성군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "계곡",
+        "산"
+      ],
+      "address": "전남광주통합특별시 보성군 벌교읍 옥전1길 480",
+      "lat": 34.8436228,
+      "lng": 127.2331278,
+      "phone": "061-857-1544",
+      "homepage": "http://www.순천캠핑장.한국/",
+      "reservationUrl": "http://www.campingzone.co.kr/BOOKING/reserv/reservation_step_01.asp?member_id=campingoak",
+      "reservationPlatform": "고캠핑",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 42
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "존제산 산속에서 깨끗한 물과 함께 캠핑을 즐기자.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7228/thumb/thumb_720_0592dMS9PXveXnBuMIYs7pec.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/0592dMS9PXveXnBuMIYs7pec.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/6824BizuRy6DBIjcHq8JdRpG.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/0398o43fiKGO7Uw6OPuC13Xu.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/1871v4mWrGhWY8oUY2BbhAG0.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/7838jKkeiwayYoT4klVNctjE.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/8929SAp2ZZPsnEjKzm6ewd7X.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/3429hsONfen3CNOB2sTi4f1P.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/24408Xhd7Nu42U9cATRLt4DM.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/8701MhPv81QFFb5auXsMW4X6.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/6898ahbH6kMWwBZM4At9klbg.jpg",
+        "https://gocamping.or.kr/upload/camp/7228/39821V2zyGQD0LfBIhvfpN8X.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-100699",
+      "curated": false,
+      "gocampingId": "100699",
+      "name": "캠플336캠핑장",
+      "aliases": [],
+      "region": "경기",
+      "city": "화순군",
+      "kinds": [
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "전남광주통합특별시 화순군 동복면 연둔리 336",
+      "lat": 35.0419301,
+      "lng": 127.1154886,
+      "phone": "061-803-0336",
+      "homepage": "https://www.cample336.com/",
+      "reservationUrl": "https://www.cample336.com/bbs/board.php?bo_table=yb_room01",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "자동차야영",
+          "count": 14
+        },
+        {
+          "name": "카라반",
+          "count": 36
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/100699/thumb/thumb_720_2032yftonqz7iSjAybc8qaAV.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/2032yftonqz7iSjAybc8qaAV.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/8066qi1D49i3rD43oUn2UzUD.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/4798TrcdqVBAovTMxOFdWeah.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/7139fVIl3x3Uv6RaQq10wsj9.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/9579fk5hGbNkaS79iojTparw.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/7769Ya3PHVsyIP4YmfossQqX.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/2759EYWRINuhu3JgyYIguse6.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/15061HYPAYiLJwQ11WP9Scpm.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/5507hBlp0hj04LTDJaR2QNlp.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/1535e2Z3zqfIOlYE1dEqZKlJ.jpg",
+        "https://gocamping.or.kr/upload/camp/100699/48237W6KJbFigQKkenSOc7it.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-7670",
+      "curated": false,
+      "gocampingId": "7670",
+      "name": "호랑이 캠핑(가평점)",
+      "aliases": [],
+      "region": "경기",
+      "city": "가평군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "호수",
+        "반려견"
+      ],
+      "address": "경기 가평군 설악면 유명로 2204",
+      "lat": 37.7012063636428,
+      "lng": 127.45460914265,
+      "phone": "010-5414-9635",
+      "homepage": "http://tiger-camping2.com/?intro=ok",
+      "reservationUrl": "http://tiger-camping2.com/?intro=ok",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "글램핑",
+          "count": 10
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "운동시설"
+      ],
+      "description": "청평호변에 위치한 레스피아 청평 글램핑 야영장",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/7670/thumb/thumb_720_8420MsTy4zwwHsPhSLlWuAUg.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/8420MsTy4zwwHsPhSLlWuAUg.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/9800iH4CxC11wzypoRNcUksi.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/0878E95G9CaDYWpHOgAm9nua.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/1440UdHRPfhRe3OUzgUZK0sy.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/5749R4vieEJbuWr1IiRH4EPY.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/8014GUhrR2p5sooj4dM9CDcb.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/7121eiE0Ls92n36EID346KjK.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/1578x4AlMyCBWwmg7ldvwQNL.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/2329GLaR1Cm4yhf8Bu5boONZ.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/5623PqsJo899TITtDJ2Suk0g.jpg",
+        "https://gocamping.or.kr/upload/camp/7670/1579pJBYbxDoznf92HwxLllo.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
+    },
+    {
+      "id": "gc-977",
+      "curated": false,
+      "gocampingId": "977",
+      "name": "로하스캠핑",
+      "aliases": [],
+      "region": "경기",
+      "city": "연천군",
+      "kinds": [
+        "tent"
+      ],
+      "tags": [
+        "호수"
+      ],
+      "address": "경기 연천군 중면 군중로 319-46",
+      "lat": 38.1321962,
+      "lng": 127.0256313,
+      "phone": "010-9669-5573",
+      "homepage": "https://cafe.naver.com/lohascamp",
+      "reservationUrl": "https://cafe.naver.com/lohascamp",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 50
+        }
+      ],
+      "amenities": [
+        "전기",
+        "무선인터넷",
+        "장작판매",
+        "온수",
+        "트렘폴린",
+        "물놀이장",
+        "놀이터",
+        "운동시설"
+      ],
+      "description": "",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/977/thumb/thumb_720_4773yxGXG2oZLSy94S92W4Bv.jpg",
+        "https://gocamping.or.kr/upload/camp/977/1182Dqm5bIHifGARydVYttHn.jpg",
+        "https://gocamping.or.kr/upload/camp/977/4773yxGXG2oZLSy94S92W4Bv.jpg",
+        "https://gocamping.or.kr/upload/camp/977/3114rxYP3aPKGGGrDTqwWiDS.jpg",
+        "https://gocamping.or.kr/upload/camp/977/6815tGVIu2WRx4wpkmJnteF7.jpg",
+        "https://gocamping.or.kr/upload/camp/977/0091f9OgJ8iqVN6JrNnDWzIk.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-14"
     }
   ]
 }
