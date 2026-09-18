@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-18",
   "note": "고캠핑 공식 API에서 신규만 붙인 팩입니다. GitHub Actions가 매주 인기 후보를 추가합니다.",
   "camps": [
     {
@@ -5184,6 +5184,89 @@
       "featured": false,
       "source": "gocamping",
       "updatedAt": "2026-09-04"
+    },
+    {
+      "id": "gc-8143",
+      "curated": true,
+      "gocampingId": "8143",
+      "name": "범바위포레스트",
+      "aliases": [
+        "범바위 포레스트",
+        "범바위캠핑정원",
+        "범바위 캠핑정원",
+        "김포범바위",
+        "김포 범바위포레스트",
+        "김포 범바위"
+      ],
+      "region": "경기",
+      "city": "김포시",
+      "kinds": [
+        "tent",
+        "auto",
+        "glamping",
+        "caravan"
+      ],
+      "tags": [
+        "산",
+        "반려견",
+        "물놀이"
+      ],
+      "address": "경기도 김포시 대곶면 종생로 154",
+      "lat": 37.6422062,
+      "lng": 126.5998912,
+      "phone": "010-4406-6556",
+      "reservationUrl": "https://booking.ddnayo.com/booking-calendar-status?accommodationId=1436&groupId=",
+      "reservationPlatform": "온라인실시간예약",
+      "reservationWindows": [
+        {
+          "label": "운영",
+          "rule": "평일+주말 · 입실 14:00 / 퇴실 12:00"
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "일반야영",
+          "count": 46,
+          "priceMin": 40000,
+          "priceMax": 40000,
+          "peakPriceMin": 50000,
+          "peakPriceMax": 50000
+        },
+        {
+          "name": "글램핑·카라반",
+          "priceMin": 120000,
+          "priceMax": 150000,
+          "peakPriceMin": 250000,
+          "peakPriceMax": 270000,
+          "notes": "글램핑·카라반은 별도 요금. 예약 페이지 확인."
+        }
+      ],
+      "amenities": [
+        "전기",
+        "장작판매",
+        "온수",
+        "물놀이장",
+        "산책로",
+        "마트.편의점",
+        "화장실",
+        "샤워장",
+        "개수대"
+      ],
+      "description": "김포 대곶면 범바위포레스트(옛 범바위캠핑정원). 나무·꽃이 있는 독립 사이트와 수영장·매점이 있는 서부 경기 근교 캠핑장입니다.",
+      "photos": [
+        "https://gocamping.or.kr/upload/camp/8143/00970TM5HsBDSs0akmAjvcy9.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/0338ZjC6k9VUF072YIr8dXtH.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/07495usdofKmXbXlW01iifln.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/0843OgOJGmCjDe0N4Os1d44B.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/0873XGQHxM2WZoupfHlmqIGL.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/1143xzXxVWK51Z9kU37RIhQh.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/1427IspvHoIaMLELurCLmBO0.jpg",
+        "https://gocamping.or.kr/upload/camp/8143/15080TEIhLvB7G5ANoY4JHoE.jpg"
+      ],
+      "ratings": {},
+      "featured": false,
+      "source": "gocamping",
+      "updatedAt": "2026-09-18"
     }
   ]
 }
