@@ -2423,7 +2423,7 @@ function registerServiceWorker(): void {
     void (async () => {
       const regs = await navigator.serviceWorker.getRegistrations();
       await Promise.all(regs.map((reg) => reg.unregister()));
-      await navigator.serviceWorker.register("./sw.js?v=3");
+      await navigator.serviceWorker.register("./sw.js?v=4");
     })().catch(() => {});
   });
 }

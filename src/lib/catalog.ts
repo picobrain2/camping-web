@@ -59,15 +59,17 @@ export function mergeCatalog(fileCamps: Camp[], overlay: OverlayDraft[]): Camp[]
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
-  const res = await fetch(url);
+  // 목록 JSON은 Pages/브라우저 캐시에 오래 남으면 신규 캠핑장이 안 보인다.
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`${url} 를 불러오지 못했습니다.`);
   return (await res.json()) as T;
 }
 
 export async function loadFileCatalog(): Promise<CatalogFile> {
   const index = await fetchJson<CatalogIndex>("./data/index.json");
+  const bust = encodeURIComponent(index.updatedAt || "1");
   const files = await Promise.all(
-    index.packs.map((pack) => fetchJson<{ camps?: CampDraft[] }>(`./data/${pack}`))
+    index.packs.map((pack) => fetchJson<{ camps?: CampDraft[] }>(`./data/${pack}?v=${bust}`))
   );
   const byId = new Map<string, Camp>();
   for (const file of files) {
