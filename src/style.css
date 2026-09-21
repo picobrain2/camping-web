@@ -488,12 +488,6 @@ a { color: var(--moss); }
 .filter-list > li {
   min-width: 0;
 }
-/* 모바일(전체 폭)에서는 3열 */
-@media (max-width: 840px) {
-  .filter-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
 .filter-row {
   width: 100%;
   display: flex;

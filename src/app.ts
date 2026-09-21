@@ -454,6 +454,8 @@ function render(): void {
     return;
   }
   const keep = preserveCaret("search-input") ?? preserveCaret("origin-input");
+  const filterScroll = preserveScroll(".filter-panel");
+  const listScroll = preserveScroll(".list-wrap");
   if (isCloudConfigured() && !cloudAuthReady) {
     root.innerHTML = `<div class="boot">로그인 상태를 확인하는 중…</div>`;
     bindOnce();
@@ -472,7 +474,35 @@ function render(): void {
     ${layoutPopup ? renderLayoutModal() : ""}`;
   bindOnce();
   restoreCaret(keep);
+  restoreScroll(".filter-panel", filterScroll);
+  restoreScroll(".list-wrap", listScroll);
   if (!skipDriveSchedule) scheduleDriveRefresh();
+}
+
+function preserveScroll(selector: string): number | null {
+  const el = root.querySelector(selector);
+  return el instanceof HTMLElement ? el.scrollTop : null;
+}
+
+function restoreScroll(selector: string, top: number | null): void {
+  if (top == null) return;
+  const el = root.querySelector(selector);
+  if (el instanceof HTMLElement) el.scrollTop = top;
+}
+
+/** 필터·목록만 갱신 (필터 패널 스크롤 유지) */
+function refreshFiltersAndList(): void {
+  const host = root.querySelector("[data-filter-host]");
+  if (!host) {
+    render();
+    return;
+  }
+  const filterScroll = preserveScroll(".filter-panel");
+  const listScroll = preserveScroll(".list-wrap");
+  host.innerHTML = renderFilterControls();
+  restoreScroll(".filter-panel", filterScroll);
+  refreshSearchList();
+  restoreScroll(".list-wrap", listScroll);
 }
 
 /** 검색창은 유지한 채 결과 목록만 갱신 (한글 입력 깨짐 방지) */
@@ -684,7 +714,7 @@ function renderSearchPane(): string {
             ? `<p class="loc-msg">${esc(locError)}</p>`
             : ""
       }
-      ${renderFilterControls()}
+      <div data-filter-host>${renderFilterControls()}</div>
       <div class="list-wrap">
         ${renderList()}
       </div>
@@ -1925,7 +1955,7 @@ function onClick(e: MouseEvent): void {
       break;
     case "toggle-filters":
       filtersOpen = !filtersOpen;
-      render();
+      refreshFiltersAndList();
       break;
     case "toggle-theme-panel":
       themeOpen = !themeOpen;
@@ -1952,7 +1982,7 @@ function onClick(e: MouseEvent): void {
       regions = [];
       kinds = [];
       tags = [];
-      render();
+      refreshFiltersAndList();
       break;
     case "random-camp":
       pickRandomCamp();
@@ -1963,8 +1993,12 @@ function onClick(e: MouseEvent): void {
       if (group === "region") regions = toggleFilter(regions, value);
       if (group === "kind") kinds = toggleFilter(kinds, value);
       if (group === "tag") tags = toggleFilter(tags, value);
-      if (group === "sort") sort = value === "rating" ? "rating" : value === "distance" ? "distance" : "recommend";
-      render();
+      if (group === "sort") {
+        sort = value === "rating" ? "rating" : value === "distance" ? "distance" : "recommend";
+        refreshFiltersAndList();
+        break;
+      }
+      refreshFiltersAndList();
       break;
     }
     case "pin-location":
