@@ -409,16 +409,16 @@ a { color: var(--moss); }
 .filter-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 16px 8px;
+  gap: 6px;
+  padding: 0 16px 6px;
 }
 .filter-toggle {
   flex: 0 0 auto;
   border: 1px solid var(--line);
   background: var(--surface);
   border-radius: 999px;
-  padding: 8px 14px;
-  min-height: 36px;
+  padding: 6px 12px;
+  min-height: 32px;
   font-size: 13px;
   font-weight: 750;
   color: var(--text);
@@ -439,8 +439,8 @@ a { color: var(--moss); }
 .filter-summary {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  padding: 0 16px 10px;
+  gap: 4px;
+  padding: 0 16px 6px;
 }
 .filter-chip {
   border: 1px solid var(--moss);
@@ -449,24 +449,24 @@ a { color: var(--moss); }
   cursor: pointer;
 }
 .filter-panel {
-  margin: 0 12px 10px;
-  padding: 4px 0 8px;
+  margin: 0 12px 8px;
+  padding: 2px 0 4px;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--surface);
   display: grid;
-  gap: 4px;
+  gap: 0;
   max-height: min(58vh, 520px);
   overflow: auto;
 }
 .filter-group {
-  padding: 10px 12px 6px;
+  padding: 6px 8px 4px;
   border-bottom: 1px solid var(--line);
 }
 .filter-group:last-child { border-bottom: 0; }
 .filter-group h3 {
-  margin: 0 0 6px;
-  font-size: 12px;
+  margin: 0 0 3px;
+  font-size: 11px;
   font-weight: 750;
   color: var(--muted);
   display: flex;
@@ -483,7 +483,7 @@ a { color: var(--moss); }
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px;
+  gap: 1px;
 }
 .filter-list > li {
   min-width: 0;
@@ -492,13 +492,13 @@ a { color: var(--moss); }
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   text-align: left;
   border: 1px solid transparent;
   background: transparent;
-  border-radius: 10px;
-  padding: 8px 6px;
-  min-height: 40px;
+  border-radius: 8px;
+  padding: 4px 5px;
+  min-height: 30px;
   color: var(--text);
   font-weight: 650;
 }
@@ -509,14 +509,14 @@ a { color: var(--moss); }
   color: var(--moss);
 }
 .filter-check {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   flex: none;
   border: 1.5px solid var(--line);
-  border-radius: 4px;
+  border-radius: 3px;
   display: grid;
   place-items: center;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   background: var(--card);
   color: var(--moss);
@@ -530,7 +530,7 @@ a { color: var(--moss); }
   flex: 1;
   min-width: 0;
   font-size: 12px;
-  line-height: 1.25;
+  line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
