@@ -10,6 +10,7 @@ import {
   mergeBundles,
   pullCloudBundle,
   pushCloudBundle,
+  resetCloudAuthBoot,
   signInWithGoogle,
   signOutCloud,
   type CloudUser,
@@ -148,6 +149,8 @@ async function restoreCloudSession(): Promise<void> {
     if (cloudUser) {
       await syncFromCloud(false);
       showLoginGate = false;
+      setGateDismissed(true);
+      cloudNote = cloudNote ?? "구글 계정으로 로그인되었습니다.";
     } else {
       showLoginGate = !isGateDismissed();
     }
@@ -201,13 +204,16 @@ async function connectGoogleSync(fromGate = false): Promise<void> {
       go("lists");
     }
   } catch (error) {
-    cloudBusy = false;
     const message = error instanceof Error ? error.message : "구글 로그인에 실패했습니다.";
     if (message.includes("이동합니다")) {
+      // redirect 진행 중 — 게이트에 안내만 남기고 busy 유지에 가깝게
       cloudNote = message;
-    } else {
-      accountError = message;
+      cloudBusy = false;
+      render();
+      return;
     }
+    cloudBusy = false;
+    accountError = message;
     render();
   }
 }
@@ -218,6 +224,7 @@ async function disconnectGoogleSync(): Promise<void> {
   try {
     await flushCloudPush();
     await signOutCloud();
+    resetCloudAuthBoot();
     cloudUser = null;
     cloudNote = "구글 동기화를 껐습니다. 이 기기 목록은 그대로 남아 있습니다.";
     showLoginGate = true;

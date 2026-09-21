@@ -32,7 +32,8 @@ GitHub Actions `Weekly camp sync` (매주 월 00:00 UTC):
 
 ## Authentication
 - Sign-in method → Google 사용
-- Authorized domains에 `camping-kr.web.app` 포함 확인
+- Authorized domains에 `camping-kr.web.app` 포함 필수
+  (없으면 로그인 직후 튕김)
 
 ## GitHub Secrets (선택 · Pages/CI용)
 `VITE_FIREBASE_*` 6개를 `camping-cf64d` 웹 앱 값으로 맞춥니다.

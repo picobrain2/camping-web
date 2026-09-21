@@ -161,9 +161,10 @@ export async function bootCloudAuth(): Promise<CloudUser | null> {
       const { auth } = ensureFirebase();
       await setPersistence(auth, browserLocalPersistence);
       try {
-        await getRedirectResult(auth);
-      } catch {
-        // redirect 결과가 없거나 취소된 경우
+        const redirected = await getRedirectResult(auth);
+        if (redirected?.user) return toCloudUser(redirected.user);
+      } catch (error) {
+        console.warn("Google redirect 로그인 결과 처리 실패:", error);
       }
       return await new Promise<CloudUser | null>((resolve) => {
         const unsub = onAuthStateChanged(auth, (user) => {
@@ -176,9 +177,24 @@ export async function bootCloudAuth(): Promise<CloudUser | null> {
   return bootPromise;
 }
 
+/** 다음 로그인부터 새 세션을 받도록 부트 캐시를 비운다 */
+export function resetCloudAuthBoot(): void {
+  bootPromise = null;
+}
+
 export function getCloudUser(): CloudUser | null {
   if (!auth) return null;
   return toCloudUser(auth.currentUser);
+}
+
+function prefersRedirectSignIn(): boolean {
+  if (typeof window === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+  // 커스텀 호스팅(camping-kr) ↔ authDomain(firebaseapp.com) 팝업은 3P 쿠키에 자주 막힌다
+  const crossAuthHost =
+    !location.hostname.endsWith(".firebaseapp.com") && location.hostname !== "localhost";
+  return mobile || crossAuthHost;
 }
 
 export async function signInWithGoogle(): Promise<CloudUser> {
@@ -186,21 +202,33 @@ export async function signInWithGoogle(): Promise<CloudUser> {
   await setPersistence(auth, browserLocalPersistence);
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
+
+  if (prefersRedirectSignIn()) {
+    await signInWithRedirect(auth, provider);
+    throw new Error("구글 로그인 화면으로 이동합니다…");
+  }
+
   try {
     const result = await signInWithPopup(auth, provider);
     return toCloudUser(result.user)!;
   } catch (error) {
     const code = typeof error === "object" && error && "code" in error ? String((error as { code: string }).code) : "";
-    // 모바일/인앱 브라우저는 팝업이 막히는 경우가 많아 redirect로 재시도
     if (
       code.includes("popup") ||
       code.includes("cancelled-popup-request") ||
-      code.includes("operation-not-supported")
+      code.includes("operation-not-supported") ||
+      code.includes("unauthorized-domain")
     ) {
       await signInWithRedirect(auth, provider);
       throw new Error("구글 로그인 화면으로 이동합니다…");
     }
-    throw error instanceof Error ? error : new Error("구글 로그인에 실패했습니다.");
+    const message =
+      code.includes("unauthorized-domain")
+        ? "이 도메인이 Firebase 로그인 허용 목록에 없습니다."
+        : error instanceof Error
+          ? error.message
+          : "구글 로그인에 실패했습니다.";
+    throw new Error(message);
   }
 }
 
