@@ -42,6 +42,9 @@ import {
   saveReviews,
   isGateDismissed,
   setGateDismissed,
+  loadTheme,
+  saveTheme,
+  type ThemeId,
 } from "./lib/storage";
 import {
   Camp,
@@ -94,6 +97,8 @@ let diaryDraftCampId: string | null = null;
 let diaryCampTimer = 0;
 let filtersOpen = false;
 let originOpen = false;
+let theme: ThemeId = loadTheme();
+let themeOpen = false;
 let searchTimer = 0;
 let imeComposing = false;
 let layoutPopup: { title: string; url: string; image?: string } | null = null;
@@ -108,7 +113,19 @@ let driveSeq = 0;
 
 let root: HTMLElement;
 
+const THEME_LABEL: Record<ThemeId, string> = {
+  outdoor: "기본",
+  clean: "미니멀",
+  dark: "다크",
+  vivid: "비비드",
+};
+
+function applyTheme(): void {
+  document.documentElement.dataset.theme = theme;
+}
+
 export async function boot(): Promise<void> {
+  applyTheme();
   root = document.getElementById("app")!;
   root.innerHTML = `<div class="boot">캠핑장 DB를 불러오는 중…</div>`;
   bindCloudSync({
@@ -610,10 +627,26 @@ function renderSearchPane(): string {
               : ""
           }
           <button type="button" class="btn-ghost btn-sm" data-action="open-lists">${account && !cloudUser ? esc(account.name) : "내 목록"}${favorites.length || hidden.length || diary.length ? ` · ${favorites.length + hidden.length + diary.length}` : ""}</button>
+          <button type="button" class="btn-ghost btn-sm ${themeOpen ? "active" : ""}" data-action="toggle-theme-panel" aria-expanded="${themeOpen ? "true" : "false"}">테마</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-add">추가</button>
           <button type="button" class="btn-ghost btn-sm" data-action="open-data">데이터</button>
         </div>
       </header>
+      ${
+        themeOpen
+          ? `<div class="theme-panel">
+              <h3>테마 고르기</h3>
+              <div class="theme-grid">
+                ${(Object.keys(THEME_LABEL) as ThemeId[])
+                  .map(
+                    (id) =>
+                      `<button type="button" class="theme-swatch ${theme === id ? "active" : ""}" data-action="set-theme" data-theme="${id}" data-theme-preview="${id}"><i></i>${esc(THEME_LABEL[id])}</button>`
+                  )
+                  .join("")}
+              </div>
+            </div>`
+          : ""
+      }
       <div class="search-box">
         <input id="search-input" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" placeholder="캠핑장 · 지역 · 위생 · 전기" value="${esc(query)}" />
       </div>
@@ -1854,6 +1887,21 @@ function onClick(e: MouseEvent): void {
       filtersOpen = !filtersOpen;
       render();
       break;
+    case "toggle-theme-panel":
+      themeOpen = !themeOpen;
+      render();
+      break;
+    case "set-theme": {
+      const next = el.dataset.theme as ThemeId | undefined;
+      if (next && next in THEME_LABEL) {
+        theme = next;
+        saveTheme(theme);
+        applyTheme();
+      }
+      themeOpen = false;
+      render();
+      break;
+    }
     case "toggle-origin":
       originOpen = !originOpen;
       if (originOpen) locError = null;

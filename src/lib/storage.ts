@@ -10,6 +10,7 @@ const KEYS = {
   accounts: "eodicamp.accounts.v1",
   session: "eodicamp.session.v1",
   gateDismissed: "eodicamp.gate.dismissed.v1",
+  theme: "eodicamp.theme.v1",
 } as const;
 
 function safeGet<T>(key: string, fallback: T): T {
@@ -245,6 +246,18 @@ export function saveOverlay(camps: OverlayDraft[]): void {
 
 export function loadRecent(): string[] {
   return safeGet<string[]>(KEYS.recent, []);
+}
+
+export type ThemeId = "outdoor" | "clean" | "dark" | "vivid";
+const THEME_IDS: ThemeId[] = ["outdoor", "clean", "dark", "vivid"];
+
+export function loadTheme(): ThemeId {
+  const value = safeGet<ThemeId>(KEYS.theme, "outdoor");
+  return THEME_IDS.includes(value) ? value : "outdoor";
+}
+
+export function saveTheme(theme: ThemeId): void {
+  safeSet(KEYS.theme, theme);
 }
 
 export function rememberQuery(query: string): string[] {
