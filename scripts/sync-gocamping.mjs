@@ -1,12 +1,14 @@
 /**
- * 고캠핑(한국관광공사) 공식 API로 캠핑장을 가져옵니다.
+ * 고캠핑(한국관광공사) 공식 API로 캠핑장을 맞춥니다.
  * 캠핏·네이버·캠프픽은 호출하지 않습니다.
  *
- *   GOCAMPING_KEY=키 npm run sync          # 주간: 점수 높은 신규만 (기본 40곳)
- *   GOCAMPING_KEY=키 npm run sync:all      # 신규를 한도까지 (기본 200)
- *   GOCAMPING_KEY=키 npm run sync:full     # 고캠핑 전체 신규를 한 번에 (이미지 상세 생략)
+ *   GOCAMPING_KEY=키 npm run sync          # 주간: 전체 정합(수정·폐업) + 인기 신규 한도
+ *   GOCAMPING_KEY=키 npm run sync:all      # 신규 한도 확대
+ *   GOCAMPING_KEY=키 npm run sync:full     # 고캠핑 전체 업서트 1회 (상세 사진 생략)
  *
- * 공공데이터포털 "한국관광공사_고캠핑 정보 조회서비스" 일반 인증키를 쓰세요.
+ * - 신규: 팩에 없는 contentId 추가
+ * - 수정: 주소·전화·사진·소개 등 API 변경 반영 (curated 요금·예약규칙은 유지)
+ * - 폐업: basedList에 없으면 closed 표시 → 업로드 시 Firestore에서 삭제
  */
 
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
@@ -232,21 +234,70 @@ function loadCatalog() {
   return { index, ids, gcIds, names };
 }
 
-function isNew(camp, catalog) {
+function isNewAgainstCatalog(camp, catalog, packGcIds) {
   if (!camp.name) return false;
+  // 같은 고캠핑 id는 팩 안에서 업서트하므로 신규로 보지 않음
+  if (packGcIds.has(camp.gocampingId)) return false;
   if (catalog.ids.has(camp.id) || catalog.gcIds.has(camp.gocampingId)) return false;
   if (catalog.names.has(compactName(camp.name))) return false;
   return true;
 }
 
-function writePack(existingCamps, added) {
-  const camps = [...existingCamps, ...added];
+function mergeCamp(existing, incoming) {
+  if (!existing) {
+    return { ...incoming, closed: false, closedAt: undefined };
+  }
+  if (existing.curated) {
+    return {
+      ...incoming,
+      id: existing.id,
+      curated: true,
+      aliases: [...new Set([...(existing.aliases ?? []), ...(incoming.aliases ?? [])])],
+      reservationWindows:
+        existing.reservationWindows?.length > 0 ? existing.reservationWindows : incoming.reservationWindows,
+      siteTypes:
+        existing.siteTypes?.some((s) => s.priceMin != null || s.priceMax != null) ? existing.siteTypes : incoming.siteTypes,
+      description:
+        (existing.description?.length ?? 0) > (incoming.description?.length ?? 0)
+          ? existing.description
+          : incoming.description,
+      photos: incoming.photos?.length ? incoming.photos : existing.photos ?? [],
+      homepage: existing.homepage || incoming.homepage,
+      reservationUrl: existing.reservationUrl || incoming.reservationUrl,
+      reservationPlatform: existing.reservationPlatform || incoming.reservationPlatform,
+      phone: incoming.phone || existing.phone,
+      featured: Boolean(existing.featured || incoming.featured),
+      ratings: Object.keys(existing.ratings ?? {}).length ? existing.ratings : incoming.ratings,
+      camfitUrl: existing.camfitUrl,
+      campingtalkUrl: existing.campingtalkUrl,
+      mannersTime: existing.mannersTime,
+      quotes: existing.quotes,
+      layoutImage: existing.layoutImage,
+      layoutUrl: existing.layoutUrl,
+      closed: false,
+      closedAt: undefined,
+      source: existing.source || incoming.source,
+      updatedAt: incoming.updatedAt,
+    };
+  }
+  return {
+    ...existing,
+    ...incoming,
+    aliases: [...new Set([...(existing.aliases ?? []), ...(incoming.aliases ?? [])])],
+    photos: incoming.photos?.length ? incoming.photos : existing.photos ?? [],
+    closed: false,
+    closedAt: undefined,
+    updatedAt: incoming.updatedAt,
+  };
+}
+
+function writePack(camps) {
   writeFileSync(
     OUT_FILE,
     `${JSON.stringify(
       {
         updatedAt: new Date().toISOString().slice(0, 10),
-        note: "고캠핑 공식 API에서 신규만 붙인 팩입니다. GitHub Actions가 매주 인기 후보를 추가합니다.",
+        note: "고캠핑 basedList 업서트 팩. 신규·수정 반영, API에서 사라진 곳은 closed 표시. curated 요금·예약규칙은 유지.",
         camps,
       },
       null,
@@ -261,25 +312,48 @@ function writePack(existingCamps, added) {
   writeFileSync(INDEX_FILE, `${JSON.stringify(index, null, 2)}\n`);
 }
 
-function summarize(added) {
-  const label = MODE === "full" ? "전체" : MODE === "all" ? "확장" : "주간";
+function summarize({ added, updated, closed, reopened }) {
+  const label = MODE === "full" ? "전체 정합" : MODE === "all" ? "확장" : "주간 정합";
   const lines = [
-    `## 고캠핑 ${label} 동기화`,
+    `## 고캠핑 ${label}`,
     "",
-    `- 추가 ${added.length}곳 (한도 ${LIMIT})`,
-    `- 우선 권역: ${PREFER_REGION}`,
-    `- 상세 사진: ${FETCH_IMAGES ? "imageList" : "basedList firstImage만"}`,
+    `- 신규 ${added.length}곳`,
+    `- 수정 ${updated.length}곳`,
+    `- 폐업/목록제외 ${closed.length}곳`,
+    `- 재오픈 ${reopened.length}곳`,
+    `- 상세 사진: ${FETCH_IMAGES ? "imageList(신규)" : "basedList firstImage만"}`,
     "",
-    ...added.slice(0, 40).map((c) => `- ${c.name} (${c.region} ${c.city})`),
-    ...(added.length > 40 ? [`- … 외 ${added.length - 40}곳`] : []),
+    ...added.slice(0, 20).map((c) => `- + ${c.name} (${c.region} ${c.city})`),
+    ...closed.slice(0, 20).map((c) => `- × ${c.name} (${c.region} ${c.city})`),
   ];
   const md = `${lines.join("\n")}\n`;
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
   console.log(md);
 }
 
+function campFingerprint(camp) {
+  return JSON.stringify({
+    name: camp.name,
+    city: camp.city,
+    address: camp.address,
+    phone: camp.phone ?? "",
+    homepage: camp.homepage ?? "",
+    reservationUrl: camp.reservationUrl ?? "",
+    lat: camp.lat ?? null,
+    lng: camp.lng ?? null,
+    kinds: camp.kinds,
+    tags: camp.tags,
+    amenities: camp.amenities,
+    description: camp.description,
+    photos: camp.photos?.[0] ?? "",
+    closed: Boolean(camp.closed),
+  });
+}
+
 const catalog = loadCatalog();
 const existingOut = existsSync(OUT_FILE) ? JSON.parse(readFileSync(OUT_FILE, "utf8")).camps ?? [] : [];
+const byGcId = new Map(existingOut.filter((c) => c.gocampingId).map((c) => [String(c.gocampingId), c]));
+const packGcIds = new Set(byGcId.keys());
 
 const boostedIds = new Set();
 if (MODE !== "full") {
@@ -294,7 +368,7 @@ if (MODE !== "full") {
     }
   }
 } else {
-  console.log("full 모드: 키워드 부스트 생략, basedList 전체 스캔");
+  console.log("full 모드: 키워드 부스트 생략, basedList 전체 스캔 + 업서트/폐업");
 }
 
 const seen = new Map();
@@ -307,44 +381,97 @@ while (true) {
   for (const item of items) {
     const camp = toCamp(item);
     camp._score = popularity(item, camp, boostedIds);
-    if (!seen.has(camp.gocampingId)) seen.set(camp.gocampingId, { item, camp });
+    if (!seen.has(camp.gocampingId)) seen.set(camp.gocampingId, camp);
   }
   console.log(`basedList page ${page} (${seen.size}/${total})`);
   if (page * 100 >= total) break;
   page += 1;
-  await sleep(MODE === "full" ? 80 : 120);
+  await sleep(MODE === "full" ? 80 : 100);
 }
 
-const ranked = [...seen.values()]
-  .map(({ camp }) => camp)
-  .filter((camp) => isNew(camp, catalog))
-  .sort((a, b) => {
-    if (MODE === "full") {
-      return String(a.gocampingId).localeCompare(String(b.gocampingId), "en", { numeric: true });
-    }
-    if (PREFER_REGION !== "all") {
-      const ar = Number(a.region === PREFER_REGION);
-      const br = Number(b.region === PREFER_REGION);
-      if (ar !== br) return br - ar;
-    }
-    return (b._score ?? 0) - (a._score ?? 0);
-  });
+const added = [];
+const updated = [];
+const reopened = [];
+const mergedById = new Map(existingOut.map((c) => [c.id, { ...c }]));
 
-const added = ranked.slice(0, LIMIT).map(({ _score, ...camp }) => camp);
-console.log(`신규 후보 ${ranked.length}곳 중 ${added.length}곳 반영 (이미지 ${FETCH_IMAGES ? "on" : "off"})`);
+// 고캠핑에 있는 것 → 업서트 (이름만 다른 팩에 있으면 스킵해 중복 방지)
+let skippedNamed = 0;
+for (const incoming of seen.values()) {
+  const existing = byGcId.get(incoming.gocampingId);
+  if (!existing && !isNewAgainstCatalog(incoming, catalog, packGcIds)) {
+    // 다른 팩에 같은 이름/id가 있으면 gocamping 팩에 중복 생성하지 않음
+    skippedNamed += 1;
+    continue;
+  }
+  if (!existing && MODE !== "full" && MODE !== "all") {
+    // weekly: 신규는 점수순 한도 — 일단 후보로 모은 뒤 아래에서 자름
+  }
+  const before = existing ? campFingerprint(existing) : null;
+  const next = mergeCamp(existing, incoming);
+  delete next._score;
+  if (!existing) {
+    added.push(next);
+  } else {
+    if (existing.closed) reopened.push(next);
+    if (before !== campFingerprint(next)) updated.push(next);
+  }
+  mergedById.set(next.id, next);
+}
+
+// weekly 신규 한도 (full/all은 전부)
+let newCamps = added;
+if (MODE === "weekly") {
+  newCamps = [...added]
+    .sort((a, b) => {
+      if (PREFER_REGION !== "all") {
+        const ar = Number(a.region === PREFER_REGION);
+        const br = Number(b.region === PREFER_REGION);
+        if (ar !== br) return br - ar;
+      }
+      const sa = seen.get(a.gocampingId)?._score ?? 0;
+      const sb = seen.get(b.gocampingId)?._score ?? 0;
+      return sb - sa;
+    })
+    .slice(0, LIMIT);
+  const keepNew = new Set(newCamps.map((c) => c.id));
+  for (const camp of added) {
+    if (!keepNew.has(camp.id)) mergedById.delete(camp.id);
+  }
+}
 
 if (FETCH_IMAGES) {
-  for (const camp of added) {
+  for (const camp of newCamps) {
     try {
       const { items } = await getJson("imageList", { contentId: camp.gocampingId, numOfRows: "20" });
       const urls = items.map((item) => item.imageUrl).filter(Boolean);
       camp.photos = [...new Set([...(camp.photos ?? []), ...urls])].slice(0, 12);
+      mergedById.set(camp.id, camp);
     } catch (error) {
       console.warn(`imageList ${camp.name}:`, error instanceof Error ? error.message : error);
     }
     await sleep(120);
   }
 }
-writePack(existingOut, added);
-summarize(added);
-console.log(`끝. packs/gocamping.json 에 ${added.length}곳 추가.`);
+
+// API에 없는 기존 고캠핑 문서 → 폐업/제외
+const closed = [];
+const today = new Date().toISOString().slice(0, 10);
+for (const [gcId, camp] of byGcId) {
+  if (seen.has(gcId)) continue;
+  if (camp.closed) {
+    mergedById.set(camp.id, camp);
+    continue;
+  }
+  const marked = { ...camp, closed: true, closedAt: today, updatedAt: today };
+  closed.push(marked);
+  mergedById.set(camp.id, marked);
+}
+
+const camps = [...mergedById.values()].sort((a, b) =>
+  String(a.gocampingId || a.id).localeCompare(String(b.gocampingId || b.id), "en", { numeric: true })
+);
+writePack(camps);
+summarize({ added: newCamps, updated, closed, reopened });
+console.log(
+  `끝. gocamping.json ${camps.length}곳 (신규 ${newCamps.length}, 수정 ${updated.length}, 폐업 ${closed.length}, 이름중복스킵 ${skippedNamed})`
+);

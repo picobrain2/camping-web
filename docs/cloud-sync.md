@@ -26,7 +26,7 @@ GitHub Actions `Weekly camp sync` (매주 월 00:00 UTC):
 3. JSON 변경 PR 생성 (시드 백업)
 
 최초 1회 전체 적재: Actions → Run workflow → mode=`full`  
-(약 4천 곳, basedList 대표 사진만 · 상세 imageList는 생략)
+(고캠핑 전체 업서트 · 수정 반영 · API 제외분은 폐업 처리 · Firestore 삭제)
 
 필요한 Secrets:
 

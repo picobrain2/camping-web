@@ -83,6 +83,9 @@ export interface Camp {
   featured?: boolean;
   source: CampSource;
   updatedAt: string;
+  /** 고캠핑 목록에서 사라지면 true */
+  closed?: boolean;
+  closedAt?: string;
   layout?: CampLayout;
 }
 

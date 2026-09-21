@@ -406,10 +406,10 @@ function hideCamp(id: string): void {
   saveHidden(hidden);
 }
 
-/** 숨긴 캠핑장을 뺀 목록 (검색·홈·거리 계산용) */
+/** 숨긴 캠핑장·폐업(고캠핑 제외)을 뺀 목록 (검색·홈·거리 계산용) */
 function browsable(): Camp[] {
   const blocked = hiddenIdSet();
-  return camps.filter((camp) => !blocked.has(camp.id));
+  return camps.filter((camp) => !blocked.has(camp.id) && !camp.closed);
 }
 
 function visible(): Camp[] {

@@ -60,13 +60,30 @@ async function initAdmin() {
     return getFirestore();
   }
 
-  const { getGlobalDefaultAccount, setRefreshToken } = require("firebase-tools/lib/auth.js");
-  const { getCredentialPathAsync } = require("firebase-tools/lib/defaultCredentials.js");
-
-  if (process.env.FIREBASE_TOKEN?.trim()) {
-    setRefreshToken(process.env.FIREBASE_TOKEN.trim());
+  const token = process.env.FIREBASE_TOKEN?.trim();
+  if (token) {
+    const { writeFileSync, mkdtempSync } = await import("node:fs");
+    const { tmpdir } = await import("node:os");
+    const { join } = await import("node:path");
+    const api = require("firebase-tools/lib/api.js");
+    const dir = mkdtempSync(join(tmpdir(), "fb-adc-"));
+    const credPath = join(dir, "adc.json");
+    writeFileSync(
+      credPath,
+      JSON.stringify({
+        type: "authorized_user",
+        client_id: api.clientId(),
+        client_secret: api.clientSecret(),
+        refresh_token: token,
+      })
+    );
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = credPath;
+    initializeApp({ credential: applicationDefault(), projectId: PROJECT });
+    return getFirestore();
   }
 
+  const { getGlobalDefaultAccount } = require("firebase-tools/lib/auth.js");
+  const { getCredentialPathAsync } = require("firebase-tools/lib/defaultCredentials.js");
   const account = getGlobalDefaultAccount();
   if (!account?.tokens?.refresh_token) {
     throw new Error(
@@ -84,31 +101,43 @@ async function initAdmin() {
 async function main() {
   const db = await initAdmin();
   const { updatedAt, note, camps } = loadCamps();
-  console.log(`project=${PROJECT} camps=${camps.length}`);
 
   const CHUNK = 400;
-  for (let i = 0; i < camps.length; i += CHUNK) {
-    const slice = camps.slice(i, i + CHUNK);
+  const openCamps = camps.filter((c) => !c.closed);
+  const closedIds = camps.filter((c) => c.closed).map((c) => c.id);
+  console.log(`project=${PROJECT} open=${openCamps.length} closed=${closedIds.length}`);
+
+  for (let i = 0; i < openCamps.length; i += CHUNK) {
+    const slice = openCamps.slice(i, i + CHUNK);
     const batch = db.batch();
     for (const camp of slice) {
       batch.set(db.collection("camps").doc(camp.id), camp, { merge: true });
     }
     await batch.commit();
-    console.log(`uploaded ${Math.min(i + slice.length, camps.length)}/${camps.length}`);
+    console.log(`uploaded ${Math.min(i + slice.length, openCamps.length)}/${openCamps.length}`);
+  }
+
+  for (let i = 0; i < closedIds.length; i += CHUNK) {
+    const slice = closedIds.slice(i, i + CHUNK);
+    const batch = db.batch();
+    for (const id of slice) batch.delete(db.collection("camps").doc(id));
+    await batch.commit();
+    console.log(`deleted closed ${Math.min(i + slice.length, closedIds.length)}/${closedIds.length}`);
   }
 
   await db.collection("catalog").doc("meta").set(
     {
       updatedAt,
       note,
-      count: camps.length,
+      count: openCamps.length,
+      closedCount: closedIds.length,
       source: "json-packs",
       uploadedAt: new Date().toISOString(),
     },
     { merge: true }
   );
 
-  console.log(`done: ${camps.length} camps → Firestore`);
+  console.log(`done: ${openCamps.length} open camps → Firestore (closed removed ${closedIds.length})`);
   process.exit(0);
 }
 
