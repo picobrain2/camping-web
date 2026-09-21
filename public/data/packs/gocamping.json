@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18",
+  "updatedAt": "2026-09-21",
   "note": "고캠핑 공식 API에서 신규만 붙인 팩입니다. GitHub Actions가 매주 인기 후보를 추가합니다.",
   "camps": [
     {
@@ -5267,6 +5267,61 @@
       "featured": false,
       "source": "gocamping",
       "updatedAt": "2026-09-18"
+    },
+    {
+      "id": "gc-102338",
+      "curated": true,
+      "gocampingId": "102338",
+      "name": "달밭리트릿",
+      "aliases": [
+        "달밭 리트릿",
+        "달밭 리트리트",
+        "평창달밭리트릿",
+        "dalbot retreat",
+        "dalbotretreat"
+      ],
+      "region": "강원",
+      "city": "평창군",
+      "kinds": [
+        "tent",
+        "auto"
+      ],
+      "tags": [
+        "산",
+        "반려견"
+      ],
+      "address": "강원특별자치도 평창군 용평면 월풍포길 137",
+      "lat": 37.5730938076867,
+      "lng": 128.415388957668,
+      "homepage": "https://www.instagram.com/dalbot_retreat_official/",
+      "reservationUrl": "https://www.instagram.com/dalbot_retreat_official/",
+      "reservationPlatform": "인스타그램 DM",
+      "reservationWindows": [
+        {
+          "label": "프리오픈·오픈",
+          "rule": "공식 인스타 @dalbot_retreat_official DM으로 예약. 정책은 공지 확인."
+        }
+      ],
+      "siteTypes": [
+        {
+          "name": "Wild Camp",
+          "count": 26,
+          "notes": "웨스트·사우스·이스트·노스 등. 캠핑카·트레일러 불가 안내."
+        }
+      ],
+      "amenities": [
+        "샤워장",
+        "스파",
+        "사우나",
+        "매점",
+        "전기"
+      ],
+      "description": "평창 용평 달밭리트릿. 2026년 프리오픈한 숲속 리트릿으로 Wild Camp·Wild Stay·Wild Garden을 함께 운영합니다. 고캠핑 등록명 달밭 리트릿.",
+      "photos": [],
+      "ratings": {},
+      "featured": true,
+      "source": "gocamping",
+      "updatedAt": "2026-09-21"
     }
   ]
 }

@@ -66,7 +66,7 @@ const REGION_FROM_DO = {
   제주특별자치도: "제주",
 };
 
-const SEARCH_KEYWORDS = ["가평", "포천", "양평", "연천", "파주", "김포", "여주", "용인", "화성", "안성"];
+const SEARCH_KEYWORDS = ["가평", "포천", "양평", "연천", "파주", "김포", "여주", "용인", "화성", "안성", "평창", "홍천", "춘천"];
 
 function compactName(text = "") {
   return text
