@@ -82,7 +82,7 @@ let loadError: string | null = null;
 
 let query = "";
 let regions: string[] = [];
-let kind = "all";
+let kinds: string[] = [];
 let tags: string[] = [];
 let sort: "recommend" | "rating" | "distance" = "recommend";
 let selectedId: string | null = null;
@@ -441,7 +441,7 @@ function browsable(): Camp[] {
 }
 
 function visible(): Camp[] {
-  return filterCamps(browsable(), query, regions, kind, tags, reviews, sort, driveById, favoriteIdSet(), diaryVisitedSet());
+  return filterCamps(browsable(), query, regions, kinds, tags, reviews, sort, driveById, favoriteIdSet(), diaryVisitedSet());
 }
 
 let skipDriveSchedule = false;
@@ -539,7 +539,7 @@ function scheduleDriveRefresh(): void {
 }
 
 function campsWithCoords(): Camp[] {
-  return filterCamps(browsable(), query, regions, kind, tags, reviews, "recommend", {}, favoriteIdSet(), diaryVisitedSet()).filter(
+  return filterCamps(browsable(), query, regions, kinds, tags, reviews, "recommend", {}, favoriteIdSet(), diaryVisitedSet()).filter(
     (camp) => camp.lat != null && camp.lng != null
   );
 }
@@ -699,7 +699,7 @@ function tagLabel(value: string): string {
 }
 
 function activeFilterCount(): number {
-  return regions.length + (kind === "all" ? 0 : 1) + tags.length;
+  return regions.length + kinds.length + tags.length;
 }
 
 function highRatedVisible(minScore = 4): Camp[] {
@@ -724,7 +724,7 @@ function renderFilterControls(): string {
   const count = activeFilterCount();
   const summary = [
     ...regions.map((value) => ({ group: "region", value, label: value })),
-    ...(kind === "all" ? [] : [{ group: "kind", value: "all", label: KIND_LABEL[kind as CampKind] ?? kind }]),
+    ...kinds.map((value) => ({ group: "kind", value, label: KIND_LABEL[value as CampKind] ?? value })),
     ...tags.map((value) => ({ group: "tag", value, label: tagLabel(value) })),
   ];
   return `
@@ -747,7 +747,7 @@ function renderFilterControls(): string {
         ? `<div class="filter-summary">${summary
             .map(
               (item) =>
-                `<button type="button" class="chip filter-chip" data-action="set-filter" data-group="${item.group}" data-value="${esc(item.value)}" ${item.group !== "kind" ? `data-multi="1"` : ""}>${esc(item.label)} ×</button>`
+                `<button type="button" class="chip filter-chip" data-action="set-filter" data-group="${item.group}" data-value="${esc(item.value)}" data-multi="1">${esc(item.label)} ×</button>`
             )
             .join("")}</div>`
         : ""
@@ -756,32 +756,61 @@ function renderFilterControls(): string {
       filtersOpen
         ? `<div class="filter-panel">
             <section class="filter-group">
-              <h3>지역 <span>여러 개 가능</span></h3>
-              ${segment("region", regions, [{ value: "all", label: "전국" }, ...REGION_OPTIONS.map((r) => ({ value: r, label: r }))], true)}
+              <h3>지역 <span>여러 개</span></h3>
+              ${checkList("region", regions, REGION_OPTIONS.map((r) => ({ value: r, label: r })))}
             </section>
             <section class="filter-group">
-              <h3>종류</h3>
-              ${segment("kind", kind, [{ value: "all", label: "전체" }, ...Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))])}
+              <h3>종류 <span>여러 개</span></h3>
+              ${checkList(
+                "kind",
+                kinds,
+                Object.entries(KIND_LABEL).map(([value, label]) => ({ value, label }))
+              )}
             </section>
             <section class="filter-group">
               <h3>내 목록</h3>
-              ${segment("tag", tags, [
+              ${checkList("tag", tags, [
                 { value: "favorite", label: "즐겨찾기" },
                 { value: "visited", label: "다녀온 곳" },
                 { value: "reviewed", label: "내 리뷰" },
-              ], true)}
+              ])}
             </section>
             <section class="filter-group">
               <h3>장소</h3>
-              ${segment("tag", tags, LOCATION_TAGS.map((t) => ({ value: t, label: t })), true)}
+              ${checkList(
+                "tag",
+                tags,
+                LOCATION_TAGS.map((t) => ({ value: t, label: t }))
+              )}
             </section>
             <section class="filter-group">
               <h3>편의</h3>
-              ${segment("tag", tags, FACILITY_TAGS.map((t) => ({ value: t, label: t })), true)}
+              ${checkList(
+                "tag",
+                tags,
+                FACILITY_TAGS.map((t) => ({ value: t, label: t }))
+              )}
             </section>
           </div>`
         : ""
     }`;
+}
+
+function checkList(group: string, current: string[], options: { value: string; label: string }[]): string {
+  return `
+    <ul class="filter-list" role="listbox" aria-multiselectable="true">
+      ${options
+        .map((o) => {
+          const active = current.includes(o.value);
+          return `<li>
+            <button type="button" class="filter-row ${active ? "active" : ""}" data-action="set-filter" data-group="${group}" data-value="${esc(o.value)}" data-multi="1" aria-pressed="${active ? "true" : "false"}">
+              <span class="filter-check" aria-hidden="true">${active ? "✓" : ""}</span>
+              <span class="filter-row-label">${esc(o.label)}</span>
+            </button>
+          </li>`;
+        })
+        .join("")}
+    </ul>`;
 }
 
 function segment(group: string, current: string | string[], options: { value: string; label: string }[], multi = false): string {
@@ -805,7 +834,7 @@ function renderList(): string {
     return empty("캠핑장 DB를 읽지 못했습니다", loadError);
   }
   const trimmed = query.trim();
-  if (!trimmed && !regions.length && kind === "all" && !tags.length && sort === "recommend") {
+  if (!trimmed && !regions.length && !kinds.length && !tags.length && sort === "recommend") {
     return renderHomeLists();
   }
   const rows = visible();
@@ -1886,7 +1915,7 @@ function onClick(e: MouseEvent): void {
     case "go-home":
       query = "";
       regions = [];
-      kind = "all";
+      kinds = [];
       tags = [];
       sort = "recommend";
       filtersOpen = false;
@@ -1921,7 +1950,7 @@ function onClick(e: MouseEvent): void {
       break;
     case "clear-filters":
       regions = [];
-      kind = "all";
+      kinds = [];
       tags = [];
       render();
       break;
@@ -1932,7 +1961,7 @@ function onClick(e: MouseEvent): void {
       const group = el.dataset.group;
       const value = el.dataset.value ?? "all";
       if (group === "region") regions = toggleFilter(regions, value);
-      if (group === "kind") kind = value;
+      if (group === "kind") kinds = toggleFilter(kinds, value);
       if (group === "tag") tags = toggleFilter(tags, value);
       if (group === "sort") sort = value === "rating" ? "rating" : value === "distance" ? "distance" : "recommend";
       render();

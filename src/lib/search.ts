@@ -33,7 +33,7 @@ export function filterCamps(
   camps: Camp[],
   query: string,
   regions: string[],
-  kind: string,
+  kinds: string[],
   tags: string[],
   reviews: Record<string, PersonalReview>,
   sort: "recommend" | "rating" | "distance" = "recommend",
@@ -45,7 +45,7 @@ export function filterCamps(
   return camps
     .filter((camp) => {
       if (regions.length && !regions.includes(camp.region)) return false;
-      if (kind !== "all" && !camp.kinds.includes(kind as CampKind)) return false;
+      if (kinds.length && !kinds.some((k) => camp.kinds.includes(k as CampKind))) return false;
       for (const tag of tags) {
         if (tag === "reviewed") {
           if (!reviews[camp.id]) return false;
