@@ -36,11 +36,11 @@ GitHub Actions `Weekly camp sync` (매주 월 00:00 UTC):
 ## Authentication
 - Sign-in method → Google 사용
 - Authorized domains에 `camping-kr.web.app` 포함 필수
-- **모바일 로그인**: `authDomain`을 `camping-kr.web.app`으로 맞춤
-  (앱 코드가 Hosting 도메인에서 자동 덮어씀). Google Cloud OAuth
-  웹 클라이언트 Authorized redirect URIs에
-  `https://camping-kr.web.app/__/auth/handler` 필수
-  ([redirect best practices](https://firebase.google.com/docs/auth/web/redirect-best-practices))
+- 모바일은 Google Identity Services(토큰)로 로그인 → **Authorized JavaScript origins**에
+  `https://camping-kr.web.app` 필수
+  ([OAuth 클라이언트](https://console.cloud.google.com/apis/credentials/oauthclient/820687962490-0hdcuee6i5c7aejar761nv5c84ogque2.apps.googleusercontent.com?project=camping-cf64d))
+- (선택) redirect 백업용 Authorized redirect URIs:
+  `https://camping-kr.web.app/__/auth/handler`
 
 ## GitHub Secrets (선택 · Pages/CI용)
 `VITE_FIREBASE_*` 6개를 `camping-cf64d` 웹 앱 값으로 맞춥니다.

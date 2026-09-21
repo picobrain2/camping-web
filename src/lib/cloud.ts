@@ -5,6 +5,7 @@ import {
   getAuth,
   onAuthStateChanged,
   setPersistence,
+  signInWithCredential,
   signInWithPopup,
   signInWithRedirect,
   getRedirectResult,
@@ -12,6 +13,44 @@ import {
   type Auth,
   type User,
 } from "firebase/auth";
+
+/** Google Cloud OAuth 웹 클라이언트 (공개 client_id). redirect_uri가 아니라 JS origin만 필요 */
+const GOOGLE_OAUTH_CLIENT_ID =
+  String(import.meta.env.VITE_GOOGLE_OAUTH_CLIENT_ID ?? "").trim() ||
+  "820687962490-0hdcuee6i5c7aejar761nv5c84ogque2.apps.googleusercontent.com";
+
+type GisPromptNotification = { isNotDisplayed: () => boolean; isSkippedMoment: () => boolean; getNotDisplayedReason?: () => string };
+type GisCredentialResponse = { credential?: string };
+type GisTokenResponse = { access_token?: string; error?: string; error_description?: string };
+
+declare global {
+  interface Window {
+    google?: {
+      accounts: {
+        id: {
+          initialize: (config: {
+            client_id: string;
+            callback: (res: GisCredentialResponse) => void;
+            auto_select?: boolean;
+            cancel_on_tap_outside?: boolean;
+            use_fedcm_for_prompt?: boolean;
+          }) => void;
+          prompt: (listener?: (n: GisPromptNotification) => void) => void;
+          cancel: () => void;
+        };
+        oauth2: {
+          initTokenClient: (config: {
+            client_id: string;
+            scope: string;
+            prompt?: string;
+            callback: (res: GisTokenResponse) => void;
+            error_callback?: (err: { type?: string; message?: string }) => void;
+          }) => { requestAccessToken: (override?: { prompt?: string }) => void };
+        };
+      };
+    };
+  }
+}
 import { collection, doc, getDoc, getDocs, getFirestore, setDoc, type Firestore } from "firebase/firestore";
 import { normalizeCamp } from "./catalog";
 import type { AccountBundle, Camp, CampDraft, CatalogFile, PersonalReview, SavedCampRef, VisitDiaryEntry } from "../types";
@@ -212,10 +251,95 @@ function prefersRedirectSignIn(): boolean {
   if (typeof window === "undefined") return false;
   const ua = navigator.userAgent || "";
   const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-  // 커스텀 호스팅(camping-kr) ↔ authDomain(firebaseapp.com) 팝업은 3P 쿠키에 자주 막힌다
   const crossAuthHost =
     !location.hostname.endsWith(".firebaseapp.com") && location.hostname !== "localhost";
   return mobile || crossAuthHost;
+}
+
+function loadGoogleIdentityScript(): Promise<void> {
+  if (typeof window === "undefined") return Promise.reject(new Error("브라우저에서만 로그인할 수 있습니다."));
+  if (window.google?.accounts?.id && window.google?.accounts?.oauth2) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>('script[data-eodicamp-gsi="1"]');
+    if (existing) {
+      existing.addEventListener("load", () => resolve(), { once: true });
+      existing.addEventListener("error", () => reject(new Error("Google 로그인 스크립트를 불러오지 못했습니다.")), { once: true });
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.dataset.eodicampGsi = "1";
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("Google 로그인 스크립트를 불러오지 못했습니다."));
+    document.head.appendChild(script);
+  });
+}
+
+/** GIS ID 토큰 / 액세스 토큰 → Firebase 세션 (__/auth/handler redirect_uri 불필요) */
+async function signInWithGoogleIdentity(auth: Auth): Promise<CloudUser> {
+  await loadGoogleIdentityScript();
+  if (!window.google?.accounts) throw new Error("Google 로그인을 초기화하지 못했습니다.");
+
+  // 1) One Tap / FedCM — 모바일·Safari에서 redirect_uri_mismatch를 피할 수 있음
+  try {
+    const idToken = await new Promise<string>((resolve, reject) => {
+      let settled = false;
+      const finish = (err?: Error, token?: string) => {
+        if (settled) return;
+        settled = true;
+        try {
+          window.google?.accounts.id.cancel();
+        } catch {
+          // ignore
+        }
+        if (err) reject(err);
+        else resolve(token!);
+      };
+      const timer = window.setTimeout(() => finish(new Error("구글 로그인 대기 시간이 지났습니다.")), 45_000);
+      window.google!.accounts.id.initialize({
+        client_id: GOOGLE_OAUTH_CLIENT_ID,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+        use_fedcm_for_prompt: true,
+        callback: (res) => {
+          window.clearTimeout(timer);
+          if (res.credential) finish(undefined, res.credential);
+          else finish(new Error("구글 로그인 토큰이 없습니다."));
+        },
+      });
+      window.google!.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+          window.clearTimeout(timer);
+          finish(new Error(notification.getNotDisplayedReason?.() || "구글 로그인 창을 띄우지 못했습니다."));
+        }
+      });
+    });
+    const cred = GoogleAuthProvider.credential(idToken);
+    const result = await signInWithCredential(auth, cred);
+    return toCloudUser(result.user)!;
+  } catch {
+    // One Tap 실패 시 토큰 클라이언트로 재시도
+  }
+
+  // 2) OAuth 토큰 클라이언트 (팝업/계정 선택)
+  const accessToken = await new Promise<string>((resolve, reject) => {
+    const client = window.google!.accounts.oauth2.initTokenClient({
+      client_id: GOOGLE_OAUTH_CLIENT_ID,
+      scope: "openid email profile",
+      prompt: "select_account",
+      callback: (res) => {
+        if (res.error) reject(new Error(res.error_description || res.error));
+        else if (res.access_token) resolve(res.access_token);
+        else reject(new Error("구글 액세스 토큰이 없습니다."));
+      },
+      error_callback: (err) => reject(new Error(err?.message || "구글 로그인이 취소되었습니다.")),
+    });
+    client.requestAccessToken({ prompt: "select_account" });
+  });
+  const cred = GoogleAuthProvider.credential(null, accessToken);
+  const result = await signInWithCredential(auth, cred);
+  return toCloudUser(result.user)!;
 }
 
 export async function signInWithGoogle(): Promise<CloudUser> {
@@ -224,18 +348,24 @@ export async function signInWithGoogle(): Promise<CloudUser> {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
 
-  const startRedirect = async () => {
-    try {
-      sessionStorage.setItem("eodicamp.auth.redirect", "1");
-    } catch {
-      // ignore
-    }
-    await signInWithRedirect(auth, provider);
-  };
-
+  // 모바일/커스텀 도메인: Firebase redirect(/__/auth/handler) 대신 GIS 사용
+  // (redirect_uri_mismatch · 3P 쿠키 이슈 회피). JS origin에 camping-kr.web.app 필요.
   if (prefersRedirectSignIn()) {
-    await startRedirect();
-    throw new Error("구글 로그인 화면으로 이동합니다…");
+    try {
+      return await signInWithGoogleIdentity(auth);
+    } catch (gisError) {
+      console.warn("Google Identity 로그인 실패, popup으로 재시도:", gisError);
+      try {
+        const result = await signInWithPopup(auth, provider);
+        return toCloudUser(result.user)!;
+      } catch (popupError) {
+        const message = popupError instanceof Error ? popupError.message : String(popupError);
+        const gisMessage = gisError instanceof Error ? gisError.message : String(gisError);
+        throw new Error(
+          `구글 로그인에 실패했습니다. Google Cloud → 클라이언트 → Authorized JavaScript origins에 https://${location.hostname} 이 있는지 확인해 주세요. (${gisMessage || message})`
+        );
+      }
+    }
   }
 
   try {
@@ -249,7 +379,17 @@ export async function signInWithGoogle(): Promise<CloudUser> {
       code.includes("operation-not-supported") ||
       code.includes("unauthorized-domain")
     ) {
-      await startRedirect();
+      try {
+        return await signInWithGoogleIdentity(auth);
+      } catch {
+        // last resort: classic redirect
+      }
+      try {
+        sessionStorage.setItem("eodicamp.auth.redirect", "1");
+      } catch {
+        // ignore
+      }
+      await signInWithRedirect(auth, provider);
       throw new Error("구글 로그인 화면으로 이동합니다…");
     }
     const message =
