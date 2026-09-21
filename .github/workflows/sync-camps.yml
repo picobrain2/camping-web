@@ -39,6 +39,16 @@ jobs:
             exit 1
           fi
 
+      - name: Check Firebase upload auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ] && [ -z "$FIREBASE_TOKEN" ]; then
+            echo "Firestore 자동 반영용 Secret이 없습니다. FIREBASE_SERVICE_ACCOUNT(권장) 또는 FIREBASE_TOKEN을 넣어 주세요."
+            exit 1
+          fi
+
       - run: npm ci
 
       - name: Sync from GoCamping
@@ -58,6 +68,13 @@ jobs:
             npm run sync
           fi
 
+      - name: Upload catalog to Firestore
+        env:
+          FIREBASE_PROJECT: camping-cf64d
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: npm run catalog:upload
+
       - name: Open pull request
         uses: peter-evans/create-pull-request@v6
         with:
@@ -71,7 +88,7 @@ jobs:
             - 모드: `${{ github.event.inputs.mode || 'weekly' }}`
             - 우선 권역: `${{ github.event.inputs.region || '경기' }}`
             - 한도: `${{ github.event.inputs.limit || '40' }}`
-
-            머지하면 GitHub Pages가 다시 빌드됩니다.
+            - Firestore(`camping-cf64d` / `camps`)에 이 워크플로에서 바로 반영했습니다.
+            - JSON 시드(`public/data/`) PR은 저장소용입니다. 라이브는 https://camping-kr.web.app
           add-paths: |
             public/data/

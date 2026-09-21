@@ -14,10 +14,21 @@
 
 ## 배포
 ```bash
-npm run deploy:rules      # Firestore 규칙
-npm run catalog:upload    # 캠핑장 → Firestore
+npm run catalog:upload    # 캠핑장 → Firestore (firebase login 또는 FIREBASE_TOKEN)
 npm run deploy            # 빌드 + Hosting + rules
 ```
+
+## 주간 자동 갱신
+GitHub Actions `Weekly camp sync` (매주 월 00:00 UTC):
+
+1. 고캠핑 API → `public/data/` JSON
+2. **같은 잡에서** `npm run catalog:upload` → Firestore 반영 (라이브 즉시)
+3. JSON 변경 PR 생성 (시드 백업)
+
+필요한 Secrets:
+
+- `GOCAMPING_KEY`
+- `FIREBASE_SERVICE_ACCOUNT` (서비스 계정 JSON, 권장) 또는 `FIREBASE_TOKEN` (`firebase login:ci`)
 
 ## Authentication
 - Sign-in method → Google 사용

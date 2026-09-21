@@ -1,28 +1,24 @@
 /**
- * public/data JSON → Firestore camps/{id} + catalog/meta
- * (클라이언트 SDK · 업로드 중에만 camps/catalog write 규칙 열기)
+ * public/data JSON 팩 → Firestore camps/{id} + catalog/meta
+ *
+ * 인증 (우선순위):
+ *   1. FIREBASE_SERVICE_ACCOUNT  — 서비스 계정 JSON 문자열 (CI 권장)
+ *   2. FIREBASE_TOKEN / firebase login — firebase-tools ADC
  *
  *   npm run catalog:upload
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { initializeApp } from "firebase/app";
-import { collection, doc, getDocs, getFirestore, writeBatch } from "firebase/firestore";
+import { initializeApp, cert, applicationDefault, getApps } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 
+const require = createRequire(import.meta.url);
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA = join(ROOT, "public/data");
-const envPath = join(ROOT, ".env.local");
-
-function loadEnv() {
-  const env = {};
-  for (const line of readFileSync(envPath, "utf8").split("\n")) {
-    const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
-    if (m) env[m[1]] = m[2].trim();
-  }
-  return env;
-}
+const PROJECT = process.env.FIREBASE_PROJECT || process.env.GCLOUD_PROJECT || "camping-cf64d";
 
 function stripUndefined(value) {
   if (Array.isArray(value)) return value.map(stripUndefined);
@@ -54,52 +50,69 @@ function loadCamps() {
   };
 }
 
-async function main() {
-  const env = loadEnv();
-  const app = initializeApp({
-    apiKey: env.VITE_FIREBASE_API_KEY,
-    authDomain: env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: env.VITE_FIREBASE_APP_ID,
-  });
-  const db = getFirestore(app);
-  const { updatedAt, note, camps } = loadCamps();
-  console.log(`project=${env.VITE_FIREBASE_PROJECT_ID} camps=${camps.length}`);
+async function initAdmin() {
+  if (getApps().length) return getFirestore();
 
-  // existing ids not in seed → leave (no delete) to be safe
+  const saRaw = process.env.FIREBASE_SERVICE_ACCOUNT?.trim();
+  if (saRaw) {
+    const sa = JSON.parse(saRaw);
+    initializeApp({ credential: cert(sa), projectId: sa.project_id || PROJECT });
+    return getFirestore();
+  }
+
+  const { getGlobalDefaultAccount, setRefreshToken } = require("firebase-tools/lib/auth.js");
+  const { getCredentialPathAsync } = require("firebase-tools/lib/defaultCredentials.js");
+
+  if (process.env.FIREBASE_TOKEN?.trim()) {
+    setRefreshToken(process.env.FIREBASE_TOKEN.trim());
+  }
+
+  const account = getGlobalDefaultAccount();
+  if (!account?.tokens?.refresh_token) {
+    throw new Error(
+      "Firestore 업로드 인증이 없습니다. CI는 FIREBASE_SERVICE_ACCOUNT 또는 FIREBASE_TOKEN Secret을, 로컬은 `npx firebase login`을 사용하세요."
+    );
+  }
+
+  const credPath = await getCredentialPathAsync(account);
+  if (!credPath) throw new Error("firebase-tools ADC 파일을 만들지 못했습니다.");
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = credPath;
+  initializeApp({ credential: applicationDefault(), projectId: PROJECT });
+  return getFirestore();
+}
+
+async function main() {
+  const db = await initAdmin();
+  const { updatedAt, note, camps } = loadCamps();
+  console.log(`project=${PROJECT} camps=${camps.length}`);
+
   const CHUNK = 400;
   for (let i = 0; i < camps.length; i += CHUNK) {
     const slice = camps.slice(i, i + CHUNK);
-    const batch = writeBatch(db);
+    const batch = db.batch();
     for (const camp of slice) {
-      batch.set(doc(db, "camps", camp.id), camp, { merge: true });
+      batch.set(db.collection("camps").doc(camp.id), camp, { merge: true });
     }
     await batch.commit();
     console.log(`uploaded ${Math.min(i + slice.length, camps.length)}/${camps.length}`);
   }
 
-  await writeBatch(db)
-    .set(
-      doc(db, "catalog", "meta"),
-      {
-        updatedAt,
-        note,
-        count: camps.length,
-        source: "json-packs",
-        uploadedAt: new Date().toISOString(),
-      },
-      { merge: true }
-    )
-    .commit();
+  await db.collection("catalog").doc("meta").set(
+    {
+      updatedAt,
+      note,
+      count: camps.length,
+      source: "json-packs",
+      uploadedAt: new Date().toISOString(),
+    },
+    { merge: true }
+  );
 
-  const snap = await getDocs(collection(db, "camps"));
-  console.log(`done: firestore camps=${snap.size}`);
+  console.log(`done: ${camps.length} camps → Firestore`);
   process.exit(0);
 }
 
 main().catch((err) => {
-  console.error(err);
+  console.error(err instanceof Error ? err.message : err);
   process.exit(1);
 });
