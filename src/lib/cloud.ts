@@ -33,15 +33,28 @@ type FirebaseWebConfig = {
 
 const env = import.meta.env;
 
+/**
+ * 모바일 Safari/Chrome은 3P 저장소를 막아, authDomain이 앱 호스트와 다르면
+ * signInWithRedirect 후 로그인 상태가 유실됩니다.
+ * Firebase Hosting(.web.app / .firebaseapp.com)에서는 같은 도메인을 authDomain으로 씁니다.
+ * @see https://firebase.google.com/docs/auth/web/redirect-best-practices
+ */
+function resolveAuthDomain(configured: string): string {
+  if (typeof location === "undefined") return configured;
+  const host = location.hostname;
+  if (host.endsWith(".web.app") || host.endsWith(".firebaseapp.com")) return host;
+  return configured;
+}
+
 function readConfig(): FirebaseWebConfig | null {
   const apiKey = String(env.VITE_FIREBASE_API_KEY ?? "").trim();
-  const authDomain = String(env.VITE_FIREBASE_AUTH_DOMAIN ?? "").trim();
+  const configuredDomain = String(env.VITE_FIREBASE_AUTH_DOMAIN ?? "").trim();
   const projectId = String(env.VITE_FIREBASE_PROJECT_ID ?? "").trim();
   const appId = String(env.VITE_FIREBASE_APP_ID ?? "").trim();
-  if (!apiKey || !authDomain || !projectId || !appId) return null;
+  if (!apiKey || !configuredDomain || !projectId || !appId) return null;
   return {
     apiKey,
-    authDomain,
+    authDomain: resolveAuthDomain(configuredDomain),
     projectId,
     storageBucket: String(env.VITE_FIREBASE_STORAGE_BUCKET ?? "").trim() || undefined,
     messagingSenderId: String(env.VITE_FIREBASE_MESSAGING_SENDER_ID ?? "").trim() || undefined,
@@ -160,11 +173,19 @@ export async function bootCloudAuth(): Promise<CloudUser | null> {
     bootPromise = (async () => {
       const { auth } = ensureFirebase();
       await setPersistence(auth, browserLocalPersistence);
+      let pendingRedirect = false;
+      try {
+        pendingRedirect = sessionStorage.getItem("eodicamp.auth.redirect") === "1";
+        sessionStorage.removeItem("eodicamp.auth.redirect");
+      } catch {
+        // ignore
+      }
       try {
         const redirected = await getRedirectResult(auth);
         if (redirected?.user) return toCloudUser(redirected.user);
       } catch (error) {
         console.warn("Google redirect 로그인 결과 처리 실패:", error);
+        if (pendingRedirect) throw error instanceof Error ? error : new Error("구글 로그인에 실패했습니다.");
       }
       return await new Promise<CloudUser | null>((resolve) => {
         const unsub = onAuthStateChanged(auth, (user) => {
@@ -203,8 +224,17 @@ export async function signInWithGoogle(): Promise<CloudUser> {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: "select_account" });
 
-  if (prefersRedirectSignIn()) {
+  const startRedirect = async () => {
+    try {
+      sessionStorage.setItem("eodicamp.auth.redirect", "1");
+    } catch {
+      // ignore
+    }
     await signInWithRedirect(auth, provider);
+  };
+
+  if (prefersRedirectSignIn()) {
+    await startRedirect();
     throw new Error("구글 로그인 화면으로 이동합니다…");
   }
 
@@ -219,7 +249,7 @@ export async function signInWithGoogle(): Promise<CloudUser> {
       code.includes("operation-not-supported") ||
       code.includes("unauthorized-domain")
     ) {
-      await signInWithRedirect(auth, provider);
+      await startRedirect();
       throw new Error("구글 로그인 화면으로 이동합니다…");
     }
     const message =

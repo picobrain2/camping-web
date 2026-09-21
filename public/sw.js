@@ -1,4 +1,4 @@
-const CACHE = "eodicamp-cache-v4";
+const CACHE = "eodicamp-cache-v5";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -14,10 +14,17 @@ function isCatalogRequest(url) {
   return url.pathname.includes("/data/") && url.pathname.endsWith(".json");
 }
 
+function isAuthHelperRequest(url) {
+  return url.pathname.startsWith("/__/auth") || url.pathname.startsWith("/__/firebase");
+}
+
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   const dest = event.request.destination;
   const url = new URL(event.request.url);
+
+  // Firebase Auth 헬퍼는 SW가 가로채면 모바일 redirect 로그인이 깨짐
+  if (isAuthHelperRequest(url)) return;
 
   // 캠핑장 목록은 항상 네트워크만 사용 (캐시 때문에 신규 검색 실패 방지)
   if (isCatalogRequest(url)) {
