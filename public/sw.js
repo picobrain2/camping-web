@@ -1,4 +1,4 @@
-const CACHE = "eodicamp-cache-v6";
+const CACHE = "eodicamp-cache-v7";
 const PRECACHE = ["/", "/index.html", "/manifest.webmanifest", "/icons/icon-192.png", "/icons/icon-512.png"];
 
 self.addEventListener("install", (event) => {
