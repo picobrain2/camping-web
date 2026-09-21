@@ -2,33 +2,30 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        var theme = JSON.parse(localStorage.getItem("eodicamp.theme.v1") || '"outdoor"');
+        if (theme === "clean" || theme === "dark" || theme === "vivid") {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (e) {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
     <title>어디캠 · 캠핑장 평점 · 배치도 · 예약</title>
     <meta name="description" content="캠핑장 평점, 예약 사이트와 일시, 가격을 한곳에서 보고 나만의 리뷰를 남겨 보세요." />
-    <link rel="manifest" href="./manifest.webmanifest" />
-    <meta name="theme-color" content="#3d6b4f" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#3d6b4f" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: dark)" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="어디캠" />
-    <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
   </head>
   <body>
     <div id="app"></div>
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function (regs) {
-          regs.forEach(function (reg) { reg.unregister(); });
-        });
-        if (window.caches && caches.keys) {
-          caches.keys().then(function (keys) {
-            keys.forEach(function (key) { caches.delete(key); });
-          });
-        }
-      }
-    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

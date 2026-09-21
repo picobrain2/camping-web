@@ -120,8 +120,19 @@ const THEME_LABEL: Record<ThemeId, string> = {
   vivid: "비비드",
 };
 
+const THEME_COLOR: Record<ThemeId, string> = {
+  outdoor: "#3d6b4f",
+  clean: "#1f7a52",
+  dark: "#14171a",
+  vivid: "#ff6a2b",
+};
+
 function applyTheme(): void {
   document.documentElement.dataset.theme = theme;
+  const color = THEME_COLOR[theme] ?? THEME_COLOR.outdoor;
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+    meta.setAttribute("content", color);
+  }
 }
 
 export async function boot(): Promise<void> {
@@ -2475,10 +2486,6 @@ async function reloadMerged(): Promise<void> {
 function registerServiceWorker(): void {
   if (!("serviceWorker" in navigator)) return;
   window.addEventListener("load", () => {
-    void (async () => {
-      const regs = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(regs.map((reg) => reg.unregister()));
-      await navigator.serviceWorker.register("./sw.js?v=5");
-    })().catch(() => {});
+    void navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(() => {});
   });
 }
