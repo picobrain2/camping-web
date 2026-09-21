@@ -20,7 +20,8 @@ npm run catalog:upload   # JSON 시드 → Firestore
 npm run deploy           # hosting(camping-kr) + rules
 ```
 
-주간 Actions가 고캠핑 sync 후 Firestore 업로드까지 자동 실행합니다.
+주간 Actions가 고캠핑 **신규만** sync 후 Firestore 업로드까지 자동 실행합니다.
+최초 1회는 Actions에서 mode=`full` 로 고캠핑 전체를 넣을 수 있습니다.
 (`GOCAMPING_KEY` + `FIREBASE_SERVICE_ACCOUNT` 또는 `FIREBASE_TOKEN`)
 
 ## 자주 건드리는 파일

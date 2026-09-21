@@ -1,9 +1,10 @@
 /**
- * 고캠핑(한국관광공사) 공식 API로 신규 캠핑장을 고릅니다.
+ * 고캠핑(한국관광공사) 공식 API로 캠핑장을 가져옵니다.
  * 캠핏·네이버·캠프픽은 호출하지 않습니다.
  *
- *   GOCAMPING_KEY=키 npm run sync          # 주간: 점수 높은 신규만 (기본 40곳, 경기 우선)
- *   GOCAMPING_KEY=키 npm run sync:all      # 신규를 한도에 달할 때까지
+ *   GOCAMPING_KEY=키 npm run sync          # 주간: 점수 높은 신규만 (기본 40곳)
+ *   GOCAMPING_KEY=키 npm run sync:all      # 신규를 한도까지 (기본 200)
+ *   GOCAMPING_KEY=키 npm run sync:full     # 고캠핑 전체 신규를 한 번에 (이미지 상세 생략)
  *
  * 공공데이터포털 "한국관광공사_고캠핑 정보 조회서비스" 일반 인증키를 쓰세요.
  */
@@ -18,9 +19,12 @@ const INDEX_FILE = join(DATA, "index.json");
 const OUT_FILE = join(DATA, "packs/gocamping.json");
 const BASE = "https://apis.data.go.kr/B551011/GoCamping";
 const KEY = process.env.GOCAMPING_KEY;
-const MODE = process.argv.includes("--all") ? "all" : "weekly";
-const LIMIT = Number(process.env.SYNC_LIMIT || (MODE === "all" ? 200 : 40));
-const PREFER_REGION = process.env.SYNC_REGION || "경기";
+const MODE = process.argv.includes("--full") ? "full" : process.argv.includes("--all") ? "all" : "weekly";
+const LIMIT = Number(
+  process.env.SYNC_LIMIT || (MODE === "full" ? 99999 : MODE === "all" ? 200 : 40)
+);
+const PREFER_REGION = process.env.SYNC_REGION || (MODE === "full" ? "all" : "경기");
+const FETCH_IMAGES = process.env.SYNC_IMAGES === "1" || (MODE !== "full" && process.env.SYNC_IMAGES !== "0");
 
 if (!KEY) {
   console.error("GOCAMPING_KEY 환경변수가 필요합니다. 공공데이터포털 고캠핑 인증키를 넣어 주세요.");
@@ -258,13 +262,16 @@ function writePack(existingCamps, added) {
 }
 
 function summarize(added) {
+  const label = MODE === "full" ? "전체" : MODE === "all" ? "확장" : "주간";
   const lines = [
-    `## 고캠핑 ${MODE === "all" ? "전체" : "주간"} 동기화`,
+    `## 고캠핑 ${label} 동기화`,
     "",
     `- 추가 ${added.length}곳 (한도 ${LIMIT})`,
     `- 우선 권역: ${PREFER_REGION}`,
+    `- 상세 사진: ${FETCH_IMAGES ? "imageList" : "basedList firstImage만"}`,
     "",
     ...added.slice(0, 40).map((c) => `- ${c.name} (${c.region} ${c.city})`),
+    ...(added.length > 40 ? [`- … 외 ${added.length - 40}곳`] : []),
   ];
   const md = `${lines.join("\n")}\n`;
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
@@ -275,15 +282,19 @@ const catalog = loadCatalog();
 const existingOut = existsSync(OUT_FILE) ? JSON.parse(readFileSync(OUT_FILE, "utf8")).camps ?? [] : [];
 
 const boostedIds = new Set();
-for (const keyword of SEARCH_KEYWORDS) {
-  try {
-    const { items } = await getJson("searchList", { pageNo: 1, numOfRows: "50", keyword });
-    for (const item of items) if (item.contentId) boostedIds.add(String(item.contentId));
-    console.log(`search ${keyword}: ${items.length}`);
-    await sleep(150);
-  } catch (error) {
-    console.warn(`searchList ${keyword} 건너뜀:`, error instanceof Error ? error.message : error);
+if (MODE !== "full") {
+  for (const keyword of SEARCH_KEYWORDS) {
+    try {
+      const { items } = await getJson("searchList", { pageNo: 1, numOfRows: "50", keyword });
+      for (const item of items) if (item.contentId) boostedIds.add(String(item.contentId));
+      console.log(`search ${keyword}: ${items.length}`);
+      await sleep(150);
+    } catch (error) {
+      console.warn(`searchList ${keyword} 건너뜀:`, error instanceof Error ? error.message : error);
+    }
   }
+} else {
+  console.log("full 모드: 키워드 부스트 생략, basedList 전체 스캔");
 }
 
 const seen = new Map();
@@ -301,13 +312,16 @@ while (true) {
   console.log(`basedList page ${page} (${seen.size}/${total})`);
   if (page * 100 >= total) break;
   page += 1;
-  await sleep(120);
+  await sleep(MODE === "full" ? 80 : 120);
 }
 
 const ranked = [...seen.values()]
   .map(({ camp }) => camp)
   .filter((camp) => isNew(camp, catalog))
   .sort((a, b) => {
+    if (MODE === "full") {
+      return String(a.gocampingId).localeCompare(String(b.gocampingId), "en", { numeric: true });
+    }
     if (PREFER_REGION !== "all") {
       const ar = Number(a.region === PREFER_REGION);
       const br = Number(b.region === PREFER_REGION);
@@ -317,15 +331,19 @@ const ranked = [...seen.values()]
   });
 
 const added = ranked.slice(0, LIMIT).map(({ _score, ...camp }) => camp);
-for (const camp of added) {
-  try {
-    const { items } = await getJson("imageList", { contentId: camp.gocampingId, numOfRows: "20" });
-    const urls = items.map((item) => item.imageUrl).filter(Boolean);
-    camp.photos = [...new Set([...(camp.photos ?? []), ...urls])].slice(0, 12);
-  } catch (error) {
-    console.warn(`imageList ${camp.name}:`, error instanceof Error ? error.message : error);
+console.log(`신규 후보 ${ranked.length}곳 중 ${added.length}곳 반영 (이미지 ${FETCH_IMAGES ? "on" : "off"})`);
+
+if (FETCH_IMAGES) {
+  for (const camp of added) {
+    try {
+      const { items } = await getJson("imageList", { contentId: camp.gocampingId, numOfRows: "20" });
+      const urls = items.map((item) => item.imageUrl).filter(Boolean);
+      camp.photos = [...new Set([...(camp.photos ?? []), ...urls])].slice(0, 12);
+    } catch (error) {
+      console.warn(`imageList ${camp.name}:`, error instanceof Error ? error.message : error);
+    }
+    await sleep(120);
   }
-  await sleep(120);
 }
 writePack(existingOut, added);
 summarize(added);

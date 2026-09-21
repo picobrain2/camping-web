@@ -12,7 +12,7 @@ on:
         description: "우선 권역 (경기, 강원, all …)"
         default: "경기"
       mode:
-        description: "weekly(인기 후보), all(신규 한도까지), photos(제공 사진 채우기), homepages(홈페이지 보강)"
+        description: "weekly(인기 신규), all(한도까지), full(고캠핑 전체 신규 1회), photos, homepages"
         default: "weekly"
 
 permissions:
@@ -60,6 +60,8 @@ jobs:
           MODE="${{ github.event.inputs.mode || 'weekly' }}"
           if [ "$MODE" = "all" ]; then
             npm run sync:all
+          elif [ "$MODE" = "full" ]; then
+            SYNC_LIMIT="${{ github.event.inputs.limit || '99999' }}" SYNC_REGION="${{ github.event.inputs.region || 'all' }}" npm run sync:full
           elif [ "$MODE" = "photos" ]; then
             npm run sync:photos
           elif [ "$MODE" = "homepages" ]; then

@@ -21,9 +21,12 @@ npm run deploy            # 빌드 + Hosting + rules
 ## 주간 자동 갱신
 GitHub Actions `Weekly camp sync` (매주 월 00:00 UTC):
 
-1. 고캠핑 API → `public/data/` JSON
-2. **같은 잡에서** `npm run catalog:upload` → Firestore 반영 (라이브 즉시)
+1. 고캠핑 API → **신규만** `public/data/` JSON
+2. **같은 잡에서** `npm run catalog:upload` → Firestore 반영
 3. JSON 변경 PR 생성 (시드 백업)
+
+최초 1회 전체 적재: Actions → Run workflow → mode=`full`  
+(약 4천 곳, basedList 대표 사진만 · 상세 imageList는 생략)
 
 필요한 Secrets:
 

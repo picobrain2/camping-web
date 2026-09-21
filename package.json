@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "sync": "node scripts/sync-gocamping.mjs",
     "sync:all": "node scripts/sync-gocamping.mjs --all",
+    "sync:full": "node scripts/sync-gocamping.mjs --full",
     "sync:photos": "node scripts/sync-photos.mjs",
     "enrich:homepages": "node scripts/enrich-homepages.mjs",
     "catalog:upload": "node scripts/upload-catalog-firestore.mjs",
