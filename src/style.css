@@ -482,35 +482,38 @@ a { color: var(--moss); }
   margin: 0;
   padding: 0;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 4px;
 }
 .filter-row {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-align: left;
-  border: 0;
+  border: 1px solid transparent;
   background: transparent;
   border-radius: 10px;
-  padding: 10px 8px;
-  min-height: 44px;
+  padding: 8px 8px;
+  min-height: 40px;
   color: var(--text);
   font-weight: 650;
 }
 .filter-row:hover { background: var(--moss-soft); }
 .filter-row.active {
   background: var(--moss-soft);
+  border-color: color-mix(in srgb, var(--moss) 35%, transparent);
   color: var(--moss);
 }
 .filter-check {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   flex: none;
   border: 1.5px solid var(--line);
-  border-radius: 6px;
+  border-radius: 5px;
   display: grid;
   place-items: center;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 800;
   background: var(--card);
   color: var(--moss);
@@ -520,7 +523,15 @@ a { color: var(--moss); }
   background: var(--moss);
   color: var(--on-accent);
 }
-.filter-row-label { flex: 1; font-size: 14px; }
+.filter-row-label {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .seg-btn {
   flex: 0 0 auto;
   border: 1px solid var(--line);
