@@ -1,4 +1,4 @@
-import { loadFileCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
+import { loadCatalog, mergeCatalog, normalizeCamp, overlayToJson, parseCampList } from "./lib/catalog";
 import { wonRange, esc, kindLabels, mapLink, scoreText, slugify, todayISO, coverPhoto, displayPhotos } from "./lib/format";
 import { geocodePlace, type PlaceHit } from "./lib/geocode";
 import { driveLabel, drivingTable, estimateDrives, haversineKm, naverCarDirections, type DriveETA, type GeoPos } from "./lib/geo";
@@ -109,7 +109,7 @@ let root: HTMLElement;
 
 export async function boot(): Promise<void> {
   root = document.getElementById("app")!;
-  root.innerHTML = `<div class="boot">캠핑장 파일 DB를 불러오는 중…</div>`;
+  root.innerHTML = `<div class="boot">캠핑장 DB를 불러오는 중…</div>`;
   bindCloudSync({
     isReady: () => isCloudConfigured() && Boolean(getCloudUser()),
     getUid: () => getCloudUser()?.uid ?? null,
@@ -119,7 +119,7 @@ export async function boot(): Promise<void> {
     },
   });
   try {
-    const file = await loadFileCatalog();
+    const file = await loadCatalog();
     catalogNote = file.note ?? "";
     catalogUpdated = file.updatedAt;
     camps = mergeCatalog(file.camps, overlay);
@@ -751,7 +751,7 @@ function segment(group: string, current: string | string[], options: { value: st
 
 function renderList(): string {
   if (loadError) {
-    return empty("파일 DB를 읽지 못했습니다", loadError);
+    return empty("캠핑장 DB를 읽지 못했습니다", loadError);
   }
   const trimmed = query.trim();
   if (!trimmed && !regions.length && kind === "all" && !tags.length && sort === "recommend") {
@@ -916,7 +916,7 @@ function renderDetail(camp: Camp): string {
         ${myPos ? `<a class="btn ghost" href="${esc(naverCarDirections(myPos, camp))}">네이버 자동차</a>` : ""}
         ${map ? `<a class="btn ghost" href="${esc(map)}">카카오맵</a>` : ""}
       </div>
-      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 파일 DB에 둡니다. 즐겨찾기·숨김·리뷰·다이어리는 Google 로그인하면 기기 간에 맞춥니다.</p>
+      <p class="attrib">평점·빈자리는 네이버지도·캠핏·캠핑톡에서 확인하고, 목록은 Firestore에 둡니다. 즐겨찾기·숨김·리뷰·다이어리는 Google 로그인하면 기기 간에 맞춥니다.</p>
     </div>`;
 }
 
@@ -1680,22 +1680,22 @@ function renderAccountPanel(): string {
         isCloudConfigured()
           ? cloudUser
             ? `<p><strong>${esc(cloudUser.name || cloudUser.email || "구글 계정")}</strong>으로 동기화 중입니다.</p>
-               <p class="muted">즐겨찾기·숨김·리뷰·다이어리만 클라우드에 맞춥니다. 캠핑장 목록은 파일 DB(JSON)입니다.</p>
+               <p class="muted">즐겨찾기·숨김·리뷰·다이어리를 맞춥니다. 캠핑장 목록은 Firestore 공개 DB입니다.</p>
                ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
                <div class="form-actions">
                  <button type="button" class="btn" data-action="cloud-sync-now" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "맞추는 중…" : "지금 맞추기"}</button>
                  <button type="button" class="btn ghost" data-action="cloud-logout" ${cloudBusy ? "disabled" : ""}">동기화 끄기</button>
                </div>`
-            : `<p class="muted">구글 로그인으로 즐겨찾기·숨김·리뷰·다이어리를 다른 기기와 맞춥니다. 캠핑장 목록은 JSON 파일 그대로입니다.</p>
+            : `<p class="muted">구글 로그인으로 즐겨찾기·숨김·리뷰·다이어리를 다른 기기와 맞춥니다. 캠핑장 목록은 Firestore에서 불러옵니다.</p>
                ${cloudNote ? `<p class="loc-msg">${esc(cloudNote)}</p>` : ""}
                <div class="form-actions">
                  <button type="button" class="btn" data-action="cloud-google" ${cloudBusy ? "disabled" : ""}>${cloudBusy ? "연결 중…" : "Google로 동기화"}</button>
                </div>`
-          : `<p class="muted">캠핑장 목록은 JSON으로 두고, 개인 목록만 Firestore로 맞추는 구조입니다.</p>
+          : `<p class="muted">Firebase(<code>camping-cf64d</code>) 설정이 필요합니다. 호스팅: <a href="https://camping-kr.web.app" target="_blank" rel="noreferrer">camping-kr.web.app</a></p>
              <ol class="steps">
-               <li>Firebase에서 Google 로그인 + Firestore를 켭니다.</li>
-               <li>웹 앱 설정값을 GitHub Actions Secrets에 넣습니다.</li>
-               <li>Pages를 다시 배포한 뒤 여기서 Google로 동기화합니다.</li>
+               <li>Authentication → Google 로그인 사용</li>
+               <li>Firestore 규칙 배포 + <code>npm run catalog:upload</code></li>
+               <li><code>.env.local</code> / Secrets에 웹 앱 설정값</li>
              </ol>
              <p class="muted">자세한 순서: 저장소 <code>docs/cloud-sync.md</code></p>`
       }
@@ -2412,7 +2412,7 @@ async function switchAccount(id: string, pin?: string): Promise<void> {
 }
 
 async function reloadMerged(): Promise<void> {
-  const file = await loadFileCatalog();
+  const file = await loadCatalog();
   camps = mergeCatalog(file.camps, overlay);
   render();
 }

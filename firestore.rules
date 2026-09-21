@@ -1,6 +1,18 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // 공개 캠핑장 마스터 (앱이 로그인 없이 읽음)
+    match /camps/{campId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /catalog/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // 개인 즐겨찾기·숨김·리뷰·다이어리
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }

@@ -12,8 +12,9 @@ import {
   type Auth,
   type User,
 } from "firebase/auth";
-import { doc, getDoc, getFirestore, setDoc, type Firestore } from "firebase/firestore";
-import type { AccountBundle, PersonalReview, SavedCampRef, VisitDiaryEntry } from "../types";
+import { collection, doc, getDoc, getDocs, getFirestore, setDoc, type Firestore } from "firebase/firestore";
+import { normalizeCamp } from "./catalog";
+import type { AccountBundle, Camp, CampDraft, CatalogFile, PersonalReview, SavedCampRef, VisitDiaryEntry } from "../types";
 
 export interface CloudUser {
   uid: string;
@@ -237,4 +238,30 @@ export async function pushCloudBundle(uid: string, bundle: AccountBundle, profil
     },
     { merge: true }
   );
+}
+
+/** 공개 캠핑장 마스터 — Firestore `camps` + `catalog/meta` */
+export async function loadCloudCatalog(): Promise<CatalogFile> {
+  const { db } = ensureFirebase();
+  const [metaSnap, campsSnap] = await Promise.all([
+    getDoc(doc(db, "catalog", "meta")),
+    getDocs(collection(db, "camps")),
+  ]);
+  const meta = metaSnap.exists() ? metaSnap.data() : {};
+  const byId = new Map<string, Camp>();
+  for (const row of campsSnap.docs) {
+    const data = row.data() as CampDraft;
+    const raw: CampDraft = { ...data, id: row.id, name: data.name ?? row.id };
+    if (!raw.name) continue;
+    byId.set(raw.id, normalizeCamp(raw));
+  }
+  if (!byId.size) {
+    throw new Error("Firestore camps 컬렉션이 비어 있습니다. npm run catalog:upload 로 올려 주세요.");
+  }
+  return {
+    version: 1,
+    updatedAt: String(meta.updatedAt ?? new Date().toISOString().slice(0, 10)),
+    note: String(meta.note ?? "Firestore camps"),
+    camps: [...byId.values()],
+  };
 }

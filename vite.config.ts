@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
+  // Firebase Hosting (camping-kr.web.app) 루트 배포
+  base: "/",
 });

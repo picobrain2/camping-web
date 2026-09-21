@@ -1,32 +1,27 @@
-## 다른 기기 동기화 (Firebase)
+# Firebase 동기화 · 호스팅
 
-캠핑장 목록(JSON)은 그대로 두고, **즐겨찾기·숨김·리뷰·방문 다이어리**만 Firestore에 맞춥니다.
+프로젝트 **camping-cf64d** · 웹 **https://camping-kr.web.app**
 
-### 1. Firebase 프로젝트 만들기
-1. https://console.firebase.google.com/ 에서 프로젝트 생성
-2. **Authentication** → Sign-in method → **Google** 사용 설정
-3. **Firestore Database** 만들기 (프로덕션 모드로 시작해도 됨)
-4. 저장소 규칙을 `firestore.rules` 내용으로 교체 후 게시
-5. 프로젝트 설정 → 웹 앱 추가 → 설정 값 복사
+## 구성
+- 공개 캠핑장: Firestore `camps` + `catalog/meta`
+- 개인 데이터: Firestore `users/{uid}` (Google 로그인)
+- 호스팅: Firebase Hosting 사이트 `camping-kr`
 
-### 2. 로컬 개발
-`.env.example`을 복사해 `.env.local`을 만들고 값을 채운 뒤 `npm run dev`
+## 로컬
+1. `.env.example` → `.env.local` (웹 앱 설정)
+2. `npm run dev`
+3. 목록 갱신: JSON 팩 수정 후 `npm run catalog:upload`
 
-### 3. GitHub Pages 배포
-저장소 Settings → Secrets and variables → Actions 에 아래를 추가:
+## 배포
+```bash
+npm run deploy:rules      # Firestore 규칙
+npm run catalog:upload    # 캠핑장 → Firestore
+npm run deploy            # 빌드 + Hosting + rules
+```
 
-- `VITE_FIREBASE_API_KEY`
-- `VITE_FIREBASE_AUTH_DOMAIN`
-- `VITE_FIREBASE_PROJECT_ID`
-- `VITE_FIREBASE_STORAGE_BUCKET`
-- `VITE_FIREBASE_MESSAGING_SENDER_ID`
-- `VITE_FIREBASE_APP_ID`
+## Authentication
+- Sign-in method → Google 사용
+- Authorized domains에 `camping-kr.web.app` 포함 확인
 
-Secrets를 넣은 뒤 Actions에서 **GitHub Pages** 워크플로를 다시 실행하세요.
-
-### 4. 승인된 도메인
-Firebase Authentication → Settings → Authorized domains 에 GitHub Pages 도메인을 추가
-(예: `picobrain2.github.io`)
-
-### 5. 앱에서 사용
-`내 목록` → `계정` → **Google로 동기화**
+## GitHub Secrets (선택 · Pages/CI용)
+`VITE_FIREBASE_*` 6개를 `camping-cf64d` 웹 앱 값으로 맞춥니다.

@@ -1,14 +1,15 @@
 # 어디캠 데이터 구조
 
-## 공개 캠핑장 목록 → JSON (유지)
-- `public/data/index.json` + `public/data/packs/*.json`
-- GitHub Pages 정적 배포, 고캠핑 동기화 스크립트/PR 흐름 그대로
-- Firebase 없이도 검색·상세·지도 링크가 동작
+## 공개 캠핑장 목록 → Firestore
+- 프로젝트: `camping-cf64d`
+- 컬렉션: `camps/{campId}` (문서 1곳 = 캠핑장 1곳)
+- 메타: `catalog/meta` (`updatedAt`, `count`, `note`)
+- 시드 JSON(`public/data/`)은 `npm run catalog:upload` 업로드용으로 유지
+- 웹: https://camping-kr.web.app
 
 ## 개인 데이터 → Firestore (동기화)
 - 즐겨찾기 / 숨김 / 내 리뷰 / 방문 다이어리
 - Google 로그인 사용자 문서: `users/{uid}`
 - 이 기기 로컬 프로필은 보조(같은 브라우저에서 이름 분리용)
 
-캠핑장 마스터를 Firestore로 옮기는 작업은 하지 않는다.
-관리·배포 없이 자주 고쳐야 할 때 다시 검토한다.
+Firestore가 비어 있거나 설정이 없으면 앱이 JSON 팩으로 잠깐 대체 로드합니다.

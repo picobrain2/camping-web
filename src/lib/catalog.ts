@@ -86,6 +86,19 @@ export async function loadFileCatalog(): Promise<CatalogFile> {
   };
 }
 
+/** Firestore 우선, 실패 시에만 로컬 JSON 팩 (시드/오프라인 보조) */
+export async function loadCatalog(): Promise<CatalogFile> {
+  try {
+    const { isCloudConfigured, loadCloudCatalog } = await import("./cloud");
+    if (isCloudConfigured()) {
+      return await loadCloudCatalog();
+    }
+  } catch (error) {
+    console.warn("Firestore 목록 로드 실패, JSON으로 대체:", error);
+  }
+  return loadFileCatalog();
+}
+
 export function overlayToJson(overlay: OverlayDraft[]): string {
   return JSON.stringify({ camps: overlay }, null, 2);
 }
